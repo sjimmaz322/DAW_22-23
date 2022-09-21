@@ -20,6 +20,7 @@ public class Ej07 {
         true && true
         true
         */
+        
         /*
         b)
         12 % 2 == 0
@@ -27,6 +28,7 @@ public class Ej07 {
         0 == 0
         true
         */
+        
         /*
         c)
         (15 % 7) + 1 == 3
@@ -34,6 +36,7 @@ public class Ej07 {
         2 == 3
         false
         */
+        
         /*
         d)
         10<=2*5&&3<4||!(8>7)&&3*2<=4*2-1
@@ -42,6 +45,7 @@ public class Ej07 {
         true||true
         true
         */
+        
         /*
         e)
         !(a>b&&2*a<=b)  con a = 5 y b = 3
@@ -58,7 +62,9 @@ public class Ej07 {
         true&&false || false
         false || false
         */
+        
         /*
+        g)
         b>3||a+b<=8&&!(a>b)   con a = 5 y b = 4
         4>3 || 5+4<=8 && !(5>4)
         true || 9<=8 && !true
