@@ -24,7 +24,7 @@ public class Deporte {
 
         //Declaramos e inicializamos las constantes y las variables
         final int VELOCIDADFORREST = 8;
-        final double MINUTOSPORHORA = 60;
+        final double MINUTOSPORHORA = 60.0;
 
         double distanciaRecorrida;
         double tiempoCorrido;
@@ -37,7 +37,7 @@ public class Deporte {
         //Inicializamos la variable distanciaRecorrida con la cuenta necesaria
         distanciaRecorrida = ((tiempoCorrido / MINUTOSPORHORA) * VELOCIDADFORREST);
 
-        //Imprimimos el resultado por teclado
+        //Imprimimos el resultado por consola
         System.out.println("Forrest corre en " + tiempoCorrido + " minutos una distancia de " + distanciaRecorrida + " km.");
 
     }
