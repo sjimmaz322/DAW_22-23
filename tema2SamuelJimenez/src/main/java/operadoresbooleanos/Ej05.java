@@ -16,17 +16,20 @@ public class Ej05 {
 
         //Imprimimos por consola el resultado de las operaciones lógicas directamente,
         //nos ahorramos crear variables para cada operación
+        
         System.out.println("""
-        verdadero && verdadero \t---\t""" + (verdadero && verdadero) + """
-        \nverdadero && falso \t---\t""" + (verdadero && falso) + """                                                 
-        \nfalso && verdadero \t---\t""" + (falso && verdadero) + """
-        \nfalso && falso \t---\t""" + (falso && falso) + """
-        \nverdadero || verdadero \t---\t""" + (verdadero || verdadero) + """
-        \nverdadero || falso \t---\t""" + (verdadero || falso) + """
-        \nfalso || verdadero \t---\t""" + (falso || verdadero) + """
-        \nfalso || falso \t---\t""" + (falso || falso) + """
-        \n!verdadero \t---\t""" + (!verdadero) + """
-        \n!falso \t---\t""" + (!falso));
+            verdadero && verdadero  ---     %b
+            verdadero && falso      ---     %b
+            falso && verdadero      ---     %b
+            falso && falso          ---     %b
+            verdadero || verdadero  ---     %b
+            verdadero || falso      ---     %b
+            falso || verdadero      ---     %b
+            falso || falso          ---     %b
+            !verdadero              ---     %b
+            !falso                  ---     %b
+                           """.formatted(verdadero && verdadero, verdadero && falso, falso && verdadero, falso && falso, verdadero || verdadero, verdadero || falso, falso || verdadero, falso || falso, !verdadero, !falso));
+
     }
 
 }
