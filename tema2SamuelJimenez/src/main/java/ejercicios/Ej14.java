@@ -18,6 +18,8 @@ public class Ej14 {
         Scanner sc = new Scanner(System.in);
         //Declaramos las variables que usaremos
         int horas, minutos, segundos;
+        
+        final int SEGUNDOSENHORA = 3600, SEGUNDOSENMINUTO = 60;
 
         //Mensaje para informar de lo que se requiere que se introduzca
         System.out.println("Introduzca los segundos que quiera");
@@ -26,9 +28,9 @@ public class Ej14 {
         int tiempo = sc.nextInt();
 
         //Inicializamos con los cálculos las variables horas, minutos y segundos restantes
-        horas = tiempo / 3600; //Para calcular las horas hacemos el cálculo de los segundos introducimos partido los segundos en una hora
-        minutos = (tiempo % 3600) / 60;// Para calcular los minutos cogemos el resto del cálculo anterior y lo dividimos por los minutos en una hora
-        segundos = (tiempo % 60); //Los segundos restantes sería el resto de los segundo entre los segundos en un minuto
+        horas = tiempo / SEGUNDOSENHORA; //Para calcular las horas hacemos el cálculo de los segundos introducimos partido los segundos en una hora
+        minutos = (tiempo % SEGUNDOSENHORA) / SEGUNDOSENMINUTO;// Para calcular los minutos cogemos el resto del cálculo anterior y lo dividimos por los minutos en una hora
+        segundos = (tiempo % SEGUNDOSENMINUTO); //Los segundos restantes sería el resto de los segundo entre los segundos en un minuto
 
         //Mostramos por consola el resultado.
         System.out.println("""
