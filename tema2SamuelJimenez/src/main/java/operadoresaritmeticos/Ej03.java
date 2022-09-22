@@ -24,39 +24,25 @@ public class Ej03 {
         double suma2 = c += d;
 
         //Imprimimos los resultados en un textblock
-        System.out.println(
-                """
-        Suma =\t""" + suma + """
-                                         
-        Resta =\t""" + resta + """
-                                          
-        Multiplicación =\t""" + multiplicacion + """
-                                                           
-        División =\t""" + division + """
-                                                     
-        Suma Double =\t""" + sumaDouble + """
-                                                         
-        Resta Double =\t""" + restaDouble + """
-                                                           
-        Multipliación Double =\t""" + multiplicacionDouble + """
-                                                                            
-        División Double =\t""" + divisionDouble + """
-                                                  
-        a*=3 =\t """ + multiplicacion2 + """
-                                                            
-        b-=1 =\t """ + resta2 + """ 
-                                                                                                   
-        a/=b =\t """ + division2 + """
-                                                                                    
-        c+=d =\t """ + suma2 + """
-                 
-        i =\t """ + i + """
-                    
-        i++ = \t """ + i++ + """
-                      
-        ++i =\t """ + ++i + """
-                                                                                                             
-        """);
+        System.out.println("""
+                           Suma                     -   %d
+                           Resta                    -   %d
+                           Multiplicación           -   %d
+                           División                 -   %d
+                           Suma double              -   %f
+                           Resta double             -   %f
+                           Multiplicación double    -   %f
+                           División double          -   %f
+                           a*=3                     -   %d
+                           b-=1                     -   %d
+                           a/=b                     -   %d
+                           c+=d                     -   %f
+                           i                        -   %d
+                           i++                      -   %d
+                           ++i                      -   %d
+                           """.formatted(suma, resta, multiplicacion, division, sumaDouble, restaDouble, multiplicacionDouble,
+                divisionDouble, multiplicacion2, resta2, division2, suma2, i, i++, ++i));
+
     }
 
 }
