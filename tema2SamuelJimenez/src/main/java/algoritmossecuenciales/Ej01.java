@@ -23,7 +23,7 @@ public class Ej01 {
         //Declaramos e inicializamos las variables y constantes necesarias
         double gradosCentígrados;
         
-        final double CONVERSORFARENHEIT1 = (1.8);
+        final double CONVERSORFARENHEIT1 = (9.0/5.0);
         final double CONVERSORFARENHEIT2 = 32;
         
         //Formula de conversión (C*(9/5)+32= F)
