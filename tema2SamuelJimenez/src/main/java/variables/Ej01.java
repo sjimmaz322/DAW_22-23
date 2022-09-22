@@ -22,7 +22,7 @@ public class Ej01 {
         variable1 = 1;
         variable2 = 1.549849846;
         variable3 = 1;
-        variable4 = 42;
+        variable4 = 42l;
         variable5 = 15.549875487f;
         variable6 = 'a';
 
