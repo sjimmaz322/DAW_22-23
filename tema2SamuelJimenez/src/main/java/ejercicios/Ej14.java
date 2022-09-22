@@ -36,11 +36,11 @@ public class Ej14 {
         +"\nMinutos: "+minutos
         +"\nSegundos: "+ segundosRestantes);
         
-        //Mostramos por ventana los resultados.
-        JOptionPane.showMessageDialog(null, (segundos+" son:"
-         + "\nHoras: "+horas
-        +"\nMinutos: "+minutos
-        +"\nSegundos: "+ segundosRestantes));
+//        //Mostramos por ventana los resultados.
+//        JOptionPane.showMessageDialog(null, (segundos+" son:"
+//         + "\nHoras: "+horas
+//        +"\nMinutos: "+minutos
+//        +"\nSegundos: "+ segundosRestantes));
 
     }
 
