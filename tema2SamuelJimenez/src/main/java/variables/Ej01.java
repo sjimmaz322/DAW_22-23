@@ -9,6 +9,7 @@ public class Ej01 {
     public static void main(String[] args) {
 
         //Declaramos e inicializamos las variables
+        byte variable0 = 0;
         int variable1 = 1;
         double variable2 = 1.5445874168;
         short variable3 = 1;
@@ -24,13 +25,14 @@ public class Ej01 {
         final double CONSTANTE2 = 3.14;
 
         //Usamos println para mostrar por consola las variables, constantes y el objeto.
-        System.out.println("La variable int es: " + variable1
-                + "\nLa variable int es: " + variable2
-                + "\nLa variable double es: " + variable3
-                + "\nLa variable short es: " + variable4
-                + "\nLa variable long es: " + variable5
-                + "\nLa variable float es: " + variable6
-                + "\nLa variable char es: " + variable7
+        System.out.println("La variable byte es: "+ variable0 
+                + "\nLa variable int es: " + variable1
+                + "\nLa variable double es: " + variable2
+                + "\nLa variable short es: " + variable3
+                + "\nLa variable long es: " + variable4
+                + "\nLa variable float es: " + variable5
+                + "\nLa variable char es: " + variable6
+                + "\nEl objeto String es: " + variable7
                 + "\nLa constante int es: " + CONSTANTE1
                 + "\nLa constante double es: " + CONSTANTE2);
 
