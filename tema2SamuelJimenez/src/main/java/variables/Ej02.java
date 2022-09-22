@@ -8,7 +8,7 @@ public class Ej02 {
 
     public static void main(String[] args) {
 
-        //Declaramos e inicializamos las variables con los nombres y valores requeridos
+        //Declaramos e inicializamos las variables con los nombres suministrados y valores requeridos
         int a = 1, b = 2, c = 3;
         double d = 4.5, e = 5.7, f = 6.9;
 
