@@ -19,7 +19,6 @@ public class Deporte {
         //Solicitar al usuaro los minutos que está corriendo Forrest Gump
         //El programa tiene que decir la distncia que recorre suponiendo que corre a 8 km/h
 
-        
         //Creamos el objeto Scanner para la petición de datos por teclado
         Scanner sc = new Scanner(System.in);
 
@@ -32,6 +31,7 @@ public class Deporte {
 
         //Sout para pedir introducir el valor de la variable tiempoRecorrido
         System.out.println("¿Cuántos minutos corre Forrest corre?");
+
         tiempoCorrido = sc.nextDouble();
 
         //Inicializamos la variable distanciaRecorrida con la cuenta necesaria
