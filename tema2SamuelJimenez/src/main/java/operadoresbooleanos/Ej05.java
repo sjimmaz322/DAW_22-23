@@ -13,7 +13,7 @@ public class Ej05 {
         //Declaramos e inicializamos las variables requeridas
 
         boolean verdadero = true, falso = false;
-        
+
         //Imprimimos por consola el resultado de las operaciones lógicas directamente,
         //nos ahorramos crear variables para cada operación
         System.out.println("""
