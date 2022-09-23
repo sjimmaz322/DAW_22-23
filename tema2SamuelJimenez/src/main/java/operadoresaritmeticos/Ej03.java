@@ -25,18 +25,29 @@ public class Ej03 {
 
         //Imprimimos los resultados en un textblock
         System.out.println("""
+                           Operaciones con enteros
+                           
                            Suma                     -   %d
                            Resta                    -   %d
                            Multiplicación           -   %d
                            División                 -   %d
+                           
+                           Operaciones con reales
+                           
                            Suma double              -   %.2f
                            Resta double             -   %.2f
                            Multiplicación double    -   %.2f
                            División double          -   %.2f
+                           
+                           Operacinoes acortadas
+                           
                            a*=3                     -   %d
                            b-=1                     -   %d
                            a/=b                     -   %d
                            c+=d                     -   %.2f
+                           
+                           Incremento
+                           
                            i                        -   %d
                            i++                      -   %d
                            ++i                      -   %d
