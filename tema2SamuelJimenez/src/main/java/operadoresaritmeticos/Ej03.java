@@ -29,14 +29,14 @@ public class Ej03 {
                            Resta                    -   %d
                            Multiplicación           -   %d
                            División                 -   %d
-                           Suma double              -   %f
-                           Resta double             -   %f
-                           Multiplicación double    -   %f
-                           División double          -   %f
+                           Suma double              -   %.2f
+                           Resta double             -   %.2f
+                           Multiplicación double    -   %.2f
+                           División double          -   %.2f
                            a*=3                     -   %d
                            b-=1                     -   %d
                            a/=b                     -   %d
-                           c+=d                     -   %f
+                           c+=d                     -   %.2f
                            i                        -   %d
                            i++                      -   %d
                            ++i                      -   %d
