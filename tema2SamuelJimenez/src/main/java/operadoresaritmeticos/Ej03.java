@@ -53,6 +53,14 @@ public class Ej03 {
                            ++i                      -   %d
                            """.formatted(suma, resta, multiplicacion, division, sumaDouble, restaDouble, multiplicacionDouble,
                 divisionDouble, multiplicacion2, resta2, division2, suma2, i, i++, ++i));
+        
+        //Explicación móludo
+        a = 11; b= 5;
+        
+        int cociente = a/b;
+        int resto = a%b;
+        
+        System.out.println("El cociente de 11/5 es "+cociente+"\nEl resto de 11/5 es "+resto);
 
     }
 
