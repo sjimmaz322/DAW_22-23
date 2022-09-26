@@ -22,6 +22,7 @@ public class Ej04 {
         bool2 = a > b;
         bool3 = a == b;
         bool4 = a != b;
+
         //Imprimimos el resultado     
         System.out.println("""
                            a<b  es  %b 
