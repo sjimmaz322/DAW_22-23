@@ -25,10 +25,10 @@ public class Ej04 {
 
         //Imprimimos el resultado     
         System.out.println("""
-                           a<b  es  %b 
-                           a>b  es  %b
-                           a==b es  %b
-                           a!=b es  %b
+                           a < b  es  %b 
+                           a > b  es  %b
+                           a == b es  %b
+                           a != b es  %b
                            """.formatted(bool1, bool2, bool3, bool4));
     }
 
