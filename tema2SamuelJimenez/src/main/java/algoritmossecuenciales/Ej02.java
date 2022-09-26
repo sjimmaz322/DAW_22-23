@@ -21,30 +21,30 @@ public class Ej02 {
 
         //Declaramos e inicializamos un objeto de la clase Scanner.
         Scanner sc = new Scanner(System.in);
-         //Declaramos e inicializamos las variables constantes.
+        //Declaramos e inicializamos las variables constantes.
         double radio, area, volumen, longitud;
-        final double constanteVolumen = (4.0 / 3.0);
-        
+        final double CONSTANTEVOLUMENESFERA = (4.0 / 3.0);
+
         //Solicitamos los datos por teclado 
         System.out.println("Introduzca el radio de la circunferencia");
         radio = sc.nextDouble();
-        
+
         //Inicializamos las variables con las fórmulas correspondientes.
         //Longitud 2pi·r
         //Área pi·r^2
         //Volumen 4/3·pi·r^3
         longitud = (2 * Math.PI * radio);
         area = (Math.PI * Math.pow(radio, 2));
-        volumen = (constanteVolumen * Math.PI * Math.pow(radio, 3));
-        
+        volumen = (CONSTANTEVOLUMENESFERA * Math.PI * Math.pow(radio, 3));
+
         //Imprimimos el resultado por consola.
         System.out.println("""
-                           El radio de la circunferencia es: %f unidades.
-                           La longitud de la circunferencia es: %f unidades.
-                           El área de la circunferencia es: %f unidades cuadradas.
-                           El volumen de la esfera es: %f unidades cúbicas.
+                           El radio de la circunferencia es: %.2f unidades.
+                           La longitud de la circunferencia es: %.2f unidades.
+                           El área de la circunferencia es: %.2f unidades cuadradas.
+                           El volumen de la esfera es: %.2f unidades cúbicas.
                            """.formatted(radio, longitud, area, volumen));
-        
+
     }
-    
+
 }
