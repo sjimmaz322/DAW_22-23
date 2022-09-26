@@ -22,12 +22,13 @@ public class Ej04 {
         bool2 = a > b;
         bool3 = a == b;
         bool4 = a != b;
-        //Imprimimos el resultado
-        System.out.println("Mostrando resultados:\t"
-                + "\na<b es " + bool1
-                + "\na>b es " + bool2
-                + "\na==b es " + bool3
-                + "\na!=b es " + bool4);
+        //Imprimimos el resultado     
+        System.out.println("""
+                           a<b  es  %b 
+                           a>b  es  %b
+                           a==b es  %b
+                           a!=b es  %b
+                           """.formatted(bool1, bool2, bool3, bool4));
     }
 
 }
