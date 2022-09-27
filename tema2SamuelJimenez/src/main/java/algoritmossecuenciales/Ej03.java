@@ -21,7 +21,7 @@ public class Ej03 {
 
         float nota1, nota2, nota3, notaMedia;
 
-        final float DIVISOR = 3;
+        final float DIVISOR = 3.0f;
 
         System.out.println("Introduzca la primera nota");
         nota1 = sc.nextFloat();
