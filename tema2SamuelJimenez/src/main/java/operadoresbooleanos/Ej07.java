@@ -40,9 +40,9 @@ public class Ej07 {
         /*
         d)
         10<=2*5&&3<4||!(8>7)&&3*2<=4*2-1
-        10<=10&&false||true&&6<=7
-        true&&true||true&&true
-        true||true
+        10<=10&&false||!(true)&&6<=7
+        true&&true||false&&true
+        true||false
         true
         */
         
