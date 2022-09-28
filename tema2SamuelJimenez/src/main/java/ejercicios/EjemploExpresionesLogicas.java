@@ -45,7 +45,7 @@ public class EjemploExpresionesLogicas {
         nombre = sc.nextLine();
         System.out.println("Introduzca el apellido");
         apellido = sc.nextLine();
-//        sc.nextLine();
+        // sc.nextLine();
         System.out.println("Introduzca la edad");
         edad = sc.nextInt();
         System.out.println("Introduzca la altura");
