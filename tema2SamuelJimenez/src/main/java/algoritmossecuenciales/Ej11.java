@@ -17,7 +17,6 @@ public class Ej11 {
      */
     public static void main(String[] args) {
 
-        //Área es PI * r*r
         Scanner sc = new Scanner(System.in);
 
         double radio, hipotenusa, areaSemicirculo, areaTriangulo, alturaTriangulo, area;
@@ -28,11 +27,11 @@ public class Ej11 {
         System.out.println("Introduzca la hipotenusa del triángulo");
         hipotenusa = sc.nextDouble();
 
-        alturaTriangulo = Math.sqrt((Math.pow(radio, 2)) + (Math.pow(hipotenusa, 2)));
+        alturaTriangulo = Math.sqrt((Math.pow(hipotenusa, 2) - (Math.pow(radio, 2))));
 
         areaSemicirculo = (Math.PI * Math.pow(radio, 2) / 2);
 
-        areaTriangulo = alturaTriangulo * (2 * radio);
+        areaTriangulo = (alturaTriangulo * (2 * radio)) / 2;
 
         area = areaSemicirculo + areaTriangulo;
 
