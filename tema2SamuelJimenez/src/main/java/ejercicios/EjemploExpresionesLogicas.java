@@ -45,7 +45,7 @@ public class EjemploExpresionesLogicas {
         nombre = sc.nextLine();
         System.out.println("Introduzca el apellido");
         apellido = sc.nextLine();
-        sc.next();
+//        sc.nextLine();
         System.out.println("Introduzca la edad");
         edad = sc.nextInt();
         System.out.println("Introduzca la altura");
@@ -57,7 +57,7 @@ public class EjemploExpresionesLogicas {
         pesoMayorDe50YMenorDe100 = peso > 50 && peso < 100;
         mide175 = altura == 175;
         mideEntre100Y180 = altura > 100 && altura < 180;
-        mayorDe60 = edad > 60;
+        mayorDe60 = (edad+10) > 60;
         seLlamaPablo = nombre.equalsIgnoreCase("pablo");
         apellidoConJ = apellido.toLowerCase().contains("j");
         apellidoAcabaEnDez = apellido.toLowerCase().endsWith("dez");
