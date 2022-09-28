@@ -55,12 +55,14 @@ public class Ej07 {
         !(false)
         true
         */
+        
         /*
         f)
         a/2<b&&((a++/2>b) || (a*2<b*4)) con a = 5 y b = 3
         5/2<3&&((5++/2>3) || (5*2<3*4))
-        true&&false || false
-        false || false
+        true&&false || true
+        false || true
+        true
         */
         
         /*
