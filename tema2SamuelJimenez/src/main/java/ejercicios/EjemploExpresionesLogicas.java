@@ -38,7 +38,7 @@ public class EjemploExpresionesLogicas {
         String nombre, apellido;
         int edad, altura;
         double peso;
-        final String NOMBRECOMPARABLE = "Pablo", SUFIJO ="dez", LETRACONTENIDA = "j";
+        final String NOMBRECOMPARABLE = "Pablo", SUFIJO ="dez", LETRABUSCADA = "j";
         boolean edadEntre25y35, pesoMayorDe50YMenorDe100, mide175, mideEntre100Y180,
                 mayorDe60, seLlamaPablo, apellidoConJ, apellidoAcabaEnDez, edadNoEntre40Y50;
 
@@ -64,7 +64,7 @@ public class EjemploExpresionesLogicas {
         mideEntre100Y180 = altura > 100 && altura < 180;
         mayorDe60 = (edad + 10) < 60;
         seLlamaPablo = nombre.equalsIgnoreCase(NOMBRECOMPARABLE);
-        apellidoConJ = apellido.toLowerCase().contains(LETRACONTENIDA);
+        apellidoConJ = apellido.toLowerCase().contains(LETRABUSCADA);
         apellidoAcabaEnDez = apellido.toLowerCase().endsWith(SUFIJO);
         edadNoEntre40Y50 = edad < 40 || edad > 50;
 
