@@ -66,6 +66,8 @@ public class EjemploExpresionesLogicas {
         apellidoConJ = apellido.toLowerCase().contains("j");
         apellidoAcabaEnDez = apellido.toLowerCase().endsWith("dez");
         edadNoEntre40Y50 = edad < 40 || edad > 50;
+        
+        //Usar terciario?
 
         //Imprimimos por pantalla las soluciones
         System.out.println("""
