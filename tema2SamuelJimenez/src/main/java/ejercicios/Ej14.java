@@ -1,7 +1,6 @@
 package ejercicios;
 
 import java.util.Scanner;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,7 +17,7 @@ public class Ej14 {
         Scanner sc = new Scanner(System.in);
         //Declaramos las variables que usaremos
         int horas, minutos, segundos;
-        
+
         final int SEGUNDOSENHORA = 3600, SEGUNDOSENMINUTO = 60;
 
         //Mensaje para informar de lo que se requiere que se introduzca
