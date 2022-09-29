@@ -38,7 +38,7 @@ public class EjemploExpresionesLogicas {
         String nombre, apellido;
         int edad, altura;
         double peso;
-        final String NOMBRECOMPARABLE = "Pablo", SUFIJO ="dez", LETRABUSCADA = "j";
+        final String NOMBRECOMPARABLE = "Pablo", SUFIJO = "dez", LETRABUSCADA = "j";
         boolean edadEntre25y35, pesoMayorDe50YMenorDe100, mide175, mideEntre100Y180,
                 mayorDe60, seLlamaPablo, apellidoConJ, apellidoAcabaEnDez, edadNoEntre40Y50;
 
@@ -64,11 +64,11 @@ public class EjemploExpresionesLogicas {
         mideEntre100Y180 = altura > 100 && altura < 180;
         mayorDe60 = (edad + 10) < 60;
         seLlamaPablo = nombre.equalsIgnoreCase(NOMBRECOMPARABLE);
+        String pablo = seLlamaPablo ? "Si" : "No";
         apellidoConJ = apellido.toLowerCase().contains(LETRABUSCADA);
         apellidoAcabaEnDez = apellido.toLowerCase().endsWith(SUFIJO);
         edadNoEntre40Y50 = edad < 40 || edad > 50;
 
-        //Usar terciario?
         //Imprimimos por pantalla las soluciones
         System.out.println("""
                            ¿La edad está comprendida entre 25 y 35 años ambos incluidos?    --- %b
@@ -76,12 +76,12 @@ public class EjemploExpresionesLogicas {
                            ¿La altura es 175 cms?                                           --- %b
                            ¿La altura está entre 100 cms y 180 cms?                         --- %b
                            ¿La edad más 10 no supera 60 años?                               --- %b
-                           ¿Se llama Pablo?                                                 --- %b
+                           ¿Se llama Pablo?                                                 --- %s
                            ¿El apellido contiene la letra J?                                --- %b
                            ¿El apellido acaba en -dez?                                      --- %b
                            ¿La edad no está entre 40 y 50 años?                             --- %b
                            """.formatted(edadEntre25y35, pesoMayorDe50YMenorDe100, mide175, mideEntre100Y180, mayorDe60,
-                seLlamaPablo, apellidoConJ, apellidoAcabaEnDez, edadNoEntre40Y50));
+                pablo, apellidoConJ, apellidoAcabaEnDez, edadNoEntre40Y50));
 
     }
 
