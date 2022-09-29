@@ -28,7 +28,7 @@ public class Ej14 {
 
         //Inicializamos con los cálculos las variables horas, minutos y segundos restantes
         horas = tiempo / SEGUNDOSENHORA; //Para calcular las horas hacemos el cálculo de los segundos introducimos partido los segundos en una hora
-        minutos = (tiempo % SEGUNDOSENHORA) / SEGUNDOSENMINUTO;// Para calcular los minutos cogemos el resto del cálculo anterior y lo dividimos por los minutos en una hora
+        minutos = (tiempo % SEGUNDOSENHORA) / SEGUNDOSENMINUTO;// Para calcular los minutos cogemos el resto del cálculo anterior y lo dividimos por los minutos en una hora que son iguales a los segundo por un minuto
         segundos = (tiempo % SEGUNDOSENMINUTO); //Los segundos restantes sería el resto de los segundo entre los segundos en un minuto
 
         //Mostramos por consola el resultado.
