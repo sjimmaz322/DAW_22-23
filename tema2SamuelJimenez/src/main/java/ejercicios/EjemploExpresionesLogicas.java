@@ -48,7 +48,7 @@ public class EjemploExpresionesLogicas {
         nombre = sc.nextLine();
         System.out.println("Introduzca el apellido");
         apellido = sc.nextLine();
-        // sc.nextLine();
+        // sc.nextLine(); Para limpiar el buffer, pero no es necesario en este caso.
         System.out.println("Introduzca la edad");
         edad = sc.nextInt();
         System.out.println("Introduzca la altura");
