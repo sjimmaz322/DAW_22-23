@@ -34,7 +34,6 @@ public class EjemploExpresionesLogicas {
 
         //Para leer textos y números hay que limpiar el buffer después de leer números antes que poner texto.
         //Hay que hacer un sc.next(); para limpiar el buffer.
-        
         //Declaramos las variables que vamos a utilizar.
         String nombre, apellido;
         int edad, altura;
@@ -62,7 +61,7 @@ public class EjemploExpresionesLogicas {
         pesoMayorDe50YMenorDe100 = peso > 50 && peso < 100;
         mide175 = altura == 175;
         mideEntre100Y180 = altura > 100 && altura < 180;
-        mayorDe60 = (edad+10) > 60;
+        mayorDe60 = (edad + 10) > 60;
         seLlamaPablo = nombre.equalsIgnoreCase("pablo");
         apellidoConJ = apellido.toLowerCase().contains("j");
         apellidoAcabaEnDez = apellido.toLowerCase().endsWith("dez");
