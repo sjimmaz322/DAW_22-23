@@ -6,6 +6,7 @@ package algoritmossecuenciales;
 
 import java.text.Format;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 import javax.swing.plaf.synth.Region;
 
 /**
@@ -45,6 +46,21 @@ public class Ej02 {
                            El volumen de la esfera es: %.2f unidades cúbicas.
                            """.formatted(radio, longitud, area, volumen));
 
+        // Hacemos el ejercicio con JOptionPane
+        String radioTxt;
+        radioTxt = JOptionPane.showInputDialog("Introduce el radio");
+        double radio2 = Double.parseDouble(radioTxt);
+        
+        double longitud2 = (2 * Math.PI * radio2);
+        double area2 = (Math.PI * Math.pow(radio2, 2));
+        double volumen2 = (CONSTANTEVOLUMENESFERA * Math.PI * Math.pow(radio2, 3));
+        
+        JOptionPane.showMessageDialog(null, """
+                           El radio de la circunferencia es: %.2f unidades.
+                           La longitud de la circunferencia es: %.2f unidades.
+                           El área de la circunferencia es: %.2f unidades cuadradas.
+                           El volumen de la esfera es: %.2f unidades cúbicas.
+                           """.formatted(radio2, longitud2, area2, volumen2));
     }
 
 }

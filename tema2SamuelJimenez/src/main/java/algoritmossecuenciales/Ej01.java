@@ -5,6 +5,7 @@
 package algoritmossecuenciales;
 
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -37,6 +38,15 @@ public class Ej01 {
         
         //Imprimimos por consola el resultado
         System.out.println(gradosCentígrados + "C son " + gradosFarenheit+ "F");
+        
+        //Hacemos el ejercicio con JOptionPane
+        
+        String gradosTxt;
+        gradosTxt = JOptionPane.showInputDialog("Introduzca los grados centígrados");
+        double gradosCelsius = Double.parseDouble(gradosTxt);
+        double farenheit = (gradosCelsius*CONVERSORFARENHEIT1)+CONVERSORFARENHEIT2;
+        JOptionPane.showMessageDialog(null, gradosCelsius + "C son "+ farenheit + "F.");
+        
         
         
     }
