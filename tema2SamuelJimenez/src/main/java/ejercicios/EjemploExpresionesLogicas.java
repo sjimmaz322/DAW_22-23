@@ -85,26 +85,25 @@ public class EjemploExpresionesLogicas {
                 pablo, apellidoConJ, apellidoAcabaEnDez, edadNoEntre40Y50));
 
         //Lectura de datos con JOptionPane
-        
         int edad2, altura2;
         double peso2;
         String nombreTxt, apellidoTxt, edadTxt, alturaTxt, pesoTxt;
-        
+
         nombreTxt = JOptionPane.showInputDialog("Introduce tu nombre");
         apellidoTxt = JOptionPane.showInputDialog("Introduce tu apellido");
         edadTxt = JOptionPane.showInputDialog("Introduce tu edad");
-        edad2 = Integer.parseInt(edadTxt); //Hacemos Parse para convertir String en int
+        edad2 = Integer.parseInt(edadTxt); //Hacemos Parse para convertir String en int si vamos a operar con el dato
         alturaTxt = JOptionPane.showInputDialog("Introduce tu altura");
-        altura2 = Integer.parseInt(alturaTxt);//Hacemos Parse para convertir String en int
+        altura2 = Integer.parseInt(alturaTxt);//Hacemos Parse para convertir String en int si vamos a operar con el dato
         pesoTxt = JOptionPane.showInputDialog("Introduce tu peso");
-        peso2 = Double.parseDouble(pesoTxt);//Hacemos Parse para convertir String en double
+        peso2 = Double.parseDouble(pesoTxt);//Hacemos Parse para convertir String en double si vamos a operar con el dato
         JOptionPane.showMessageDialog(null, """
                                             Mi nombre es %s.
                                             Mi apellido es %s.
                                             Mi edad es de %d años.
                                             Mi altura es de %d cms.
-                                            Mi peso es de %.2f.
-                                            """.formatted(nombreTxt,apellidoTxt,edad2,altura2,peso2));
+                                            Mi peso es de %.2f kgs.
+                                            """.formatted(nombreTxt, apellidoTxt, edad2, altura2, peso2));
     }
 
 }
