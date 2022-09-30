@@ -104,6 +104,7 @@ public class EjemploExpresionesLogicas {
                                             Mi altura es de %d cms.
                                             Mi peso es de %.2f kgs.
                                             """.formatted(nombreTxt, apellidoTxt, edad2, altura2, peso2));
+
     }
 
 }
