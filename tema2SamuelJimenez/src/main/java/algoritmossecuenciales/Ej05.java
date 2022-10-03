@@ -34,6 +34,11 @@ public class Ej05 {
         System.out.println("Para este centro harán falta "+ (int)Math.ceil(profesores) + " profesores.");
         
         
+        //Hacemos la opción de JOptionPane
+        
+        
+        
+        
     }
     
 }
