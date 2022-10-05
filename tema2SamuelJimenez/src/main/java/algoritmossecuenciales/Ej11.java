@@ -5,6 +5,7 @@
 package algoritmossecuenciales;
 
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -36,6 +37,21 @@ public class Ej11 {
         area = areaSemicirculo + areaTriangulo;
 
         System.out.println("El área de la figura es de " + area + " unidades cuadradas.");
+
+        //Hacemos la versión con JOptionPane
+        String radioTxt = JOptionPane.showInputDialog("Introduza el radio de la circunferencia");
+        double radioCircunferencia = Double.parseDouble(radioTxt);
+        String hipotenusaTxt = JOptionPane.showInputDialog("Introduza la hipotenusa del triángulo");
+        double hipotenusaTriangulo = Double.parseDouble(hipotenusaTxt);
+
+        double altura = Math.sqrt((Math.pow(hipotenusaTriangulo, 2) - (Math.pow(radioCircunferencia, 2))));
+
+        double areaDelSemicirculo = (Math.PI * Math.pow(radioCircunferencia, 2) / 2);
+        double areaDelTriangulo = (altura * (2 * radioCircunferencia)) / 2;
+
+        double areaTotal = areaDelSemicirculo + areaDelTriangulo;
+
+        JOptionPane.showMessageDialog(null, "El área de la figura es de " + areaTotal + " unidades cuadradas.");
 
     }
 

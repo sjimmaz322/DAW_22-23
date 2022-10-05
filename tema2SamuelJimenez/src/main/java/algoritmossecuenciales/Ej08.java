@@ -5,6 +5,7 @@
 package algoritmossecuenciales;
 
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -33,6 +34,19 @@ public class Ej08 {
                 + "\nGinecología recibirá el 30% que es " + partePresupuestoGinecologia + "."
                 + "\nPediatría recibirá el 30% que es " + partePresupuestoPediatria + "."
                 + "\nTraumatología recibirá el 40% que es " + partePresupuestoTraumatologia);
+
+        //Hacemos la versión en JOptionPane
+        String presupuestoTxt = JOptionPane.showInputDialog("Introduzca el dinero que recibirá el hospital");
+        double presupuestoRecibido = Double.parseDouble(presupuestoTxt);
+
+        double parteRecibeGinecologia = (presupuesto * PORCENTAJEGINECOLOGIA) / TOTAL;
+        double parteRecibePediatria = (presupuesto * PORCENTAJEPEDIATRIA) / TOTAL;
+        double parteRecibeTraumatologia = (presupuesto * PORCENTAJETRAUMATOLOGIA) / TOTAL;
+
+        JOptionPane.showMessageDialog(null, "Del total de " + presupuestoRecibido + " € de presupuesto."
+                + "\nGinecología recibirá el 30% que es " + parteRecibeGinecologia + "."
+                + "\nPediatría recibirá el 30% que es " + parteRecibePediatria + "."
+                + "\nTraumatología recibirá el 40% que es " + parteRecibeTraumatologia);
 
     }
 

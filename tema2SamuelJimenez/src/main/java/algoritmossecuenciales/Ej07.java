@@ -5,6 +5,7 @@
 package algoritmossecuenciales;
 
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,17 +18,25 @@ public class Ej07 {
      */
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        
+
         double euros, dolares;
-        
+
         final double FACTORCONVERSION = 0.997152;
-        
+
         System.out.println("Introduzca los euros a convertir");
         euros = sc.nextDouble();
-        
-        dolares = euros*FACTORCONVERSION;
-        
-        System.out.println(euros+" son "+dolares+" dólares americanos");
+
+        dolares = euros * FACTORCONVERSION;
+
+        System.out.println(euros + " son " + dolares + " dólares americanos");
+
+        //Hacemos la opción en JOptionPane
+        String eurosTxt = JOptionPane.showInputDialog("¿Cuantos euros vamos a convertir?");
+        double eurosConvertir = Double.parseDouble(eurosTxt);
+
+        double dolaresConvertidos = eurosConvertir * FACTORCONVERSION;
+
+        JOptionPane.showMessageDialog(null, +eurosConvertir + " son " + dolaresConvertidos);
     }
-    
+
 }
