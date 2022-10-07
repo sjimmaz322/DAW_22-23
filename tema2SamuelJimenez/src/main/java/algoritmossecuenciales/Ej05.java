@@ -41,7 +41,8 @@ public class Ej05 {
 
         double profesoresTotales = (HORASCLASE * gruposClase) / horasProfesor;
 
-        JOptionPane.showMessageDialog(null, "Para este centro harán falta " + (int) Math.ceil(profesoresTotales) + " profesores.");
+        JOptionPane.showMessageDialog(null, "Para este centro harán falta " + (int) Math.ceil(profesoresTotales)
+                + " profesores.");
 
     }
 
