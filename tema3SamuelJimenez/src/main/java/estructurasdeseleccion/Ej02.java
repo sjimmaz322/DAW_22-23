@@ -40,6 +40,8 @@ public class Ej02 {
             numeroAbsoluto = num * (-1);
         }
         System.out.println("El absoluto de " + num + " es " + numeroAbsoluto);
+        int absoluto = (num >= 0) ? num : -(num);
+        System.out.println("El absoluto de " + num + " es " + numeroAbsoluto);
 
     }
 
