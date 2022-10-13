@@ -36,86 +36,86 @@ public class Calculadora {
                       6 u otro - Salir.
                       """.formatted(operando1, operando2);
         String opcion = (JOptionPane.showInputDialog(menu));
-        //Versión 1
-        if (opcion.equals("1")) {
-            resultado = operando1 + operando2;
-            System.out.printf("El resultado es %.2f", resultado);
-
-        }
-        if (opcion.equals("2")) {
-            resultado = operando1 - operando2;
-            System.out.printf("El resultado es %.2f", resultado);
-
-        }
-        if (opcion.equals("3")) {
-            resultado = operando1 * operando2;
-            System.out.printf("El resultado es %.2f", resultado);
-
-        }
-        if (opcion.equals("4")) {
-            resultado = operando1 / operando2;
-            System.out.printf("El resultado es %.2f", resultado);
-
-        }
-        if (opcion.equals("5")) {
-            resultado = Math.pow(operando1, operando2);
-            System.out.printf("El resultado es %.2f", resultado);
-        }
-
-        //Versión 2
-        if (opcion.equals("1")) {
-            resultado = operando1 + operando2;
-            System.out.printf("El resultado es %.2f", resultado);
-
-        } else {
-            if (opcion.equals("2")) {
-                resultado = operando1 - operando2;
-                System.out.printf("El resultado es %.2f", resultado);
-
-            } else {
-                if (opcion.equals("3")) {
-                    resultado = operando1 * operando2;
-                    System.out.printf("El resultado es %.2f", resultado);
-
-                } else {
-                    if (opcion.equals("4")) {
-                        resultado = operando1 / operando2;
-                        System.out.printf("El resultado es %.2f", resultado);
-
-                    } else {
-                        if (opcion.equals("5")) {
-                            resultado = Math.pow(operando1, operando2);
-                            System.out.printf("El resultado es %.2f", resultado);
-                        } else {
-                            JOptionPane.showMessageDialog(null, "Opción incorrecta");
-                        }
-                    }
-
-                }
-
-        //Versión 3
-        if (opcion.equals("1")) {
-            resultado = operando1 + operando2;
-            System.out.printf("El resultado es %.2f", resultado);
-
-        } else if (opcion.equals("2")) {
-            resultado = operando1 - operando2;
-            System.out.printf("El resultado es %.2f", resultado);
-
-        } else if (opcion.equals("3")) {
-            resultado = operando1 * operando2;
-            System.out.printf("El resultado es %.2f", resultado);
-
-        } else if (opcion.equals("4")) {
-            resultado = operando1 / operando2;
-            System.out.printf("El resultado es %.2f", resultado);
-
-        } else if (opcion.equals("5")) {
-            resultado = Math.pow(operando1, operando2);
-            System.out.printf("El resultado es %.2f", resultado);
-        } else {
-            JOptionPane.showMessageDialog(null, "Opción Incorrecta");
-        }
+//        //Versión 1
+//        if (opcion.equals("1")) {
+//            resultado = operando1 + operando2;
+//            System.out.printf("El resultado es %.2f", resultado);
+//
+//        }
+//        if (opcion.equals("2")) {
+//            resultado = operando1 - operando2;
+//            System.out.printf("El resultado es %.2f", resultado);
+//
+//        }
+//        if (opcion.equals("3")) {
+//            resultado = operando1 * operando2;
+//            System.out.printf("El resultado es %.2f", resultado);
+//
+//        }
+//        if (opcion.equals("4")) {
+//            resultado = operando1 / operando2;
+//            System.out.printf("El resultado es %.2f", resultado);
+//
+//        }
+//        if (opcion.equals("5")) {
+//            resultado = Math.pow(operando1, operando2);
+//            System.out.printf("El resultado es %.2f", resultado);
+//        }
+//
+//        //Versión 2
+//        if (opcion.equals("1")) {
+//            resultado = operando1 + operando2;
+//            System.out.printf("El resultado es %.2f", resultado);
+//
+//        } else {
+//            if (opcion.equals("2")) {
+//                resultado = operando1 - operando2;
+//                System.out.printf("El resultado es %.2f", resultado);
+//
+//            } else {
+//                if (opcion.equals("3")) {
+//                    resultado = operando1 * operando2;
+//                    System.out.printf("El resultado es %.2f", resultado);
+//
+//                } else {
+//                    if (opcion.equals("4")) {
+//                        resultado = operando1 / operando2;
+//                        System.out.printf("El resultado es %.2f", resultado);
+//
+//                    } else {
+//                        if (opcion.equals("5")) {
+//                            resultado = Math.pow(operando1, operando2);
+//                            System.out.printf("El resultado es %.2f", resultado);
+//                        } else {
+//                            JOptionPane.showMessageDialog(null, "Opción incorrecta");
+//                        }
+//                    }
+//
+//                }
+//
+//        //Versión 3
+//        if (opcion.equals("1")) {
+//            resultado = operando1 + operando2;
+//            System.out.printf("El resultado es %.2f", resultado);
+//
+//        } else if (opcion.equals("2")) {
+//            resultado = operando1 - operando2;
+//            System.out.printf("El resultado es %.2f", resultado);
+//
+//        } else if (opcion.equals("3")) {
+//            resultado = operando1 * operando2;
+//            System.out.printf("El resultado es %.2f", resultado);
+//
+//        } else if (opcion.equals("4")) {
+//            resultado = operando1 / operando2;
+//            System.out.printf("El resultado es %.2f", resultado);
+//
+//        } else if (opcion.equals("5")) {
+//            resultado = Math.pow(operando1, operando2);
+//            System.out.printf("El resultado es %.2f", resultado);
+//        } else {
+//            JOptionPane.showMessageDialog(null, "Opción Incorrecta");
+//        }
 
         //Versión 4
         switch (opcion) {
@@ -142,8 +142,6 @@ public class Calculadora {
             default:
                 JOptionPane.showMessageDialog(null, "Opción Incorrecta");
                 break;
-                }
-            }
         }
     }
 }
