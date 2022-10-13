@@ -140,7 +140,7 @@ public class Calculadora {
                 System.out.printf("El resultado es %.2f", resultado);
                 break;
             default:
-                System.out.println("Gracias por su tiempo.");
+                JOptionPane.showMessageDialog(null, "Opción Incorrecta");
                 break;
                 }
             }
