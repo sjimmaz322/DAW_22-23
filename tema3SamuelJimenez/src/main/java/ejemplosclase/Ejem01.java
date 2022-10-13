@@ -42,6 +42,7 @@ public class Ejem01 {
 
         } else {//Si el nombre no contiene la letra
             //Con un operador ternario guardamos el resultado de comprobar si el número de caracteres es par o no
+            //Para comprobar si es divisible por 2 usamos el mod o %
             String parImpar = (longitudNombre % 2 == 0) ? "El número de caracteres del nombre es " + longitudNombre + " por ende es par"
                     : "El número de caracteres del nombre es " + longitudNombre + " por ende es impar";
             //Imprimimos el resultado
