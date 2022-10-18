@@ -16,9 +16,9 @@ public class Calculadora {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
-        double operando1 = Double.parseDouble(JOptionPane.showInputDialog("Introduza el primer opernado"));
-        double operando2 = Double.parseDouble(JOptionPane.showInputDialog("Introduza el segundo opernado"));
+        //Solicitamos por ventana los operandos que usaremos
+        double operando1 = Double.parseDouble(JOptionPane.showInputDialog("Introduza el primer operando"));
+        double operando2 = Double.parseDouble(JOptionPane.showInputDialog("Introduza el segundo operando"));
 
         double resultado = 0;
 
