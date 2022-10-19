@@ -7,6 +7,7 @@ package ejemplosclase;
 import com.sun.source.tree.SwitchTree;
 import java.util.Random;
 import java.util.Scanner;
+import utilidadespropias.MisUtilidades;
 
 /**
  *
