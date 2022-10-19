@@ -54,19 +54,27 @@ public class Ejercicio3B {
         
         switch (codigoProducto) {
             case "M1":
-                
+                costeMateriaPrimaUnidadM1 = Double.parseDouble(JOptionPane.showInputDialog("Introduza el coste de la materia"
+                        + " prima para la fabricación de un Mantecado de Limón"));
+                if (costeMateriaPrimaUnidadM1 < 0.1 || costeMateriaPrimaUnidadM1 > 1) {
+                    JOptionPane.showMessageDialog(null, "El precio no es correcto");
+                }
                 break;
             case "M2":
-                
+                costeMateriaPrimaUnidadM2 = Double.parseDouble(JOptionPane.showInputDialog("Introduza el coste de la materia"
+                        + " prima para la fabricación de un Mazapán"));
                 break;
             case "T1":
-                
+                costeMateriaPrimaUnidadT1 = Double.parseDouble(JOptionPane.showInputDialog("Introduza el coste de la materia"
+                        + " prima para la fabricación de una tableta de Turrón de Chocolate"));
                 break;
             case "T2":
-                
+                costeMateriaPrimaUnidadT2 = Double.parseDouble(JOptionPane.showInputDialog("Introduza el coste de la materia"
+                        + " prima para la fabricación de una tableta de Turrón Clásico"));
                 break;
             case "P1":
-                
+                costeMateriaPrimaUnidadP1 = Double.parseDouble(JOptionPane.showInputDialog("Introduza el coste de la materia"
+                        + " prima para la fabricación de un Polvorón"));
                 break;
             default:
                 JOptionPane.showMessageDialog(null, "El código introducido no es válido");
