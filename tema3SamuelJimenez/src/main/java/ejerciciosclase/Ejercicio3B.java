@@ -40,24 +40,25 @@ public class Ejercicio3B {
 
         Todas las entradas y salidas de datos deben hacerse usando JOptionPane. Limita la salida a dos decimales en los casos necesarios.
          */
-        
+
         final double MANO_OBRA_UNIDAD_M1_T1 = 0.15;
         final double MANO_OBRA_UNIDAD_M2_T2_P1 = 0.22;
-        
+
         double costeMateriaPrimaUnidadM1, costeMateriaPrimaUnidadM2, costeMateriaPrimaUnidadT1, costeMateriaPrimaUnidadT2, costeMateriaPrimaUnidadP1;
-        
+
         double costeProduccionUnidadM1, costeProduccionUnidadM2, costeProduccionUnidadT1, costeProduccionUnidadT2, costeProduccionUnidadP1;
-        
+
         double precioUnidadM1, precioUnidadM2, precioT1, precioT2, precioP1;
-        
+
         String codigoProducto = JOptionPane.showInputDialog("Introduzca el código del producto");
-        
+
         switch (codigoProducto) {
             case "M1":
                 costeMateriaPrimaUnidadM1 = Double.parseDouble(JOptionPane.showInputDialog("Introduza el coste de la materia"
                         + " prima para la fabricación de un Mantecado de Limón"));
                 if (costeMateriaPrimaUnidadM1 < 0.1 || costeMateriaPrimaUnidadM1 > 1) {
                     JOptionPane.showMessageDialog(null, "El precio no es correcto");
+                    break;
                 }
                 break;
             case "M2":
@@ -78,9 +79,9 @@ public class Ejercicio3B {
                 break;
             default:
                 JOptionPane.showMessageDialog(null, "El código introducido no es válido");
-            
+
         }
-        
+
     }
-    
+
 }
