@@ -18,6 +18,7 @@ public class EjemploSwitchRandom {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        //ENUNCIADO
         /*
         Devuelva un número.
         Si el usuario introduce A, B o C, se debe guardar un aleatorio entre 1 y 10.
