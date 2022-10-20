@@ -54,7 +54,11 @@ public class MisUtilidades {
             }
         } while (!seguir);
         return num;
+    }
 
+    public static String pedirString(String mensaje) {
+        String string = JOptionPane.showInputDialog(mensaje);
+        return string;
     }
 
 }
