@@ -47,15 +47,15 @@ public class Ejercicio3B {
         final int BENEFICIO_OBJETIVO = 2500;
 
         //Declaramos las variables que necesitaremos durante el uso del programa
-        double costeMateriaPrimaUnidadM1, costeMateriaPrimaUnidadM2, costeMateriaPrimaUnidadT1, costeMateriaPrimaUnidadT2, costeMateriaPrimaUnidadP1;
+        double costeMateriaPrimaUnidad;
 
-        double costeProduccionUnidadM1, costeProduccionUnidadM2, costeProduccionUnidadT1, costeProduccionUnidadT2, costeProduccionUnidadP1;
+        double costeProduccionUnidad, costeManoObra;
 
-        double precioUnidadM1, precioUnidadM2, precioUnidadT1, precioUnidadT2, precioUnidadP1;
+        double precioUnidad = 0;
 
         int cantidadVenta;
 
-        String resultado, codigoProducto, menu;
+        String resultado, codigoProducto, menu, nombreProducto = "";
 
         //Inicializamos el menú con un textblock.
         menu = """
@@ -75,137 +75,64 @@ public class Ejercicio3B {
 
         //Según lo introducido usamos un switch para ir a un submenú de producto u otro
         switch (codigoProducto) {
-            case "M1","m1":
-                costeMateriaPrimaUnidadM1 = Double.parseDouble(JOptionPane.showInputDialog("Introduza el coste de la materia"
+            case "M1","m1","M2","m2","T1","t1","T2","t2","P1","p1":
+
+                costeMateriaPrimaUnidad = Double.parseDouble(JOptionPane.showInputDialog("Introduza el coste de la materia"
                         + " prima para la fabricación de un Mantecado de Limón"));//Solicitamos el precio de la materia prima y hacemos Parse de String a Double
-                if (costeMateriaPrimaUnidadM1 < 0.1 || costeMateriaPrimaUnidadM1 > 1) {//Si el precio de la materia prima no está entre 0.1 y 1 entraría en el if
+                if (costeMateriaPrimaUnidad < 0.1 || costeMateriaPrimaUnidad > 1) {//Si el precio de la materia prima no está entre 0.1 y 1 entraría en el if
                     JOptionPane.showMessageDialog(null, "El precio no es correcto");//Mensaje de error
                     break;//Si entra en el if sale del programa
                 }
-                costeProduccionUnidadM1 = costeMateriaPrimaUnidadM1 + MANO_OBRA_UNIDAD_M1_T1; //Calculamos el coste de producir una unidad
-                precioUnidadM1 = costeProduccionUnidadM1 + (costeProduccionUnidadM1 / 2); //Calculamos el precio de venta de una unidad
+                if (codigoProducto.equalsIgnoreCase("M1") || codigoProducto.equalsIgnoreCase("T1")) {//Guardamos el valor de la mano de obra en una variable dependiendo del producto selecionado
+                    costeManoObra = MANO_OBRA_UNIDAD_M1_T1;
+                } else {
+                    costeManoObra = MANO_OBRA_UNIDAD_M2_T2_P1;
+                }
 
-                /*
-                La ecuación para averiguar la cantidad que debemos vender para tener 2500€ de beneficio sería:
-                Siendo X las ventas realizadas
-                X = 2500 / (precioVenta-costeProducción)               
-                 */
+                costeProduccionUnidad = costeMateriaPrimaUnidad + costeManoObra; //Calculamos el coste de producir una unidad
+
+                final double PRECIO_UNIDAD_M1_M2_P1 = costeProduccionUnidad + (costeProduccionUnidad / 2);
+                final double PRECIO_UNIDAD_T1_T2 = (costeProduccionUnidad + (costeProduccionUnidad * 65) / 100);
+
+                switch (codigoProducto) {//Dependiendo del código guardamos el nombre del producto en una variable para mostrarlo luego
+                    case "M1","m1":
+                        nombreProducto = "Mantecados de Limón";
+                        precioUnidad = PRECIO_UNIDAD_M1_M2_P1;
+                        break;
+                    case "M2","m2":
+                        nombreProducto = "Mazapán";
+                        precioUnidad = PRECIO_UNIDAD_M1_M2_P1;
+                        break;
+                    case "P1","p1":
+                        nombreProducto = "Polvorón";
+                        precioUnidad = PRECIO_UNIDAD_M1_M2_P1;
+                        break;
+                    case "T1","t1":
+                        nombreProducto = "Turrón de chocolate";
+                        precioUnidad = PRECIO_UNIDAD_T1_T2;
+                        break;
+                    case "T2","t2":
+                        nombreProducto = "Turrón Clásico";
+                        precioUnidad = PRECIO_UNIDAD_T1_T2;
+                        break;
+                }
+
                 //Para el cálculo hacemos un Math.ceil porque no podemos vender medias unidades y guardamos el resultado en un int
                 //Ya que al hacer Math.ceil nos quedará un número de decimales iguales a 0 el cual no perderá información
                 //al guardarlo en un int
-                cantidadVenta = (int) Math.ceil((BENEFICIO_OBJETIVO / (precioUnidadM1 - costeProduccionUnidadM1)));
+                cantidadVenta = (int) Math.ceil((BENEFICIO_OBJETIVO / (precioUnidad - costeProduccionUnidad)));
 
                 //Guardamos el mensaje que queremos mostrar en ventana dentro de un textblock sin olvidar que debemos mostrar 2 decimales
                 resultado = """
-                            Referente a los mantecados de limón sabemos:
+                            Referente al producto "%s" sabemos:
                             El coste de la materia prima es de %.2f €.
                             El precio de la mano de obra es de %.2f €.
                             El precio de fabricación de una unidad es de %.2f €.
                             Por lo tanto el precio de venta sería %.2f €.
                             
                             Y tendríamos que vender %d unidades para tener un beneficio de 2500€.
-                            """.formatted(costeMateriaPrimaUnidadM1, MANO_OBRA_UNIDAD_M1_T1, costeProduccionUnidadM1, precioUnidadM1, cantidadVenta);
-
-                JOptionPane.showMessageDialog(null, resultado);
-                break;
-
-            //Repetimos el proceso para el resto de casos
-            case "M2","m2":
-                costeMateriaPrimaUnidadM2 = Double.parseDouble(JOptionPane.showInputDialog("Introduza el coste de la materia"
-                        + " prima para la fabricación de un Mazapán"));
-                if (costeMateriaPrimaUnidadM2 < 0.1 || costeMateriaPrimaUnidadM2 > 1) {
-                    JOptionPane.showMessageDialog(null, "El precio no es correcto");
-                    break;
-                }
-                costeProduccionUnidadM2 = costeMateriaPrimaUnidadM2 + MANO_OBRA_UNIDAD_M2_T2_P1;
-                precioUnidadM2 = costeProduccionUnidadM2 + (costeProduccionUnidadM2 / 2);
-
-                cantidadVenta = (int) Math.ceil((BENEFICIO_OBJETIVO / (precioUnidadM2 - costeProduccionUnidadM2)));
-
-                resultado = """
-                            Referente a los mazapanes sabemos:
-                            El coste de la materia prima es de %.2f €.
-                            El precio de la mano de obra es de %.2f €.
-                            El precio de fabricación de una unidad es de %.2f €.
-                            Por lo tanto el precio de venta sería %.2f €.
-                            
-                            Y tendríamos que vender %d unidades para tener un beneficio de 2500€.
-                            """.formatted(costeMateriaPrimaUnidadM2, MANO_OBRA_UNIDAD_M2_T2_P1, costeProduccionUnidadM2, precioUnidadM2, cantidadVenta);
-
-                JOptionPane.showMessageDialog(null, resultado);
-                break;
-
-            case "T1","t1":
-                costeMateriaPrimaUnidadT1 = Double.parseDouble(JOptionPane.showInputDialog("Introduza el coste de la materia"
-                        + " prima para la fabricación de una tableta de Turrón de Chocolate"));
-                if (costeMateriaPrimaUnidadT1 < 0.1 || costeMateriaPrimaUnidadT1 > 1) {
-                    JOptionPane.showMessageDialog(null, "El precio no es correcto");
-                    break;
-                }
-                costeProduccionUnidadT1 = costeMateriaPrimaUnidadT1 + MANO_OBRA_UNIDAD_M1_T1;
-                precioUnidadT1 = costeProduccionUnidadT1 + ((costeProduccionUnidadT1 * 65) / 100);
-
-                cantidadVenta = (int) Math.ceil((BENEFICIO_OBJETIVO / (precioUnidadT1 - costeProduccionUnidadT1)));
-
-                resultado = """
-                            Referente al turrón de chocolate sabemos:
-                            El coste de la materia prima es de %.2f €.
-                            El precio de la mano de obra es de %.2f €.
-                            El precio de fabricación de una unidad es de %.2f €.
-                            Por lo tanto el precio de venta sería %.2f €.
-                            
-                            Y tendríamos que vender %d unidades para tener un beneficio de 2500€.
-                            """.formatted(costeMateriaPrimaUnidadT1, MANO_OBRA_UNIDAD_M1_T1, costeProduccionUnidadT1, precioUnidadT1, cantidadVenta);
-
-                JOptionPane.showMessageDialog(null, resultado);
-                break;
-
-            case "T2","t2":
-                costeMateriaPrimaUnidadT2 = Double.parseDouble(JOptionPane.showInputDialog("Introduza el coste de la materia"
-                        + " prima para la fabricación de una tableta de Turrón Clásico"));
-                if (costeMateriaPrimaUnidadT2 < 0.1 || costeMateriaPrimaUnidadT2 > 1) {
-                    JOptionPane.showMessageDialog(null, "El precio no es correcto");
-                    break;
-                }
-                costeProduccionUnidadT2 = costeMateriaPrimaUnidadT2 + MANO_OBRA_UNIDAD_M2_T2_P1;
-                precioUnidadT2 = costeProduccionUnidadT2 + ((costeProduccionUnidadT2 * 65) / 100);
-
-                cantidadVenta = (int) Math.ceil((BENEFICIO_OBJETIVO / (precioUnidadT2 - costeProduccionUnidadT2)));
-
-                resultado = """
-                            Referente al turrón clásico sabemos:
-                            El coste de la materia prima es de %.2f €.
-                            El precio de la mano de obra es de %.2f €.
-                            El precio de fabricación de una unidad es de %.2f €.
-                            Por lo tanto el precio de venta sería %.2f €.
-                            
-                            Y tendríamos que vender %d unidades para tener un beneficio de 2500€.
-                            """.formatted(costeMateriaPrimaUnidadT2, MANO_OBRA_UNIDAD_M2_T2_P1, costeProduccionUnidadT2, precioUnidadT2, cantidadVenta);
-
-                JOptionPane.showMessageDialog(null, resultado);
-                break;
-
-            case "P1","p1":
-                costeMateriaPrimaUnidadP1 = Double.parseDouble(JOptionPane.showInputDialog("Introduza el coste de la materia"
-                        + " prima para la fabricación de un Polvorón"));
-                if (costeMateriaPrimaUnidadP1 < 0.1 || costeMateriaPrimaUnidadP1 > 1) {
-                    JOptionPane.showMessageDialog(null, "El precio no es correcto");
-                    break;
-                }
-                costeProduccionUnidadP1 = costeMateriaPrimaUnidadP1 + MANO_OBRA_UNIDAD_M2_T2_P1;
-                precioUnidadP1 = costeProduccionUnidadP1 + (costeProduccionUnidadP1 / 2);
-
-                cantidadVenta = (int) Math.ceil((BENEFICIO_OBJETIVO / (precioUnidadP1 - costeProduccionUnidadP1)));
-
-                resultado = """
-                            Referente a los polvorones sabemos:
-                            El coste de la materia prima es de %.2f €.
-                            El precio de la mano de obra es de %.2f €.
-                            El precio de fabricación de una unidad es de %.2f €.
-                            Por lo tanto el precio de venta sería %.2f €.
-                            
-                            Y tendríamos que vender %d unidades para tener un beneficio de 2500€.
-                            """.formatted(costeMateriaPrimaUnidadP1, MANO_OBRA_UNIDAD_M2_T2_P1, costeProduccionUnidadP1, precioUnidadP1, cantidadVenta);
+                            """.formatted(nombreProducto, costeMateriaPrimaUnidad, costeManoObra,
+                        costeProduccionUnidad, precioUnidad, cantidadVenta);
 
                 JOptionPane.showMessageDialog(null, resultado);
                 break;
