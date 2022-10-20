@@ -5,6 +5,7 @@
 package utilidadespropias;
 
 import java.util.Random;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -22,6 +23,18 @@ public class MisUtilidades {
     public static double doubleRangoRandom(double mayor, double menor) {
         double num = rd.nextDouble(mayor - menor + 1) + menor;
         return num;
+    }
+
+    public static int pedirIntVentana(String mensaje) {
+        int num = Integer.parseInt(JOptionPane.showInputDialog(mensaje));
+        return num;
+
+    }
+
+    public static double pedirDoubleVentana(String mensaje) {
+        double num = Double.parseDouble(JOptionPane.showInputDialog(mensaje));
+        return num;
+
     }
 
 }
