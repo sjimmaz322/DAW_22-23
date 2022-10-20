@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
 public class MisUtilidades {
 
     public static Random rd = new Random();
+    public static boolean seguir = true;
 
     public static int intRangoRandom(int mayor, int menor) {
         int num = rd.nextInt(mayor - menor + 1) + menor;
@@ -26,13 +27,32 @@ public class MisUtilidades {
     }
 
     public static int pedirIntVentana(String mensaje) {
-        int num = Integer.parseInt(JOptionPane.showInputDialog(mensaje));
-        return num;
+        int num = 0;
+        do {
+            try {
+                seguir = true;
+                num = Integer.parseInt(JOptionPane.showInputDialog(mensaje));
 
+            } catch (NumberFormatException nfe) {
+                seguir = false;
+                JOptionPane.showMessageDialog(null, "Intoduzca un número válido");
+            }
+        } while (!seguir);
+        return num;
     }
 
     public static double pedirDoubleVentana(String mensaje) {
-        double num = Double.parseDouble(JOptionPane.showInputDialog(mensaje));
+        double num = 0;
+        do {
+            try {
+                seguir = true;
+                num = Double.parseDouble(JOptionPane.showInputDialog(mensaje));
+
+            } catch (NumberFormatException nfe) {
+                seguir = false;
+                JOptionPane.showMessageDialog(null, "Intoduzca un número válido");
+            }
+        } while (!seguir);
         return num;
 
     }
