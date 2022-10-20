@@ -45,6 +45,8 @@ public class Ejercicio3B {
         final double MANO_OBRA_UNIDAD_M1_T1 = 0.15;
         final double MANO_OBRA_UNIDAD_M2_T2_P1 = 0.22;
         final int BENEFICIO_OBJETIVO = 2500;
+        final double MINIMO_COSTE = 0.1;
+        final double MAXIMO_COSTE = 1.0;
 
         //Declaramos las variables que necesitaremos durante el uso del programa
         double costeMateriaPrimaUnidad;
@@ -79,7 +81,7 @@ public class Ejercicio3B {
 
                 costeMateriaPrimaUnidad = Double.parseDouble(JOptionPane.showInputDialog("Introduza el coste de la materia"
                         + " prima para la fabricación de un Mantecado de Limón"));//Solicitamos el precio de la materia prima y hacemos Parse de String a Double
-                if (costeMateriaPrimaUnidad < 0.1 || costeMateriaPrimaUnidad > 1) {//Si el precio de la materia prima no está entre 0.1 y 1 entraría en el if
+                if (costeMateriaPrimaUnidad < MINIMO_COSTE || costeMateriaPrimaUnidad > MAXIMO_COSTE) {//Si el precio de la materia prima no está entre 0.1 y 1 entraría en el if
                     JOptionPane.showMessageDialog(null, "El precio no es correcto");//Mensaje de error
                     break;//Si entra en el if sale del programa
                 }
