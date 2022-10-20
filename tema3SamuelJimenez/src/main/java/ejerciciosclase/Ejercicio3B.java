@@ -73,11 +73,11 @@ public class Ejercicio3B {
                """;
 
         //Solicitamos introducir el código de producto
-        codigoProducto = JOptionPane.showInputDialog(menu);
+        codigoProducto = JOptionPane.showInputDialog(menu).toUpperCase();
 
         //Según lo introducido usamos un switch para ir a un submenú de producto u otro
         switch (codigoProducto) {
-            case "M1","m1","M2","m2","T1","t1","T2","t2","P1","p1":
+            case "M1","M2","T1","T2","P1":
 
                 costeMateriaPrimaUnidad = Double.parseDouble(JOptionPane.showInputDialog("Introduza el coste de la materia"
                         + " prima para la fabricación de un Mantecado de Limón"));//Solicitamos el precio de la materia prima y hacemos Parse de String a Double
@@ -97,23 +97,23 @@ public class Ejercicio3B {
                 final double PRECIO_UNIDAD_T1_T2 = (costeProduccionUnidad + (costeProduccionUnidad * 65) / 100);
 
                 switch (codigoProducto) {//Dependiendo del código guardamos el nombre del producto en una variable para mostrarlo luego
-                    case "M1","m1":
+                    case "M1":
                         nombreProducto = "Mantecados de Limón";
                         precioUnidad = PRECIO_UNIDAD_M1_M2_P1;
                         break;
-                    case "M2","m2":
+                    case "M2":
                         nombreProducto = "Mazapán";
                         precioUnidad = PRECIO_UNIDAD_M1_M2_P1;
                         break;
-                    case "P1","p1":
+                    case "P1":
                         nombreProducto = "Polvorón";
                         precioUnidad = PRECIO_UNIDAD_M1_M2_P1;
                         break;
-                    case "T1","t1":
+                    case "T1":
                         nombreProducto = "Turrón de chocolate";
                         precioUnidad = PRECIO_UNIDAD_T1_T2;
                         break;
-                    case "T2","t2":
+                    case "T2":
                         nombreProducto = "Turrón Clásico";
                         precioUnidad = PRECIO_UNIDAD_T1_T2;
                         break;
