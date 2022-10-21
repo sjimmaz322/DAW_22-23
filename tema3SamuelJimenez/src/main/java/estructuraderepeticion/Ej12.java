@@ -16,7 +16,7 @@ public class Ej12 {
     public static void main(String[] args) {
         char letra = 'a';
         for (int i = letra; i <= 122; i++) {
-            System.out.println((int) letra);
+            System.out.println("La letra " + letra + " cuyo valor decimal es " + (int) letra);
             letra++;
         }
     }

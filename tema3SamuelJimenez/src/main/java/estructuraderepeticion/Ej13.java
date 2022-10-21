@@ -16,7 +16,7 @@ public class Ej13 {
     public static void main(String[] args) {
         char letra = 'A';
         do {
-            System.out.println((int) letra);
+            System.out.println("La letra " + letra + " cuyo valor decimal es " + (int) letra);
             letra++;
 
         } while (letra <= 90);
