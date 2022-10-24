@@ -26,7 +26,13 @@ public class Ej02 {
             System.out.print(" - ");
             x = x + 1;
         }
+        x = 1;
 
+        //Lo hacemos con un for
+        for (int i = x; i <= n; i++) {
+            System.out.print(i);
+            System.out.print(" - ");
+        }
     }
 
 }

@@ -24,6 +24,14 @@ public class Ej03 {
             contador++;
 
         } while (contador <= LIMITEREPETICIONES);
+
+        contador = 1;
+        numero = 15;
+
+        for (int i = contador; i <= LIMITEREPETICIONES; i++) {
+            System.out.println(numero);
+            numero *= 2;
+        }
     }
 
 }
