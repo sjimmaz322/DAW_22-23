@@ -5,6 +5,7 @@ package utilidadespropias;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 import java.util.Random;
+import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,6 +16,7 @@ public class MisUtilidades {
 
     public static Random rd = new Random();
     public static boolean seguir = true;
+    public static Scanner sc = new Scanner(System.in);
 
     public static int intRangoRandom(int mayor, int menor) {
         int num = rd.nextInt(mayor - menor + 1) + menor;
@@ -41,6 +43,22 @@ public class MisUtilidades {
         return num;
     }
 
+    public static int pedirIntConsola(String mensaje) {
+        int num = 0;
+        do {
+            try {
+                seguir = true;
+                System.out.println(mensaje);
+                num = sc.nextInt();
+
+            } catch (NumberFormatException nfe) {
+                seguir = false;
+                System.out.println("Introduzca un número válido");
+            }
+        } while (!seguir);
+        return num;
+    }
+
     public static double pedirDoubleVentana(String mensaje) {
         double num = 0;
         do {
@@ -51,6 +69,22 @@ public class MisUtilidades {
             } catch (NumberFormatException nfe) {
                 seguir = false;
                 JOptionPane.showMessageDialog(null, "Intoduzca un número válido");
+            }
+        } while (!seguir);
+        return num;
+    }
+
+    public static double pedirDoubleConsola(String mensaje) {
+        double num = 0;
+        do {
+            try {
+                seguir = true;
+                System.out.println(mensaje);
+                num = sc.nextDouble();
+
+            } catch (NumberFormatException nfe) {
+                seguir = false;
+                System.out.println("Introduzca un número válido");
             }
         } while (!seguir);
         return num;
