@@ -29,8 +29,7 @@ public class NumerosRomanos {
         final String mensaje1 = "Introduza el número que desee ver en números romanos (Entre 1 y 10)";
         final String mensaje2 = "Introduza el nombre a comprobar";
 
-        do {//Bucle principal, mientras no seleccionemos la opción 3 se seguirá repitiendo
-            String menu = """
+         String menu = """
                       -------------------------------------------------------------------------
                       Seleccione que desea.
                       1 - Ver un número entre el 1 y 10 en números romanos.
@@ -38,6 +37,8 @@ public class NumerosRomanos {
                       3 - Salir del programa.
                       -------------------------------------------------------------------------
                       """;
+        do {//Bucle principal, mientras no seleccionemos la opción 3 se seguirá repitiendo
+           
 
             opcion = MisUtilidades.pedirIntVentana(menu);//Guardamos la opción elegida
 
