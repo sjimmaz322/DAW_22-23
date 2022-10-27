@@ -4,6 +4,8 @@
  */
 package utilidadespropias;
 
+import java.util.Random;
+
 /**
  *
  * @author samuel
@@ -15,6 +17,7 @@ public class PruebaUtilidades {
      */
     public static void main(String[] args) {
         MisUtilidades.pedirDoubleVentana("");
+
     }
     
 }
