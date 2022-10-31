@@ -31,7 +31,6 @@ public class MisUtilidades {
         int num = 0;
         do {
             try {
-
                 num = Integer.parseInt(JOptionPane.showInputDialog(mensaje));
                 break;
             } catch (NumberFormatException nfe) {
@@ -46,12 +45,10 @@ public class MisUtilidades {
         int num = 0;
         do {
             try {
-
                 System.out.println(mensaje);
                 num = sc.nextInt();
                 break;
             } catch (NumberFormatException nfe) {
-
                 System.out.println("Introduzca un número válido");
             }
         } while (true);
@@ -62,7 +59,6 @@ public class MisUtilidades {
         double num = 0;
         do {
             try {
-
                 num = Double.parseDouble(JOptionPane.showInputDialog(mensaje));
                 break;
             } catch (NumberFormatException nfe) {
@@ -77,7 +73,6 @@ public class MisUtilidades {
         double num = 0;
         do {
             try {
-
                 System.out.println(mensaje);
                 num = sc.nextDouble();
                 break;
@@ -92,6 +87,22 @@ public class MisUtilidades {
     public static String pedirString(String mensaje) {
         String string = JOptionPane.showInputDialog(mensaje);
         return string;
+    }
+
+    public static boolean comprobarRangoIntIncluyente(int num, int max, int min) {
+        return num <= max && num >= min;
+    }
+
+    public static boolean comprobarRangoIntExcluyente(int num, int max, int min) {
+        return num < max && num > min;
+    }
+
+    public static boolean comprobarRangoDoubleIncluyente(double num, double max, double min) {
+        return num <= max && num >= min;
+    }
+
+    public static boolean comprobarRangoDoubleExcluyente(double num, double max, double min) {
+        return num < max && num > min;
     }
 
 }
