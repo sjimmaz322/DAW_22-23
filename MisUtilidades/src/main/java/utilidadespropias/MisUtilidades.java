@@ -15,7 +15,6 @@ import javax.swing.JOptionPane;
 public class MisUtilidades {
 
     public static Random rd = new Random();
-    public static boolean seguir = true;
     public static Scanner sc = new Scanner(System.in);
 
     public static int intRangoRandom(int mayor, int menor) {
@@ -32,14 +31,14 @@ public class MisUtilidades {
         int num = 0;
         do {
             try {
-                seguir = true;
-                num = Integer.parseInt(JOptionPane.showInputDialog(mensaje));
 
+                num = Integer.parseInt(JOptionPane.showInputDialog(mensaje));
+                break;
             } catch (NumberFormatException nfe) {
-                seguir = false;
+
                 JOptionPane.showMessageDialog(null, "Intoduzca un número válido");
             }
-        } while (!seguir);
+        } while (true);
         return num;
     }
 
@@ -47,15 +46,15 @@ public class MisUtilidades {
         int num = 0;
         do {
             try {
-                seguir = true;
+
                 System.out.println(mensaje);
                 num = sc.nextInt();
-
+                break;
             } catch (NumberFormatException nfe) {
-                seguir = false;
+
                 System.out.println("Introduzca un número válido");
             }
-        } while (!seguir);
+        } while (true);
         return num;
     }
 
@@ -63,14 +62,14 @@ public class MisUtilidades {
         double num = 0;
         do {
             try {
-                seguir = true;
-                num = Double.parseDouble(JOptionPane.showInputDialog(mensaje));
 
+                num = Double.parseDouble(JOptionPane.showInputDialog(mensaje));
+                break;
             } catch (NumberFormatException nfe) {
-                seguir = false;
+
                 JOptionPane.showMessageDialog(null, "Intoduzca un número válido");
             }
-        } while (!seguir);
+        } while (true);
         return num;
     }
 
@@ -78,15 +77,15 @@ public class MisUtilidades {
         double num = 0;
         do {
             try {
-                seguir = true;
+
                 System.out.println(mensaje);
                 num = sc.nextDouble();
-
+                break;
             } catch (NumberFormatException nfe) {
-                seguir = false;
+
                 System.out.println("Introduzca un número válido");
             }
-        } while (!seguir);
+        } while (true);
         return num;
     }
 
