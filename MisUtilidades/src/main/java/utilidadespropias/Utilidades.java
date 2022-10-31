@@ -20,7 +20,6 @@ public class Utilidades {
     Método 3: Comprobar si un número está en un rango.
     Método 4: Generar aleatorio en un rango
      */
-    
     //Atributos de clase para usar en toda la clase
     private static Random rd = new Random();
     private static Scanner sc = new Scanner(System.in);
@@ -53,7 +52,6 @@ public class Utilidades {
         return num;
     }
 
-    //Método que por JOption pide un número entero controlando excepciones
     /**
      * Método que solicita mediante un JOptionPane un número entero
      *
@@ -99,7 +97,6 @@ public class Utilidades {
         return num;
     }
 
-    //Método que por JOption pide un número decimal controlando excepciones
     /**
      * Método que solicita mediante un JOptionPane un número decimal
      *
@@ -122,7 +119,6 @@ public class Utilidades {
         return num;
     }
 
-    //Método que por consola pide un número decimal controlando excepciones
     /**
      * Método que solicita mediante un mensaje por consola un número decimal
      *
