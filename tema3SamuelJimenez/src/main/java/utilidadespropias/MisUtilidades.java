@@ -23,7 +23,7 @@ public class MisUtilidades {
      */
     public static boolean seguir = true;
     /**
-     * Devuelve un número entero entre un número mayor y uno menor, ambos introducidos en el método.
+     * Devuelve un número entero entre un rangod determinado dado por dos números introducidos en el método.
      * 
      * 
      * @param mayor     Un número (Integer) introducido que será el límite máximo del rango
