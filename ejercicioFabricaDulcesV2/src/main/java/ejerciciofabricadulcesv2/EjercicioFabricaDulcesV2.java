@@ -86,9 +86,9 @@ public class EjercicioFabricaDulcesV2 {
     }
 
     private static void calcularViabilidad(String code) {
-        String nombreProducto = "";
+        String nombre;
 
-        double costeMateriaPrimaUnidad = 0, costeManoObra = 0, precioUnidad = 0;
+        double costeMateriaPrimaUnidad, costeManoObra;
         costeMateriaPrimaUnidad = Utilidades.doubleVentanaRangoIncluyente("Introduza el coste de la materia prima para la fabricación de una unidad de producto",
                 MAXIMO_COSTE, MINIMO_COSTE);
 
@@ -98,23 +98,7 @@ public class EjercicioFabricaDulcesV2 {
 
         double precioVentaUnidad = calculoPrecioUnidad(code, costeProduccionUnidad);
 
-        switch (code) {//Dependiendo del código guardamos el nombre del producto en una variable para mostrarlo luego
-            case "M1" -> {
-                nombreProducto = "Mantecados de Limón";
-            }
-            case "M2" -> {
-                nombreProducto = "Mazapán";
-            }
-            case "P1" -> {
-                nombreProducto = "Polvorón";
-            }
-            case "T1" -> {
-                nombreProducto = "Turrón de chocolate";
-            }
-            case "T2" -> {
-                nombreProducto = "Turrón Clásico";
-            }
-        }
+        nombre = selectorNombre(code);
 
         int cantidadVentaNecesaria = calculoVentaNecesariaObjetivo(precioVentaUnidad, costeProduccionUnidad);
         //Guardamos el mensaje que queremos mostrar en ventana dentro de un textblock sin olvidar que debemos mostrar 2 decimales
@@ -126,7 +110,7 @@ public class EjercicioFabricaDulcesV2 {
                             Por lo tanto el precio de venta sería %.2f €.
                             
                             Y tendríamos que vender %d unidades para tener un beneficio de 2500€.
-                            """.formatted(nombreProducto, costeMateriaPrimaUnidad, costeManoObra,
+                            """.formatted(nombre, costeMateriaPrimaUnidad, costeManoObra,
                 costeProduccionUnidad, precioVentaUnidad, cantidadVentaNecesaria);
 
         JOptionPane.showMessageDialog(null, resultado);
@@ -148,4 +132,25 @@ public class EjercicioFabricaDulcesV2 {
         return ((int) Math.ceil((BENEFICIO_OBJETIVO / (precioVenta - costeProduccion))));
     }
 
+    private static String selectorNombre(String code) {
+        String nombreProducto = "";
+        switch (code) {//Dependiendo del código guardamos el nombre del producto en una variable para mostrarlo luego
+            case "M1" -> {
+                nombreProducto = "Mantecados de Limón";
+            }
+            case "M2" -> {
+                nombreProducto = "Mazapán";
+            }
+            case "P1" -> {
+                nombreProducto = "Polvorón";
+            }
+            case "T1" -> {
+                nombreProducto = "Turrón de chocolate";
+            }
+            case "T2" -> {
+                nombreProducto = "Turrón Clásico";
+            }
+        }
+        return nombreProducto;
+    }
 }
