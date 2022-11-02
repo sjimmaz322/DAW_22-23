@@ -240,4 +240,35 @@ public class Utilidades {
         return num <= max && num > min;
     }
 
+    public static int intConsolaRangoIncluyente(String mensaje, int mayor, int menor) {
+        int num;
+        do {
+            num = pedirIntConsola(mensaje);
+        } while (!comprobarRangoIntIncluyente(num, mayor, menor));
+        return num;
+    }
+
+    public static int intVentanaRangoIncluyente(String mensaje, int mayor, int menor) {
+        int num;
+        do {
+            num = pedirIntVentana(mensaje);
+        } while (!comprobarRangoIntIncluyente(num, mayor, menor));
+        return num;
+    }
+
+    public static double doubleConsolaRangoIncluyente(String mensaje, double mayor, double menor) {
+        double num;
+        do {
+            num = pedirDoubleConsola(mensaje);
+        } while (!comprobarRangoDoubleIncluyente(num, mayor, menor));
+        return num;
+    }
+
+    public static double doubleVentanaRangoIncluyente(String mensaje, int mayor, int menor) {
+        double num;
+        do {
+            num = pedirDoubleVentana(mensaje);
+        } while (!comprobarRangoDoubleIncluyente(num, mayor, menor));
+        return num;
+    }
 }
