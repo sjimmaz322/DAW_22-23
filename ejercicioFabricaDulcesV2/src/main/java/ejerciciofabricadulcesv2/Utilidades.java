@@ -239,7 +239,7 @@ public class Utilidades {
     public static boolean comprobarRangoDoubleMaxIncluido(double num, double max, double min) {
         return num <= max && num > min;
     }
-
+    
     public static int intConsolaRangoIncluyente(String mensaje, int mayor, int menor) {
         int num;
         do {
@@ -247,7 +247,7 @@ public class Utilidades {
         } while (!comprobarRangoIntIncluyente(num, mayor, menor));
         return num;
     }
-
+    
     public static int intVentanaRangoIncluyente(String mensaje, int mayor, int menor) {
         int num;
         do {
@@ -255,7 +255,7 @@ public class Utilidades {
         } while (!comprobarRangoIntIncluyente(num, mayor, menor));
         return num;
     }
-
+    
     public static double doubleConsolaRangoIncluyente(String mensaje, double mayor, double menor) {
         double num;
         do {
@@ -263,11 +263,14 @@ public class Utilidades {
         } while (!comprobarRangoDoubleIncluyente(num, mayor, menor));
         return num;
     }
-
-    public static double doubleVentanaRangoIncluyente(String mensaje, int mayor, int menor) {
+    
+    public static double doubleVentanaRangoIncluyente(String mensaje, double mayor, double menor) {
         double num;
         do {
             num = pedirDoubleVentana(mensaje);
+            if (num < menor || num > mayor) {
+                JOptionPane.showMessageDialog(null, "El número pedido debe estar entre " + menor + " y " + mayor);
+            }
         } while (!comprobarRangoDoubleIncluyente(num, mayor, menor));
         return num;
     }
