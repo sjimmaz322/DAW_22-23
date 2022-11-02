@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package ejercicio3fsamueljimenez;
+package ejerciciofabricadulcesv2;
 
 import javax.swing.JOptionPane;
 
@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
  *
  * @author sajm <sjimmaz322 at sjimmaz322@g.educaand.es>
  */
-public class Ejercicio3FSamuelJimenez {
+public class EjercicioFabricaDulcesV2 {
 
     /*
     - Método para el menú
@@ -65,7 +65,7 @@ public class Ejercicio3FSamuelJimenez {
                
                """;
         do {//Bucle de repetición del programa completo
-           
+
             opcion = JOptionPane.showInputDialog(menu).toUpperCase();
             switch (opcion) {//Switch para mostrar el programa, un mensaje de error que devolverá a la selección de opción o un mensaje de despedida.
                 case "COMPROBAR":
