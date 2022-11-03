@@ -32,7 +32,7 @@ public class EjercicioFabricaDulcesV2 {
     private static final double MAXIMO_COSTE = 1.0;
     private static final String CODIGO_COMPROBAR = "Comprobar";
     private static final String CODIGO_SALIDA = "Salir";
-    private static final String MENU = """
+    private static final String MENU_PRODUCTOS = """
                --- --- --- Menú --- --- ---
                Introduza el código deseado.
                
@@ -46,7 +46,7 @@ public class EjercicioFabricaDulcesV2 {
                
                """;
 
-    final static String MENU2 = """
+    final static String MENU_ACCIONES = """
                Introduza que desea hacer
                Comprobar - Para comprobar la viabilidad de los productos.
                Salir - Para salir.
@@ -64,7 +64,7 @@ public class EjercicioFabricaDulcesV2 {
 
         do {
             do {
-                code = Utilidades.pedirString(MENU2);
+                code = Utilidades.pedirString(MENU_ACCIONES);
             } while (!filtrarCodigoAccion(code, CODIGO_COMPROBAR, CODIGO_SALIDA));
             if (code.equalsIgnoreCase(CODIGO_COMPROBAR)) {
                 rutaComprobar();
@@ -87,7 +87,7 @@ public class EjercicioFabricaDulcesV2 {
     private static void comprobaCodigoDulce(String cod1, String cod2, String cod3, String cod4, String cod5) {
 
         do {
-            code = Utilidades.pedirString(MENU).toUpperCase();
+            code = Utilidades.pedirString(MENU_PRODUCTOS).toUpperCase();
         } while (!(code.equalsIgnoreCase(cod1)
                 || code.equalsIgnoreCase(cod2)
                 || code.equalsIgnoreCase(cod3)
@@ -119,7 +119,7 @@ public class EjercicioFabricaDulcesV2 {
         String nombre = selectorNombre(code);
 
         int cantidadVentaNecesaria = calculoVentaNecesariaObjetivo(precioVentaUnidad, costeProduccionUnidad);
-        
+
         //Guardamos el mensaje que queremos mostrar en ventana dentro de un textblock sin olvidar que debemos mostrar 2 decimales
         String resultado = """
                             Referente al producto "%s" sabemos:
