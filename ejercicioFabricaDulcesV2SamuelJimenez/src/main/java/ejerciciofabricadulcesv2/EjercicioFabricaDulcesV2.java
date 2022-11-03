@@ -48,13 +48,15 @@ public class EjercicioFabricaDulcesV2 {
                Salir - Para salir.
                """;
         do {
-            code = Utilidades.pedirString(menu);
-        } while (!(code.equalsIgnoreCase(cod1) || code.equalsIgnoreCase(cod2)));
-        if (code.equalsIgnoreCase(cod1)) {
-            rutaComprobar();
-        } else {
-            JOptionPane.showMessageDialog(null, "Gracias por usar nuestro programa");
-        }
+            do {
+                code = Utilidades.pedirString(menu);
+            } while (!(code.equalsIgnoreCase(cod1) || code.equalsIgnoreCase(cod2)));
+            if (code.equalsIgnoreCase(cod1)) {
+                rutaComprobar();
+            } else {
+                JOptionPane.showMessageDialog(null, "Gracias por usar nuestro programa");
+            }
+        } while (!code.equalsIgnoreCase(CODIGO_SALIDA));
     }
 
     private static void rutaComprobar() {
