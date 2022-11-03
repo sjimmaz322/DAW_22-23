@@ -32,6 +32,19 @@ public class EjercicioFabricaDulcesV2 {
     private static final double MAXIMO_COSTE = 1.0;
     private static final String CODIGO_COMPROBAR = "Comprobar";
     private static final String CODIGO_SALIDA = "Salir";
+    private static final String MENU = """
+               --- --- --- Menú --- --- ---
+               Introduza el código deseado.
+               
+               M1 para Mantecado de Limón.
+               M2 para Mazapán.
+               T1 para Turrón de Chocolate.
+               T2 para Turrón Clásico.
+               P1 para Polvorón.
+                                       
+               SALIR para finalizar el programa.
+               
+               """;
     private static String code = "";
 
     public static void main(String[] args) {
@@ -60,31 +73,30 @@ public class EjercicioFabricaDulcesV2 {
     }
 
     private static void rutaComprobar() {
-        String menu = """
-               --- --- --- Menú --- --- ---
-               Introduza el código deseado.
-               
-               M1 para Mantecado de Limón.
-               M2 para Mazapán.
-               T1 para Turrón de Chocolate.
-               T2 para Turrón Clásico.
-               P1 para Polvorón.
-               
-               """;
-        comprobaCodigoDulce(menu, "M1", "M2", "T1", "T2", "P1");
+
+        comprobaCodigoDulce("M1", "M2", "T1", "T2", "P1");
 
     }
 
-    private static void comprobaCodigoDulce(String menu, String cod1, String cod2, String cod3, String cod4, String cod5) {
+    private static void comprobaCodigoDulce(String cod1, String cod2, String cod3, String cod4, String cod5) {
 
         do {
-            code = Utilidades.pedirString(menu).toUpperCase();
+            code = Utilidades.pedirString(MENU).toUpperCase();
         } while (!(code.equalsIgnoreCase(cod1)
                 || code.equalsIgnoreCase(cod2)
                 || code.equalsIgnoreCase(cod3)
                 || code.equalsIgnoreCase(cod4)
-                || code.equalsIgnoreCase(cod5)));
-        calcularViabilidad(code);
+                || code.equalsIgnoreCase(cod5)
+                || code.equalsIgnoreCase(CODIGO_SALIDA)));
+        if ((code.equalsIgnoreCase(cod1)
+                || code.equalsIgnoreCase(cod2)
+                || code.equalsIgnoreCase(cod3)
+                || code.equalsIgnoreCase(cod4)
+                || code.equalsIgnoreCase(cod5))) {
+            calcularViabilidad(code);
+        } else {
+            JOptionPane.showMessageDialog(null, "Gracias por usar nuestro programa");
+        }
     }
 
     private static void calcularViabilidad(String code) {
@@ -116,6 +128,7 @@ public class EjercicioFabricaDulcesV2 {
                 costeProduccionUnidad, precioVentaUnidad, cantidadVentaNecesaria);
 
         JOptionPane.showMessageDialog(null, resultado);
+
     }
 
     private static double calculoPrecioProduccion(double materiaPrima, double manoObra) {
