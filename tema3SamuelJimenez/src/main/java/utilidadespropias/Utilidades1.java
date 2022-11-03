@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
  *
  * @author samuel
  */
-public class Utilidades {
+public class Utilidades1 {
 
     /*
     Método 1: Leer entero sin errores
