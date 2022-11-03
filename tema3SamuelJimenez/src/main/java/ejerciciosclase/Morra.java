@@ -75,8 +75,8 @@ public class Morra {
             //Mostramos el mensaje
             JOptionPane.showMessageDialog(null, marcador);
 
-            //Si el jugador lleva al menos 5 victoria y dos más que la máquina, gana el jugador
-            if (victoriasJugador >= 5 && victoriasJugador >= victoriasMaquina + 2) {
+            //Si el jugador lleva al menos 3 victoria y dos más que la máquina, gana el jugador
+            if (victoriasJugador >= 3 && victoriasJugador >= victoriasMaquina + 2) {
                 finJuego = true;//Actualización de variable para finalizar el juego
                 String victoriaJugador = """
                                          ¡¡¡GANA EL JUGADOR!!!
@@ -87,8 +87,8 @@ public class Morra {
                                          """.formatted(victoriasJugador, victoriasMaquina, rondasEmpate);
 
                 JOptionPane.showMessageDialog(null, victoriaJugador);
-                //Si la máquina lleva al menos 5 victoria y dos más que el jugador, gana la máquina
-            } else if (victoriasMaquina >= 5 && victoriasMaquina >= victoriasJugador + 2) {
+                //Si la máquina lleva al menos 3 victoria y dos más que el jugador, gana la máquina
+            } else if (victoriasMaquina >= 3 && victoriasMaquina >= victoriasJugador + 2) {
                 finJuego = true;//Actualización de variable para finalizar el juego
                 String victoriaMaquina = """
                                          Pues... meh... ganó la máquina
