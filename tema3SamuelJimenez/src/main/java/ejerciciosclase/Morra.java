@@ -19,7 +19,7 @@ public class Morra {
     private static Random rd = new Random();
 
     public static void main(String[] args) {
-        int apuestaJugador, apuestaMaquina, totalDedos, diferenciaJugador, diferenciaMaquina;
+        int apuestaJugador, apuestaMaquina, totalDedos;
         int victoriasJugador = 0, victoriasMaquina = 0, numRondas = 0, rondasEmpate = 0, rondasNulas = 0;
         boolean finJuego = true;
 
@@ -34,10 +34,6 @@ public class Morra {
             apuestaJugador = utilidadespropias.Utilidades.intVentanaRangoIncluyente("¿Cuántos dedos crees que habrá en total?", 10, 2);
 
             apuestaMaquina = prediccionMaquina(numDedosMaquina);
-
-            diferenciaJugador = totalDedos - apuestaJugador;
-
-            diferenciaMaquina = totalDedos - apuestaMaquina;
 
             String resumenRonda = """
                                En esta ronda...
