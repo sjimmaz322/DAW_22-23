@@ -20,7 +20,7 @@ public class MorraAproximacion {
 
     public static void main(String[] args) {
         int apuestaJugador, apuestaMaquina, totalDedos, diferenciaJugador, diferenciaMaquina;
-        int victoriasJugador = 0, victoriasMaquina = 0, numRondas = 0, rondasEmpate = 0, rondasNulas = 0;
+        int victoriasJugador = 0, victoriasMaquina = 0, numRondas = 0, rondasEmpate = 0;
         boolean finJuego = true;
 
         do {
