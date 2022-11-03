@@ -9,12 +9,12 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author samuel
+ * @author sajm <sjimmaz322 at sjimmaz322@g.educaand.es>
  */
-public class Morra {
+public class MorraAproximacion {
 
-    /*
-    Programa para jugar a Morra. (Está en wikipedia)
+    /**
+     * @param args the command line arguments
      */
     private static Random rd = new Random();
 
@@ -35,9 +35,9 @@ public class Morra {
 
             apuestaMaquina = prediccionMaquina(numDedosMaquina);
 
-            diferenciaJugador = totalDedos - apuestaJugador;
+            diferenciaJugador = Math.abs(totalDedos - apuestaJugador);
 
-            diferenciaMaquina = totalDedos - apuestaMaquina;
+            diferenciaMaquina = Math.abs(totalDedos - apuestaMaquina);
 
             String resumenRonda = """
                                En esta ronda...
@@ -58,15 +58,13 @@ public class Morra {
             if (apuestaJugador == totalDedos && apuestaMaquina == totalDedos) {
                 JOptionPane.showMessageDialog(null, "Pues nada, empate.");
                 rondasEmpate++;
-            } else if (apuestaMaquina == totalDedos) {
+            } else if (diferenciaJugador > diferenciaMaquina) {
                 JOptionPane.showMessageDialog(null, "Buuu... gana la máquina esta ronda...");
                 victoriasMaquina++;
-            } else if (apuestaJugador == totalDedos) {
+            } else {
                 JOptionPane.showMessageDialog(null, "Esta Ronda la gana el jugador!!!");
                 victoriasJugador++;
-            } else {
-                JOptionPane.showMessageDialog(null, "Nadie gana esta ronda");
-                rondasNulas++;
+
             }
             numRondas++;
             String contador = """
@@ -74,8 +72,7 @@ public class Morra {
                               El jugador ha ganado %d rondas.
                               La máquina ha ganado %d rondas.
                               Ha habido %d rondas que fueron empate.
-                              Ha habido %d rondas en las que nadie ganó.
-                              """.formatted(numRondas, victoriasJugador, victoriasMaquina, rondasEmpate, rondasNulas);
+                              """.formatted(numRondas, victoriasJugador, victoriasMaquina, rondasEmpate);
 
             JOptionPane.showMessageDialog(null, contador);
 
