@@ -19,14 +19,14 @@ public class Morra {
 
     public static void main(String[] args) {
 
-        int numDedosJugador;
+        int numDedosJugador = utilidadespropias.Utilidades.intVentanaRangoIncluyente("¿Cuántos dedos desea sacar?", 10, 0);
 
-        int numDedosMaquina = dedosMaquina();   
+        int numDedosMaquina = dedosMaquina();
 
     }
 
     private static int dedosMaquina() {
-        int dedos = utilidadespropias.Utilidades1.intRangoRandom(10, 0);
+        int dedos = utilidadespropias.Utilidades.intRangoRandom(10, 0);
         return dedos;
     }
 

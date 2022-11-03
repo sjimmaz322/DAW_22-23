@@ -5,7 +5,7 @@
 package ejerciciosclase;
 
 import javax.swing.JOptionPane;
-import utilidadespropias.MisUtilidades;
+
 
 /**
  *
@@ -40,13 +40,13 @@ public class NumerosRomanos {
         do {//Bucle principal, mientras no seleccionemos la opción 3 se seguirá repitiendo
            
 
-            opcion = MisUtilidades.pedirIntVentana(menu);//Guardamos la opción elegida
+            opcion = utilidadespropias.Utilidades.pedirIntVentana(menu);//Guardamos la opción elegida
 
             switch (opcion) {//Switch para ir a cada opción seleccionada
                 case 1:
                     do {//Bucle para que se repita en caso de meter un número que no esté entre 1 y 10
                         repetir = false;//Actualización de condición
-                        num = MisUtilidades.pedirIntVentana(mensaje1);//Guardamos el numero que queremos convertir
+                        num = utilidadespropias.Utilidades.pedirIntVentana(mensaje1);//Guardamos el numero que queremos convertir
                         numRomano = switch (num) {//Switch con flecha para guardar el String del número romano
                             case 1 ->
                                 "I";
@@ -82,7 +82,7 @@ public class NumerosRomanos {
                     break;
                 case 2:
                     //Guardamos el nombre y lo pasamos a minúsculas
-                    nombre = MisUtilidades.pedirString(mensaje2).toLowerCase();
+                    nombre = utilidadespropias.Utilidades.pedirString(mensaje2).toLowerCase();
                     numVocales = 0;//Actualizamos el número de vocales por si repetirmos la operación
                     for (int i = 0; i < nombre.length(); i++) {//For para recorrer el nombre
                         //Si la posición i es una vocal, sumamos 1 al contador
