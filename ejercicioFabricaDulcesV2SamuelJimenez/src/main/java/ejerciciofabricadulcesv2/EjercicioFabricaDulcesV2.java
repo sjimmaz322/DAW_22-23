@@ -45,31 +45,37 @@ public class EjercicioFabricaDulcesV2 {
                SALIR para finalizar el programa.
                
                """;
-    private static String code = "";
 
-    public static void main(String[] args) {
-
-        comprobaCodigoAccion(CODIGO_COMPROBAR, CODIGO_SALIDA);
-
-    }
-
-    private static void comprobaCodigoAccion(String cod1, String cod2) {
-
-        String menu = """
+    final static String MENU2 = """
                Introduza que desea hacer
                Comprobar - Para comprobar la viabilidad de los productos.
                Salir - Para salir.
                """;
+
+    private static String code = "";
+
+    public static void main(String[] args) {
+
+        comprobaCodigoAccion();
+
+    }
+
+    private static void comprobaCodigoAccion() {
+
         do {
             do {
-                code = Utilidades.pedirString(menu);
-            } while (!(code.equalsIgnoreCase(cod1) || code.equalsIgnoreCase(cod2)));
-            if (code.equalsIgnoreCase(cod1)) {
+                code = Utilidades.pedirString(MENU2);
+            } while (!filtrarCodigoAccion(code, CODIGO_COMPROBAR, CODIGO_SALIDA));
+            if (code.equalsIgnoreCase(CODIGO_COMPROBAR)) {
                 rutaComprobar();
             } else {
                 JOptionPane.showMessageDialog(null, "Gracias por usar nuestro programa");
             }
         } while (!code.equalsIgnoreCase(CODIGO_SALIDA));
+    }
+
+    private static boolean filtrarCodigoAccion(String codigo, String cod1, String cod2) {
+        return (codigo.equalsIgnoreCase(cod1) || codigo.equalsIgnoreCase(cod2));
     }
 
     private static void rutaComprobar() {
@@ -97,21 +103,23 @@ public class EjercicioFabricaDulcesV2 {
     }
 
     private static void calcularViabilidad(String code) {
-        String nombre;
 
         double costeMateriaPrimaUnidad, costeManoObra;
+
         costeMateriaPrimaUnidad = Utilidades.doubleVentanaRangoIncluyente("Introduza el coste de la materia prima para la fabricación de una unidad de producto",
                 MAXIMO_COSTE, MINIMO_COSTE);
 
         costeManoObra = Utilidades.doubleVentanaRangoIncluyente("Introduzca el coste de mano de obra de la fabricación de una unidad de producto",
                 MANO_OBRA_UNIDAD_MAXIMO, MANO_OBRA_UNIDAD_MINIMO);
+
         double costeProduccionUnidad = calculoPrecioProduccion(costeMateriaPrimaUnidad, costeManoObra);
 
         double precioVentaUnidad = calculoPrecioUnidad(code, costeProduccionUnidad);
 
-        nombre = selectorNombre(code);
+        String nombre = selectorNombre(code);
 
         int cantidadVentaNecesaria = calculoVentaNecesariaObjetivo(precioVentaUnidad, costeProduccionUnidad);
+        
         //Guardamos el mensaje que queremos mostrar en ventana dentro de un textblock sin olvidar que debemos mostrar 2 decimales
         String resultado = """
                             Referente al producto "%s" sabemos:
