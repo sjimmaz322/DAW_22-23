@@ -88,14 +88,11 @@ public class EjercicioFabricaDulcesV2 {
                 || code.equalsIgnoreCase(cod4)
                 || code.equalsIgnoreCase(cod5)
                 || code.equalsIgnoreCase(CODIGO_SALIDA)));
-        if ((code.equalsIgnoreCase(cod1)
-                || code.equalsIgnoreCase(cod2)
-                || code.equalsIgnoreCase(cod3)
-                || code.equalsIgnoreCase(cod4)
-                || code.equalsIgnoreCase(cod5))) {
-            calcularViabilidad(code);
-        } else {
+
+        if ((code.equalsIgnoreCase(CODIGO_SALIDA))) {
             JOptionPane.showMessageDialog(null, "Gracias por usar nuestro programa");
+        } else {
+            calcularViabilidad(code);
         }
     }
 
