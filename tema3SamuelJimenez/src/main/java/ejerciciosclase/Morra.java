@@ -21,7 +21,7 @@ public class Morra {
 
         int numDedosJugador;
 
-        int numDedosMaquina = dedosMaquina();
+        int numDedosMaquina = dedosMaquina();   
 
     }
 
