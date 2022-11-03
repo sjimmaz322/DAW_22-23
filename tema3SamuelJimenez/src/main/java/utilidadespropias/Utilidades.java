@@ -252,6 +252,9 @@ public class Utilidades {
         int num;
         do {
             num = pedirIntVentana(mensaje);
+            if (num < menor || num > mayor) {
+                JOptionPane.showMessageDialog(null, "El número debe estar entre " + menor + " y " + mayor);
+            }
         } while (!comprobarRangoIntIncluyente(num, mayor, menor));
         return num;
     }
@@ -268,6 +271,9 @@ public class Utilidades {
         double num;
         do {
             num = pedirDoubleVentana(mensaje);
+            if (num < menor || num > mayor) {
+                JOptionPane.showMessageDialog(null, "El número debe estar entre " + menor + " y " + mayor);
+            }
         } while (!comprobarRangoDoubleIncluyente(num, mayor, menor));
         return num;
     }
