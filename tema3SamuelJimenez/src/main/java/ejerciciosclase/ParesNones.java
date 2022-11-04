@@ -25,7 +25,7 @@ public class ParesNones {
         final String MENSAJE2 = "¿Quieres usar una mano o dos manos?\nIntoduzca 1 o 2, así, en número";
         final int MAX_Victorias = 3;
         String resultado = "";
-        String eleccionMenu = "", eleccion = "";
+        String eleccionMenu = "", eleccionParesNones = "";
         String sacaDedos = "";
 
         int victoriasNecesarias = (MAX_Victorias / 2) + 1;
@@ -47,8 +47,8 @@ public class ParesNones {
                 numManos = utilidadespropias.Utilidades.intVentanaRangoIncluyente(MENSAJE2, 2, 1);
 
                 do {//Bucle que se repetirá mientras no elijamos una opción válida, en este caso "Pares" o "Nones"
-                    eleccion = utilidadespropias.Utilidades.pedirString(MENSAJE).toUpperCase();
-                } while (!comprobarEleccion(eleccion, PARES, NONES));
+                    eleccionParesNones = utilidadespropias.Utilidades.pedirString(MENSAJE).toUpperCase();
+                } while (!comprobarEleccion(eleccionParesNones, PARES, NONES));
                 //Mensaje para preguntar los dedos que deseamos sacar
                 sacaDedos = """
                            ¿Cuantos dedos deseas sacar?
@@ -69,7 +69,7 @@ public class ParesNones {
                 totalDedos = dedosJugador + dedosMaquina;
 
                 //Switch dependiendo si elegimos pares o nones
-                switch (eleccion) {
+                switch (eleccionParesNones) {
                     case "PARES":
                         if (totalDedos % 2 == 0) {//if-else para ver si ganamos o perdimos
                             resultado = """
