@@ -22,9 +22,15 @@ public class ParesNones {
         final String MENU = "¿Quieres jugar a Pares o Nones?\nSi o No";
         final String MENU2 = "¿Quieres jugar a Pares o Nones otra vez?\nSi o No";
         final String MENSAJE = "¿Pares o Nones?";
+        final String MENSAJE2 = "¿Quieres usar una mano o dos manos?\nIntoduzca 1 o 2, así, en número";
+        final int MAX_Victorias = 3;
         String resultado = "";
         String eleccionMenu = "", eleccion = "";
         String sacaDedos = "";
+
+        int victoriasNecesarias = (MAX_Victorias / 2) + 1;
+
+        int numManos;
         int rondas = 0, rondasGanadas = 0, rondasPerdidas = 0;
 
         do {//bucle que se repetirá hasta que escribamos no
@@ -38,6 +44,8 @@ public class ParesNones {
 
             if (eleccionMenu.equalsIgnoreCase("Si")) {//Si elegimos jugar al juego
 
+                numManos = utilidadespropias.Utilidades.intVentanaRangoIncluyente(MENSAJE2, 2, 1);
+
                 do {//Bucle que se repetirá mientras no elijamos una opción válida, en este caso "Pares" o "Nones"
                     eleccion = utilidadespropias.Utilidades.pedirString(MENSAJE).toUpperCase();
                 } while (!comprobarEleccion(eleccion, PARES, NONES));
@@ -45,10 +53,17 @@ public class ParesNones {
                 sacaDedos = """
                            ¿Cuantos dedos deseas sacar?
                            """;
-                //Elegimos los dedos que sacaremos, el método se ocupa de controlar rango y excepciones
-                dedosJugador = utilidadespropias.Utilidades.intVentanaRangoIncluyente(sacaDedos, 10, 1);
-                //Método que nos da un número aleatorio entre 1 y 10
-                dedosMaquina = utilidadespropias.Utilidades.intRangoRandom(10, 1);
+
+                if (numManos == 2) {//Si hemos elegido usar las dos manos
+                    //Elegimos los dedos que sacaremos, el método se ocupa de controlar rango y excepciones
+                    dedosJugador = utilidadespropias.Utilidades.intVentanaRangoIncluyente(sacaDedos, 10, 1);
+                    //Método que nos da un número aleatorio entre 1 y 10
+                    dedosMaquina = utilidadespropias.Utilidades.intRangoRandom(10, 1);
+                } else {//Si elegimos usar una
+                    dedosJugador = utilidadespropias.Utilidades.intVentanaRangoIncluyente(sacaDedos, 5, 1);
+                    //Método que nos da un número aleatorio entre 1 y 10
+                    dedosMaquina = utilidadespropias.Utilidades.intRangoRandom(5, 1);
+                }
 
                 //Calculamos el total de dedos sacados
                 totalDedos = dedosJugador + dedosMaquina;
@@ -102,7 +117,13 @@ public class ParesNones {
             } else {//Mensaje de despedida
                 JOptionPane.showMessageDialog(null, "Gracias por usar mi programa.");
             }
-        } while (eleccionMenu.equalsIgnoreCase("Si"));
+        } while (eleccionMenu.equalsIgnoreCase("Si") && ((rondasGanadas < victoriasNecesarias) || (rondasPerdidas < victoriasNecesarias)));
+
+        if (victoriasNecesarias == rondasGanadas) {
+            JOptionPane.showMessageDialog(null, "Gana el jugador");
+        } else {
+            JOptionPane.showMessageDialog(null, "Gana la máquina");
+        }
 
         //Mensaje que muestra el resumen de las rondas.
         String resumenFinal = """
