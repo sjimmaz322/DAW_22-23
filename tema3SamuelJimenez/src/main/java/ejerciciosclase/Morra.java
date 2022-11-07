@@ -11,10 +11,10 @@ import javax.swing.JOptionPane;
  * @author samuel
  */
 public class Morra {
+
     /*
     En este programa se jugará a Morra según las normas de Wikipedia.
      */
-
     public static void main(String[] args) {
         //Creamos las variables para guardar los datos necesarios y para finalizar el juego cuando corresponda
         int apuestaJugador, apuestaMaquina, totalDedos;
@@ -79,7 +79,7 @@ public class Morra {
             JOptionPane.showMessageDialog(null, marcador);
 
             //Si el jugador lleva al menos 3 victoria y dos más que la máquina, gana el jugador
-            if (victoriasJugador >= 3 && victoriasJugador >= victoriasMaquina + 2) {
+            if (victoriasJugador >= 3 && (victoriasJugador >= victoriasMaquina + 2)) {
                 finJuego = true;//Actualización de variable para finalizar el juego
                 String victoriaJugador = """
                                          ¡¡¡GANA EL JUGADOR!!!
@@ -91,7 +91,7 @@ public class Morra {
 
                 JOptionPane.showMessageDialog(null, victoriaJugador);
                 //Si la máquina lleva al menos 3 victoria y dos más que el jugador, gana la máquina
-            } else if (victoriasMaquina >= 3 && victoriasMaquina >= victoriasJugador + 2) {
+            } else if (victoriasMaquina >= 3 && (victoriasMaquina >= victoriasJugador + 2)) {
                 finJuego = true;//Actualización de variable para finalizar el juego
                 String victoriaMaquina = """
                                          Pues... meh... ganó la máquina
