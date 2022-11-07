@@ -4,6 +4,7 @@ package utilidadespropias;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
@@ -69,6 +70,8 @@ public class Utilidades {
                 break;
             } catch (NumberFormatException nfe) {
                 JOptionPane.showMessageDialog(null, "Intoduzca un número válido");
+            } catch (InputMismatchException ime) {
+                JOptionPane.showMessageDialog(null, "Intoduzca un número por favor");
             }
         } while (true);
         return num;
@@ -92,7 +95,11 @@ public class Utilidades {
                 break;
             } catch (NumberFormatException nfe) {
                 System.out.println("Introduzca un número válido");
+            } catch (InputMismatchException ime) {
+                System.out.println("Introduzca un número por favor");
+                sc.nextLine();
             }
+
         } while (true);
         return num;
     }
