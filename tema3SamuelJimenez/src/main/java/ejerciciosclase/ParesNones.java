@@ -11,10 +11,10 @@ import javax.swing.JOptionPane;
  * @author sajm <sjimmaz322 at sjimmaz322@g.educaand.es>
  */
 public class ParesNones {
-
+    
     private static final String PARES = "Pares";
     private static final String NONES = "Nones";
-
+    
     public static void main(String[] args) {
 
         //Declaramos e inicializamos las variables que vamos a usar
@@ -27,12 +27,12 @@ public class ParesNones {
         String resultado = "";
         String eleccionMenu = "", eleccionParesNones = "";
         String sacaDedos = "";
-
+        
         int victoriasNecesarias = (MAX_Victorias / 2) + 1;
-
+        
         int numManos;
         int rondas = 0, rondasGanadas = 0, rondasPerdidas = 0;
-
+        
         do {//bucle que se repetirá hasta que escribamos no
             do {//Bucle que se repetirá mientras no elijamos una opción válida, en este caso "Si" o "No"
                 if (rondas == 0) {
@@ -41,11 +41,11 @@ public class ParesNones {
                     eleccionMenu = utilidadespropias.Utilidades.pedirString(MENU2);
                 }
             } while (!comprobarEleccion(eleccionMenu, "Si", "No"));
-
+            
             if (eleccionMenu.equalsIgnoreCase("Si")) {//Si elegimos jugar al juego
 
                 numManos = utilidadespropias.Utilidades.intVentanaRangoIncluyente(MENSAJE2, 2, 1);
-
+                
                 do {//Bucle que se repetirá mientras no elijamos una opción válida, en este caso "Pares" o "Nones"
                     eleccionParesNones = utilidadespropias.Utilidades.pedirString(MENSAJE).toUpperCase();
                 } while (!comprobarEleccion(eleccionParesNones, PARES, NONES));
@@ -53,7 +53,7 @@ public class ParesNones {
                 sacaDedos = """
                            ¿Cuantos dedos deseas sacar?
                            """;
-
+                
                 if (numManos == 2) {//Si hemos elegido usar las dos manos
                     //Elegimos los dedos que sacaremos, el método se ocupa de controlar rango y excepciones
                     dedosJugador = utilidadespropias.Utilidades.intVentanaRangoIncluyente(sacaDedos, 10, 1);
@@ -118,11 +118,13 @@ public class ParesNones {
                 JOptionPane.showMessageDialog(null, "Gracias por usar mi programa.");
             }
         } while (eleccionMenu.equalsIgnoreCase("Si") && ((rondasGanadas < victoriasNecesarias) || (rondasPerdidas < victoriasNecesarias)));
-
+        
         if (victoriasNecesarias == rondasGanadas) {
             JOptionPane.showMessageDialog(null, "Gana el jugador");
-        } else {
+        } else if (victoriasNecesarias == rondasPerdidas) {
             JOptionPane.showMessageDialog(null, "Gana la máquina");
+        } else {
+            JOptionPane.showMessageDialog(null, "Nadie gana.");
         }
 
         //Mensaje que muestra el resumen de las rondas.
@@ -135,7 +137,7 @@ public class ParesNones {
         //Imprimimos el mensaje de resultado.
         JOptionPane.showMessageDialog(null, resumenFinal);
     }
-
+    
     private static boolean comprobarEleccion(String eleccion, String op1, String op2) {
         return eleccion.equalsIgnoreCase(op1) || eleccion.equalsIgnoreCase(op2);
     }
