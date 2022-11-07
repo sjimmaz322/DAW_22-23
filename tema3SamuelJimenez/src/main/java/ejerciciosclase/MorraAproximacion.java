@@ -4,7 +4,6 @@
  */
 package ejerciciosclase;
 
-
 import javax.swing.JOptionPane;
 
 /**
@@ -17,7 +16,6 @@ public class MorraAproximacion {
     En este programa se jugará a Morra según normas ajustadas, ganará quien cuya predicción se acerque
     más al resultado real.
      */
-
     public static void main(String[] args) {
         //Creamos las variables para guardar los datos necesarios y para finalizar el juego cuando corresponda
         int apuestaJugador, apuestaMaquina, totalDedos, diferenciaJugador, diferenciaMaquina;
@@ -84,7 +82,7 @@ public class MorraAproximacion {
             JOptionPane.showMessageDialog(null, marcador);
 
             //Si el jugador ha ganado al menos 3 rondas y lleva al menos dos victorias más que la máquina, el jugador gana
-            if (victoriasJugador >= 3 && victoriasJugador >= victoriasMaquina + 2) {
+            if (victoriasJugador >= 3 && (victoriasJugador >= victoriasMaquina + 2)) {
                 finJuego = true;//Actualización de variable para finalizar el juego
                 String victoriaJugador = """
                                          ¡¡¡GANA EL JUGADOR!!!
@@ -96,7 +94,7 @@ public class MorraAproximacion {
 
                 JOptionPane.showMessageDialog(null, victoriaJugador);
                 //Si la máquina es quien lleva 3 o más victorias y 2 o más que el jugador, gana la máquina
-            } else if (victoriasMaquina >= 3 && victoriasMaquina >= victoriasJugador + 2) {
+            } else if (victoriasMaquina >= 3 && (victoriasMaquina >= victoriasJugador + 2)) {
                 finJuego = true;//Actualización de variable para finalizar el juego
                 String victoriaMaquina = """
                                          Pues... meh... ganó la máquina
