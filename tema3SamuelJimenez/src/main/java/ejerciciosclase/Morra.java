@@ -11,6 +11,9 @@ import javax.swing.JOptionPane;
  * @author samuel
  */
 public class Morra {
+    /*
+    En este programa se jugará a Morra según las normas de Wikipedia.
+     */
 
     public static void main(String[] args) {
         //Creamos las variables para guardar los datos necesarios y para finalizar el juego cuando corresponda
