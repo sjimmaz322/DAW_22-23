@@ -127,9 +127,6 @@ public class ParesNones {
         } else if (victoriasNecesarias == rondasPerdidas) {
             JOptionPane.showMessageDialog(null, "Gana la máquina");
         }
-//        } else {
-//            JOptionPane.showMessageDialog(null, "Nadie gana.");
-//        }
 
         //Mensaje que muestra el resumen de las rondas.
         String resumenFinal = """
