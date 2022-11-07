@@ -110,9 +110,12 @@ public class MorraAproximacion {
                 if (victoriasJugador > victoriasMaquina) {
                     JOptionPane.showMessageDialog(null, "Gana el jugador con una diferencia de " + victoriasJugador + " a " + victoriasMaquina);
                     finJuego = true;//Actualización de variable para finalizar el juego
-                } else {
+                } else if (victoriasMaquina > victoriasJugador) {
                     JOptionPane.showMessageDialog(null, "Gana la máquina con una diferencia de " + victoriasMaquina + " a " + victoriasJugador);
                     finJuego = true;//Actualización de variable para finalizar el juego
+                } else {
+                    JOptionPane.showMessageDialog(null, "Empate técnico, nadie gana");
+                    finJuego = true;
                 }
             }
         } while (!finJuego);
