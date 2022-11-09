@@ -1,9 +1,10 @@
-package ejerciciofabricadulcesv2;
+package ejerciciodescuentobolassamueljimenez;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
@@ -114,6 +115,8 @@ public class Utilidades {
                 break;
             } catch (NumberFormatException nfe) {
                 JOptionPane.showMessageDialog(null, "Intoduzca un número válido");
+            } catch (InputMismatchException ime) {
+                JOptionPane.showMessageDialog(null, "Introduzca un númerp");
             }
         } while (true);
         return num;
@@ -137,6 +140,8 @@ public class Utilidades {
                 break;
             } catch (NumberFormatException nfe) {
                 System.out.println("Introduzca un número válido");
+            } catch (InputMismatchException ime) {
+                System.out.println("Introduzca un número");
             }
         } while (true);
         return num;
@@ -239,7 +244,7 @@ public class Utilidades {
     public static boolean comprobarRangoDoubleMaxIncluido(double num, double max, double min) {
         return num <= max && num > min;
     }
-    
+
     public static int intConsolaRangoIncluyente(String mensaje, int mayor, int menor) {
         int num;
         do {
@@ -247,7 +252,7 @@ public class Utilidades {
         } while (!comprobarRangoIntIncluyente(num, mayor, menor));
         return num;
     }
-    
+
     public static int intVentanaRangoIncluyente(String mensaje, int mayor, int menor) {
         int num;
         do {
@@ -255,7 +260,7 @@ public class Utilidades {
         } while (!comprobarRangoIntIncluyente(num, mayor, menor));
         return num;
     }
-    
+
     public static double doubleConsolaRangoIncluyente(String mensaje, double mayor, double menor) {
         double num;
         do {
@@ -263,7 +268,7 @@ public class Utilidades {
         } while (!comprobarRangoDoubleIncluyente(num, mayor, menor));
         return num;
     }
-    
+
     public static double doubleVentanaRangoIncluyente(String mensaje, double mayor, double menor) {
         double num;
         do {
