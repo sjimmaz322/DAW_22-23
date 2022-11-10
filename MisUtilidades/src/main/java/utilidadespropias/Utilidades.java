@@ -69,9 +69,9 @@ public class Utilidades {
                 num = Integer.parseInt(JOptionPane.showInputDialog(mensaje));
                 break;
             } catch (NumberFormatException nfe) {
-                JOptionPane.showMessageDialog(null, "Intoduzca un número válido");
+                JOptionPane.showMessageDialog(null, "Introduzca un número válido");
             } catch (InputMismatchException ime) {
-                JOptionPane.showMessageDialog(null, "Intoduzca un número por favor");
+                JOptionPane.showMessageDialog(null, "Introduzca un número por favor");
             }
         } while (true);
         return num;
@@ -277,5 +277,41 @@ public class Utilidades {
             num = pedirDoubleVentana(mensaje);
         } while (!comprobarRangoDoubleIncluyente(num, mayor, menor));
         return num;
+    }
+
+    public static boolean comprobar2OpcionesInt(int num, int op1, int op2) {
+        return (num == op1 || num == op2);
+    }
+
+    public static boolean comprobar3OpcionesInt(int num, int op1, int op2, int op3) {
+        return (num == op1 || num == op2 || num == op3);
+    }
+
+    public static boolean comprobar4OpcionesInt(int num, int op1, int op2, int op3, int op4) {
+        return (num == op1 || num == op2 || num == op3 || num == op4);
+    }
+
+    public static boolean comprobar2OpcionesDouble(double num, double op1, double op2) {
+        return (num == op1 || num == op2);
+    }
+
+    public static boolean comprobar3OpcionesDouble(double num, double op1, double op2, double op3) {
+        return (num == op1 || num == op2 || num == op3);
+    }
+
+    public static boolean comprobar4OpcionesDouble(double num, double op1, double op2, double op3, double op4) {
+        return (num == op1 || num == op2 || num == op3 || num == op4);
+    }
+
+    public static boolean comprobar2OpcionesString(String txt, String op1, String op2) {
+        return (txt.equalsIgnoreCase(op1) || txt.equalsIgnoreCase(op2));
+    }
+
+    public static boolean comprobar3OpcionesString(String txt, String op1, String op2, String op3) {
+        return (txt.equalsIgnoreCase(op1) || txt.equalsIgnoreCase(op2) || txt.equalsIgnoreCase(op3));
+    }
+
+    public static boolean comprobar4OpcionesString(String txt, String op1, String op2, String op3, String op4) {
+        return (txt.equalsIgnoreCase(op1) || txt.equalsIgnoreCase(op2) || txt.equalsIgnoreCase(op3) || txt.equalsIgnoreCase(op4));
     }
 }
