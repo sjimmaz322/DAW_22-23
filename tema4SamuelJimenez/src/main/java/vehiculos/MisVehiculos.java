@@ -35,7 +35,7 @@ public class MisVehiculos {
         System.out.println(miCacharro);
 
         System.out.println(" ");
-        System.out.println("Tras copias miCacharro a miCarro, mostramos miCarro");
+        System.out.println("Tras copiar miCacharro a miCarro, mostramos miCarro");
         System.out.println(miCarro);
     }
 }
