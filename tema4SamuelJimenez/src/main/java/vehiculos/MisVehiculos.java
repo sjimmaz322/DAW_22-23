@@ -17,6 +17,7 @@ public class MisVehiculos {
 // instanciación del objeto vehiculo1
         Vehiculo vehiculo1 = new Vehiculo("4050 ABJ", "VW", "GTI", "Blanco", 100.0);
         Vehiculo miCacharro = new Vehiculo("6219 FSN", "Dacia", "Logan", "Gris", 100);
+        Vehiculo miCarro = new Vehiculo(miCacharro);
 
 // invocación de métodos para mostrar los datos del objeto vehiculo1
         System.out.println("Datos del vehículo :" + vehiculo1.getMatricula() + "," + vehiculo1.getMarca());
@@ -28,8 +29,13 @@ public class MisVehiculos {
         System.out.println("Mostramos miChacharro con la matricula cambiada desde atributos");
         System.out.println(miCacharro);
         miCacharro.setMatricula("6219 NSF");
+        System.out.println(" ");
 
         System.out.println("Mostramos miChacharro con la matricula cambiada con setter");
         System.out.println(miCacharro);
+
+        System.out.println(" ");
+        System.out.println("Tras copias miCacharro a miCarro, mostramos miCarro");
+        System.out.println(miCarro);
     }
 }

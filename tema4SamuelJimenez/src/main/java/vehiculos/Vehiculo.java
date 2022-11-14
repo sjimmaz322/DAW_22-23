@@ -18,14 +18,22 @@ public class Vehiculo {
     boolean disponible;
 
     // el método constructor de la clase Vehiculo 
-    public Vehiculo(String matricula,
-            String marca, String modelo, String color, double tarifa) {
+    public Vehiculo(String matricula, String marca, String modelo, String color, double tarifa) {
         this.matricula = matricula;
         this.marca = marca;
         this.modelo = modelo;
         this.color = color;
         this.tarifa = tarifa;
         this.disponible = false;
+    }
+    //constructor copia
+
+    public Vehiculo(Vehiculo v1) {
+        this.matricula = v1.getMatricula();
+        this.marca = v1.getMarca();
+        this.modelo = v1.getModelo();
+        this.color = v1.getColor();
+        this.tarifa = v1.getTarifa();
     }
 // los métodos ‘get’ y ‘set’ de la clase Vehiculo 
 
