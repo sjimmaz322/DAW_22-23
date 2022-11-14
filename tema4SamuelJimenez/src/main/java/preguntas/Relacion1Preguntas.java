@@ -23,18 +23,24 @@ public class Relacion1Preguntas {
     - Polimorfismo: Puedo transformar objetos entre hijas y padre, dándole al mismo método comportamientos diferentes.
     
 ¿Qué ventajas aporta la POO?
+    - Modularidad, reutilización de código...
     
 ¿Cuáles son las partes de una clase?
+    - Atributos, constructores, getter, setter, toString y otros métodos.
     
 ¿Qué elementos componen la definición de una clase? Explica brevemente cada uno
     
 ¿Qué es un método constructor?
+    - Método que nos permite crear instancias de un objeto.
     
 ¿Qué son los métodos de consulta o getters?
+    - Método que nos permite consultar los valores de los atributos de un objeto.
     
 ¿Qué son los métodos modificadores o setters?
+    - Método que nos permite sobrescribir los valores de los atributos de un objeto.
     
 ¿En qué consiste la instanciación de un objeto? ¿Para qué sirve el operador ‘new’?
+    - En crear un objeto de una clase, el objeto nos permite asignarle un espacio de memoria.
     
 ¿Cuál es la función del método main()? ¿Cómo se declara el método main()?
     
