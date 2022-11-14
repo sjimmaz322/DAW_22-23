@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Project/Maven2/JavaApp/src/main/java/${packagePath}/${mainClassName}.java to edit this template
  */
-package ejercicios;
+package vehiculos;
 
 /**
  *
@@ -20,7 +20,16 @@ public class MisVehiculos {
 
 // invocación de métodos para mostrar los datos del objeto vehiculo1
         System.out.println("Datos del vehículo :" + vehiculo1.getMatricula() + "," + vehiculo1.getMarca());
+        System.out.println("Mostramos miChacharro");
         System.out.println(miCacharro.toString());
 
+        miCacharro = new Vehiculo("1234 ABC", "Dacia", "Logan", "Gris", 100);
+
+        System.out.println("Mostramos miChacharro con la matricula cambiada desde atributos");
+        System.out.println(miCacharro);
+        miCacharro.setMatricula("6219 NSF");
+
+        System.out.println("Mostramos miChacharro con la matricula cambiada con setter");
+        System.out.println(miCacharro);
     }
 }
