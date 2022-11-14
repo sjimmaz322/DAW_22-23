@@ -16,8 +16,17 @@ public class TestSerie {
     public static void main(String[] args) {
 
         Serie s1 = new Serie("Los Simpsons", "Cómedia", "...", "FOX", 34);
-        
+        Serie s2 = new Serie();
+        Serie s3 = new Serie("Prison Break", "Acción", "Un notas quiere salir de la cárcel", "No che", 5, 120);
+
         System.out.println(s1);
+        System.out.println(" ");
+        System.out.println(s2);
+        System.out.println(" ");
+        System.out.println(s3);
+
+        Serie s4 = ServicioSerie.crearSerieTeclado();
+        System.out.println(s4);
 
     }
 

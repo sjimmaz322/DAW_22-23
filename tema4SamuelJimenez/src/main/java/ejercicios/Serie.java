@@ -82,13 +82,23 @@ public class Serie {
         this.numTemporadas = numTemporadas;
     }
 
+    public int getNumLikes() {
+        return numLikes;
+    }
+
+    public void setNumLikes(int numLikes) {
+        this.numLikes = numLikes;
+    }
+    
+
     @Override
     public String toString() {
         return "La serie " + titulo + "\n"
                 + "Es del género " + genero + "\n"
                 + "Dirigida/Producida por " + directorProductor + "\n"
                 + "Con " + numTemporadas + " temporadas \n"
-                + "Y cuya sinopsis es \n" + sinopsis;
+                + "Y cuya sinopsis es \n<<" + sinopsis + ">>\n"
+                + "Y tiene un número de likes de " + numLikes;
 
     }
 
