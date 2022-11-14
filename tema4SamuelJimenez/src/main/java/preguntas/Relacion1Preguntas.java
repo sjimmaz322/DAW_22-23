@@ -43,8 +43,10 @@ public class Relacion1Preguntas {
     - En crear un objeto de una clase, el objeto nos permite asignarle un espacio de memoria.
     
 ¿Cuál es la función del método main()? ¿Cómo se declara el método main()?
+    - Permitir el uso de las funciones de un programa, de declara como Public  Static Void, obligatoriamente, y recibe un Array de String de argumentos.
     
 ¿Cómo interaccionan los objetos de una aplicación?
+    - Mediante sus métodos.
 
      */
 
