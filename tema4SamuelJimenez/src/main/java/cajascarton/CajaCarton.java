@@ -58,9 +58,22 @@ public class CajaCarton {
         this.peso = peso;
     }
 
+    public void Abrir() {
+
+    }
+
+    public void Cerrar() {
+
+    }
+
     @Override
     public String toString() {
-        return "CajaCarton{" + "alto=" + alto + ", ancho=" + ancho + ", largo=" + largo + ", peso=" + peso + '}';
+        return "La caja de cartón tiene:\n"
+                + "De alto " + alto + " mm\n"
+                + "De ancho " + ancho + " mm\n"
+                + "De largo " + largo + " mm\n"
+                + "Y pesa " + peso + " gramos";
+
     }
 
 }
