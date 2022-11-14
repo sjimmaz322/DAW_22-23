@@ -14,7 +14,7 @@ public class Serie {
     Serie: Título, genero (Acción, comedia, Scifi,Drama),sinopsis,  número de temporadas, director/productor.
      */
     private String titulo, genero, sinopsis, directorProductor;
-    private int numTemporadas;
+    private int numTemporadas, numLikes;
 
     public Serie() {
         this.titulo = "";
@@ -22,6 +22,7 @@ public class Serie {
         this.sinopsis = "";
         this.directorProductor = "";
         this.numTemporadas = 0;
+        this.numLikes = 0;
     }
 
     public Serie(String titulo, String genero, String sinopsis, String directorProductor, int numTemporadas) {
@@ -30,6 +31,15 @@ public class Serie {
         this.sinopsis = sinopsis;
         this.directorProductor = directorProductor;
         this.numTemporadas = numTemporadas;
+    }
+
+    public Serie(String titulo, String genero, String sinopsis, String directorProductor, int numTemporadas, int numLikes) {
+        this.titulo = titulo;
+        this.genero = genero;
+        this.sinopsis = sinopsis;
+        this.directorProductor = directorProductor;
+        this.numTemporadas = numTemporadas;
+        this.numLikes = numLikes;
     }
 
     public String getTitulo() {
