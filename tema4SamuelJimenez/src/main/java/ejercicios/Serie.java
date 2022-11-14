@@ -89,7 +89,10 @@ public class Serie {
     public void setNumLikes(int numLikes) {
         this.numLikes = numLikes;
     }
-    
+
+    public void darLike() {
+        this.numLikes++;
+    }
 
     @Override
     public String toString() {

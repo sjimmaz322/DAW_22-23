@@ -47,4 +47,14 @@ public class ServicioSerie {
 
         return s1;
     }
+
+    public static void preguntarLike(Serie s) {
+        sc.next();
+        System.out.println("¿Te ha gustado " + s.getTitulo() + "?");
+        String respuesta = sc.nextLine();
+        if (respuesta.equalsIgnoreCase("si")) {
+            s.setNumLikes(s.getNumLikes() + 1);
+        }
+    }
+
 }

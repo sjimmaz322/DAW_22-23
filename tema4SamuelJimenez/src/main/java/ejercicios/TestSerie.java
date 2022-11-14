@@ -25,9 +25,20 @@ public class TestSerie {
         System.out.println(" ");
         System.out.println(s3);
 
-        Serie s4 = ServicioSerie.crearSerieTeclado();
-        System.out.println(s4);
+//        Serie s4 = ServicioSerie.crearSerieTeclado();
+//        System.out.println(s4);
+        s1.darLike();
+        s2.darLike();
+        s3.darLike();
+//        s4.darLike();
 
+//        System.out.println(" ");
+//        System.out.println(s3);
+        Serie s5 = ServicioSerie.crearSerieTeclado();
+
+        ServicioSerie.preguntarLike(s5);
+
+        System.out.println(s5);
     }
 
 }
