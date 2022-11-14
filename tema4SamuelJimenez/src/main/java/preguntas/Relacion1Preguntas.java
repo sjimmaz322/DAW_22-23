@@ -17,6 +17,10 @@ public class Relacion1Preguntas {
 ¿Qué es un objeto?
     
 ¿Cuáles son los pilares de la POO? Explica brevemente cada uno de ellos.
+    - Encapsulamiento: A través de la clase puedo llegar a su funcionalidad (métodos).
+    - Abstracción: Declarar clases genéricas que serán heredadas en las clases hijas para que les den funcionalidad.
+    - Herencia: Una jerarquia de clases.
+    - Polimorfismo: Puedo transformar objetos entre hijas y padre, dándole al mismo método comportamientos diferentes.
     
 ¿Qué ventajas aporta la POO?
     
