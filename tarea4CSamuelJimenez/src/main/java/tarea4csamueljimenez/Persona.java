@@ -16,7 +16,7 @@ public class Persona {
 
     private String nombre;
     private final String NIF;
-    private float peso, altura;
+    private double peso, altura;
     private char sexo;
 
     public Persona() {
@@ -27,7 +27,7 @@ public class Persona {
         this.NIF = generarNIF(letras);
     }
 
-    public Persona(String nombre, char sexo, float peso, float altura) {
+    public Persona(String nombre, char sexo, double peso, double altura) {
         this.nombre = nombre;
         if (!filtrarSexo(sexo)) {
             sexo = 'O';
@@ -65,7 +65,7 @@ public class Persona {
         return peso;
     }
 
-    public void setPeso(float peso) {
+    public void setPeso(double peso) {
         this.peso = peso;
     }
 
@@ -73,7 +73,7 @@ public class Persona {
         return altura;
     }
 
-    public void setAltura(float altura) {
+    public void setAltura(double altura) {
         this.altura = altura;
     }
 
@@ -91,12 +91,12 @@ public class Persona {
         return DNICompleto;
     }
 
-    private static float calcularIMC(float altura, float peso) {
-        float IMC = peso / (float) Math.pow(peso, 2);
+    protected static float calcularIMC(double altura, double peso) {
+        float IMC = (float) (peso / Math.pow(peso, 2));
         return IMC;
     }
 
-    private static boolean esMayorEdad(int edad) {
+    protected static boolean esMayorEdad(int edad) {
         return edad >= 18;
     }
 
@@ -104,7 +104,7 @@ public class Persona {
         return Character.compare(sex, 'H') == 0 || Character.compare(sex, 'M') == 0 || Character.compare(sex, 'O') == 0;
     }
 
-    private static void darLikeSerie(Serie serie) {
+    protected static void darLikeSerie(Serie serie) {
         serie.darLike();
     }
 }
