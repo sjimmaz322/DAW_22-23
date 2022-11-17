@@ -15,7 +15,7 @@ public class Persona {
     private final String[] letras = {"T", "R", "W", "A", "G", "M", "Y", "F", "P", "D", "X", "B", "N", "J", "Z", "S", "Q", "V", "H", "L", "C", "K", "E"};
 
     private String nombre;
-    private String NIF = "";
+    private final String NIF;
     private int edad;
     private double peso, altura;
     private char sexo;
