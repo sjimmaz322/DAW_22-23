@@ -64,4 +64,21 @@ public class ServicioPersona {
         } while (true);
         return num;
     }
+
+    public static void filtrarIMC(float IMC) {
+        if (IMC < 18.5f) {
+            System.out.println("IMC por debajo del rango normal");
+        } else if (IMC >= 18.5f || IMC <= 24.9f) {
+            System.out.println("IMC dentro del rango normal");
+        } else if (IMC >= 25f || IMC <= 29.9f) {
+            System.out.println("IMC dentro del rango de sobrepeso");
+        } else if (IMC >= 30.0f || IMC <= 34.9f) {
+            System.out.println("IMC dentro del rango de obesidad grado I");
+        } else if (IMC >= 35.0f || IMC <= 39.9f) {
+            System.out.println("IMC dentro del rango de obesidad grado II");
+        } else {
+            System.out.println("IMC dentro del rango de obseidad grado III");
+        }
+
+    }
 }
