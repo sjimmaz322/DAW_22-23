@@ -16,7 +16,7 @@ public class Prueba {
     public static void main(String[] args) {
         //Declaramos las variables que usaremos
         String mayoriaEdad;
-        float iMC;
+
         //Creamos la persona con el método que usa el constructor parametrizado
         Persona p1 = ServicioPersona.crearRegistroPersona();
         System.out.println(" ");
@@ -31,10 +31,7 @@ public class Prueba {
         //Calculamos el IMC y mostramos un mensaje dependiendo del resultado
         System.out.println(" ");
         System.out.println("Vemos el Índice de Masa Corporal de " + p1.getNombre());
-        iMC = p1.calcularIMC();
-        System.out.println(iMC);
-        //Mostramos el rango en el que está el IMC de la persona
-        ServicioPersona.filtrarIMC(iMC);
+        p1.calcularIMC();
 
         //Creamos una serie usando el método para ello que creamos
         Serie serie1 = ServicioSerie.crearSerieTeclado();
@@ -59,10 +56,8 @@ public class Prueba {
         System.out.println(p2.getNombre() + " " + mayoriaEdad);
         System.out.println(" ");
         System.out.println("Vemos el Índice de Masa Corporal de la persona");
-        iMC = p2.calcularIMC();
-        System.out.println(iMC);
-        //Mostramos el rango en el que está el IMC de la persona
-        ServicioPersona.filtrarIMC(iMC);
+        p2.calcularIMC();
+
     }
 
 }
