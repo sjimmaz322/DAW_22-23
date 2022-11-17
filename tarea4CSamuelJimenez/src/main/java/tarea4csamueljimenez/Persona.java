@@ -112,7 +112,7 @@ public class Persona {
     }
 
     private static boolean filtrarSexo(char sex) {
-        return Character.compare(sex, 'H') == 0 || Character.compare(sex, 'M') == 0 || Character.compare(sex, 'O') == 0;
+        return sex == 'M' || sex == 'H' || sex == 'O';
     }
 
     protected void darLikeSerie(Serie serie) {
