@@ -18,6 +18,7 @@ public class Prueba {
         Persona p1 = ServicioPersona.crearRegistroPersona();
         System.out.println("Imprimimos los datos de la primera persona");
         System.out.println(p1);
+
         Persona p2 = new Persona();
         System.out.println(" ");
         System.out.println("Imprimimos los datos de la segunda persona");
@@ -28,7 +29,8 @@ public class Prueba {
         System.out.println("Imprimimos los datos de la serie");
         System.out.println(serie1);
         //Sumamos un like que da la persona                     
-        Persona.darLikeSerie(serie1);
+        p1.darLikeSerie(serie1);
+
         System.out.println(" ");
         System.out.println("Imprimimos los datos de la serie tras dar like");
         System.out.println(serie1);

@@ -16,22 +16,25 @@ public class Persona {
 
     private String nombre;
     private final String NIF;
+    private int edad;
     private double peso, altura;
     private char sexo;
 
     public Persona() {
         this.nombre = "";
         this.sexo = 'O';
+        this.edad = 0;
         this.peso = 0F;
         this.altura = 0F;
         this.NIF = generarNIF(letras);
     }
 
-    public Persona(String nombre, char sexo, double peso, double altura) {
+    public Persona(String nombre, char sexo, int edad, double peso, double altura) {
         this.nombre = nombre;
         if (!filtrarSexo(sexo)) {
             sexo = 'O';
         }
+        this.edad = edad;
         this.sexo = sexo;
         this.peso = peso;
         this.altura = altura;
@@ -61,6 +64,14 @@ public class Persona {
         return NIF;
     }
 
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
     public double getPeso() {
         return peso;
     }
@@ -79,7 +90,7 @@ public class Persona {
 
     @Override
     public String toString() {
-        return "Persona{" + "nombre=" + nombre + ", sexo=" + sexo + ", DNI=" + NIF + ", peso=" + peso + ", altura=" + altura + '}';
+        return "Persona{" + "nombre=" + nombre + ", NIF=" + NIF + ", edad=" + edad + ", peso=" + peso + ", altura=" + altura + ", sexo=" + sexo + '}';
     }
 
     private static String generarNIF(String[] letras) {
@@ -91,20 +102,20 @@ public class Persona {
         return DNICompleto;
     }
 
-    protected static float calcularIMC(double altura, double peso) {
-        float IMC = (float) (peso / Math.pow(peso, 2));
+    protected float calcularIMC() {
+        float IMC = (float) (this.peso / Math.pow(this.altura, 2));
         return IMC;
     }
 
-    protected static boolean esMayorEdad(int edad) {
-        return edad >= 18;
+    protected boolean esMayorEdad() {
+        return this.edad >= 18;
     }
 
     private static boolean filtrarSexo(char sex) {
         return Character.compare(sex, 'H') == 0 || Character.compare(sex, 'M') == 0 || Character.compare(sex, 'O') == 0;
     }
 
-    protected static void darLikeSerie(Serie serie) {
+    protected void darLikeSerie(Serie serie) {
         serie.darLike();
     }
 }

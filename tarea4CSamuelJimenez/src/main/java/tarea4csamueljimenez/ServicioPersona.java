@@ -17,6 +17,7 @@ public class ServicioPersona {
 
     public static Persona crearRegistroPersona() {
         String nombre, sexoString;
+        int edad;
         char sexo;
         double altura, peso;
         System.out.println("¿Cuál es el nombre de la persona?");
@@ -24,10 +25,11 @@ public class ServicioPersona {
         System.out.println("¿Cuál es el sexo de la persona?");
         sexoString = sc.nextLine();
         sexo = sexoString.charAt(0);
+        edad = pedirIntConsola("¿Cuál es la edad de la persona?");
         peso = pedirDoubleConsola("¿Cuánto pesa la persona?");
         altura = pedirDoubleConsola("¿Cuánto mide la persona?");
 
-        Persona p1 = new Persona(nombre, sexo, peso, altura);
+        Persona p1 = new Persona(nombre, sexo, edad, peso, altura);
         return p1;
     }
 
@@ -38,6 +40,22 @@ public class ServicioPersona {
             System.out.println(mensaje);
             try {
                 num = sc.nextDouble();
+                break;
+            } catch (NumberFormatException | InputMismatchException nfe) {
+                System.out.println("Introduzca un número válido");
+                sc.nextLine();
+            }
+        } while (true);
+        return num;
+    }
+
+    public static int pedirIntConsola(String mensaje) {
+        int num;
+        do {
+            num = 0;
+            System.out.println(mensaje);
+            try {
+                num = sc.nextInt();
                 break;
             } catch (NumberFormatException | InputMismatchException nfe) {
                 System.out.println("Introduzca un número válido");
