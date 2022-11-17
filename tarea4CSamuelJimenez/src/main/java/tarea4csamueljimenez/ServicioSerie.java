@@ -38,7 +38,7 @@ public class ServicioSerie {
         String direcProdu = sc.nextLine();
         s1.setDirectorProductor(direcProdu);
 
-        int numTem = pedirIntConsola("¿Cuántas temporadas tienes?");
+        int numTem = pedirIntConsola("¿Cuántas temporadas tiene?");
         s1.setNumTemporadas(numTem);
 
         int likes = pedirIntConsola("¿Cuántos likes tiene?");

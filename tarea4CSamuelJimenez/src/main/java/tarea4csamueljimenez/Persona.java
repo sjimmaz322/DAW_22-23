@@ -15,7 +15,7 @@ public class Persona {
     private final String[] letras = {"T", "R", "W", "A", "G", "M", "Y", "F", "P", "D", "X", "B", "N", "J", "Z", "S", "Q", "V", "H", "L", "C", "K", "E"};
 
     private String nombre;
-    private final String NIF;
+    private String NIF = "";
     private int edad;
     private double peso, altura;
     private char sexo;
@@ -90,7 +90,7 @@ public class Persona {
 
     @Override
     public String toString() {
-        return "Persona{" + "nombre=" + nombre + ", NIF=" + NIF + ", edad=" + edad + ", peso=" + peso + ", altura=" + altura + ", sexo=" + sexo + '}';
+        return nombre + " tiene los siguientes datos\nNif: " + NIF + "\nSexo: " + sexo + "\nEdad: " + edad + "\nAltura: " + altura + " m \nPeso " + peso + " kg.";
     }
 
     private static String generarNIF(String[] letras) {
