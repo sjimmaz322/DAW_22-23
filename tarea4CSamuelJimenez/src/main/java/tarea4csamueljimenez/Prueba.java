@@ -58,6 +58,7 @@ public class Prueba {
         System.out.println("Vemos el Índice de Masa Corporal de la persona");
         p2.calcularIMC();
 
+ 
     }
 
 }

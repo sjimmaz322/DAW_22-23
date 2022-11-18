@@ -41,6 +41,15 @@ public class Persona {
         this.NIF = generarNIF(letras);
     }
 
+    public Persona(Persona p1) {
+        this.nombre = p1.getNombre();
+        this.edad = p1.getEdad();
+        this.sexo = p1.getSexo();
+        this.peso = p1.getPeso();
+        this.altura = p1.getAltura();
+        this.NIF = p1.getDNI();
+    }
+
     public String getNombre() {
         return nombre;
     }
