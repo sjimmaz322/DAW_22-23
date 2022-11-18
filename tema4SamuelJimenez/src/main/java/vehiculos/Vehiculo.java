@@ -28,12 +28,12 @@ public class Vehiculo {
     }
     //constructor copia
 
-    public Vehiculo(Vehiculo v1) {
-        this.matricula = v1.getMatricula();
-        this.marca = v1.getMarca();
-        this.modelo = v1.getModelo();
-        this.color = v1.getColor();
-        this.tarifa = v1.getTarifa();
+    public Vehiculo(Vehiculo aux) {
+        this.matricula = aux.getMatricula();
+        this.marca = aux.getMarca();
+        this.modelo = aux.getModelo();
+        this.color = aux.getColor();
+        this.tarifa = aux.getTarifa();
     }
 // los métodos ‘get’ y ‘set’ de la clase Vehiculo 
 

@@ -22,9 +22,10 @@ public class MisVehiculos {
 // invocación de métodos para mostrar los datos del objeto vehiculo1
         System.out.println("Datos del vehículo :" + vehiculo1.getMatricula() + "," + vehiculo1.getMarca());
         System.out.println("Mostramos miChacharro");
+        vehiculo1.setDisponible(false);
         System.out.println(miCacharro.toString());
 
-        miCacharro = new Vehiculo("1234 ABC", "Dacia", "Logan", "Gris", 100);
+        miCacharro = new Vehiculo(miCarro);
 
         System.out.println("Mostramos miChacharro con la matricula cambiada desde atributos");
         System.out.println(miCacharro);
@@ -37,5 +38,13 @@ public class MisVehiculos {
         System.out.println(" ");
         System.out.println("Tras copiar miCacharro a miCarro, mostramos miCarro");
         System.out.println(miCarro);
+        System.out.println(" ");
+        System.out.println(vehiculo1);
+        MisVehiculos.cambiarDisponibilidad(vehiculo1);
+        System.out.println(vehiculo1);
+    }
+
+    private static void cambiarDisponibilidad(Vehiculo v) {
+        v.setDisponible(true);
     }
 }
