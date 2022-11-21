@@ -107,11 +107,16 @@ public class Animal {
 
     private Animal clonar(Animal pet) {
         Animal aux = new Animal();
-        aux.setNombre(pet.getNombre());
-        aux.setFechaNacimiento(pet.getFechaNacimiento());
-        aux.setTipo(pet.getTipo());
-        aux.setPeso(pet.getPeso());
-        aux.setEstado(pet.getEstado());
+        try {
+            aux.setNombre(pet.getNombre());
+            aux.setFechaNacimiento(pet.getFechaNacimiento());
+            aux.setTipo(pet.getTipo());
+            aux.setPeso(pet.getPeso());
+            aux.setEstado(pet.getEstado());
+        } catch (NullPointerException npe) {
+            throw new NullPointerException("El atributo del objeto apunta a Null");
+        }
+
         return aux;
     }
 
