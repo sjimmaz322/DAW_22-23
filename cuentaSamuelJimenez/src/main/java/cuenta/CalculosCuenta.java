@@ -20,12 +20,13 @@ public class CalculosCuenta {
         aux.setSaldoActual(aux.getSaldoActual() + cantidad);
     }
 
-    public static void retirarDinero(Cuenta aux, double cantidad) {
+    public static boolean retirarDinero(Cuenta aux, double cantidad) {
         cantidad = Math.abs(cantidad);
         if ((aux.getSaldoActual() - cantidad) >= 0) {
             aux.setSaldoActual(aux.getSaldoActual() - cantidad);
+            return true;
         } else {
-            System.out.println("Saldo insuficiente para realizar la operción, proceso cancelado");
+            return false;
         }
     }
 

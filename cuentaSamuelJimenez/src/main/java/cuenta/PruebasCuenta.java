@@ -36,7 +36,11 @@ public class PruebasCuenta {
         System.out.println(" ");
 
         System.out.println("Retiramos 1000 euros de la cuenta 1, no debe permitirlo por falta de saldo");
-        CalculosCuenta.retirarDinero(cuenta1, 1000);
+        if(CalculosCuenta.retirarDinero(cuenta1, 1000)){
+            
+        }else{
+            System.out.println("La operación no se pudo realizar");
+        }
 
         System.out.println(" ");
         System.out.println(cuenta1);

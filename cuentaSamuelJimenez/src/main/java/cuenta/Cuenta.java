@@ -12,18 +12,18 @@ import org.apache.commons.lang3.RandomStringUtils;
  */
 public class Cuenta {
 
-    private final String numCuenta;
+    private final String NUMCUENTA;
     private String nifCliente;
     private String nomCliente;
     private double saldoActual;
     private double interes;
 
     public Cuenta() {
-        this.numCuenta = generarNumeroCuenta();
+        this.NUMCUENTA = generarNumeroCuenta();
     }
 
     public Cuenta(String nifCliente, String nomCliente, double saldoActual, double interes) {
-        this.numCuenta = generarNumeroCuenta();
+        this.NUMCUENTA = generarNumeroCuenta();
         this.nifCliente = nifCliente;
         this.nomCliente = nomCliente;
         this.saldoActual = saldoActual;
@@ -45,7 +45,7 @@ public class Cuenta {
     }
 
     public String getNumCuenta() {
-        return numCuenta;
+        return NUMCUENTA;
     }
 
     public String getNifCliente() {
@@ -72,7 +72,7 @@ public class Cuenta {
         this.saldoActual = saldoActual;
     }
 
-    private static String generarNumeroCuenta() {
+    private String generarNumeroCuenta() {
         String numCuenta = RandomStringUtils.randomNumeric(20);
         return numCuenta;
     }
@@ -81,7 +81,7 @@ public class Cuenta {
     public String toString() {
         return "La cuenta de " + nomCliente + ".\n"
                 + "Con NIF " + nifCliente + ".\n"
-                + "Con número de cuenta " + numCuenta + ".\n"
+                + "Con número de cuenta " + NUMCUENTA + ".\n"
                 + "Posee un saldo de " + saldoActual + "€.\n"
                 + "Y un interés del " + interes + "%.";
     }
