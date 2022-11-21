@@ -50,7 +50,9 @@ public class EjemplosFechas {
 
         //Clase para guardar mes y día, no el año
         MonthDay nocheVieja = MonthDay.of(12, 31);
+        System.out.println(nocheVieja);
         YearMonth caducidadTarjeta = YearMonth.of(2025, 4);
+        System.out.println(caducidadTarjeta);
 
         //Operaciones con fechas
         LocalDate sumarDias = fechaHoy.plusDays(100);
