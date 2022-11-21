@@ -26,7 +26,11 @@ public class Animal {
         this.nombre = nombre;
         this.tipo = tipo;
         this.peso = peso;
-        this.estado = estado;
+        if ((estado.equalsIgnoreCase("despierto") || estado.equalsIgnoreCase("jugando") || estado.equalsIgnoreCase("durmiendo") || estado.equalsIgnoreCase("Reposo") || estado.equalsIgnoreCase("comiendo"))) {
+            this.estado = estado;
+        } else {
+            this.estado = "Reposo";
+        }
     }
 
     public LocalDate getFechaNacimiento() {
@@ -66,34 +70,43 @@ public class Animal {
     }
 
     public void setEstado(String estado) {
-        this.estado = estado;
+        if ((estado.equalsIgnoreCase("despierto") || estado.equalsIgnoreCase("jugando") || estado.equalsIgnoreCase("durmiendo") || estado.equalsIgnoreCase("Reposo") || estado.equalsIgnoreCase("comiendo"))) {
+            this.estado = estado;
+        } else {
+            this.estado = "Reposo";
+        }
     }
 
     @Override
     public String toString() {
-        return "Animal{" + "fechaNacimiento=" + fechaNacimiento + ", nombre=" + nombre + ", tipo=" + tipo + ", peso=" + peso + ", estado=" + estado + '}';
+        return "El animal de nombre " + nombre + ".\n"
+                + "Nacido en: " + fechaNacimiento + ".\n"
+                + "De la especie: " + tipo + ".\n"
+                + "Tiene un peso de " + peso + "g.\n"
+                + "Y su estado es " + estado + ".\n";
     }
 
-    private void comer(double cantidadGramos) {
+    public void comer(double cantidadGramos) {
+        this.estado = "Comiendo";
         cantidadGramos = Math.abs(cantidadGramos);
         this.peso = peso + cantidadGramos;
     }
 
-    private void despertar() {
-        this.estado = "despierto";
+    public void despertar() {
+        this.estado = "Despierto";
     }
 
-    private void dormir() {
-        this.estado = "durmiendo";
+    public void dormir() {
+        this.estado = "Durmiendo";
     }
 
-    private void descansar() {
-        this.estado = "reposo";
+    public void descansar() {
+        this.estado = "Reposo";
     }
 
-    private void jugar(int cantidadMinutos) {
+    public void jugar(int cantidadMinutos) {
         cantidadMinutos = Math.abs(cantidadMinutos);
-        this.estado = "jugando";
+        this.estado = "Jugando";
         if (cantidadMinutos < 30) {
             this.peso = peso - 10;
         }
@@ -101,11 +114,11 @@ public class Animal {
             throw new IllegalArgumentException("El tiempo no puede superar los 180 minutos");
         }
         if (cantidadMinutos > 30 && cantidadMinutos < 180) {
-            this.peso = (peso - (cantidadMinutos / 30) * 20);
+            this.peso = (peso - (int) (cantidadMinutos / 30) * 20);
         }
     }
 
-    private Animal clonar(Animal pet) {
+    public static Animal clonar(Animal pet) {
         Animal aux = new Animal();
         try {
             aux.setNombre(pet.getNombre());
