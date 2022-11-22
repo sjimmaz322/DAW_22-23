@@ -2,10 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package daw.programa;
+package animales;
 
-import daw.samueljimenez.Animal;
-import daw.samueljimenez.Persona;
+import animales.Animal;
+import animales.Persona;
 import java.time.LocalDate;
 
 /**
