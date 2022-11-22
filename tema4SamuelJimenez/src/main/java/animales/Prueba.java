@@ -4,8 +4,6 @@
  */
 package animales;
 
-import animales.Animal;
-import animales.Persona;
 import java.time.LocalDate;
 
 /**
