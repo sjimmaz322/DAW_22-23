@@ -44,11 +44,13 @@ public class Prueba {
 //        System.out.println(a1.getEstado());
 //        System.out.println(a2.getEstado());
 //        System.out.println(a3.getEstado());
+
         //Hacemos que p2 juego con a2 durante 120 minutos
         p2.jugar(a2, 120);
 
 //        //Comprobamos la variación de peso de a2
 //        System.out.println(a2.getPeso());
+
         //Hacemos que a1 le de un kilo de comida a a1
         p1.alimentar(a1, 1000);
         System.out.println("El nuevo peso de a1 es " + a1.getPeso() + "g");
