@@ -120,14 +120,14 @@ public class Animal {
 
     public static Animal clonar(Animal pet) {
         Animal aux = new Animal();
-        try {
+        if (pet != null) {
             aux.setNombre(pet.getNombre());
             aux.setFechaNacimiento(pet.getFechaNacimiento());
             aux.setTipo(pet.getTipo());
             aux.setPeso(pet.getPeso());
             aux.setEstado(pet.getEstado());
-        } catch (NullPointerException npe) {
-            throw new NullPointerException("El atributo del objeto apunta a Null");
+        } else {
+            aux = new Animal();
         }
 
         return aux;
