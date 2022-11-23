@@ -52,10 +52,11 @@ public class Persona {
     }
 
     public void jugar(Animal pet, int cantidadMinutos) {
-        if (cantidadMinutos > 180) {
-            cantidadMinutos = 180;
+        try {
+            pet.jugar(cantidadMinutos);
+        } catch (IllegalArgumentException iae) {
+            pet.jugar(180);
         }
-        pet.jugar(cantidadMinutos);
     }
 
 }
