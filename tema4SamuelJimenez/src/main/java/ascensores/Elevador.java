@@ -72,17 +72,6 @@ public class Elevador {
         this.fechaRevision = fechaRevision;
     }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
-    public void setNumPlanta(int numPlanta) {
-        if (numPlanta < 0 || numPlanta > 8) {
-            numPlanta = this.numPlanta;
-        }
-        this.numPlanta = numPlanta;
-    }
-
     @Override
     public String toString() {
         return "El ascensor con número de serie " + numSerie + ", fabricado por " + fabricante + " tiene las siguientes características:\n"
@@ -100,11 +89,11 @@ public class Elevador {
             viajePosible = false;
         }
 
-        if ((numPersonas < maxPersonas) && (pesoPersonas < pesoMaximo) && (planta < numPlanta)) {
+        if ((numPersonas <= maxPersonas) && (pesoPersonas <= pesoMaximo) && (planta < numPlanta)) {
             this.estado = "Bajando";
             this.numPlanta = planta;
             viajePosible = true;
-        } else if ((numPersonas < maxPersonas) && (pesoPersonas < pesoMaximo) && (planta > numPlanta)) {
+        } else if ((numPersonas <= maxPersonas) && (pesoPersonas <= pesoMaximo) && (planta > numPlanta)) {
             this.estado = "Subiendo";
             this.numPlanta = planta;
             viajePosible = true;
