@@ -30,7 +30,7 @@ public class Edificio {
 
         //Comprobamos que el método para la siguiente fecha de revisión funciona.
         nuevaFechaRevision = Edificio.fechaSiguienteRevision(ascensor1);
-        
+
         System.out.println("\nLa fecha de la siguiente revisión del ascensor con número de serie" + ascensor1.getNumSerie() + " es " + nuevaFechaRevision + "\n");
 
         //Hacemos un viaje posible para el ascensor 1
@@ -55,15 +55,15 @@ public class Edificio {
         resultado = ascensor1.mover(1, 70, 1) ? "El viaje se puede realizar" : "El viaje no se puede realizar";
         System.out.println(resultado);
         System.out.println(ascensor1);
-        
+
     }
 
     //Método que le suma 6 meses a la fecha de revisión del ascensor seleccionado   
     private static LocalDate fechaSiguienteRevision(Elevador aux) {
         aux.setFechaRevision(aux.getFechaRevision().plusMonths(6));
-        
+
         return aux.getFechaRevision().plusMonths(6);
-        
+
     }
-    
+
 }

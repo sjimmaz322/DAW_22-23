@@ -17,7 +17,7 @@ public class Elevador {
     private int maxPersonas;
     private double pesoMaximo;
     private LocalDate fechaFabricacion, fechaRevision;
-    private String estado;
+    private Enum estado;
     private int numPlanta;
 
     public Elevador(String fabricante, int maxPersonas, double pesoMaximo) {
@@ -35,7 +35,7 @@ public class Elevador {
         this.fechaFabricacion = LocalDate.now();
 
         this.fechaRevision = LocalDate.now();
-        this.estado = null;
+        this.estado = Estado.DETENIDO;
         this.numPlanta = 0;
 
     }
@@ -64,7 +64,7 @@ public class Elevador {
         return fechaRevision;
     }
 
-    public String getEstado() {
+    public Enum getEstado() {
         return estado;
     }
 
@@ -83,23 +83,25 @@ public class Elevador {
     }
 
     public boolean mover(int numPersonas, double pesoPersonas, int planta) {
-        boolean viajePosible;
-        if (planta < 0 || planta > 8) {
-            this.estado = "Detenido";
-            viajePosible = false;
-        }
+        boolean viajePosible = false;
+        if (!this.estado.equals(Estado.AVERIADO)) {
+            if (planta < 0 || planta > 8) {
+                this.estado = Estado.DETENIDO;
+                viajePosible = false;
+            }
 
-        if ((numPersonas <= maxPersonas) && (pesoPersonas <= pesoMaximo) && (planta < numPlanta)) {
-            this.estado = "Bajando";
-            this.numPlanta = planta;
-            viajePosible = true;
-        } else if ((numPersonas <= maxPersonas) && (pesoPersonas <= pesoMaximo) && (planta > numPlanta)) {
-            this.estado = "Subiendo";
-            this.numPlanta = planta;
-            viajePosible = true;
-        } else {
-            viajePosible = false;
-            this.estado = "Detenido";
+            if ((numPersonas <= maxPersonas) && (pesoPersonas <= pesoMaximo) && (planta < numPlanta)) {
+                this.estado = Estado.BAJANDO;
+                this.numPlanta = planta;
+                viajePosible = true;
+            } else if ((numPersonas <= maxPersonas) && (pesoPersonas <= pesoMaximo) && (planta > numPlanta)) {
+                this.estado = Estado.SUBIENDO;
+                this.numPlanta = planta;
+                viajePosible = true;
+            } else {
+                viajePosible = false;
+                this.estado = Estado.DETENIDO;
+            }
         }
         return viajePosible;
     }
