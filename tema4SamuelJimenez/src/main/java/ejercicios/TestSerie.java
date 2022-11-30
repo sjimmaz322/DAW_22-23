@@ -34,11 +34,22 @@ public class TestSerie {
 
 //        System.out.println(" ");
 //        System.out.println(s3);
-        Serie s5 = ServicioSerie.crearSerieTeclado();
+//        Serie s5 = ServicioSerie.crearSerieTeclado();
+//        ServicioSerie.preguntarLike(s5);
+//
+//        System.out.println(s5);
+        System.out.println(" ");
 
-        ServicioSerie.preguntarLike(s5);
+        //S1 y s2 son iguales?
+        System.out.println(s1.equals(s2));
 
-        System.out.println(s5);
+        //s1 y s5 son iguales?
+        Serie s5 = ServicioSerie.copiarSerie(s1);
+        System.out.println(" ");
+
+        System.out.println(s1.equals(s5));
+        System.out.println("\nHash code de la serie s1 = "+s1.hashCode());
+        System.out.println("\nHash code de la serie s1 = "+s5.hashCode());
     }
 
 }

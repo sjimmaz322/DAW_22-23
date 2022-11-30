@@ -4,6 +4,8 @@
  */
 package ejercicios;
 
+import java.util.Objects;
+
 /**
  *
  * @author samuel
@@ -104,5 +106,33 @@ public class Serie {
                 + "Y tiene un número de likes de " + numLikes;
 
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 83 * hash + Objects.hashCode(this.titulo);
+        hash = 83 * hash + Objects.hashCode(this.directorProductor);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Serie other = (Serie) obj;
+        if (!Objects.equals(this.titulo, other.titulo)) {
+            return false;
+        }
+        return Objects.equals(this.directorProductor, other.directorProductor);
+    }
+    
+
 
 }
