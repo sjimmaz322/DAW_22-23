@@ -15,8 +15,8 @@ public class MisVehiculos {
 // muestra sus atributos
 
 // instanciación del objeto vehiculo1
-        Vehiculo vehiculo1 = new Vehiculo("4050 ABJ", "VW", "GTI", "Blanco", 100.0);
-        Vehiculo miCacharro = new Vehiculo("6219 FSN", "Dacia", "Logan", "Gris", 100);
+        Vehiculo vehiculo1 = new Vehiculo("4050 ABJ", "45789654133", "VW", "GTI", "Blanco", 100.0, true);
+        Vehiculo miCacharro = new Vehiculo("6219 FSN", "456789321", "Dacia", "Logan", "Gris", 100, false);
         Vehiculo miCarro = new Vehiculo(miCacharro);
 
 // invocación de métodos para mostrar los datos del objeto vehiculo1
@@ -42,6 +42,8 @@ public class MisVehiculos {
         System.out.println(vehiculo1);
         MisVehiculos.cambiarDisponibilidad(vehiculo1);
         System.out.println(vehiculo1);
+        
+        System.out.println(miCacharro.equals(miCarro));
     }
 
     private static void cambiarDisponibilidad(Vehiculo v) {
