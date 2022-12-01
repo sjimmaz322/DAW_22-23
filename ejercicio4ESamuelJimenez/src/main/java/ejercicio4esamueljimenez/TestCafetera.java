@@ -4,7 +4,6 @@ package ejercicio4esamueljimenez;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-
 /**
  *
  * @author samuel
@@ -17,9 +16,10 @@ public class TestCafetera {
     public static void main(String[] args) {
 
         //creamos los objetos que usaremos en nuestro programa
-        Cafetera caf1 = new Cafetera(1300, 500);
+        Cafetera caf1 = new Cafetera(1234, 500);
         Cafetera caf2 = new Cafetera();
         Persona p1 = new Persona("Samu", 28);
+        PersonaR p2 = new PersonaR("Jess", 24);
 
         //Mostramos la información de la cafetera 1
         System.out.println(caf1.toString());
@@ -48,13 +48,13 @@ public class TestCafetera {
         caf1.agregarCafe(300);
         //Comprobamos su nueva capacidad
         System.out.println(caf1.toString());
-        
+
         System.out.println("\nAgregamos 5000 cc de café a la cafetera");
         //Agregamos una cantidad excesiva de café a la cafetera 1
         caf1.agregarCafe(5000);
         //Comprobamos si su capacidad actual es igual a la máxima
         System.out.println(caf1);
-        
+
         //Vaciamos la cafetera 2.
         System.out.println("\nVaciamos la cafetera");
         caf1.vaciarCafetera();
