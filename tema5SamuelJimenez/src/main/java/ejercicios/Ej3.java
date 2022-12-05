@@ -21,12 +21,11 @@ public class Ej3 {
         Random rd = new Random();
 
         double[] array1 = new double[20];
-        double[] array2 = new double[20];
 
         for (int i = 0; i < array1.length; i++) {
             Array.setDouble(array1, i, 7.5);
         }
-        array2 = array1.clone();
+        double[] array2 = Arrays.copyOf(array1, 20);
 
         for (int i = 0; i < array1.length; i++) {
             System.out.println(array1[i]);
@@ -42,7 +41,8 @@ public class Ej3 {
         System.out.println(" ");
         System.out.println(resultado);
 
-        Array.setDouble(array2, rd.nextInt(20), 6.3);
+        int posicionAleatoria = rd.nextInt(array1.length);
+        array1[posicionAleatoria] = 6.3;
 
         for (int i = 0; i < array1.length; i++) {
             System.out.println(array1[i]);
