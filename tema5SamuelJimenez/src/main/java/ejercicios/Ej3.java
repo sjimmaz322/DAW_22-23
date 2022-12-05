@@ -38,7 +38,7 @@ public class Ej3 {
 
         System.out.println(" ");
         String resultado = Arrays.equals(array1, array2) ? "Los arrays son iguales" : "Los arrays son diferentes";
-        System.out.println(" ");
+
         System.out.println(resultado);
 
         int posicionAleatoria = rd.nextInt(array1.length);
