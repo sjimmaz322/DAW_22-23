@@ -33,14 +33,6 @@ public class Ej5 {
         mediaPositvos(nums);
         mediaNegativos(nums);
 
-//        String mensaje = """
-//                         En el Array, de los 10 números hay:
-//                         %d números positivos.
-//                         %d números negativos.
-//                         %d ceros.
-//                         """.formatted(numPos, numNeg, numCeros);
-//
-//        System.out.println(mensaje);
     }
 
     public static void rellenarAray(int[] aux) {
@@ -94,9 +86,9 @@ public class Ej5 {
                 suma += aux[i];
             }
         }
-        try{
-        media = suma / contarPositivos(aux);
-        }catch(ArithmeticException ae){
+        try {
+            media = suma / contarPositivos(aux);
+        } catch (ArithmeticException ae) {
             System.out.println("No has puesto ningún número positivo");
         }
         System.out.println("La media de los números positivos es " + media);
@@ -110,9 +102,9 @@ public class Ej5 {
                 suma += aux[i];
             }
         }
-         try{
-        media = suma / contarNegativos(aux);
-        }catch(ArithmeticException ae){
+        try {
+            media = suma / contarNegativos(aux);
+        } catch (ArithmeticException ae) {
             System.out.println("No has puesto ningún número negativo");
         }
         System.out.println("La media de los números negativos es " + media);
