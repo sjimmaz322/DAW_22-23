@@ -314,4 +314,18 @@ public class Utilidades {
     public static boolean comprobar4OpcionesString(String txt, String op1, String op2, String op3, String op4) {
         return (txt.equalsIgnoreCase(op1) || txt.equalsIgnoreCase(op2) || txt.equalsIgnoreCase(op3) || txt.equalsIgnoreCase(op4));
     }
+
+    private static void ordenarBubble(int[] arrayOrdenar) {
+        int tmp;
+        for (int i = 0; i < arrayOrdenar.length - 1; i++) {
+            for (int j = i + 1; j < arrayOrdenar.length; j++) {
+                if (arrayOrdenar[i] > arrayOrdenar[j]) {
+                    tmp = arrayOrdenar[i];
+                    arrayOrdenar[i] = arrayOrdenar[j];
+                    arrayOrdenar[j] = tmp;
+                }
+            }
+        }
+    }
+
 }
