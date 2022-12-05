@@ -47,7 +47,7 @@ public class Ej9 {
         for (int i = 0; i < nums.length; i++) {
             System.out.println(nums[i]);
         }
-
+        System.out.println("-");
         String resultado = (Arrays.binarySearch(nums, numBuscado) < 0) ? "El número no está en el array" : "El número está en el índice " + Arrays.binarySearch(nums, numBuscado);
         System.out.println(resultado);
 
