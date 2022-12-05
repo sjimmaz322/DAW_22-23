@@ -315,7 +315,7 @@ public class Utilidades {
         return (txt.equalsIgnoreCase(op1) || txt.equalsIgnoreCase(op2) || txt.equalsIgnoreCase(op3) || txt.equalsIgnoreCase(op4));
     }
 
-    private static void ordenarBubble(int[] arrayOrdenar) {
+    public static void ordenarBubble(int[] arrayOrdenar) {
         int tmp;
         for (int i = 0; i < arrayOrdenar.length - 1; i++) {
             for (int j = i + 1; j < arrayOrdenar.length; j++) {
@@ -326,6 +326,18 @@ public class Utilidades {
                 }
             }
         }
+    }
+
+    public static int busquedaSecuencial(int[] aux, int num) {
+        int pos = 0;
+        for (int i = 0; i < aux.length; i++) {
+            if (aux[i] == num) {
+                pos = i;
+                break;
+            }
+        }
+        return pos;
+
     }
 
 }
