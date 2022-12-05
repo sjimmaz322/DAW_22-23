@@ -5,6 +5,7 @@
 package ejercicios;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -21,25 +22,27 @@ public class Ej13 {
      */
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        ArrayList<Integer> arr = new ArrayList<>();
+        String[] arr = new String[20];
+
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = "";
+        }
         int num;
 
         do {
             System.out.println("¿Qué número quieres introducir?\nMarca cero para finalizar");
             num = sc.nextInt();
-            if (num != 0) {
-                arr.add(num);
+            if ((num != 0) && (num >= 1) && (num <= 20)) {
+                arr[num - 1] = arr[num - 1].concat("*");
+            } else if (num < 0 || num > 20) {
+                System.out.println("Solo números del 1 al 20");
             } else {
                 break;
             }
         } while (true);
 
-        for (int i = 0; i < arr.size(); i++) {
-            String linea = "";
-            for (int j = 0; j < arr.get(i); j++) {
-                linea = linea.concat("*");
-            }
-            System.out.println(linea);
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println(i + 1 + ": " + arr[i]);
 
         }
 
