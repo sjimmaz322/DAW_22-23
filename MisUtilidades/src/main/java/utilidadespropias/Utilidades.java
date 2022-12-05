@@ -328,12 +328,24 @@ public class Utilidades {
         }
     }
 
-    public static int busquedaSecuencial(int[] aux, int num) {
+    public static int busquedaSecuencialPrimeraCoincidencia(int[] aux, int num) {
+
+        for (int i = 0; i < aux.length; i++) {
+            if (aux[i] == num) {
+                return i;
+
+            }
+        }
+        return -1;
+
+    }
+
+    public static int busquedaSecuencialUltimaCoincidencia(int[] aux, int num) {
         int pos = 0;
         for (int i = 0; i < aux.length; i++) {
             if (aux[i] == num) {
                 pos = i;
-                break;
+
             }
         }
         return pos;
