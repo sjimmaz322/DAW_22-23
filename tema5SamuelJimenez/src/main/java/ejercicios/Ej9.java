@@ -44,7 +44,7 @@ public class Ej9 {
         for (int i = 0; i < nums.length; i++) {
             System.out.println(nums[i]);
         }
-        
+
         ordenarBubble(nums);
         System.out.println("-");
         for (int i = 0; i < nums.length; i++) {
