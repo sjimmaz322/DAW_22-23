@@ -80,14 +80,14 @@ public class Clientes {
         return Objects.equals(this.NIF, other.NIF);
     }
 
-    private static String generarNIF(String[] letras) {
-        String DNI = RandomStringUtils.randomNumeric(8);
-        int numDNI = Integer.parseInt(DNI);
-        String letra = letras[numDNI % 23];
-        String DNICompleto = DNI.concat(letra);
-
-        return DNICompleto;
-    }
+//    private static String generarNIF(String[] letras) {
+//        String DNI = RandomStringUtils.randomNumeric(8);
+//        int numDNI = Integer.parseInt(DNI);
+//        String letra = letras[numDNI % 23];
+//        String DNICompleto = DNI.concat(letra);
+//
+//        return DNICompleto;
+//    }
 
     @Override
     public String toString() {
