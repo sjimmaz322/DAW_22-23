@@ -24,7 +24,7 @@ public class CatalogoClientes {
         this.listaClientes = new Clientes[tamanio];
         for (int i = 0; i < listaClientes.length; i++) {
 
-            this.listaClientes[i] = new Clientes();
+            this.listaClientes[i] = new Clientes();// meto vehiculos en la estructura
 
         }
 

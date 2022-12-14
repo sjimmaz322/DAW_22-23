@@ -14,28 +14,13 @@ public class Ejemplo {
 
     public static void main(String[] args) {
 
+        Empresa e1 = new Empresa(5);
+
         CatalogoClientes catalogoClientes = new CatalogoClientes(5);
         CatalogoVehiculos catalogoVehiculos = new CatalogoVehiculos(5);
         CatalogoAlquiler catalogoAlquileres = new CatalogoAlquiler(10);
 
-        Clientes c1 = new Clientes();
-        Vehiculo v1 = new Vehiculo();
-         
-        Alquiler alq1 = new Alquiler(c1, v1, LocalDate.now(), 8);
-
-//        Clientes c = catalogoClientes.buscarClientePorNif("3");
-//        Vehiculo v = catalogoVehiculos.buscarVehiculoPorBastidor("4");
-
-        catalogoAlquileres.aniadirAlquiler(alq1);
-
-        System.out.println(alq1);
-        System.out.println("---");
-        System.out.println(c1.toString());
-        System.out.println("---");
-        System.out.println(v1.toString());
-        System.out.println("--");
-         System.out.println(catalogoAlquileres);
-      
+        
 
     }
 

@@ -4,7 +4,6 @@
  */
 package vehiculos;
 
-import java.util.Arrays;
 import java.util.Objects;
 import org.apache.commons.lang3.RandomStringUtils;
 
@@ -57,6 +56,10 @@ public class Clientes {
 
     public void setNIF(String NIF) {
         this.NIF = NIF;
+    }
+
+    public static int getContador() {
+        return contador;
     }
 
     @Override
