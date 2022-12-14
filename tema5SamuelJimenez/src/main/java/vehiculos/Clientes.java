@@ -17,9 +17,13 @@ public class Clientes {
     private String nombre, apellido1, apellido2;
     private final String NIF;
     private final String[] letras = {"T", "R", "W", "A", "G", "M", "Y", "F", "P", "D", "X", "B", "N", "J", "Z", "S", "Q", "V", "H", "L", "C", "K", "E"};
+    private static int contador = 0;
 
     public Clientes() {
-        this.NIF = generarNIF(letras);
+        this.nombre = RandomStringUtils.randomAlphabetic(6);
+        this.apellido1 = RandomStringUtils.randomAlphabetic(6);
+        this.apellido2 = RandomStringUtils.randomAlphabetic(6);
+        this.NIF = String.valueOf(contador);
     }
 
     public String getNombre() {

@@ -77,6 +77,15 @@ public class CatalogoClientes {
         }
     }
 
+    private Clientes[] copiar() {
+        Clientes[] aux = new Clientes[listaClientes.length + 1];
+
+        for (int i = 0; i < listaClientes.length; i++) {
+            aux[i] = listaClientes[i];
+        }
+        return aux;
+    }
+
     @Override
     public String toString() {
         String tmp = "";
