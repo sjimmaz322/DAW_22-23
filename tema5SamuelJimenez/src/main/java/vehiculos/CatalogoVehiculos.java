@@ -4,8 +4,6 @@
  */
 package vehiculos;
 
-import java.util.Arrays;
-
 /**
  *
  * @author samuel
@@ -32,13 +30,14 @@ public class CatalogoVehiculos {
 
     }
 
-//    public void mostrarCatalogo() {
-//
-//        for (Vehiculo v : listaVehiculos) {
-//            System.out.println(v);
-//        }
-//
-//    }
+    public void mostrarCatalogo() {
+
+        for (Vehiculo v : listaVehiculos) {
+            System.out.println(v);
+        }
+
+    }
+
     public int getNumeroVehiculos() {
         return numeroVehiculos;
     }
@@ -62,6 +61,27 @@ public class CatalogoVehiculos {
                 return i;
 
             }
+        }
+        return -1;
+    }
+
+    public Vehiculo buscarVehiculoPorBastidor(String bastidor) {
+        Vehiculo aux = new Vehiculo();
+        aux.setBastidor(bastidor);
+        int pos = buscarVehiculo(aux);
+
+        return (pos >= 0) ? this.listaVehiculos[pos] : null;
+    }
+
+    public int buscarCliente(Vehiculo c) {
+        if (c != null) {
+            for (int i = 0; i < this.listaVehiculos.length; i++) {
+
+                if (this.listaVehiculos[i] != null && c.equals(this.listaVehiculos[i])) {
+                    return i;
+                }
+            }
+
         }
         return -1;
     }

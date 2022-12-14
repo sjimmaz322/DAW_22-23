@@ -50,12 +50,23 @@ public class CatalogoClientes {
         return false;
     }
 
-    public int buscarCliente(Clientes c) {
+    public Clientes buscarClientePorNif(String nif) {
+        Clientes aux = new Clientes();
+        aux.setNIF(nif);
+        int pos = buscarCliente(aux);
 
-        for (int i = 0; i < this.listaClientes.length; i++) {
-            if (c.equals(this.listaClientes[i])) {
-                return i;
+        return (pos >= 0) ? this.listaClientes[pos] : null;
+    }
+
+    public int buscarCliente(Clientes c) {
+        if (c != null) {
+            for (int i = 0; i < this.listaClientes.length; i++) {
+
+                if (this.listaClientes[i] != null && c.equals(this.listaClientes[i])) {
+                    return i;
+                }
             }
+
         }
         return -1;
     }

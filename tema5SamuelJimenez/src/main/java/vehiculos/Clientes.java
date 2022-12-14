@@ -15,14 +15,15 @@ import org.apache.commons.lang3.RandomStringUtils;
 public class Clientes {
 
     private String nombre, apellido1, apellido2;
-    private final String NIF;
-    private final String[] letras = {"T", "R", "W", "A", "G", "M", "Y", "F", "P", "D", "X", "B", "N", "J", "Z", "S", "Q", "V", "H", "L", "C", "K", "E"};
+    private String NIF;
+//    private final String[] letras = {"T", "R", "W", "A", "G", "M", "Y", "F", "P", "D", "X", "B", "N", "J", "Z", "S", "Q", "V", "H", "L", "C", "K", "E"};
     private static int contador = 0;
 
     public Clientes() {
         this.nombre = RandomStringUtils.randomAlphabetic(6);
         this.apellido1 = RandomStringUtils.randomAlphabetic(6);
         this.apellido2 = RandomStringUtils.randomAlphabetic(6);
+        contador++;
         this.NIF = String.valueOf(contador);
     }
 
@@ -54,14 +55,14 @@ public class Clientes {
         return NIF;
     }
 
+    public void setNIF(String NIF) {
+        this.NIF = NIF;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 29 * hash + Objects.hashCode(this.nombre);
-        hash = 29 * hash + Objects.hashCode(this.apellido1);
-        hash = 29 * hash + Objects.hashCode(this.apellido2);
-        hash = 29 * hash + Objects.hashCode(this.NIF);
-        hash = 29 * hash + Arrays.deepHashCode(this.letras);
+        int hash = 3;
+        hash = 67 * hash + Objects.hashCode(this.NIF);
         return hash;
     }
 
@@ -88,7 +89,6 @@ public class Clientes {
 //
 //        return DNICompleto;
 //    }
-
     @Override
     public String toString() {
         return "Clientes{" + "nombre=" + nombre + ", apellido1=" + apellido1 + ", apellido2=" + apellido2 + ", NIF=" + NIF + '}';
