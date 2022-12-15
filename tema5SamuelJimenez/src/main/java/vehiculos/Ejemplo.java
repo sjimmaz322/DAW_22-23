@@ -5,6 +5,7 @@
 package vehiculos;
 
 import java.time.LocalDate;
+import java.util.Arrays;
 
 /**
  *
@@ -16,9 +17,14 @@ public class Ejemplo {
 
         Empresa e1 = new Empresa();
 
-//        CatalogoClientes catalogoClientes = new CatalogoClientes(5);
-//        CatalogoVehiculos catalogoVehiculos = new CatalogoVehiculos(5);
-//        CatalogoAlquiler catalogoAlquileres = new CatalogoAlquiler(10);
+        e1.aniadirCliente();
+        e1.aniadirVehiculo(new Vehiculo());
+        String resultado = e1.registrarAlquiler("1", "1", LocalDate.now(), 8) ? "Alquiler realizado con exito" : "Alquiler imposible";
+
+//        System.out.println(Arrays.toString(e1.getListadoClientes().getListaClientes()));
+//        System.out.println(Arrays.toString(e1.getListadoVehiculos().getListaVehiculos()));
+//        System.out.println(e1.getListadoAlquiler().getNumeroAlquileres());
+        System.out.println(resultado);
     }
 
 }

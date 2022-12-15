@@ -4,6 +4,7 @@
  */
 package vehiculos;
 
+import java.time.LocalDate;
 import java.util.Objects;
 
 /**
@@ -29,9 +30,9 @@ public class Empresa {
     
      */
     public Empresa() {
-        this.listadoClientes = new CatalogoClientes(0);
-        this.listadoVehiculos = new CatalogoVehiculos(0);
-        this.listadoAlquiler = new CatalogoAlquiler(0);
+        this.listadoClientes = new CatalogoClientes(5);
+        this.listadoVehiculos = new CatalogoVehiculos(5);
+        this.listadoAlquiler = new CatalogoAlquiler(5);
     }
 
     public String getCif() {
@@ -101,8 +102,47 @@ public class Empresa {
         return sb.toString();
     }
 
-    private void aniadirCliente(Clientes aux) {
-        this.listadoClientes.aniadirCliente(c);
+    public void aniadirCliente(Clientes aux) {
+        this.listadoClientes.aniadirCliente(aux);
+    }
+
+    public void aniadirCliente() {
+        Clientes aux = new Clientes();
+        this.listadoClientes.aniadirCliente(aux);
+    }
+
+    public void aniadirVehiculo(Vehiculo aux) {
+        this.listadoVehiculos.aniadirVehiculo(aux);
+    }
+
+    public void aniadirVehiculo() {
+        Vehiculo aux = new Vehiculo();
+        this.listadoVehiculos.aniadirVehiculo(aux);
+    }
+
+    public Clientes buscarCliente(String nif) {
+        Clientes aux = this.listadoClientes.buscarClientePorNif(nif);
+        return aux;
+    }
+
+    public Vehiculo buscarVehiculo(String bastidor) {
+        Vehiculo aux = this.listadoVehiculos.buscarVehiculoPorBastidor(bastidor);
+        return aux;
+    }
+
+    public boolean registrarAlquiler(String nif, String bastidor, LocalDate fecha, int duracion) {
+        Clientes cliAux = this.listadoClientes.buscarClientePorNif(nif);
+        Vehiculo vehAux = this.listadoVehiculos.buscarVehiculoPorBastidor(bastidor);
+        if (cliAux != null && (vehAux != null) && vehAux.isDisponible() == true) {
+            vehAux.setDisponible(false);
+            this.listadoAlquiler.aniadirAlquiler(new Alquiler(cliAux, vehAux, fecha, duracion));
+            return true;
+        }
+        return false;
+    }
+
+    public void recibirVehiculo(Alquiler aux) {
+        aux.getVehiculo().setDisponible(true);
     }
 
 }

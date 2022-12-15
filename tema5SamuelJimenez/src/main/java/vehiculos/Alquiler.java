@@ -39,11 +39,11 @@ public class Alquiler {
         this.cliente = cliente;
     }
 
-    public Vehiculo getVechiculo() {
+    public Vehiculo getVehiculo() {
         return vehiculo;
     }
 
-    public void setVechiculo(Vehiculo vechiculo) {
+    public void setVehiculo(Vehiculo vechiculo) {
         this.vehiculo = vechiculo;
     }
 
