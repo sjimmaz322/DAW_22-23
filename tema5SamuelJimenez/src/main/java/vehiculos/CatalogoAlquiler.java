@@ -45,7 +45,7 @@ public class CatalogoAlquiler {
         return numeroAlquileres;
     }
 
-    public boolean borrarCliente(Alquiler c) {
+    public boolean borrarAlquiler(Alquiler c) {
         int posicion = buscarAlquiler(c);
         if (posicion >= 0) {
 

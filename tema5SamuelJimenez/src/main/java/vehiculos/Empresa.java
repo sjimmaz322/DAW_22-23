@@ -4,7 +4,6 @@
  */
 package vehiculos;
 
-import java.util.Arrays;
 import java.util.Objects;
 
 /**
@@ -15,9 +14,9 @@ public class Empresa {
 
     String cif;
     String nombre;
-    Clientes[] listadoClientes;
-    Vehiculo[] listadoVehiculos;
-    Alquiler[] listadoAlquiler;
+    CatalogoClientes listadoClientes;
+    CatalogoVehiculos listadoVehiculos;
+    CatalogoAlquiler listadoAlquiler;
 
     //Catálogo de vehículos
     //Catálogo de clientes
@@ -29,67 +28,38 @@ public class Empresa {
     - buscar vehículo por bastidor
     
      */
-    public Empresa(int tamanio) {
-        this.listadoClientes = new Clientes[tamanio];
-        this.listadoVehiculos = new Vehiculo[tamanio];
-        this.listadoAlquiler = new Alquiler[tamanio];
-    }
-
-    public Empresa(String cif, String nombre, Clientes[] listadoClientes, Vehiculo[] listadoVehiculos, Alquiler[] listadoAlquiler) {
-        this.cif = cif;
-        this.nombre = nombre;
-        this.listadoClientes = listadoClientes;
-        for (int i = 0; i < listadoClientes.length; i++) {
-            this.listadoClientes[i] = new Clientes();
-        }
-        this.listadoVehiculos = listadoVehiculos;
-        for (int i = 0; i < listadoVehiculos.length; i++) {
-            this.listadoVehiculos[i] = new Vehiculo();
-        }
-        this.listadoAlquiler = listadoAlquiler;
-        for (int i = 0; i < listadoAlquiler.length; i++) {
-            this.listadoAlquiler[i] = new Alquiler();
-        }
+    public Empresa() {
+        this.listadoClientes = new CatalogoClientes(0);
+        this.listadoVehiculos = new CatalogoVehiculos(0);
+        this.listadoAlquiler = new CatalogoAlquiler(0);
     }
 
     public String getCif() {
         return cif;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public Clientes[] getListadoClientes() {
-        return listadoClientes;
-    }
-
-    public Vehiculo[] getListadoVehiculos() {
-        return listadoVehiculos;
-    }
-
-    public Alquiler[] getListadoAlquiler() {
-        return listadoAlquiler;
-    }
-
     public void setCif(String cif) {
         this.cif = cif;
+    }
+
+    public String getNombre() {
+        return nombre;
     }
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    public void setListadoClientes(Clientes[] listadoClientes) {
-        this.listadoClientes = listadoClientes;
+    public CatalogoClientes getListadoClientes() {
+        return listadoClientes;
     }
 
-    public void setListadoVehiculos(Vehiculo[] listadoVehiculos) {
-        this.listadoVehiculos = listadoVehiculos;
+    public CatalogoVehiculos getListadoVehiculos() {
+        return listadoVehiculos;
     }
 
-    public void setListadoAlquiler(Alquiler[] listadoAlquiler) {
-        this.listadoAlquiler = listadoAlquiler;
+    public CatalogoAlquiler getListadoAlquiler() {
+        return listadoAlquiler;
     }
 
     @Override
@@ -131,15 +101,4 @@ public class Empresa {
         return sb.toString();
     }
 
-    public void aniadirClientes(Clientes c) {
-       
-        for (int i = 0; i < listadoClientes.length; i++) {
-            if(listadoClientes[i]== null){
-                this.listadoClientes[i] = c;
-                break;
-            }
-            
-        }
-        
-    }
 }

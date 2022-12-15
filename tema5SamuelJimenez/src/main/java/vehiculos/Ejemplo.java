@@ -14,14 +14,11 @@ public class Ejemplo {
 
     public static void main(String[] args) {
 
-        Empresa e1 = new Empresa(5);
+        Empresa e1 = new Empresa();
 
-        CatalogoClientes catalogoClientes = new CatalogoClientes(5);
-        CatalogoVehiculos catalogoVehiculos = new CatalogoVehiculos(5);
-        CatalogoAlquiler catalogoAlquileres = new CatalogoAlquiler(10);
-
-        
-
+//        CatalogoClientes catalogoClientes = new CatalogoClientes(5);
+//        CatalogoVehiculos catalogoVehiculos = new CatalogoVehiculos(5);
+//        CatalogoAlquiler catalogoAlquileres = new CatalogoAlquiler(10);
     }
 
 }
