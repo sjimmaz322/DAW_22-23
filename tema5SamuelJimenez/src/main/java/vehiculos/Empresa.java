@@ -101,4 +101,8 @@ public class Empresa {
         return sb.toString();
     }
 
+    private void aniadirCliente(Clientes aux) {
+        this.listadoClientes.aniadirCliente(c);
+    }
+
 }
