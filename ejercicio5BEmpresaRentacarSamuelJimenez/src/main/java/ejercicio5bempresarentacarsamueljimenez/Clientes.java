@@ -94,9 +94,20 @@ public class Clientes {
 //
 //        return DNICompleto;
 //    }
+
     @Override
     public String toString() {
-        return "Clientes{" + "nombre=" + nombre + ", apellido1=" + apellido1 + ", apellido2=" + apellido2 + ", NIF=" + NIF + '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append("\n---------");
+        sb.append("\nNombre :").append(nombre);
+        sb.append("\nPrimer apellid :").append(apellido1);
+        sb.append("\nSegundo apellido :").append(apellido2);
+        sb.append("\nDNI :").append(NIF);
+        sb.append("\n---------");
+        return sb.toString();
     }
+    
+    
+
 
 }

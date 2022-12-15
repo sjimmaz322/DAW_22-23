@@ -4,8 +4,6 @@ package ejercicio5bempresarentacarsamueljimenez;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-
-
 import java.time.LocalDate;
 
 /**
@@ -20,6 +18,7 @@ public class Alquiler {
     private Vehiculo vehiculo;
     private LocalDate fechaInicioAlquiles;
     private int duracionAlquilerDias;
+    private String estado;
 
     public Alquiler(Clientes cliente, Vehiculo vechiculo, LocalDate fechaInicioAlquiles, int duracionAlquilerDias) {
         this.alquilerID = ++contador;
@@ -27,11 +26,11 @@ public class Alquiler {
         this.vehiculo = vechiculo;
         this.fechaInicioAlquiles = fechaInicioAlquiles;
         this.duracionAlquilerDias = duracionAlquilerDias;
+        this.estado = "Activo";
     }
 
     public Alquiler() {
     }
-    
 
     public Clientes getCliente() {
         return cliente;
@@ -72,7 +71,14 @@ public class Alquiler {
     public void setAlquilerID(int alquilerID) {
         this.alquilerID = alquilerID;
     }
-    
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
 
     @Override
     public int hashCode() {
@@ -95,18 +101,18 @@ public class Alquiler {
         final Alquiler other = (Alquiler) obj;
         return this.alquilerID == other.alquilerID;
     }
-    
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Alquiler{");
-        sb.append("alquilerID=").append(alquilerID);
-        sb.append(", cliente=").append(cliente.getNIF());
-        sb.append(", vehiculo=").append(vehiculo.getBastidor());
-        sb.append(", fechaInicioAlquiles=").append(fechaInicioAlquiles);
-        sb.append(", duracionAlquilerDias=").append(duracionAlquilerDias);
-        sb.append('}');
+        sb.append("\n---------");
+        sb.append("\nIdentificador del alquiler : ").append(alquilerID);
+        sb.append("\nDNI del cliente que alquiló : ").append(cliente.getNIF());
+        sb.append("\nNúmero de bastido del vehículo alquilado : ").append(vehiculo.getBastidor());
+        sb.append("\nFecha del inicio del alquiler : ").append(fechaInicioAlquiles);
+        sb.append("\nDuración del alquiler (días) : ").append(duracionAlquilerDias);
+        sb.append("\nEstado del alquiler : ").append(estado);
+        sb.append("\n---------");
         return sb.toString();
     }
 

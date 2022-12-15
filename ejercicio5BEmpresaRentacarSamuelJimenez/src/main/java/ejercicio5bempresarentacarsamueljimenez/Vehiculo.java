@@ -4,8 +4,6 @@ package ejercicio5bempresarentacarsamueljimenez;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-
-
 import java.util.Objects;
 import org.apache.commons.lang3.RandomStringUtils;
 
@@ -111,7 +109,16 @@ public class Vehiculo {
 
     @Override
     public String toString() {
-        return "Vehiculo{" + "bastidor=" + bastidor + ", matricula=" + matricula + ", color=" + color
-                + ", modelo=" + modelo + ", disponible=" + disponible + ", tarifa=" + tarifa + '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append("\n---------");
+        sb.append("\nNúmero de bastidor :").append(bastidor);
+        sb.append("\nNúmero de matrícula :").append(matricula);
+        sb.append("\nColor :").append(color);
+        sb.append("").append(modelo);
+        sb.append("\nDisponibilidad : ").append(disponible ? "Está disponible" : "Actualmente no disponible");
+        sb.append("\nTarifa : ").append(tarifa).append(" €");
+        sb.append("\n---------");
+        return sb.toString();
     }
+
 }
