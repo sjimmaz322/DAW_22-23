@@ -1,6 +1,7 @@
 package ejercicio5bempresarentacarsamueljimenez;
 
 import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.Scanner;
 import org.apache.commons.lang3.RandomStringUtils;
 
@@ -23,27 +24,58 @@ public class Prueba {
         Empresa rentacar = new Empresa();
         rentacar.setNombre("Rentacar");
         rentacar.setCif(RandomStringUtils.randomAlphabetic(4));
+        do {
 
-        System.out.println("¿Qué desea hacer?\n1 - Registrar un cliente.\n2 - Registrar un vehículo.\n3 - Registrar un alquiler.\n4 - Recibir un vehículo.\n0 - Salir");
-        eleccion = sc.nextLine();
-        switch (eleccion) {
-            case "1":
-                aniadirClienteNuevo(rentacar);
-                break;
-            case "2":
-                aniadirVehiculoNuevo(rentacar);
-                break;
-            case "3":
-                registrarAlquiler(rentacar);
-                break;
-            case "4":
-                String identificador = sc.nextLine();
-                rentacar.listadoAlquiler.borrarAlquiler(rentacar.getListadoAlquiler().buscarAlquilerPorID(identificador));
-                break;
-            case "0":
-                System.out.println("Saliendo del programa");
-                break;
-        }
+            System.out.println("""
+                               ¿Qué desea hacer?
+                               1 - Registrar un cliente.
+                               2 - Registrar un veh\u00edculo.
+                               3 - Registrar un alquiler.
+                               4 - Recibir un veh\u00edculo.
+                               5 - Ver lista de clientes.
+                               6 - Ver lista de veh\u00edculos.
+                               7 - Ver lista de alquileres.
+                               0 - Salir.""");
+
+            eleccion = sc.nextLine();
+            switch (eleccion) {
+                case "1":
+                    aniadirClienteNuevo(rentacar);
+                    sc.nextLine();
+                    break;
+                case "2":
+                    aniadirVehiculoNuevo(rentacar);
+                    sc.nextLine();
+                    break;
+                case "3":
+                    registrarAlquiler(rentacar);
+                    sc.nextLine();
+                    break;
+                case "4":
+                    System.out.println("Introduza el identificador del alquiler");
+                    String identificador = sc.nextLine();
+                    String resultado = rentacar.listadoAlquiler.borrarAlquiler(rentacar.getListadoAlquiler().buscarAlquilerPorID(identificador)) ? "Gracias por devolver el coche sano y salvo"
+                            : "El alquiler no existe o el identicador es erróneo.";
+                    System.out.println(resultado);
+
+                    break;
+                case "5":
+                    System.out.println(Arrays.toString(rentacar.listadoClientes.getListaClientes()));
+                    break;
+                case "6":
+                    System.out.println(Arrays.toString(rentacar.listadoVehiculos.getListaVehiculos()));
+                    break;
+                case "7":
+                    System.out.println(Arrays.toString(rentacar.listadoAlquiler.getListaAlquileres()));
+                    break;
+                case "0":
+                    System.out.println("Saliendo del programa");
+                    break;
+                default:
+                    System.out.println("Elija una de las opciones ofrecidas por favor.");
+                    sc.nextLine();
+            }
+        } while (!eleccion.equalsIgnoreCase("0"));
 
     }
 
@@ -66,7 +98,7 @@ public class Prueba {
                     //---
                     System.out.println("Introduzca cuantos días se alquilará el vehículo");
                     int dur = Math.abs(sc.nextInt());
-
+                    e.listadoVehiculos.buscarVehiculoPorBastidor(numBastidor).setDisponible(false);
                     e.listadoAlquiler.aniadirAlquiler(new Alquiler(e.listadoClientes.buscarClientePorNif(dni), e.listadoVehiculos.buscarVehiculoPorBastidor(numBastidor), LocalDate.now(), dur));
                 }
             } else {
@@ -85,7 +117,7 @@ public class Prueba {
                     //---
                     System.out.println("Introduzca cuantos días se alquilará el vehículo");
                     int dur = Math.abs(sc.nextInt());
-
+                    e.listadoVehiculos.buscarVehiculoPorBastidor(numBastidor).setDisponible(false);
                     e.listadoAlquiler.aniadirAlquiler(new Alquiler(e.listadoClientes.buscarClientePorNif(dni), e.listadoVehiculos.buscarVehiculoPorBastidor(numBastidor), LocalDate.now(), dur));
                 } else {
                     System.out.println("Cancelando Operación");
@@ -94,6 +126,7 @@ public class Prueba {
             //---
             System.out.println("Introduzca cuantos días se alquilará el vehículo");
             int dur = Math.abs(sc.nextInt());
+            e.listadoVehiculos.buscarVehiculoPorBastidor(numBastidor).setDisponible(false);
             e.listadoAlquiler.aniadirAlquiler(new Alquiler(e.listadoClientes.buscarClientePorNif(dni), e.listadoVehiculos.buscarVehiculoPorBastidor(numBastidor), LocalDate.now(), dur));
         }
     }
