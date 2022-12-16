@@ -39,7 +39,6 @@ public class Prueba {
             case "4":
                 String identificador = sc.nextLine();
                 rentacar.listadoAlquiler.borrarAlquiler(rentacar.getListadoAlquiler().buscarAlquilerPorID(identificador));
-
                 break;
             case "0":
                 System.out.println("Saliendo del programa");
