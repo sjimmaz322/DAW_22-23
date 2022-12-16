@@ -39,56 +39,9 @@ public class Prueba {
             eleccion = sc.nextLine();
             if (eleccion.equalsIgnoreCase("si")) {
                 aniadirClienteNuevo(e);
-                //
-                System.out.println("Introduzca el número de bastidor del vehiculo");
-                numBastidor = sc.nextLine();
-                if (e.listadoVehiculos.buscarVehiculoPorBastidor(numBastidor) == null) {
-                    System.out.println("El vehículo no está en el sistema");
-                }
-                System.out.println("¿Desea registrarlo?\nSi --- No");
-                eleccion = sc.nextLine();
-                if (eleccion.equalsIgnoreCase("si")) {
-                    aniadirVehiculoNuevo(e);
-
-                    System.out.println("Introduzca la duración del alquiler");
-                    int dur = sc.nextInt();
-
-                    Alquiler alq = new Alquiler(e.listadoClientes.buscarClientePorNif(dni), e.listadoVehiculos.buscarVehiculoPorBastidor(numBastidor), LocalDate.now(), dur);
-                    e.listadoAlquiler.aniadirAlquiler(alq);
-
-                } else {
-                    System.out.println("Cancelando operación");
-                }
-            }
-
-        } else {
-
-            System.out.println("Introduzca el número de bastidor del vehiculo");
-            numBastidor = sc.nextLine();
-            if (e.listadoVehiculos.buscarVehiculoPorBastidor(numBastidor) == null) {
-                System.out.println("El vehículo no está en el sistema");
-                System.out.println("¿Desea registrarlo?\nSi --- No");
-                eleccion = sc.nextLine();
-                if (eleccion.equalsIgnoreCase("si")) {
-                    aniadirVehiculoNuevo(e);
-
-                    System.out.println("Introduzca la duración del alquiler");
-                    int dur = sc.nextInt();
-                    Alquiler alq = new Alquiler(e.listadoClientes.buscarClientePorNif(dni), e.listadoVehiculos.buscarVehiculoPorBastidor(numBastidor), LocalDate.now(), dur);
-                    e.listadoAlquiler.aniadirAlquiler(alq);
-                } else {
-                    System.out.println("Cancelando operación");
-                }
-
-                System.out.println("Introduzca la duración del alquiler");
-                int dur = sc.nextInt();
-
-                Alquiler alq = new Alquiler(e.listadoClientes.buscarClientePorNif(dni), e.listadoVehiculos.buscarVehiculoPorBastidor(numBastidor), LocalDate.now(), dur);
-                e.listadoAlquiler.aniadirAlquiler(alq);
 
             }
         }
-
     }
 
     private static void aniadirClienteNuevo(Empresa e) {
