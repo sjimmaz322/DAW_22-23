@@ -24,9 +24,28 @@ public class Prueba {
         rentacar.setNombre("Rentacar");
         rentacar.setCif(RandomStringUtils.randomAlphabetic(4));
 
-        registrarAlquiler(rentacar);
+        System.out.println("¿Qué desea hacer?\n1 - Registrar un cliente.\n2 - Registrar un vehículo.\n3 - Registrar un alquiler.\n4 - Recibir un vehículo.\n0 - Salir");
+        eleccion = sc.nextLine();
+        switch (eleccion) {
+            case "1":
+                aniadirClienteNuevo(rentacar);
+                break;
+            case "2":
+                aniadirVehiculoNuevo(rentacar);
+                break;
+            case "3":
+                registrarAlquiler(rentacar);
+                break;
+            case "4":
+                String identificador = sc.nextLine();
+                rentacar.listadoAlquiler.borrarAlquiler(rentacar.getListadoAlquiler().buscarAlquilerPorID(identificador));
 
-        System.out.println(rentacar.getListadoAlquiler());
+                break;
+            case "0":
+                System.out.println("Saliendo del programa");
+                break;
+        }
+
     }
 
     private static void registrarAlquiler(Empresa e) {
@@ -39,8 +58,44 @@ public class Prueba {
             eleccion = sc.nextLine();
             if (eleccion.equalsIgnoreCase("si")) {
                 aniadirClienteNuevo(e);
+                //---
+                System.out.println("Introduza el número de bastidor del coche");
+                numBastidor = sc.nextLine();
+                //---
+                if (e.listadoVehiculos.buscarVehiculoPorBastidor(numBastidor) == null) {
+                    aniadirVehiculoNuevo(e);
+                    //---
+                    System.out.println("Introduzca cuantos días se alquilará el vehículo");
+                    int dur = Math.abs(sc.nextInt());
 
+                    e.listadoAlquiler.aniadirAlquiler(new Alquiler(e.listadoClientes.buscarClientePorNif(dni), e.listadoVehiculos.buscarVehiculoPorBastidor(numBastidor), LocalDate.now(), dur));
+                }
+            } else {
+                System.out.println("Cancelando Operación");
             }
+        } else {
+            System.out.println("Introduza el número de bastidor del coche");
+            numBastidor = sc.nextLine();
+            //---
+            if (e.listadoVehiculos.buscarVehiculoPorBastidor(numBastidor) == null) {
+                System.out.println("El vehiculo no está en el sistema");
+                System.out.println("¿Desea registrarlo?\nSi --- No");
+                eleccion = sc.nextLine();
+                if (eleccion.equalsIgnoreCase("si")) {
+                    aniadirVehiculoNuevo(e);
+                    //---
+                    System.out.println("Introduzca cuantos días se alquilará el vehículo");
+                    int dur = Math.abs(sc.nextInt());
+
+                    e.listadoAlquiler.aniadirAlquiler(new Alquiler(e.listadoClientes.buscarClientePorNif(dni), e.listadoVehiculos.buscarVehiculoPorBastidor(numBastidor), LocalDate.now(), dur));
+                } else {
+                    System.out.println("Cancelando Operación");
+                }
+            }
+            //---
+            System.out.println("Introduzca cuantos días se alquilará el vehículo");
+            int dur = Math.abs(sc.nextInt());
+            e.listadoAlquiler.aniadirAlquiler(new Alquiler(e.listadoClientes.buscarClientePorNif(dni), e.listadoVehiculos.buscarVehiculoPorBastidor(numBastidor), LocalDate.now(), dur));
         }
     }
 
@@ -97,7 +152,7 @@ public class Prueba {
             case ("Blanco"), ("blanco"), ("BLANCO") ->
                 nuevoCoche.setColor(Color.BLANCO);
             default -> {
-                System.out.println("Color no reconocido, asignando modelo aleatorio");
+                System.out.println("Color no reconocido, asignando color aleatorio");
                 nuevoCoche.setColor(Color.getAleatorio());
             }
         }

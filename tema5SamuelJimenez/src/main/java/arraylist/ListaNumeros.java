@@ -35,7 +35,18 @@ public class ListaNumeros {
         System.out.println(taEl7);
 
         System.out.println("El ocho está en la posición - " + listaNums.indexOf(8));
-        
+        Integer numero = 4;
+        listaNums.remove(numero);
+        System.out.println("-");
+        listaNums.forEach(System.out::println);
+        System.out.println("-");
+        for (Integer nums : listaNums) {
+            System.out.println(nums);
+        }
+        listaNums.set(0, 1);
+        System.out.println("-");
+        listaNums.forEach(System.out::println);
+
     }
 
 }
