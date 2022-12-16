@@ -6,7 +6,7 @@ package ejercicios;
 
 /**
  *
- * @author samuel
+ * @author sajm <sjimmaz322 at sjimmaz322@g.educaand.es>
  */
 public class Ej15 {
 
@@ -14,7 +14,16 @@ public class Ej15 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Lanzamonedas lanzadora = new Lanzamonedas();
+        //--
+        lanzadora.rellenarArray();
+        //---
+        int caras = lanzadora.contarCaras();
+        int cruz = lanzadora.contarCruces();
+        //---
+        System.out.println("De nuestras 1000 tiradas: " + caras + " han sido cara y " + cruz + " han sido cruz.");
+        //---
+        lanzadora.mostrarResultados();
     }
-    
+
 }
