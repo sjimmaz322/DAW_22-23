@@ -33,6 +33,9 @@ public class ListaNumeros {
 
         String taEl7 = listaNums.contains(7) ? "El 7 está en la lista" : "El 7 no está en la lista";
         System.out.println(taEl7);
+
+        System.out.println("El ocho está en la posición - " + listaNums.indexOf(8));
+        
     }
 
 }
