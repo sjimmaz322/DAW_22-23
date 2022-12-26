@@ -5,6 +5,7 @@ package ejercicio5bempresarentacarsamueljimenez;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -12,57 +13,47 @@ import java.util.Objects;
  * @author samuel
  */
 public class Empresa {
-    
+
     String cif;
     String nombre;
     CatalogoClientes listadoClientes;
     CatalogoVehiculos listadoVehiculos;
-    CatalogoAlquiler listadoAlquiler;
+    CatalogoAlquileres listadoAlquiler;
 
-    //Catálogo de vehículos
-    //Catálogo de clientes
-    //Catálogo de alquileres
-    /*
-    - Registrar un cliente
-    - Registrar un vehiculo
-    - buscar un cliente por nif
-    - buscar vehículo por bastidor
-    
-     */
     public Empresa() {
         this.listadoClientes = new CatalogoClientes(5);
         this.listadoVehiculos = new CatalogoVehiculos(5);
-        this.listadoAlquiler = new CatalogoAlquiler(5);
+        this.listadoAlquiler = new CatalogoAlquileres();
     }
-    
+
     public String getCif() {
         return cif;
     }
-    
+
     public void setCif(String cif) {
         this.cif = cif;
     }
-    
+
     public String getNombre() {
         return nombre;
     }
-    
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    
+
     public CatalogoClientes getListadoClientes() {
         return listadoClientes;
     }
-    
+
     public CatalogoVehiculos getListadoVehiculos() {
         return listadoVehiculos;
     }
-    
-    public CatalogoAlquiler getListadoAlquiler() {
+
+    public CatalogoAlquileres getListadoAlquiler() {
         return listadoAlquiler;
     }
-    
+
     @Override
     public int hashCode() {
         int hash = 3;
@@ -70,7 +61,7 @@ public class Empresa {
         hash = 97 * hash + Objects.hashCode(this.nombre);
         return hash;
     }
-    
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -88,7 +79,7 @@ public class Empresa {
         }
         return Objects.equals(this.nombre, other.nombre);
     }
-    
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -101,48 +92,48 @@ public class Empresa {
         sb.append("\n---------");
         return sb.toString();
     }
-    
+
     public void aniadirCliente(Clientes aux) {
-        this.listadoClientes.aniadirCliente(aux);
+        this.listadoClientes.aniadirClientes(aux);
     }
-    
+
     public void aniadirCliente() {
         Clientes aux = new Clientes();
-        this.listadoClientes.aniadirCliente(aux);
+        this.listadoClientes.aniadirClientes(aux);
     }
-    
+
     public void aniadirVehiculo(Vehiculo aux) {
         this.listadoVehiculos.aniadirVehiculo(aux);
     }
-    
+
     public void aniadirVehiculo() {
         Vehiculo aux = new Vehiculo();
         this.listadoVehiculos.aniadirVehiculo(aux);
     }
-    
+
     public Clientes buscarCliente(String nif) {
-        Clientes aux = this.listadoClientes.buscarClientePorNif(nif);
+        Clientes aux = this.listadoClientes.buscarClientesPorNif(nif);
         return aux;
     }
-    
+
     public Vehiculo buscarVehiculo(String bastidor) {
         Vehiculo aux = this.listadoVehiculos.buscarVehiculoPorBastidor(bastidor);
         return aux;
     }
-    
+
     public boolean registrarAlquiler(String nif, String bastidor, LocalDate fecha, int duracion) {
-        Clientes cliAux = this.listadoClientes.buscarClientePorNif(nif);
+        Clientes cliAux = this.listadoClientes.buscarClientesPorNif(nif);
         Vehiculo vehAux = this.listadoVehiculos.buscarVehiculoPorBastidor(bastidor);
         if (cliAux != null && (vehAux != null) && vehAux.isDisponible() == true) {
             vehAux.setDisponible(false);
-            this.listadoAlquiler.aniadirAlquiler(new Alquiler(cliAux, vehAux, fecha, duracion));
+            this.listadoAlquiler.aniadirAlquileres(new Alquileres(cliAux, vehAux, fecha, duracion));
             return true;
         }
         return false;
     }
-    
-    public boolean recibirVehiculo(Alquiler aux) {
-        Alquiler alqAux = listadoAlquiler.buscarAlquilerPorID(String.valueOf(aux.getAlquilerID()));
+
+    public boolean recibirVehiculo(Alquileres aux) {
+        Alquileres alqAux = listadoAlquiler.buscarAlquileresPorId((aux.getAlquileresID()));
         if (alqAux != null) {
             aux.getVehiculo().setDisponible(true);
             aux.setEstado("Finalizado");
@@ -150,5 +141,35 @@ public class Empresa {
         }
         return false;
     }
-    
+
+    public ArrayList<Alquileres> listadoAlquileresClienteNif(String nif) {
+        ArrayList<Alquileres> aux = new ArrayList<>();
+
+        for (int i = 0; i < this.listadoAlquiler.getNumAlquileres(); i++) {
+            if (this.listadoAlquiler.buscarAlquileresPorId(i).getCliente().getNIF().equalsIgnoreCase(nif)) {
+                aux.add(this.listadoAlquiler.buscarAlquileresPorId(i));
+            }
+        }
+        return aux;
+    }
+
+    public ArrayList<Alquileres> listadoAlquileresVehiculoBastidor(String bastidor) {
+        ArrayList<Alquileres> aux = new ArrayList<>();
+
+        for (int i = 0; i < this.listadoAlquiler.getNumAlquileres(); i++) {
+            if (this.listadoAlquiler.buscarAlquileresPorId(i).getVehiculo().getBastidor().equalsIgnoreCase(bastidor)) {
+                aux.add(this.listadoAlquiler.buscarAlquileresPorId(i));
+            }
+        }
+        return aux;
+    }
+
+    public boolean borrarAlquilerID(int id) {
+        Alquileres aux = this.listadoAlquiler.buscarAlquileresPorId(id);
+        return this.listadoAlquiler.borrarAlquileres(aux);
+    }
+
+    public void borrarClienteSinAlquileres() {
+
+    }
 }

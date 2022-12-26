@@ -10,26 +10,26 @@ import java.time.LocalDate;
  *
  * @author samuel
  */
-public class Alquiler {
+public class Alquileres {
 
     private int alquilerID;
     private static int contador = 0;
     private Clientes cliente;
     private Vehiculo vehiculo;
     private LocalDate fechaInicioAlquiles;
-    private int duracionAlquilerDias;
+    private int duracionAlquileresDias;
     private String estado;
 
-    public Alquiler(Clientes cliente, Vehiculo vechiculo, LocalDate fechaInicioAlquiles, int duracionAlquilerDias) {
+    public Alquileres(Clientes cliente, Vehiculo vechiculo, LocalDate fechaInicioAlquiles, int duracionAlquileresDias) {
         this.alquilerID = ++contador;
         this.cliente = cliente;
         this.vehiculo = vechiculo;
         this.fechaInicioAlquiles = fechaInicioAlquiles;
-        this.duracionAlquilerDias = duracionAlquilerDias;
+        this.duracionAlquileresDias = duracionAlquileresDias;
         this.estado = "Activo";
     }
 
-    public Alquiler() {
+    public Alquileres() {
     }
 
     public Clientes getCliente() {
@@ -56,19 +56,19 @@ public class Alquiler {
         this.fechaInicioAlquiles = fechaInicioAlquiles;
     }
 
-    public int getDuracionAlquilerDias() {
-        return duracionAlquilerDias;
+    public int getDuracionAlquileresDias() {
+        return duracionAlquileresDias;
     }
 
-    public void setDuracionAlquilerDias(int duracionAlquilerDias) {
-        this.duracionAlquilerDias = duracionAlquilerDias;
+    public void setDuracionAlquileresDias(int duracionAlquileresDias) {
+        this.duracionAlquileresDias = duracionAlquileresDias;
     }
 
-    public int getAlquilerID() {
+    public int getAlquileresID() {
         return alquilerID;
     }
 
-    public void setAlquilerID(int alquilerID) {
+    public void setAlquileresID(int alquilerID) {
         this.alquilerID = alquilerID;
     }
 
@@ -98,7 +98,7 @@ public class Alquiler {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Alquiler other = (Alquiler) obj;
+        final Alquileres other = (Alquileres) obj;
         return this.alquilerID == other.alquilerID;
     }
 
@@ -110,7 +110,7 @@ public class Alquiler {
         sb.append("\nDNI del cliente que alquiló : ").append(cliente.getNIF());
         sb.append("\nNúmero de bastido del vehículo alquilado : ").append(vehiculo.getBastidor());
         sb.append("\nFecha del inicio del alquiler : ").append(fechaInicioAlquiles);
-        sb.append("\nDuración del alquiler (días) : ").append(duracionAlquilerDias);
+        sb.append("\nDuración del alquiler (días) : ").append(duracionAlquileresDias);
         sb.append("\nEstado del alquiler : ").append(estado);
         sb.append("\n---------");
         return sb.toString();

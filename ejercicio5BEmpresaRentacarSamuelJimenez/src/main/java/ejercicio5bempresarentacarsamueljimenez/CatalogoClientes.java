@@ -1,32 +1,29 @@
 package ejercicio5bempresarentacarsamueljimenez;
 
+import java.util.ArrayList;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-
-
 /**
  *
  * @author samuel
  */
-public class CatalogoVehiculos {
+public class CatalogoClientes {
 
-    private int numeroVehiculos;
-
-    private Vehiculo[] listaVehiculos;
+    private ArrayList<Clientes> listaClientes;
 
     // el construcutor recibe el tamaño del catalogo
     //inicializa la estructura de datos con vehiuclos aleatorios
-    public CatalogoVehiculos(int tamanio) {
+    public CatalogoClientes(int tamanio) {
 
         tamanio = Math.abs(tamanio);
-        this.numeroVehiculos = tamanio;
 
-        this.listaVehiculos = new Vehiculo[tamanio];// creo estructura
-        for (int i = 0; i < listaVehiculos.length; i++) {
+        this.listaClientes = new ArrayList<>();
+        for (int i = 0; i < tamanio; i++) {
 
-            this.listaVehiculos[i] = new Vehiculo();// meto vehiculos en la estructura
+            this.listaClientes.add(new Clientes());// meto vehiculos en la estructura
 
         }
 
@@ -34,84 +31,47 @@ public class CatalogoVehiculos {
 
     public void mostrarCatalogo() {
 
-        for (Vehiculo v : listaVehiculos) {
+        for (Clientes v : listaClientes) {
             System.out.println(v);
         }
 
     }
 
-    public int getNumeroVehiculos() {
-        return numeroVehiculos;
+    public boolean borrarClientes(Clientes v) {
+
+        return this.listaClientes.remove(v);
     }
 
-    public boolean borrarVehiculo(Vehiculo v) {
-        int posicion = buscarVehiculo(v);
-        if (posicion >= 0) {
+    public Clientes buscarClientes(Clientes v) {
 
-            this.listaVehiculos[posicion] = null;
-            this.numeroVehiculos--;
-            return true;
-
-        }
-        return false;
-    }
-
-    public int buscarVehiculo(Vehiculo v) {
-
-        for (int i = 0; i < this.listaVehiculos.length; i++) {
-            if (v.equals(this.listaVehiculos[i])) {
-                return i;
-
-            }
-        }
-        return -1;
-    }
-
-    public Vehiculo buscarVehiculoPorBastidor(String bastidor) {
-        Vehiculo aux = new Vehiculo();
-        aux.setBastidor(bastidor);
-        int pos = buscarVehiculo(aux);
-
-        return (pos >= 0) ? this.listaVehiculos[pos] : null;
-    }
-
-    public int buscarCliente(Vehiculo c) {
-        if (c != null) {
-            for (int i = 0; i < this.listaVehiculos.length; i++) {
-
-                if (this.listaVehiculos[i] != null && c.equals(this.listaVehiculos[i])) {
-                    return i;
-                }
-            }
-
-        }
-        return -1;
-    }
-
-    public void aniadirVehiculo(Vehiculo v) {
-        if (this.numeroVehiculos < this.listaVehiculos.length) {
-            for (int i = 0; i < listaVehiculos.length; i++) {
-                if (this.listaVehiculos[i] == null) {
-                    this.listaVehiculos[i] = v;
-                    this.numeroVehiculos++;
-                    break;
-                }
-            }
+        if (this.listaClientes.contains(v)) {
+            return v;
         } else {
-            this.numeroVehiculos++;
-//            this.listaVehiculos = Arrays.copyOf(this.listaVehiculos, this.numeroVehiculos);
-            this.listaVehiculos = copiar();
+            return null;
         }
     }
 
-    public Vehiculo[] getListaVehiculos() {
-        return listaVehiculos;
+    public Clientes buscarClientesPorNif(String nif) {
+        Clientes aux = new Clientes();
+        for (int i = 0; i < listaClientes.size(); i++) {
+            if (this.listaClientes.get(i).getNIF().equalsIgnoreCase(nif)) {
+                aux = this.listaClientes.get(i);
+            } else {
+                aux = null;
+            }
+
+        }
+        return aux;
+    }
+
+    public void aniadirClientes(Clientes v) {
+        this.listaClientes.add(v);
     }
 
     @Override
     public String toString() {
         String tmp = " ";
-        for (Vehiculo v : listaVehiculos) {
+        for (Clientes v : listaClientes) {
 
             if (v != null) {
                 tmp += v.toString() + "\n";
@@ -121,12 +81,8 @@ public class CatalogoVehiculos {
         return tmp;
     }
 
-    private Vehiculo[] copiar() {
-        Vehiculo[] aux = new Vehiculo[listaVehiculos.length + 1];
-
-        for (int i = 0; i < listaVehiculos.length; i++) {
-            aux[i] = listaVehiculos[i];
-        }
+    private ArrayList<Clientes> copiar() {
+        ArrayList<Clientes> aux = (ArrayList<Clientes>) this.listaClientes.clone();
         return aux;
     }
 }
