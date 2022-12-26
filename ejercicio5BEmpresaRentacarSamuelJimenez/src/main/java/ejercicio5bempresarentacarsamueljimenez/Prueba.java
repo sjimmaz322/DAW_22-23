@@ -29,11 +29,11 @@ public class Prueba {
             System.out.println("""
                                ¿Qué desea hacer?
                                1 - Registrar un cliente.
-                               2 - Registrar un veh\u00edculo.
+                               2 - Registrar un vehíedculo.
                                3 - Registrar un alquiler.
-                               4 - Recibir un veh\u00edculo.
+                               4 - Recibir un vehíedculo.
                                5 - Ver lista de clientes.
-                               6 - Ver lista de veh\u00edculos.
+                               6 - Ver lista de vehíedculos.
                                7 - Ver lista de alquileres.
                                0 - Salir.""");
 
