@@ -14,7 +14,7 @@ import java.util.List;
 public class Caja {
 
     private static int identificador = 0;
-    private List<Producto> listaProductos;
+    private ArrayList<Producto> listaProductos;
 
     public Caja() {
         identificador++;
@@ -30,11 +30,11 @@ public class Caja {
         Caja.identificador = identificador;
     }
 
-    public List<Producto> getListaProductos() {
+    public ArrayList<Producto> getListaProductos() {
         return listaProductos;
     }
 
-    public void setListaProductos(List<Producto> listaProductos) {
+    public void setListaProductos(ArrayList<Producto> listaProductos) {
         this.listaProductos = listaProductos;
     }
 
@@ -55,16 +55,21 @@ public class Caja {
         return this.listaProductos.isEmpty();
     }
 
+    public Ticket generarTicket() {
+        Ticket t = new Ticket(this);
+        return t;
+    }
+
     @Override
     public String toString() {
-        String tmp = "Producto\tPrecio\tCantidad\tIVA\tPrecio sin IVA\n";
+        String tmp = "|Producto|---|Precio|---|Cantidad|---|IVA|---|Precio sin IVA|\n";
         String linea = """
                        """;
         for (Producto p : listaProductos) {
 
             if (p != null) {
 
-                tmp += p.nombre() + "\t" + p.precio() + "\t" + p.cantidad() + "\t" + p.IVA() + "\t" + (p.precio() * p.cantidad() + "\n");
+                tmp += p.nombre() + "|---|" + p.precio() + "|---|" + p.cantidad() + "|---|" + p.IVA() + "|---|" + (p.precio() * p.cantidad() + "|\n");
             }
 
         }

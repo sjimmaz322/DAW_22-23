@@ -14,15 +14,23 @@ public class Prueba {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
-        Producto p1 = new Producto("Patatas", 2, 4, 4);
+        
+        Producto p1 = new Producto("Patata", 2, 4, 4);
         Producto p2 = new Producto("Gel Baño", 1, 5.15, 10);
+        Producto p3 = new Producto("Queso", 4, 9, 21);
+        Producto p4 = new Producto("Colonia", 1, 2.99, 10);
+        
         Caja c1 = new Caja();
-
         c1.aniadirProducto(p1);
         c1.aniadirProducto(p2);
-        System.out.println(c1.toString());
+        c1.aniadirProducto(p3);
+        c1.aniadirProducto(p4);
+        
+        Ticket t = c1.generarTicket();
+        t.setNombreSuper("PacheMás");
+        
+        System.out.println(t);
 
     }
-
+    
 }
