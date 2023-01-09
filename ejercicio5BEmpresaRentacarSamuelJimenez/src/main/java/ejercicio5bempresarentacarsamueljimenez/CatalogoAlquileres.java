@@ -13,7 +13,6 @@ import java.util.ArrayList;
 public class CatalogoAlquileres {
 
     private ArrayList<Alquileres> listaAlquileres;
-    private int numAlquileres;
 
     // el construcutor recibe el tamaño del catalogo
     //inicializa la estructura de datos con vehiuclos aleatorios
@@ -63,7 +62,13 @@ public class CatalogoAlquileres {
     }
 
     public void aniadirAlquileres(Alquileres v) {
+        v.getCliente().setNumAlquileres(v.getCliente().getNumAlquileres() + 1);
+        v.getVehiculo().setDisponible(false);
         this.listaAlquileres.add(v);
+    }
+
+    public void devolverVehiculo(Alquileres v) {
+        v.getVehiculo().setDisponible(true);
     }
 
     @Override

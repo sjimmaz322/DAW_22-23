@@ -21,8 +21,8 @@ public class Empresa {
     CatalogoAlquileres listadoAlquiler;
 
     public Empresa() {
-        this.listadoClientes = new CatalogoClientes(5);
-        this.listadoVehiculos = new CatalogoVehiculos(5);
+        this.listadoClientes = new CatalogoClientes();
+        this.listadoVehiculos = new CatalogoVehiculos();
         this.listadoAlquiler = new CatalogoAlquileres();
     }
 
@@ -169,7 +169,20 @@ public class Empresa {
         return this.listadoAlquiler.borrarAlquileres(aux);
     }
 
-    public void borrarClienteSinAlquileres() {
+    public void borrarClientesSinAlquileres(Clientes c) {
+
+        if (c.getNumAlquileres() == 0 && c != null) {
+            listadoClientes.borrarClientes(c);
+        }
+
+    }
+
+    public void borrarTodosClientesSinAlquileres() {
+        for (int i = listadoClientes.getNumClientes() - 1; i >= 0; i--) {
+            if (listadoClientes.getListaClientes().get(i).getNumAlquileres() == 0) {
+                listadoClientes.borrarClientes(listadoClientes.getListaClientes().get(i));
+            }
+        }
 
     }
 }

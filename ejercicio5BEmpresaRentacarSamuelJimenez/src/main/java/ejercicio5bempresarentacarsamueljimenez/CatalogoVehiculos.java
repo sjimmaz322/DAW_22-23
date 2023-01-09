@@ -18,16 +18,9 @@ public class CatalogoVehiculos {
 
     // el construcutor recibe el tamaño del catalogo
     //inicializa la estructura de datos con vehiuclos aleatorios
-    public CatalogoVehiculos(int tamanio) {
-
-        tamanio = Math.abs(tamanio);
+    public CatalogoVehiculos() {
 
         this.listaVehiculos = new ArrayList<>();
-        for (int i = 0; i < tamanio; i++) {
-
-            this.listaVehiculos.add(new Vehiculo());// meto vehiculos en la estructura
-
-        }
 
     }
 

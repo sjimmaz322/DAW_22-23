@@ -4,8 +4,6 @@ package ejercicio5bempresarentacarsamueljimenez;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-
-
 import java.util.Objects;
 import org.apache.commons.lang3.RandomStringUtils;
 
@@ -19,6 +17,7 @@ public class Clientes {
     private String NIF;
 //    private final String[] letras = {"T", "R", "W", "A", "G", "M", "Y", "F", "P", "D", "X", "B", "N", "J", "Z", "S", "Q", "V", "H", "L", "C", "K", "E"};
     private static int contador = 0;
+    private int numAlquileres;
 
     public Clientes() {
         this.nombre = RandomStringUtils.randomAlphabetic(6);
@@ -26,6 +25,7 @@ public class Clientes {
         this.apellido2 = RandomStringUtils.randomAlphabetic(6);
         contador++;
         this.NIF = String.valueOf(contador);
+        this.numAlquileres = 0;
     }
 
     public String getNombre() {
@@ -64,6 +64,14 @@ public class Clientes {
         return contador;
     }
 
+    public int getNumAlquileres() {
+        return numAlquileres;
+    }
+
+    public void setNumAlquileres(int numAlquileres) {
+        this.numAlquileres = numAlquileres;
+    }
+
     @Override
     public int hashCode() {
         int hash = 3;
@@ -86,28 +94,17 @@ public class Clientes {
         return Objects.equals(this.NIF, other.NIF);
     }
 
-//    private static String generarNIF(String[] letras) {
-//        String DNI = RandomStringUtils.randomNumeric(8);
-//        int numDNI = Integer.parseInt(DNI);
-//        String letra = letras[numDNI % 23];
-//        String DNICompleto = DNI.concat(letra);
-//
-//        return DNICompleto;
-//    }
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("\n---------");
-        sb.append("\nNombre :").append(nombre);
-        sb.append("\nPrimer apellid :").append(apellido1);
-        sb.append("\nSegundo apellido :").append(apellido2);
-        sb.append("\nDNI :").append(NIF);
+        sb.append("\nNombre: ").append(nombre);
+        sb.append("\nPrimer apellido: ").append(apellido1);
+        sb.append("\nSegundo apellido: ").append(apellido2);
+        sb.append("\nDNI: ").append(NIF);
+        sb.append("\nHa alquilado: ").append(numAlquileres).append(" coches.");
         sb.append("\n---------");
         return sb.toString();
     }
-    
-    
-
 
 }

@@ -16,16 +16,9 @@ public class CatalogoClientes {
 
     // el construcutor recibe el tamaño del catalogo
     //inicializa la estructura de datos con vehiuclos aleatorios
-    public CatalogoClientes(int tamanio) {
-
-        tamanio = Math.abs(tamanio);
+    public CatalogoClientes() {
 
         this.listaClientes = new ArrayList<>();
-        for (int i = 0; i < tamanio; i++) {
-
-            this.listaClientes.add(new Clientes());// meto vehiculos en la estructura
-
-        }
 
     }
 
@@ -66,6 +59,18 @@ public class CatalogoClientes {
 
     public void aniadirClientes(Clientes v) {
         this.listaClientes.add(v);
+    }
+
+    public ArrayList<Clientes> getListaClientes() {
+        return listaClientes;
+    }
+
+    public void setListaClientes(ArrayList<Clientes> listaClientes) {
+        this.listaClientes = listaClientes;
+    }
+
+    public int getNumClientes() {
+        return listaClientes.size();
     }
 
     @Override
