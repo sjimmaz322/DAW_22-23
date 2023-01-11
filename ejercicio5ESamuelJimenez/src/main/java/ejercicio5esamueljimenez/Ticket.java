@@ -55,25 +55,25 @@ public class Ticket {
 
     private void catalogadorProductos() {
 
-        for (int i = 0; i < cajaCobro.getListaProductos().size(); i++) {
+        for (int i = 0; i < cajaCobro.getCinta().size(); i++) {
 
-            switch (cajaCobro.getListaProductos().get(i).IVA()) {
+            switch (cajaCobro.getCinta().get(i).IVA()) {
                 case 4:
                     numeroProductosIva4++;
-                    sumaPrecioProdIva4SinIVA += cajaCobro.getListaProductos().get(i).precio() * cajaCobro.getListaProductos().get(i).cantidad();
-                    sumaPreciosIva4 += (cajaCobro.getListaProductos().get(i).precio() * 1.04) * cajaCobro.getListaProductos().get(i).cantidad();
+                    sumaPrecioProdIva4SinIVA += cajaCobro.getCinta().get(i).precio() * cajaCobro.getCinta().get(i).cantidad();
+                    sumaPreciosIva4 += (cajaCobro.getCinta().get(i).precio() * 1.04) * cajaCobro.getCinta().get(i).cantidad();
 
                     break;
                 case 10:
                     numeroProductosIva10++;
-                    sumaPrecioProdIva10SinIVA += cajaCobro.getListaProductos().get(i).precio() * cajaCobro.getListaProductos().get(i).cantidad();
-                    sumaPreciosIva10 += (cajaCobro.getListaProductos().get(i).precio() * 1.1) * cajaCobro.getListaProductos().get(i).cantidad();
+                    sumaPrecioProdIva10SinIVA += cajaCobro.getCinta().get(i).precio() * cajaCobro.getCinta().get(i).cantidad();
+                    sumaPreciosIva10 += (cajaCobro.getCinta().get(i).precio() * 1.1) * cajaCobro.getCinta().get(i).cantidad();
 
                     break;
                 default:
                     numeroProductosIva21++;
-                    sumaPrecioProdIva21SinIVA += cajaCobro.getListaProductos().get(i).precio() * cajaCobro.getListaProductos().get(i).cantidad();
-                    sumaPreciosIva21 += (cajaCobro.getListaProductos().get(i).precio() * 1.21) * cajaCobro.getListaProductos().get(i).cantidad();
+                    sumaPrecioProdIva21SinIVA += cajaCobro.getCinta().get(i).precio() * cajaCobro.getCinta().get(i).cantidad();
+                    sumaPreciosIva21 += (cajaCobro.getCinta().get(i).precio() * 1.21) * cajaCobro.getCinta().get(i).cantidad();
 
                     break;
             }

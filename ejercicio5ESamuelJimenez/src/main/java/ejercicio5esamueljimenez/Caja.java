@@ -13,11 +13,11 @@ import java.util.ArrayList;
 public class Caja {
 
     private static int identificador = 0;
-    private ArrayList<Producto> listaProductos;
+    private ArrayList<Producto> cinta;
 
     public Caja() {
         identificador++;
-        this.listaProductos = new ArrayList<>();
+        this.cinta = new ArrayList<>();
 
     }
 
@@ -29,21 +29,21 @@ public class Caja {
         Caja.identificador = identificador;
     }
 
-    public ArrayList<Producto> getListaProductos() {
-        return listaProductos;
+    public ArrayList<Producto> getCinta() {
+        return cinta;
     }
 
-    public void setListaProductos(ArrayList<Producto> listaProductos) {
-        this.listaProductos = listaProductos;
+    public void setCinta(ArrayList<Producto> cinta) {
+        this.cinta = cinta;
     }
 
     public void aniadirProducto(Producto p) {
-        this.listaProductos.add(p);
+        this.cinta.add(p);
     }
 
     public boolean quitarProducto(Producto p) {
-        if (listaProductos.contains(p) && p != null) {
-            listaProductos.remove(p);
+        if (cinta.contains(p) && p != null) {
+            cinta.remove(p);
             return true;
         } else {
             return false;
@@ -51,7 +51,7 @@ public class Caja {
     }
 
     public boolean comprobarCaja() {
-        return this.listaProductos.isEmpty();
+        return this.cinta.isEmpty();
     }
 
     public Ticket generarTicket() {
@@ -64,7 +64,7 @@ public class Caja {
         String tmp = "|Producto|---|Precio|---|Cantidad|---|IVA|---|Precio sin IVA|\n";
         String linea = """
                        """;
-        for (Producto p : listaProductos) {
+        for (Producto p : cinta) {
 
             if (p != null) {
 
