@@ -5,7 +5,6 @@
 package ejercicio5esamueljimenez;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
