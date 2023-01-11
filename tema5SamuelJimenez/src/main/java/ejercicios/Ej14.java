@@ -55,7 +55,7 @@ public class Ej14 {
         DecimalFormat df = new DecimalFormat("#.00");
         double suma = 0, casillas = 0;
         for (int i = 0; i < m.length; i++) {
-            for (int j = 0; j < m.length; j++) {
+            for (int j = 0; j < m[i].length; j++) {
                 m[i][j] = rd.nextInt(100) + 1;
                 casillas++;
                 suma += m[i][j];
@@ -67,7 +67,7 @@ public class Ej14 {
     private static int calcularMinimo(int[][] m) {
         int min = 101;
         for (int i = 0; i < m.length; i++) {
-            for (int j = 0; j < m.length; j++) {
+            for (int j = 0; j < m[i].length; j++) {
                 if (m[i][j] < min) {
                     min = m[i][j];
                 }
@@ -79,7 +79,7 @@ public class Ej14 {
     private static int calcularMaximo(int[][] m) {
         int max = 0;
         for (int i = 0; i < m.length; i++) {
-            for (int j = 0; j < m.length; j++) {
+            for (int j = 0; j < m[i].length; j++) {
                 if (m[i][j] > max) {
                     max = m[i][j];
                 }
