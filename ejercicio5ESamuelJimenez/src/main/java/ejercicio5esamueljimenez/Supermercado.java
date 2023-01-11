@@ -19,7 +19,7 @@ public class Supermercado {
     }
 
     public static void main(String[] args) {
-        //-----
+        //----- Creamos los Productos
         Producto p1 = new Producto("Patata", 2, 4, 4);
         Producto p2 = new Producto("Gel Baño", 1, 5.15, 10);
         Producto p3 = new Producto("Queso", 4, 9, 21);

@@ -60,25 +60,23 @@ public class Ticket {
         for (int i = 0; i < cajaCobro.getCinta().getListaProducto().size(); i++) {
 
             switch (cajaCobro.getCinta().getListaProducto().get(i).IVA()) {
-                case 4:
+                case 4 -> {
                     numeroProductosIva4 += cajaCobro.getCinta().getListaProducto().get(i).cantidad();
                     sumaPrecioProdIva4SinIVA += cajaCobro.getCinta().getListaProducto().get(i).precio() * cajaCobro.getCinta().getListaProducto().get(i).cantidad();
                     sumaPreciosIva4 += (cajaCobro.getCinta().getListaProducto().get(i).precio() * 1.04) * cajaCobro.getCinta().getListaProducto().get(i).cantidad();
-
-                    break;
-                case 10:
+                }
+                case 10 -> {
                     numeroProductosIva10 += cajaCobro.getCinta().getListaProducto().get(i).cantidad();
                     sumaPrecioProdIva10SinIVA += cajaCobro.getCinta().getListaProducto().get(i).precio() * cajaCobro.getCinta().getListaProducto().get(i).cantidad();
                     sumaPreciosIva10 += (cajaCobro.getCinta().getListaProducto().get(i).precio() * 1.1) * cajaCobro.getCinta().getListaProducto().get(i).cantidad();
-
-                    break;
-                default:
+                }
+                default -> {
                     numeroProductosIva21 += cajaCobro.getCinta().getListaProducto().get(i).cantidad();
                     sumaPrecioProdIva21SinIVA += cajaCobro.getCinta().getListaProducto().get(i).precio() * cajaCobro.getCinta().getListaProducto().get(i).cantidad();
                     sumaPreciosIva21 += (cajaCobro.getCinta().getListaProducto().get(i).precio() * 1.21) * cajaCobro.getCinta().getListaProducto().get(i).cantidad();
-
-                    break;
+                }
             }
+
         }
     }
 
