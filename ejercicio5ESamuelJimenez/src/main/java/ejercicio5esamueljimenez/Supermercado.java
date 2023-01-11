@@ -27,10 +27,10 @@ public class Supermercado {
         //-----
         Caja c1 = new Caja();
         //-----
-        c1.aniadirProducto(p1);
-        c1.aniadirProducto(p2);
-        c1.aniadirProducto(p3);
-        c1.aniadirProducto(p4);
+        c1.getCinta().aniadirProducto(p1);
+        c1.getCinta().aniadirProducto(p2);
+        c1.getCinta().aniadirProducto(p3);
+        c1.getCinta().aniadirProducto(p4);
         //-----
         Ticket t = generarTicket(c1);
         //-----

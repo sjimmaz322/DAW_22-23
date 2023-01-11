@@ -4,7 +4,8 @@
  */
 package ejercicio5esamueljimenez;
 
-import java.util.ArrayList;
+
+import java.util.Objects;
 
 /**
  *
@@ -13,11 +14,11 @@ import java.util.ArrayList;
 public class Caja {
 
     private static int identificador = 0;
-    private ArrayList<Producto> cinta;
+    private Cinta cinta;
 
     public Caja() {
         identificador++;
-        this.cinta = new ArrayList<>();
+        this.cinta = new Cinta();
 
     }
 
@@ -29,30 +30,15 @@ public class Caja {
         Caja.identificador = identificador;
     }
 
-    public ArrayList<Producto> getCinta() {
+    public Cinta getCinta() {
         return cinta;
     }
 
-    public void setCinta(ArrayList<Producto> cinta) {
+    public void setCinta(Cinta cinta) {
         this.cinta = cinta;
     }
 
-    public void aniadirProducto(Producto p) {
-        this.cinta.add(p);
-    }
-
-    public boolean quitarProducto(Producto p) {
-        if (cinta.contains(p) && p != null) {
-            cinta.remove(p);
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public boolean comprobarCaja() {
-        return this.cinta.isEmpty();
-    }
+    
 
     public Ticket generarTicket() {
         Ticket t = new Ticket(this);
@@ -60,18 +46,32 @@ public class Caja {
     }
 
     @Override
-    public String toString() {
-        String tmp = "|Producto|---|Precio|---|Cantidad|---|IVA|---|Precio sin IVA|\n";
-        String linea = """
-                       """;
-        for (Producto p : cinta) {
+    public int hashCode() {
+        int hash = 3;
+        hash = 73 * hash + Objects.hashCode(this.cinta);
+        return hash;
+    }
 
-            if (p != null) {
-
-                tmp += p.nombre() + "|---|" + p.precio() + "|---|" + p.cantidad() + "|---|" + p.IVA() + "|---|" + (p.precio() * p.cantidad() + "|\n");
-            }
-
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
         }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Caja other = (Caja) obj;
+        return Objects.equals(this.cinta, other.cinta);
+    }
+    
+    
+
+    @Override
+    public String toString() {
+        String tmp = cinta.toString();
         return tmp;
     }
 
