@@ -38,7 +38,8 @@ public class Ej19 {
                      --------------------------------------
                      1 - Realizar reserva.
                      2 - Cancelar reserva.
-                     3 - Salir.
+                     3 - Ver disponibilidad.
+                     4 - Salir.
                      -------------------------------------
                       
                     """;
@@ -123,6 +124,7 @@ public class Ej19 {
                 System.out.println("Asiento reservado correctamente");
                 break;
             } else {
+                intentos++;
                 System.out.println("El asiento ya fue reservado, seleccione otro");
                 if (intentos == 3) {
                     System.out.println("Número de intentos máximos alcanzado, volviendo al menú principal.");
