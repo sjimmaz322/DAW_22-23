@@ -32,7 +32,7 @@ public class Ej14 {
         int min = calcularMinimo(matriz);
         int max = calcularMaximo(matriz);
         System.out.println("----- MOSTRAMOS LA MATRIZ PARA VER QUE ES CORRECTO -----");
-        mostrar3x3(matriz);
+        mostrar3x3(matriz);   
         System.out.println("\nLA MEDIA ES:");
         System.out.println(media);
         System.out.println("\nEL VALOR MÍNIMO ES:");

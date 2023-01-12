@@ -22,8 +22,8 @@ public class Lanzamonedas {
     private boolean[] arrayMonedas;//true cara, false cruz.
     private static Random rd = new Random();
 
-    public Lanzamonedas() {
-        this.arrayMonedas = new boolean[1000];
+    public Lanzamonedas(int numLanzamientos) {
+        this.arrayMonedas = new boolean[numLanzamientos];
     }
 
     public boolean[] getArrayMonedas() {

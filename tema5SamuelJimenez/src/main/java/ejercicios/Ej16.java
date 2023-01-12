@@ -4,18 +4,25 @@
  */
 package ejercicios;
 
+import java.util.Scanner;
+
 /**
  *
- * @author sajm <sjimmaz322 at sjimmaz322@g.educaand.es>
+ * @author samuel
  */
-public class Ej15 {
+public class Ej16 {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Lanzamonedas lanzadora = new Lanzamonedas(1000);
-        //--
+        Scanner sc = new Scanner(System.in);
+        //---
+        System.out.println("Introduzca el número de lanzamientos a realizar");
+        int lanzamientos = sc.nextInt();
+        //---
+        Lanzamonedas lanzadora = new Lanzamonedas(lanzamientos);
+        //---
         lanzadora.rellenarArray();
         //---
         int caras = lanzadora.contarCaras();
