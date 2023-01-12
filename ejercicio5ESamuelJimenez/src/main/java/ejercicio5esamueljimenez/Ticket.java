@@ -9,6 +9,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -19,7 +20,7 @@ public class Ticket {
 
     private String fechaTicket;
     private String horaTicket;
-    private Caja cajaCobro;
+    private ArrayList<Producto> listaProductos;
     //-----
     private String nombreSuper;
     private int numeroProductosIva4 = 0, numeroProductosIva10 = 0, numeroProductosIva21 = 0;
@@ -28,11 +29,11 @@ public class Ticket {
     private DateTimeFormatter formatHora = DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT);
     private DateTimeFormatter formatFecha = DateTimeFormatter.ofPattern("dd - MM - yyyy");
 
-    public Ticket(Caja cajaCobro) {
+    public Ticket(ArrayList<Producto> p) {
         this.nombreSuper = "";
         this.fechaTicket = LocalDate.now().format(formatFecha);
         this.horaTicket = LocalTime.now().format(formatHora);
-        this.cajaCobro = cajaCobro;
+        this.listaProductos = p;
     }
 
     public String getNombreSuper() {
@@ -51,29 +52,29 @@ public class Ticket {
         return horaTicket;
     }
 
-    public Caja getCajaCobro() {
-        return cajaCobro;
+    public ArrayList<Producto> getListaProductos() {
+        return listaProductos;
     }
 
     private void catalogadorProductos() {
 
-        for (int i = 0; i < cajaCobro.getCinta().getListaProducto().size(); i++) {
+        for (int i = 0; i < this.listaProductos.size(); i++) {
 
-            switch (cajaCobro.getCinta().getListaProducto().get(i).IVA()) {
+            switch (this.listaProductos.get(i).IVA()) {
                 case 4 -> {
-                    numeroProductosIva4 += cajaCobro.getCinta().getListaProducto().get(i).cantidad();
-                    sumaPrecioProdIva4SinIVA += cajaCobro.getCinta().getListaProducto().get(i).precio() * cajaCobro.getCinta().getListaProducto().get(i).cantidad();
-                    sumaPreciosIva4 += (cajaCobro.getCinta().getListaProducto().get(i).precio() * 1.04) * cajaCobro.getCinta().getListaProducto().get(i).cantidad();
+                    numeroProductosIva4 += this.listaProductos.get(i).cantidad();
+                    sumaPrecioProdIva4SinIVA += this.listaProductos.get(i).precio() * this.listaProductos.get(i).cantidad();
+                    sumaPreciosIva4 += (this.listaProductos.get(i).precio() * 1.04) * this.listaProductos.get(i).cantidad();
                 }
                 case 10 -> {
-                    numeroProductosIva10 += cajaCobro.getCinta().getListaProducto().get(i).cantidad();
-                    sumaPrecioProdIva10SinIVA += cajaCobro.getCinta().getListaProducto().get(i).precio() * cajaCobro.getCinta().getListaProducto().get(i).cantidad();
-                    sumaPreciosIva10 += (cajaCobro.getCinta().getListaProducto().get(i).precio() * 1.1) * cajaCobro.getCinta().getListaProducto().get(i).cantidad();
+                    numeroProductosIva10 += this.listaProductos.get(i).cantidad();
+                    sumaPrecioProdIva10SinIVA += this.listaProductos.get(i).precio() * this.listaProductos.get(i).cantidad();
+                    sumaPreciosIva10 += (this.listaProductos.get(i).precio() * 1.10) * this.listaProductos.get(i).cantidad();
                 }
                 default -> {
-                    numeroProductosIva21 += cajaCobro.getCinta().getListaProducto().get(i).cantidad();
-                    sumaPrecioProdIva21SinIVA += cajaCobro.getCinta().getListaProducto().get(i).precio() * cajaCobro.getCinta().getListaProducto().get(i).cantidad();
-                    sumaPreciosIva21 += (cajaCobro.getCinta().getListaProducto().get(i).precio() * 1.21) * cajaCobro.getCinta().getListaProducto().get(i).cantidad();
+                    numeroProductosIva21 += this.listaProductos.get(i).cantidad();
+                    sumaPrecioProdIva21SinIVA += this.listaProductos.get(i).precio() * this.listaProductos.get(i).cantidad();
+                    sumaPreciosIva21 += (this.listaProductos.get(i).precio() * 1.21) * this.listaProductos.get(i).cantidad();
                 }
             }
 
@@ -82,22 +83,22 @@ public class Ticket {
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 89 * hash + Objects.hashCode(this.fechaTicket);
-        hash = 89 * hash + Objects.hashCode(this.horaTicket);
-        hash = 89 * hash + Objects.hashCode(this.cajaCobro);
-        hash = 89 * hash + Objects.hashCode(this.nombreSuper);
-        hash = 89 * hash + this.numeroProductosIva4;
-        hash = 89 * hash + this.numeroProductosIva10;
-        hash = 89 * hash + this.numeroProductosIva21;
-        hash = 89 * hash + (int) (Double.doubleToLongBits(this.sumaPrecioProdIva4SinIVA) ^ (Double.doubleToLongBits(this.sumaPrecioProdIva4SinIVA) >>> 32));
-        hash = 89 * hash + (int) (Double.doubleToLongBits(this.sumaPrecioProdIva10SinIVA) ^ (Double.doubleToLongBits(this.sumaPrecioProdIva10SinIVA) >>> 32));
-        hash = 89 * hash + (int) (Double.doubleToLongBits(this.sumaPrecioProdIva21SinIVA) ^ (Double.doubleToLongBits(this.sumaPrecioProdIva21SinIVA) >>> 32));
-        hash = 89 * hash + (int) (Double.doubleToLongBits(this.sumaPreciosIva4) ^ (Double.doubleToLongBits(this.sumaPreciosIva4) >>> 32));
-        hash = 89 * hash + (int) (Double.doubleToLongBits(this.sumaPreciosIva10) ^ (Double.doubleToLongBits(this.sumaPreciosIva10) >>> 32));
-        hash = 89 * hash + (int) (Double.doubleToLongBits(this.sumaPreciosIva21) ^ (Double.doubleToLongBits(this.sumaPreciosIva21) >>> 32));
-        hash = 89 * hash + Objects.hashCode(this.formatHora);
-        hash = 89 * hash + Objects.hashCode(this.formatFecha);
+        int hash = 5;
+        hash = 19 * hash + Objects.hashCode(this.fechaTicket);
+        hash = 19 * hash + Objects.hashCode(this.horaTicket);
+        hash = 19 * hash + Objects.hashCode(this.listaProductos);
+        hash = 19 * hash + Objects.hashCode(this.nombreSuper);
+        hash = 19 * hash + this.numeroProductosIva4;
+        hash = 19 * hash + this.numeroProductosIva10;
+        hash = 19 * hash + this.numeroProductosIva21;
+        hash = 19 * hash + (int) (Double.doubleToLongBits(this.sumaPrecioProdIva4SinIVA) ^ (Double.doubleToLongBits(this.sumaPrecioProdIva4SinIVA) >>> 32));
+        hash = 19 * hash + (int) (Double.doubleToLongBits(this.sumaPrecioProdIva10SinIVA) ^ (Double.doubleToLongBits(this.sumaPrecioProdIva10SinIVA) >>> 32));
+        hash = 19 * hash + (int) (Double.doubleToLongBits(this.sumaPrecioProdIva21SinIVA) ^ (Double.doubleToLongBits(this.sumaPrecioProdIva21SinIVA) >>> 32));
+        hash = 19 * hash + (int) (Double.doubleToLongBits(this.sumaPreciosIva4) ^ (Double.doubleToLongBits(this.sumaPreciosIva4) >>> 32));
+        hash = 19 * hash + (int) (Double.doubleToLongBits(this.sumaPreciosIva10) ^ (Double.doubleToLongBits(this.sumaPreciosIva10) >>> 32));
+        hash = 19 * hash + (int) (Double.doubleToLongBits(this.sumaPreciosIva21) ^ (Double.doubleToLongBits(this.sumaPreciosIva21) >>> 32));
+        hash = 19 * hash + Objects.hashCode(this.formatHora);
+        hash = 19 * hash + Objects.hashCode(this.formatFecha);
         return hash;
     }
 
@@ -149,7 +150,7 @@ public class Ticket {
         if (!Objects.equals(this.nombreSuper, other.nombreSuper)) {
             return false;
         }
-        if (!Objects.equals(this.cajaCobro, other.cajaCobro)) {
+        if (!Objects.equals(this.listaProductos, other.listaProductos)) {
             return false;
         }
         if (!Objects.equals(this.formatHora, other.formatHora)) {
@@ -163,11 +164,19 @@ public class Ticket {
         catalogadorProductos();
         DecimalFormat df = new DecimalFormat("#.00");
         StringBuilder sb = new StringBuilder();
+        String tmp = "|Nombre|\t|Precio|\t|Cantidad|\t|IVA|\t|Precio sin IVA|\n";
         sb.append("-------------\n");
         sb.append("Supermercado ").append(nombreSuper).append("\n");
         sb.append("Fecha: ").append(fechaTicket).append("\t Hora: ").append(horaTicket).append("\n");
         sb.append("-------------\n");
-        sb.append(cajaCobro.toString());
+        for (Producto p : listaProductos) {
+
+            if (p != null) {
+
+                tmp += p.nombre() + "|---|" + p.precio() + "|---|" + p.cantidad() + "|---|" + p.IVA() + "|---|" + (p.precio() * p.cantidad() + "|\n");
+            }
+        }
+        sb.append(tmp);
         sb.append("-------------\n");
         sb.append("Nº Prod. Iva 4%: ").append(numeroProductosIva4);
         sb.append(" Precio sin IVA: ").append(sumaPrecioProdIva4SinIVA);

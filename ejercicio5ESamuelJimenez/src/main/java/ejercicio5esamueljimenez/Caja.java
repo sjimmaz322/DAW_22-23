@@ -4,7 +4,6 @@
  */
 package ejercicio5esamueljimenez;
 
-
 import java.util.Objects;
 
 /**
@@ -38,10 +37,8 @@ public class Caja {
         this.cinta = cinta;
     }
 
-    
-
     public Ticket generarTicket() {
-        Ticket t = new Ticket(this);
+        Ticket t = new Ticket(this.getCinta().getListaProducto());
         return t;
     }
 
@@ -66,8 +63,6 @@ public class Caja {
         final Caja other = (Caja) obj;
         return Objects.equals(this.cinta, other.cinta);
     }
-    
-    
 
     @Override
     public String toString() {
