@@ -26,10 +26,11 @@ public class Ej19 {
         //---
         rellenarArrayRandom(avion);
         //---
-        mostrarArray(avion);
+        //mostrarArray(avion);
         //---
         String mensaje = """
                          """;
+        //---
         String menu = """
                       
                      --------------------------------------
@@ -38,16 +39,18 @@ public class Ej19 {
                      --------------------------------------
                      1 - Realizar reserva.
                      2 - Cancelar reserva.
-                     3 - Ver disponibilidad.
-                     4 - Salir.
+                     3 - Ver disponibilidad total.
+                     4 - Comprobar disponibilidad de un asiento.
+                     5 - Salir.
                      -------------------------------------
                       
                     """;
+        //---
         do {
             String opcion = "";
             System.out.println(menu);
             opcion = sc.nextLine();
-
+            //---
             switch (opcion) {
                 case "1":
                     reservarAsiento(avion);
@@ -58,6 +61,12 @@ public class Ej19 {
                     sc.nextLine();
                     break;
                 case "3":
+                    mostrarArray(avion);
+                    break;
+                case "4":
+                    comprobarAsiento(avion);
+                    break;
+                case "5":
                     System.out.println("Gracias por usar nuestros servicios");
                     salir = true;
                     break;
@@ -92,35 +101,40 @@ public class Ej19 {
     private static void mostrarArray(boolean[][] m) {
         String tmp = "\tListado de asientos\n\n";
         for (int i = 0; i < m.length; i++) {
-            tmp += i + "-0\t" + i + "-1\t" + i + "-2\t" + i + "-3\t" + "\n"
-                    + m[i][0] + "\t" + m[i][1] + "\t" + m[i][2] + "\t" + m[i][3] + "\n";
+            String estadoColumna0 = m[i][0] ? "Libre" : "Ocupado";
+            String estadoColumna1 = m[i][1] ? "Libre" : "Ocupado";
+            String estadoColumna2 = m[i][2] ? "Libre" : "Ocupado";
+            String estadoColumna3 = m[i][3] ? "Libre" : "Ocupado";
+
+            tmp += i + "-0\t" + i + "-1\t||\t||\t" + i + "-2\t" + i + "-3\t" + "\n"
+                    + estadoColumna0 + "\t" + estadoColumna1 + "\t||\t||\t" + estadoColumna2 + "\t" + estadoColumna3 + "\n";
         }
         System.out.println(tmp);
     }
 
     private static void reservarAsiento(boolean[][] m) {
-        int fila, columna, intentos = 0;
+        int columna, fila, intentos = 0;
         do {
-            do {
-                String mensaje1 = "Introduzca la fila del asiento";
-                System.out.println(mensaje1);
-                fila = sc.nextInt();
-                if (fila < 0 || fila > 3) {
-                    System.out.println("El número de fila debe ser entre 0 y 3");
-                }
-            } while (fila < 0 || fila > 3);
 
             do {
-                String mensaje2 = "Introduzca la columna del asiento";
+                String mensaje2 = "Introduzca la fila del asiento";
                 System.out.println(mensaje2);
-                columna = sc.nextInt();
-                if (columna < 0 || columna > 24) {
-                    System.out.println("El número de columna debe ser entre 0 y 24");
+                fila = sc.nextInt();
+                if (fila < 0 || fila > 24) {
+                    System.out.println("El número de fila debe ser entre 0 y 24");
                 }
-            } while (columna < 0 || columna > 24);
+            } while (fila < 0 || fila > 24);
+            do {
+                String mensaje1 = "Introduzca la posición dentro de la fila del asiento";
+                System.out.println(mensaje1);
+                columna = sc.nextInt();
+                if (columna < 0 || columna > 3) {
+                    System.out.println("El número de la posición debe ser entre 0 y 3");
+                }
+            } while (columna < 0 || columna > 3);
 
-            if (m[columna][fila] == true) {
-                m[columna][fila] = false;
+            if (m[fila][columna] == true) {
+                m[fila][columna] = false;
                 System.out.println("Asiento reservado correctamente");
                 break;
             } else {
@@ -138,25 +152,24 @@ public class Ej19 {
         int fila, columna, intentos = 0;
         do {
             do {
-                String mensaje1 = "Introduzca la fila del asiento";
-                System.out.println(mensaje1);
-                fila = sc.nextInt();
-                if (fila < 0 || fila > 3) {
-                    System.out.println("El número de fila debe ser entre 0 y 3");
-                }
-            } while (fila < 0 || fila > 3);
-
-            do {
-                String mensaje2 = "Introduzca la columna del asiento";
+                String mensaje2 = "Introduzca la fila del asiento";
                 System.out.println(mensaje2);
-                columna = sc.nextInt();
-                if (columna < 0 || columna > 24) {
-                    System.out.println("El número de columna debe ser entre 0 y 24");
+                fila = sc.nextInt();
+                if (fila < 0 || fila > 24) {
+                    System.out.println("El número de fila debe ser entre 0 y 24");
                 }
-            } while (columna < 0 || columna > 24);
+            } while (fila < 0 || fila > 24);
+            do {
+                String mensaje1 = "Introduzca la posición dentro de la fila del asiento";
+                System.out.println(mensaje1);
+                columna = sc.nextInt();
+                if (columna < 0 || columna > 3) {
+                    System.out.println("El número de la posición debe ser entre 0 y 3");
+                }
+            } while (columna < 0 || columna > 3);
 
-            if (m[columna][fila] == false) {
-                m[columna][fila] = true;
+            if (m[fila][columna] == false) {
+                m[fila][columna] = true;
                 System.out.println("Asiento cancelado correctamente");
                 break;
             } else {
@@ -168,5 +181,42 @@ public class Ej19 {
                 }
             }
         } while (true);
+    }
+
+    public static void comprobarAsiento(boolean[][] m) {
+        int fila, columna;
+        String reserva;
+        do {
+            String mensaje2 = "Introduzca la fila del asiento";
+            System.out.println(mensaje2);
+            fila = sc.nextInt();
+            if (fila < 0 || fila > 24) {
+                System.out.println("El número de fila debe ser entre 0 y 24");
+            }
+        } while (fila < 0 || fila > 24);
+        do {
+            String mensaje1 = "Introduzca la posición dentro de la fila del asiento";
+            System.out.println(mensaje1);
+            columna = sc.nextInt();
+            if (columna < 0 || columna > 3) {
+                System.out.println("El número de la posición debe ser entre 0 y 3");
+            }
+        } while (columna < 0 || columna > 3);
+
+        if (m[fila][columna] == true) {
+            sc.nextLine();
+            System.out.println("\n¿Desea reservar el asiento?");
+            System.out.println("Si - No");
+            reserva = sc.nextLine();
+            if (reserva.equalsIgnoreCase("si")) {
+                m[fila][columna] = false;
+                System.out.println("Asiento reservado.");
+            } else {
+                System.out.println("Volviendo al menú.");
+            }
+        } else {
+            System.out.println("El asiento comprobado no está disponible");
+
+        }
     }
 }
