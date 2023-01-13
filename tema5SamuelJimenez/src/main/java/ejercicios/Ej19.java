@@ -205,8 +205,9 @@ public class Ej19 {
 
         if (m[fila][columna] == true) {
             sc.nextLine();
-            System.out.println("\n¿Desea reservar el asiento?");
-            System.out.println("Si - No");
+            System.out.println("El asiento seleccionado está disponible.\n¿Desea reservar el asiento?");
+            System.out.println("Si - Para reservar");
+            System.out.println("Otro comando para salir");
             reserva = sc.nextLine();
             if (reserva.equalsIgnoreCase("si")) {
                 m[fila][columna] = false;

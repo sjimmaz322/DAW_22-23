@@ -16,13 +16,14 @@ public class Ej12 {
     public static void main(String[] args) {
 
         char[][] matriz = new char[2][3];
+        //---
         matriz[0][0] = 'a';
         matriz[0][1] = 'b';
         matriz[0][2] = 'c';
         matriz[1][0] = 'd';
         matriz[1][1] = 'e';
         matriz[1][2] = 'f';
-
+        //---
         imprimirMatriz(matriz);
 
     }

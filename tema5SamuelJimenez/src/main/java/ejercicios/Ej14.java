@@ -26,17 +26,22 @@ public class Ej14 {
     public static void main(String[] args) {
 
         int[][] matriz = new int[3][3];
+        //---
         rellenarMatriz(matriz);
         String media = calcularMedia(matriz);
         //-----
         int min = calcularMinimo(matriz);
         int max = calcularMaximo(matriz);
+        //---
         System.out.println("----- MOSTRAMOS LA MATRIZ PARA VER QUE ES CORRECTO -----");
-        mostrar3x3(matriz);   
+        mostrar3x3(matriz);
+        //---
         System.out.println("\nLA MEDIA ES:");
         System.out.println(media);
+        //---
         System.out.println("\nEL VALOR MÍNIMO ES:");
         System.out.println(min);
+        //---
         System.out.println("\nEL VALOR MÁXIMO ES:");
         System.out.println(max);
 
@@ -45,7 +50,7 @@ public class Ej14 {
     private static void rellenarMatriz(int[][] m) {
 
         for (int i = 0; i < m.length; i++) {
-            for (int j = 0; j < m.length; j++) {
+            for (int j = 0; j < m[i].length; j++) {
                 m[i][j] = rd.nextInt(100) + 1;
             }
         }
@@ -56,7 +61,6 @@ public class Ej14 {
         double suma = 0, casillas = 0;
         for (int i = 0; i < m.length; i++) {
             for (int j = 0; j < m[i].length; j++) {
-                m[i][j] = rd.nextInt(100) + 1;
                 casillas++;
                 suma += m[i][j];
             }
@@ -66,13 +70,18 @@ public class Ej14 {
 
     private static int calcularMinimo(int[][] m) {
         int min = 101;
+        int coordX = 0, coordY = 0;
         for (int i = 0; i < m.length; i++) {
             for (int j = 0; j < m[i].length; j++) {
                 if (m[i][j] < min) {
                     min = m[i][j];
+                    coordX = i;
+                    coordY = j;
                 }
+
             }
         }
+        System.out.println("Las coordenadas del mínimo sería: " + coordX + "-" + coordY);
         return min;
     }
 
