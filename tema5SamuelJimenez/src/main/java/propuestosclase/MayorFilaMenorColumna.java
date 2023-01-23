@@ -53,12 +53,11 @@ public class MayorFilaMenorColumna {
             System.out.println(menu);
             menuOpt = sc.nextLine().toUpperCase();
             //---
-            numFilasColumnas = pedirNumMatriz();
-            matriz = new int[numFilasColumnas][numFilasColumnas];
-            //---
+
             switch (menuOpt) {
                 case "A":
-
+                    numFilasColumnas = pedirNumMatriz();
+                    matriz = new int[numFilasColumnas][numFilasColumnas];
                     rellenarMatriz(matriz);
                     //---
                     System.out.println("");
@@ -70,7 +69,8 @@ public class MayorFilaMenorColumna {
                     System.out.println(resultado);
                     break;
                 case "B":
-
+                    numFilasColumnas = pedirNumMatriz();
+                    matriz = new int[numFilasColumnas][numFilasColumnas];
                     rellenarMatrizRandom(matriz);
                     //---
                     System.out.println("");
@@ -89,7 +89,7 @@ public class MayorFilaMenorColumna {
                 default:
                     System.out.println("Elija una de las opciones ofrecidas");
             }
-        } while (!menuOpt.equalsIgnoreCase("s"));
+        } while (!(menuOpt.equalsIgnoreCase("s")));
     }
 
     private static int pedirNumMatriz() {
