@@ -12,7 +12,7 @@ import java.util.Scanner;
  *
  * @author sajm <sjimmaz322 at sjimmaz322@g.educaand.es>
  */
-public class Matriz {
+public class MayorFilaMenorColumna {
 
     /*
     Implementar un programa que permita encontrar el elemento mayor de una fila y menor de una columna de un array de N filas x N columnas números enteros.
