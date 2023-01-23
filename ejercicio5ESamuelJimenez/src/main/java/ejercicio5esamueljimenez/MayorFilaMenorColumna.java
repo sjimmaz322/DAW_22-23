@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package propuestosclase;
+package ejercicio5esamueljimenez;
 
 import java.util.InputMismatchException;
 import java.util.Random;
@@ -89,7 +89,7 @@ public class MayorFilaMenorColumna {
                 default:
                     System.out.println("Elija una de las opciones ofrecidas");
             }
-        } while (!menuOpt.equalsIgnoreCase("s"));
+        } while (!menuOpt.equalsIgnoreCase("S"));
     }
 
     private static int pedirNumMatriz() {

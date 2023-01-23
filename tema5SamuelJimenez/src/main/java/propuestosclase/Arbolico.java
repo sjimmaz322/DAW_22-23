@@ -97,15 +97,14 @@ public class Arbolico {
         m[m.length - 2][anchura / 2] = "@";
         //---
         String tmp = "";
-        String[][] arbolReal = new String[num+2][1];
+        String[][] arbolReal = new String[num + 2][1];
         //---
         for (int i = 0; i < m.length; i++) {
-            tmp ="";
+            tmp = "";
             for (int j = 0; j < m[i].length; j++) {
-                tmp+=m[i][j];
-                
+                tmp += m[i][j];
             }
-            arbolReal[i][0]=tmp;
+            arbolReal[i][0] = tmp;
         }
 
         return arbolReal;

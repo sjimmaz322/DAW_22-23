@@ -27,10 +27,7 @@ public class Ej19 {
         rellenarArrayRandom(avion);
         //---
         //mostrarArray(avion);
-        //---
-        String mensaje = """
-                         """;
-        //---
+       //---
         String menu = """
                       
                      --------------------------------------

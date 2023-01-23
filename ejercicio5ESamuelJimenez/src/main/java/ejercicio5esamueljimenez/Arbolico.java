@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package propuestosclase;
+package ejercicio5esamueljimenez;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -97,15 +97,14 @@ public class Arbolico {
         m[m.length - 2][anchura / 2] = "@";
         //---
         String tmp = "";
-        String[][] arbolReal = new String[num+2][1];
+        String[][] arbolReal = new String[num + 2][1];
         //---
         for (int i = 0; i < m.length; i++) {
-            tmp ="";
+            tmp = "";
             for (int j = 0; j < m[i].length; j++) {
-                tmp+=m[i][j];
-                
+                tmp += m[i][j];
             }
-            arbolReal[i][0]=tmp;
+            arbolReal[i][0] = tmp;
         }
 
         return arbolReal;
