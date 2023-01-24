@@ -24,6 +24,31 @@ public class RecorrerVecinasMatriz {
         /*
         Mostrar las vecinas de una coordenada de una matriz cuadrada
          */
+        int fila, columna;
+        //---
+        int dimension = pedirIntConsola("Introduzca el número de filas y columnas de la matriz");
+        char[][] matriz = new char[dimension][dimension];
+        do {
+            columna = pedirIntConsola("Introduzca la coordenada X (columna) que desea tomar como centro");
+            if (columna < 0 || columna >= dimension) {
+                System.out.println("Los valores admitidos están entre 0 y " + (dimension - 1));
+            }
+        } while (columna < 0 || columna >= dimension);
+        //---
+        do {
+            fila = pedirIntConsola("Introduzca la coordenada Y (fila) que desea tomar como centro");
+            if (fila < 0 || fila >= dimension) {
+                System.out.println("Los valores admitidos están entre 0 y " + (dimension - 1));
+            }
+        } while (fila < 0 || fila >= dimension);
+        //---
+        rellenarMatriz(matriz);
+        System.out.println(" ");
+        mostrarMatriz(matriz);
+        System.out.println(" ");
+        //---
+        sacarVecinas(matriz, fila, columna);
+
     }
 
     public static int pedirIntConsola(String mensaje) {
@@ -56,6 +81,34 @@ public class RecorrerVecinasMatriz {
             }
         }
 
+    }
+
+    private static void rellenarMatriz(char[][] m) {
+        //--- Recorremos la matriz
+        int letra;
+        for (int i = 0; i < m.length; i++) {
+            for (int j = 0; j < m[i].length; j++) {
+                letra = rd.nextInt(122 - 97 + 1) + 97;
+                m[i][j] = (char) letra;
+            }
+        }
+
+    }
+
+    private static void sacarVecinas(char[][] m, int x, int y) {
+        /*
+        m[x-1][y-1]   m[x-1][y]   m[x-1][y+1]
+        m[x][y-1]     m[x][y]     m[x][y+1]
+        m[x+1][y-1]   m[x+1][y]   m[x+1][y+1]
+         */
+        for (int i = x - 1; i <= x + 1; i++) {
+            for (int j = y - 1; j <= y + 1; j++) {
+                if ((i >= 0 && i < m.length) && (j >= 0 && j < m[i].length) && ((i != x) || (j != y))) {
+                    System.out.println("El valor de la coordenada " + i + "-" + j + " es " + m[i][j]);
+                }
+            }
+
+        }
     }
 
 }
