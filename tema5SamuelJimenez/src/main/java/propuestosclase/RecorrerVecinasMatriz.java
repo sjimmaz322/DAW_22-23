@@ -4,7 +4,9 @@
  */
 package propuestosclase;
 
+import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -48,6 +50,12 @@ public class RecorrerVecinasMatriz {
         System.out.println(" ");
         //---
         sacarVecinas(matriz, fila, columna);
+        //---
+        List<CasillaMatriz> lista = casillasVecinas(fila, columna, matriz);
+
+        for (CasillaMatriz casilla : lista) {
+            System.out.println(casilla);
+        }
 
     }
 
@@ -109,6 +117,37 @@ public class RecorrerVecinasMatriz {
             }
 
         }
+    }
+
+    public static List<CasillaMatriz> casillasVecinas(int fila, int columna, char[][] m) {
+        List<CasillaMatriz> lista = new ArrayList<>();
+        //comprobamos filas y columnas
+        if (esFilaValida(fila, m) && esColumnaValida(columna, m)) {
+            for (int i = fila - 1; i <= fila + 1; i++) {
+                if (esFilaValida(i, m)) {
+                    for (int j = columna - 1; j <= columna + 1; j++) {
+                        if (esColumnaValida(j, m)) {
+                            if ((i == fila) && (j == columna)) {
+                                System.out.println(i + "-" + j + " es la casilla que estamos mirando");
+                                continue;
+                            }
+                            lista.add(new CasillaMatriz(i, j, m[i][j]));
+                        }
+                    }
+
+                }
+            }
+
+        }
+        return lista;
+    }
+
+    public static boolean esFilaValida(int fila, char[][] m) {
+        return (fila >= 0 && fila < m.length);
+    }
+
+    public static boolean esColumnaValida(int columna, char[][] m) {
+        return (columna >= 0 && columna < m.length);
     }
 
 }
