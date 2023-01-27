@@ -56,8 +56,8 @@ public class Ejercito {
         return lista;
     }
 
-    public void licenciarSoldado(String nif) {
+    public String licenciarSoldado(String nif) {
 
-        this.listaEfectivos.remove(new Soldado(nif, "", "", "", 0));
+        return this.listaEfectivos.remove(new Soldado(nif, "", "", "", 0)) ? "El soldado con nif " + nif + " fue licenciado" : "El soldado no estaba en el sistema";
     }
 }

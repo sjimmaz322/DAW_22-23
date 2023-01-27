@@ -2,8 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package ejercicio5f;
+package pruebas;
 
+import ejercicio5f.EjercitoOrdenado;
+import ejercicio5f.Soldado;
 import java.util.ArrayList;
 
 /**
