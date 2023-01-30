@@ -5,6 +5,7 @@
 package ejercicio5f;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
@@ -18,6 +19,10 @@ public class EjercitoOrdenado {
 
     public EjercitoOrdenado() {
         this.listaEfectivos = new TreeSet<>();
+    }
+
+    public EjercitoOrdenado(Comparator c) {// Por si queremos ordenar más allá del orden natural
+        this.listaEfectivos = new TreeSet<>(c);
     }
 
     public SortedSet<Soldado> getListaEfectivos() {

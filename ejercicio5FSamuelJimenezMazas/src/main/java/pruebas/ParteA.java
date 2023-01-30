@@ -26,6 +26,7 @@ public class ParteA {
     5. Sacar todos los soldados, en forma de ArrayList.
     6. Desmatricular a un soldado del ejército.
      */
+        
     public static void main(String[] args) {
 
         //--- Creamos la lista desordenada que será nuestro ejército, y una extra para comprobar métodos
@@ -36,7 +37,7 @@ public class ParteA {
         ejercito.alistarSoldado(new Soldado("1234", "Obi", "Wan", "Kenobi", 0));
         ejercito.alistarSoldado(new Soldado("4567", "Han", "Solo", "", 0));
         ejercito.alistarSoldado(new Soldado("1478", "Anakin", "Skywalker", "Amidala", 0));
-        ejercito.alistarSoldado(new Soldado("9874", "Droide", "R2", "D2", 0));
+        ejercito.alistarSoldado(new Soldado("9874", "Droide", "R2-D2", "", 0));
         ejercito.alistarSoldado(new Soldado("4321", "Leia", "Organa", "Amidala", 0));
         //--- Contamos cuantos efectivos tiene nuestro ejército
         int efectivos = ejercito.conteoSoldados();
@@ -59,10 +60,10 @@ public class ParteA {
         resultado = ejercito2.ejercitoVacio();
         System.out.println(resultado);
         System.out.println("-----");
-        //--- Buscamos un soldado que si esté y otro que no
+        //--- Buscamos un soldado que si esté
         resultado = ejercito.buscarSoldado("1234");
         System.out.println("El soldado con dni 1234 :" + resultado);
-        //---
+        //--- Buscamos un soldado que no esté en el sistema
         System.out.println("-----");
         resultado = ejercito.buscarSoldado("9999");
         System.out.println("El soldado con dni 9999 :" + resultado);
@@ -76,6 +77,11 @@ public class ParteA {
         //--- Imprimimos de nuevo el ejército para ver que Obi Wan ya no está
         listado = ejercito.imprimirEjercito();
         listado.forEach(System.out::println);
+        //---
+        System.out.println("--- Probamos el nuevo método mostrarEjercito1 ---");
+        ejercito.mostrarEjercito1();
+        System.out.println("--- Probamos el nuevo método mostrarEjercito1 ---");
+        ejercito.mostrarEjercito2();
     }
 
 }

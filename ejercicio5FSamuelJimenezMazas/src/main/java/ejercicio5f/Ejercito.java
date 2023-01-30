@@ -6,6 +6,7 @@ package ejercicio5f;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 /**
@@ -52,12 +53,31 @@ public class Ejercito {
     }
 
     public ArrayList<Soldado> imprimirEjercito() {
-        ArrayList<Soldado> lista = new ArrayList<>(this.listaEfectivos);
-        return lista;
+
+        return new ArrayList<>(this.listaEfectivos);
     }
 
     public String licenciarSoldado(String nif) {
 
         return this.listaEfectivos.remove(new Soldado(nif, "", "", "", 0)) ? "El soldado con nif " + nif + " fue licenciado" : "El soldado no estaba en el sistema";
+    }
+
+    //--
+    public void mostrarEjercito1() {
+        // Internamente usa un objeto de tipo Iterator
+        for (Soldado soldat : listaEfectivos) {
+            System.out.println(soldat);
+        }
+    }
+    //--
+    public void mostrarEjercito2() {
+        //Creamos el objeto iterator de soldados
+        Iterator<Soldado> iterador = this.listaEfectivos.iterator();
+        Soldado aux;// Creamos soldado para ir guardando la iteracion
+        while (iterador.hasNext()) {//Mientras haya soldados
+            aux = iterador.next();//Guardo la información en aux
+            System.out.println(aux);//Imprimo aux
+        }
+
     }
 }
