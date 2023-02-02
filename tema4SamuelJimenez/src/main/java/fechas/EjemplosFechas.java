@@ -88,7 +88,6 @@ public class EjemplosFechas {
         DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         String fechaFormateada = fechaHoy.format(formatoFecha);
         System.out.println(fechaFormateada);
-
     }
 
 }
