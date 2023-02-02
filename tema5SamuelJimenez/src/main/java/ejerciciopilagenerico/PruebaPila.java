@@ -14,9 +14,26 @@ public class PruebaPila {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Pila<Integer> aux = new Pila<>();
-        
-      
+        //---
+        Pila<String> pilaStr = new Pila<>();
+        Pila<Cancion> pilaCan = new Pila<>();
+        //---
+        Cancion c1 = new Cancion("Muerte a pellizcos", "Vico", 2022);
+        Cancion c2 = new Cancion("Ser un manteca", "Vico", 2022);
+        Cancion c3 = new Cancion("Bueno, ¿qué me contáis?", "Vico", 2022);
+        //---
+        pilaCan.push(c1);
+        pilaCan.push(c2);
+        pilaCan.push(c3);
+        //---
+        pilaCan.mostrarLista();
+        //---
+        //---
+        pilaStr.push("Soy");
+        pilaStr.push("Un");
+        pilaStr.push("Princeso");
+        //---
+        pilaStr.mostrarLista();
     }
-    
+
 }

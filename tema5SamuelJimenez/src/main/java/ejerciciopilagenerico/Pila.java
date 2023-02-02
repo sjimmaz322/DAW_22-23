@@ -5,7 +5,7 @@
 package ejerciciopilagenerico;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
 /**
  *
@@ -31,7 +31,6 @@ public class Pila<T> {
     rellenar (T[] array), almacena en la pila los objetos que hay en el array. La pila se ajusta su tamaño según el número de elementos que tenga el array.
     T[] sacarElementos(), saca los elementos de la pila y los devuelve en un array de T. La pila, después de llamar a este método, queda vacía.  
      */
-    
     private ArrayList<T> pila;
 
     public Pila() {
@@ -64,6 +63,31 @@ public class Pila<T> {
 
     public int tamanioPila() {
         return this.pila.size();
+    }
+
+    public void mostrarLista() {
+        int pos = this.pila.size();
+        for (int i = pila.size() - 1; i >= 0; i--) {
+            System.out.println("Elemento "+pos+" - "+this.pila.get(i));
+            pos--;
+        }
+    }
+
+    public void rellenar(T[] aux) {
+
+        for (T aux1 : aux) {
+            this.push(aux1);
+        }
+
+    }
+
+    public Object[] sacarElementos() {
+
+        Object[] aux = this.pila.toArray();
+
+        this.pila.clear();
+
+        return aux;
     }
 
     @Override
