@@ -15,8 +15,8 @@ public class PruebaPila {
      */
     public static void main(String[] args) {
         //---
-        Pila<String> pilaStr = new Pila<>();
-        Pila<Cancion> pilaCan = new Pila<>();
+        Pila<String> pilaStr = new Pila(5);
+        Pila<Cancion> pilaCan = new Pila(5);
         //---
         Cancion c1 = new Cancion("Muerte a pellizcos", "Vico", 2022);
         Cancion c2 = new Cancion("Eres un manteca", "Vico", 2022);
@@ -28,31 +28,37 @@ public class PruebaPila {
         //---
         pilaCan.mostrarLista();
         //---
-        //---
-        pilaStr.push("Soy");
-        pilaStr.push("Un");
-        pilaStr.push("Princeso");
+        pilaStr.push("Charly");
+        pilaStr.push("Bravo");
+        pilaStr.push("Tango");
+        pilaStr.push("Delta");
+        pilaStr.push("Alfa");
+        pilaStr.push("Winsconsing");
         //---
         pilaStr.mostrarLista();
-        //--
+        //---
+        pilaStr.pop();
+        pilaStr.pop();
+        //---
+        pilaStr.mostrarLista();
+        //---
         String estado = pilaCan.pilaLlena();
         System.out.println(estado);
-        //--
+        //---
         estado = pilaCan.pilaVacia();
         System.out.println("\n" + estado);
-        //--
+        //---
         Object[] listaCanciones = pilaCan.sacarElementos();
-        for (int i = 0; i < listaCanciones.length; i++) {
-            System.out.println(listaCanciones[i]);
-
+        for (Object cancion : listaCanciones) {
+            System.out.println(cancion);
         }
-        //--
+        //---
         estado = pilaCan.pilaLlena();
         System.out.println(estado);
-        //--
+        //---
         estado = pilaCan.pilaVacia();
         System.out.println("\n" + estado);
-        //--
+        //---
     }
 
 }

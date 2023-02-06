@@ -5,18 +5,28 @@
 package ejerciciopilagenerico;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  *
  * @author samuel
+ * @param <T>
  */
 public class Pila<T> {
 
     private ArrayList<T> pila;
+    private int tamanioMax;
 
-    public Pila() {
-        this.pila = new ArrayList<>();
+    public Pila(int tamanio) {
+        this.tamanioMax = tamanio;
+        this.pila = new ArrayList();
+    }
+
+    public int getTamanioMax() {
+        return tamanioMax;
+    }
+
+    public void setTamanioMax(int tamanioMax) {
+        this.tamanioMax = tamanioMax;
     }
 
     public ArrayList<T> getPila() {
@@ -28,11 +38,15 @@ public class Pila<T> {
     }
 
     public void push(T obj) {
-        this.pila.add(obj);
+        if (this.pila.size() < tamanioMax) {
+            this.pila.add(obj);
+        }
     }
 
     public void pop() {
-        this.pila.remove(this.pila.size() - 1);
+        if (!pila.isEmpty()) {
+            this.pila.remove(this.pila.size() - 1);
+        }
     }
 
     public String pilaVacia() {
@@ -50,13 +64,12 @@ public class Pila<T> {
     public void mostrarLista() {
         int pos = this.pila.size();
         for (int i = pila.size() - 1; i >= 0; i--) {
-            System.out.println("Elemento " + pos + " - " + this.pila.get(i));
+            System.out.println(this.pila.get(i));
             pos--;
         }
     }
 
     public void rellenar(T[] aux) {
-
         for (T aux1 : aux) {
             this.push(aux1);
         }
@@ -64,7 +77,6 @@ public class Pila<T> {
     }
 
     public Object[] sacarElementos() {
-
         Object[] aux = this.pila.toArray();
 
         this.pila.clear();
