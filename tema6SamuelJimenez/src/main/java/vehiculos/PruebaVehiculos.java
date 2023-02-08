@@ -8,7 +8,7 @@ package vehiculos;
  *
  * @author samuel
  */
-public class PruebaVehiculosç {
+public class PruebaVehiculos {
 
     /**
      * @param args the command line arguments
