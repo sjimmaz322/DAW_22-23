@@ -26,10 +26,40 @@ public class ConversorDecimalABinario {
 
         String numBinario = conversorIterativo(num);
         System.out.println("El número " + num + " en binario es " + numBinario);
+        System.out.println("----- PROBAMOS EL OTRO MÉTODO -----");
+
+        System.out.print("El número " + num + " en binario es ");
+        conversorRecursivo(num);
+
     }
 
     private static String conversorIterativo(int num) {
+        String binario = "";
+        String resultado = "";
 
-        return "";
+        do {
+            binario += String.valueOf(num % DIVISOR);
+            num = num / DIVISOR;
+
+        } while ((num != 1));
+
+        binario += num % DIVISOR;
+        for (int i = binario.length() - 1; i >= 0; i--) {
+            resultado += binario.charAt(i);
+        }
+        return resultado;
+    }
+
+    private static void conversorRecursivo(int num) {
+
+        if (num < 2) {
+            System.out.print(num);
+
+        } else {
+
+            conversorRecursivo(num / 2);
+            System.out.print(num % 2);
+        }
+
     }
 }
