@@ -19,6 +19,9 @@ public class Furgoneta extends Vehiculo {
         this.volumen = volumen;
     }
 
+    public Furgoneta() {
+    }
+
     public int getCarga() {
         return carga;
     }
@@ -39,10 +42,8 @@ public class Furgoneta extends Vehiculo {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(super.toString());
-        sb.append("Furgoneta{");
-        sb.append("carga=").append(carga);
-        sb.append(", volumen=").append(volumen);
-        sb.append('}');
+        sb.append("Capacidad de carga: ").append(carga).append("\n");
+        sb.append("Volumen: ").append(volumen);
         return sb.toString();
     }
 

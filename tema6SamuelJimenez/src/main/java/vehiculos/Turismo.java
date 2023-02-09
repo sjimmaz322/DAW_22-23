@@ -19,6 +19,9 @@ public class Turismo extends Vehiculo {
         this.marchaAutomatica = marchaAutomatica;
     }
 
+    public Turismo() {
+    }
+
     public int getPuertas() {
         return puertas;
     }
@@ -39,10 +42,9 @@ public class Turismo extends Vehiculo {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(super.toString());
-        sb.append("Turismo{");
-        sb.append("puertas=").append(puertas);
-        sb.append(", marchaAutomatica=").append(marchaAutomatica);
-        sb.append('}');
+        sb.append("Nº puertas: ").append(puertas).append("\n");
+        sb.append("Marcha automática: ").append(marchaAutomatica);
+
         return sb.toString();
     }
 

@@ -5,6 +5,7 @@
 package ejerciciosclase;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  *
@@ -15,48 +16,54 @@ public class Fibonacci {
     /**
      * @param args the command line arguments
      */
+    private static Scanner sc = new Scanner(System.in);
+
     public static void main(String[] args) {
-        System.out.println("El fibonacci de 9");
-        ArrayList<Integer> lista = fibonacciIterativo(9);
-        System.out.println("Imprimimos la lista hasta el fibonacci de 9");
-        lista.forEach(System.out::println);
-        int resultFibo = fibonacciRecursivo(9);
-        System.out.println("-----");
+        System.out.println("Introduzca el número del que desea calcular la serie de Fibonacci");
+        int num = sc.nextInt();
+        //---
+        ArrayList<Integer> lista = fibonacciIterativo(num);
+        //---
+        System.out.println("\nImprimimos la lista hasta el fibonacci de " + num);
+        //--- lista.forEach(System.out::println);
+        for (int i = 0; i < lista.size(); i++) {
+            System.out.println("El f(" + i + ") es " + lista.get(i));
+        }
+        //---
+        int resultFibo = fibonacciRecursivo(num);
+        System.out.println("\nImprimimos el resultado recursivo de Fibonacci de " + num);
         System.out.println(resultFibo);
     }
-    
+
     private static ArrayList<Integer> fibonacciIterativo(int n) {
         ArrayList<Integer> fibo = new ArrayList<>();
-        
-        for (int i = 0; i <= n; i++) {
+        //---
+        int num = Math.abs(n);
+        //---
+        for (int i = 0; i <= num; i++) {
             switch (i) {
-                case 0:
+                case 0 ->
                     fibo.add(0);
-                    break;
-                case 1:
+                case 1 ->
                     fibo.add(1);
-                    break;
-                default:
+                default ->
                     fibo.add(fibo.get(i - 1) + fibo.get(i - 2));
-                    break;
             }
         }
-        System.out.println("El f(" + n + ") es " + fibo.get(n));
+        System.out.println("El f(" + num + ") es " + fibo.get(n));
         return fibo;
     }
-    
+
     private static int fibonacciRecursivo(int n) {
-        
-        if (n == 0) {//Caso base para 0
-            return 0;
-        }
-        
-        if (n == 1) {//Caso base para 1
-            return 1;
+        int num = Math.abs(n);
+        //---
+        if (num < 2) {//Caso base para 0 o 1
+            return n;
+            //---
         } else {
-            return (fibonacciRecursivo(n - 1) + fibonacciRecursivo(n - 2));//Da vueltas restando hasta llegar al caso base 1 y luego va sumando
+            return (fibonacciRecursivo(num - 1) + fibonacciRecursivo(num - 2));//Da vueltas restando hasta llegar al caso base 0 y luego va sumando en el ciclo pasivo
         }
-        
+
     }
-    
+
 }

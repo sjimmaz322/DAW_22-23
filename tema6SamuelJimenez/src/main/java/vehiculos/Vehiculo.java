@@ -20,6 +20,9 @@ public class Vehiculo {
     private double tarifa;
     private boolean disponible;
 
+    public Vehiculo() {
+    }
+
     public Vehiculo(Long bastidor, String matricula, String marca, String modelo, String color, double tarifa) {
         this.bastidor = bastidor;
         this.matricula = matricula;
@@ -88,8 +91,9 @@ public class Vehiculo {
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 89 * hash + Objects.hashCode(this.bastidor);
+        int hash = 5;
+        hash = 23 * hash + Objects.hashCode(this.bastidor);
+        hash = 23 * hash + Objects.hashCode(this.matricula);
         return hash;
     }
 
@@ -105,21 +109,23 @@ public class Vehiculo {
             return false;
         }
         final Vehiculo other = (Vehiculo) obj;
+        if (!Objects.equals(this.matricula, other.matricula)) {
+            return false;
+        }
         return Objects.equals(this.bastidor, other.bastidor);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Vehiculo{");
-        sb.append("bastidor=").append(bastidor);
-        sb.append(", matricula=").append(matricula);
-        sb.append(", marca=").append(marca);
-        sb.append(", modelo=").append(modelo);
-        sb.append(", color=").append(color);
-        sb.append(", tarifa=").append(tarifa);
-        sb.append(", disponible=").append(disponible);
-        sb.append('}');
+        sb.append("     -----       \n");
+        sb.append("Bastidor: ").append(bastidor).append("\n");
+        sb.append("Matricula: ").append(matricula).append("\n");
+        sb.append("Marca: ").append(marca).append("\n");
+        sb.append("Modelo: ").append(modelo).append("\n");
+        sb.append("Color: ").append(color).append("\n");
+        sb.append("Tarifa: ").append(tarifa).append("\n");
+        sb.append("Disponible: ").append(disponible).append("\n");
         return sb.toString();
     }
 

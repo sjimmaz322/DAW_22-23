@@ -17,6 +17,9 @@ public class Deportivo extends Vehiculo {
         this.cilindrada = cilindrada;
     }
 
+    public Deportivo() {
+    }
+
     public int getCilindrada() {
         return cilindrada;
     }
@@ -29,9 +32,7 @@ public class Deportivo extends Vehiculo {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(super.toString());
-        sb.append("Deportivo{");
-        sb.append("cilindrada=").append(cilindrada);
-        sb.append('}');
+        sb.append("Cilindrada: ").append(cilindrada);
         return sb.toString();
     }
 
