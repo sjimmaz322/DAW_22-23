@@ -89,6 +89,14 @@ public class Vehiculo {
         this.disponible = disponible;
     }
 
+    public void arrancar() {
+        System.out.println("El vehículo con bastidor " + this.bastidor + " está arrancado");
+    }
+
+    public void parar() {
+        System.out.println("El vehículo con bastidor " + this.bastidor + " está parado");
+    }
+
     @Override
     public int hashCode() {
         int hash = 5;

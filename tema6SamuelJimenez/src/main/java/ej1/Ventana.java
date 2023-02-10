@@ -11,12 +11,16 @@ package ej1;
 public class Ventana {
 
     private String estado;
-    private Persiana persiana;
+    
 
     public Ventana() {
         this.estado = "cerrada";
-        this.persiana = new Persiana();
     }
+
+    public Ventana(String estado) {
+        this.estado = estado;
+    }
+    
 
     public String getEstado() {
         return estado;
@@ -26,18 +30,17 @@ public class Ventana {
         this.estado = estado;
     }
 
-    public Persiana getPersiana() {
-        return persiana;
+    public void abrir(){
+        System.out.println("Abriendo la ventana");
     }
-
-    public void setPersiana(Persiana persiana) {
-        this.persiana = persiana;
+    public void cerrar(){
+        System.out.println("Cerrando la ventana");
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("La ventana está ").append(estado).append(" y la persiana de la ventana está").append(this.persiana.getEstado());
+        sb.append("La ventana está ").append(estado);
         return sb.toString();
     }
 

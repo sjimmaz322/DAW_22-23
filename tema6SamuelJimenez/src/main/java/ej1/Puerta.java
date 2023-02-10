@@ -24,12 +24,12 @@ public class Puerta {
         this.estado = estado;
     }
 
-    public void subir() {
-        this.setEstado("subida");
+    public void abrir() {
+        this.setEstado("abierta");
     }
 
-    public void bajar() {
-        this.setEstado("bajada");
+    public void cerrar() {
+        this.setEstado("cerrada");
     }
 
     @Override

@@ -17,6 +17,12 @@ public class Calefactor {
         this.estado = "apagado";
     }
 
+    public Calefactor(String estado, int temperatura) {
+        this.estado = estado;
+        this.temperatura = temperatura;
+    }
+    
+
     public String getEstado() {
         return estado;
     }

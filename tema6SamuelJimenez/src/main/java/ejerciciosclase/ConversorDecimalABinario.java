@@ -4,8 +4,6 @@
  */
 package ejerciciosclase;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Scanner;
 
 /**
@@ -27,7 +25,6 @@ public class ConversorDecimalABinario {
         String numBinario = conversorIterativo(num);
         System.out.println("El número " + num + " en binario es " + numBinario);
         System.out.println("----- PROBAMOS EL OTRO MÉTODO -----");
-
         System.out.print("El número " + num + " en binario es ");
         conversorRecursivo(num);
 
