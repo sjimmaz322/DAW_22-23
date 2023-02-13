@@ -38,6 +38,14 @@ public class Furgoneta extends Vehiculo {
         this.volumen = volumen;
     }
 
+    public void arrancar() {
+        System.out.println("Amonos, cuidado con la carga");
+    }
+
+    public void apagar() {
+        System.out.println("¿Llegó bien la carga?");
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

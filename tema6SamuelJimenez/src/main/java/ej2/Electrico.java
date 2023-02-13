@@ -51,6 +51,10 @@ public class Electrico extends Vehiculo {
         this.duracionCarga = duracionCarga;
     }
 
+
+    public void apagar() {
+        System.out.println("Mira si tienes que cargar el bicho");
+    }
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

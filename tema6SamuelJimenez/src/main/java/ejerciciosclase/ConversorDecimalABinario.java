@@ -51,9 +51,7 @@ public class ConversorDecimalABinario {
 
         if (num < 2) {
             System.out.print(num);
-
         } else {
-
             conversorRecursivo(num / 2);
             System.out.print(num % 2);
         }

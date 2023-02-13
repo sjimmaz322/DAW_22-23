@@ -27,6 +27,13 @@ public class Deportivo extends Vehiculo {
     public void setCilindrada(int cilindrada) {
         this.cilindrada = cilindrada;
     }
+        public void arrancar() {
+        System.out.println("El coche hace vroooooom");
+    }
+
+    public void apagar() {
+        System.out.println("Ala, el coche callaito");
+    }
 
     @Override
     public String toString() {

@@ -10,7 +10,7 @@ import java.util.Objects;
  *
  * @author samuel
  */
-public class Vehiculo {
+public abstract class Vehiculo {
 
     private Long bastidor;
     private String matricula;
@@ -89,13 +89,9 @@ public class Vehiculo {
         this.disponible = disponible;
     }
 
-    public void arrancar() {
-        System.out.println("El vehículo con bastidor " + this.bastidor + " está arrancado");
-    }
+    public abstract void arrancar();
 
-    public void parar() {
-        System.out.println("El vehículo con bastidor " + this.bastidor + " está parado");
-    }
+    public abstract void apagar();
 
     @Override
     public int hashCode() {

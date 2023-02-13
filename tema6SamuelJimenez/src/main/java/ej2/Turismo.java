@@ -38,6 +38,14 @@ public class Turismo extends Vehiculo {
         this.marchaAutomatica = marchaAutomatica;
     }
 
+    public void arrancar() {
+        System.out.println("El coche está encendido para irse con la familia");
+    }
+
+    public void apagar() {
+        System.out.println("Se terminó el viaje");
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

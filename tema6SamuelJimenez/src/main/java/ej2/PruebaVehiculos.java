@@ -46,7 +46,10 @@ public class PruebaVehiculos {
             }
         }
         //---
-        
+        for (Vehiculo v : lista) {
+            v.arrancar();
+        }
+
     }
 
 }

@@ -42,6 +42,14 @@ public class Combustion extends Vehiculo {
         this.tipo = tipo;
     }
 
+    public void arrancar() {
+        System.out.println("El coche está gastando gasolina");
+    }
+
+    public void apagar() {
+        System.out.println("Ahora el aire está más limpio");
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
