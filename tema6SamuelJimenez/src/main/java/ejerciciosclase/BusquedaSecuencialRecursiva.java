@@ -44,10 +44,10 @@ public class BusquedaSecuencialRecursiva {
 
         if (numBuscado == lista.get(pos)) {
             return pos;
-        } else if (pos < lista.size() - 1) {
+        } else {
             return buscarNumero(lista, numBuscado, pos + 1);
         }
-        return pos;
+
     }
 
 }
