@@ -31,7 +31,7 @@ public class BusquedaSecuencialRecursiva {
             listaNum.add(rd.nextInt(30));
         }
         //---
-        System.out.println("La posición del número buscado es "+buscarNumero(listaNum, 15, 0));
+        System.out.println("La posición del número buscado es " + buscarNumero(listaNum, 15, 0));
         //---
         System.out.println("Los números de la lista son:");
         for (int i = 0; i < listaNum.size(); i++) {
@@ -41,14 +41,13 @@ public class BusquedaSecuencialRecursiva {
     }
 
     private static int buscarNumero(List<Integer> lista, int numBuscado, int pos) {
-        if (pos < lista.size()) {
-            if (numBuscado == lista.get(pos)) {
-                return pos;
-            } else {
-                return buscarNumero(lista, numBuscado, pos + 1);
-            }
+
+        if (numBuscado == lista.get(pos)) {
+            return pos;
+        } else if (pos < lista.size() - 1) {
+            return buscarNumero(lista, numBuscado, pos + 1);
         }
-        return -1;
+        return pos;
     }
 
 }
