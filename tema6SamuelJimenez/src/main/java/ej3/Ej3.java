@@ -15,8 +15,16 @@ public class Ej3 {
      */
     public static void main(String[] args) {
         Persona p1 = new Programador();
-        
+        Persona p2 = new Empleado();
+        Persona p3 = new Persona();
+        //---
         System.out.println(p1.toString());
+        System.out.println("-----");
+        System.out.println(p2.toString());
+        System.out.println("-----");
+        System.out.println(p3.toString());
+        System.out.println("-----");
+        //---
     }
 
 }

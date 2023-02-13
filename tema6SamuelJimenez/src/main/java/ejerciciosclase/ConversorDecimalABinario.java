@@ -38,7 +38,7 @@ public class ConversorDecimalABinario {
             binario += String.valueOf(num % DIVISOR);
             num = num / DIVISOR;
 
-        } while ((num != 1));
+        } while (num >= 2);
 
         binario += num % DIVISOR;
         for (int i = binario.length() - 1; i >= 0; i--) {
