@@ -4,6 +4,9 @@
  */
 package matrizaleatorios;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -32,39 +35,27 @@ public class MatrizDeAleatorios {
         //--- Calculamos el número máximo que puede aparecer en la matriz
         int numMax = (int) Math.pow(m.length, 2);
         int num = 0;
-
+        //---
+        List<Integer> listaNum = new ArrayList<>();
+        //---
+        for (int i = 1; i <= numMax; i++) {
+            listaNum.add(i);
+        }
+        //---
+        Collections.shuffle(listaNum);
+        //---
         for (int i = 0; i < m.length; i++) {
             for (int j = 0; j < m[i].length; j++) {
-                do {
-                    num = rd.nextInt(numMax) + 1;//--- +1 para que sea del 1 al número buscado
-                    //--- Si comprobamos que el número no está lo colocamos
-                    //--- Si está hacemos otra tirada al Random y comprobamos de nuevo
-                    if (comprobarNumeros(m, num)) {
-                        m[i][j] = num;
-                        break;
-                    }
-                } while (true);
+                m[i][j] = listaNum.get(num);
+                num++;
             }
 
         }
-    }
-
-    private static boolean comprobarNumeros(int[][] m, int num) {
-        //--- Comprobamos que el número que salió no está ya en la matriz
-        //--- Devolvemos false si ya está el número y true si no
-        for (int i = 0; i < m.length; i++) {
-            for (int j = 0; j < m[i].length; j++) {
-                if (m[i][j] == num) {
-                    return false;
-                }
-            }
-        }
-        return true;
     }
 
     private static void mostrarMatriz(int[][] m) {
         for (int i = 0; i < m.length; i++) {
-            for (int j = 0; j < m.length; j++) {
+            for (int j = 0; j < m[i].length; j++) {
                 System.out.print(m[i][j] + "\t");
             }
             System.out.println("");
