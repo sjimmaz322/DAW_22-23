@@ -28,6 +28,10 @@ public class Empleado extends Persona {
         this.salario = salario;
     }
 
+    public void aumentarSalario(int aumento) {
+        this.salario = this.salario + aumento;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

@@ -8,9 +8,7 @@ package ej3;
  *
  * @author sajm <sjimmaz322 at sjimmaz322@g.educaand.es>
  */
-
-
-public class Persona {
+public class Persona implements Comparable<Persona> {
 
     private String nombre, nif;
     private int edad;
@@ -53,6 +51,11 @@ public class Persona {
         StringBuilder sb = new StringBuilder();
         sb.append(nombre).append(" con nif ").append(nif).append(" tiene ").append(edad).append(" años.");
         return sb.toString();
+    }
+
+    @Override
+    public int compareTo(Persona o) {
+        return this.getNif().compareToIgnoreCase(o.getNif());
     }
 
 }

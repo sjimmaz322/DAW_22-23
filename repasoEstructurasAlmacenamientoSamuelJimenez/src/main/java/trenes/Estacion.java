@@ -47,8 +47,8 @@ public class Estacion {
         Map<Integer, Tren> trenes = new HashMap<>();
         //--- Creamos e inicializamos las variables que usaremos
 
-        int numPasajeros = 0;
-        int numVagones = 0;
+        int numPasajeros;
+        int numVagones;
         //--- Recorremos la matriz
         for (int i = 0; i < m.length; i++) {
             //--- Reiniciamos variables con cada nuevo tren 
