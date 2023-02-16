@@ -31,6 +31,8 @@ public class Programador extends Empleado {
     
     @Override
     public void aumentarSalario(int num){
+        
+        num = (int)Math.abs(num*0.6);
         this.setSalario(this.getSalario()+num);
     }
 

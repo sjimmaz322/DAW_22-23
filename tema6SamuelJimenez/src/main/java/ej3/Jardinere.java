@@ -30,6 +30,7 @@ public class Jardinere extends Empleado {
 
     @Override
     public void aumentarSalario(int num) {
+        num = (int)Math.abs(num*0.4);
         this.setSalario(this.getSalario() + num);
     }
 
