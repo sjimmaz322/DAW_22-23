@@ -8,12 +8,12 @@ package ej3;
  *
  * @author samuel
  */
-public class Jardinere extends Persona {
+public class Jardinere extends Empleado {
 
     private int antiguedad;//--- Años en la empresa
 
-    public Jardinere(int antiguedad, String nombre, String nif, int edad) {
-        super(nombre, nif, edad);
+    public Jardinere(int antiguedad, int salario, String nombre, String nif, int edad) {
+        super(salario, nombre, nif, edad);
         this.antiguedad = antiguedad;
     }
 
@@ -29,6 +29,11 @@ public class Jardinere extends Persona {
     }
 
     @Override
+    public void aumentarSalario(int num) {
+        this.setSalario(this.getSalario() + num);
+    }
+
+    @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(super.toString());
@@ -38,8 +43,10 @@ public class Jardinere extends Persona {
         return sb.toString();
     }
 
-    public int compareTo(Jardinere o) {
-        return Integer.compare(antiguedad, o.getAntiguedad());
-    }
+    @Override
+    public int compareTo(Persona o) {
 
+        return Integer.compare(antiguedad, ((Jardinere) o).getAntiguedad());
+
+    }
 }

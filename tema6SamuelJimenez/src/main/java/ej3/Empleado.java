@@ -8,7 +8,7 @@ package ej3;
  *
  * @author sajm <sjimmaz322 at sjimmaz322@g.educaand.es>
  */
-public class Empleado extends Persona {
+public abstract class Empleado extends Persona {
 
     private int salario;
 
@@ -28,9 +28,7 @@ public class Empleado extends Persona {
         this.salario = salario;
     }
 
-    public void aumentarSalario(int aumento) {
-        this.salario = this.salario + aumento;
-    }
+    public abstract void aumentarSalario(int aumento);
 
     @Override
     public String toString() {

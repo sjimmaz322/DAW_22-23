@@ -28,6 +28,11 @@ public class Programador extends Empleado {
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
+    
+    @Override
+    public void aumentarSalario(int num){
+        this.setSalario(this.getSalario()+num);
+    }
 
     @Override
     public String toString() {
