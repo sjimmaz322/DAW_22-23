@@ -11,8 +11,8 @@ package daw;
 public class Casilla {
 
     //--- Creamos los atributos de la clase
-    private int fila, columna;
-    private TipoCasilla tipo;
+    private final int fila, columna;
+    private final TipoCasilla tipo;
 
     //--- Constructor parametrizado, a ser de atributos inmutables no se podrán cambiar una vez creados
     //--- por ello es inútil hacer un constructor por defecto
