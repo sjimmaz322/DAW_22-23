@@ -29,7 +29,7 @@ public class EjercicioB {
         System.out.println("La frase es:\n" + frase + "\nY está compuesta de " + frase.length() + " caracteres. (Contando Espacios)");
         //---
         int pos = encontradorDeCaracter(frase, 'm');
-        System.out.println("\nm se encuentra en la posición " + pos+"\n");
+        System.out.println("\nm se encuentra en la posición " + pos + "\n");
         //---
         List<Integer> posiciones = encontradorDeTodosLosCaracteres(frase, 'm');
         posiciones.forEach(System.out::println);
