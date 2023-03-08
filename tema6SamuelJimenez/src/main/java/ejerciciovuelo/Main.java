@@ -95,7 +95,6 @@ public class Main {
         for (Vuelo v : lista) {
             aux.put(v.getDestino(), v.getListadoPasajeros().size());
             if (aux.containsKey(v.getDestino())) {
-
             }
         }
 
