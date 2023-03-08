@@ -33,7 +33,7 @@ public class Main {
         Pasajero p3 = new Pasajero("Victoria", "Sampalo", "24587965M", TipoPasajero.VIP);
         Pasajero p4 = new Pasajero("José Ángel", "Marín", "879654125", TipoPasajero.STANDARD);
         Pasajero p5 = new Pasajero("Cristina", "Hernández", "32145879T", TipoPasajero.STANDARD);
-        Pasajero p6 = new Pasajero("Jessica", "Mciosek", "X78451258B", TipoPasajero.VIP);
+        Pasajero p6 = new Pasajero("Jessica", "Macioszek", "X78451258B", TipoPasajero.VIP);
         //---
         lista1.add(p1);
         lista1.add(p3);
@@ -92,14 +92,22 @@ public class Main {
     private static HashMap<String, Integer> registroLlegadas(List<Vuelo> lista) {
         HashMap<String, Integer> aux = new HashMap<>();
 
-        for (Vuelo v : lista) {
-            aux.put(v.getDestino(), v.getListadoPasajeros().size());
-            if (aux.containsKey(v.getDestino())) {
+        for (int i = 0; i < lista.size(); i++) {
+
+            if (aux.containsKey(lista.get(i).getDestino())) {
+
+                aux.replace(lista.get(i).getDestino(), // Seleccionamos el destino del vuelo actual
+                        aux.get(lista.get(i).getDestino()) // Seleccionamos el value ya asociado con esa key
+                        + lista.get(i).getListadoPasajeros().size()); // Sumamos al value los pasajeros del vuelo actual
+
+            } else {
+
+                aux.put(lista.get(i).getDestino(), lista.get(i).getListadoPasajeros().size());
+
             }
+
         }
-
         return aux;
-
     }
 
     //A partir la lista de vuelos que guarde para cada codVuelo el conjunto de pasajeros.
