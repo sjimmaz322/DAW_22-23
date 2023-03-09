@@ -53,15 +53,16 @@ public class Main {
         System.out.println("\nOrdenamos por dorsal usando comparator");
         listaJug.forEach(j -> System.out.println("El dorsal es : " + j.dorsal()));
         //---
-        Comparator<Jugador> criterioNombre = (ju1, ju2) -> ju1.nombre().compareToIgnoreCase(ju2.nombre());
-        Collections.sort(listaJug, criterioNombre);//--- Donde está criterioNombre podemos poner directamente la expresión lambda
+        //--- Comparator<Jugador> criterioNombre = (ju1, ju2) -> ju1.nombre().compareToIgnoreCase(ju2.nombre());
+        //---Collections.sort(listaJug, criterioNombre);//--- Donde está criterioNombre podemos poner directamente la expresión lambda
+        Collections.sort(listaJug, (jug1, jug2) -> jug1.nombre().compareToIgnoreCase(jug2.nombre())); //--- La mejor opción
         //---
         System.out.println("\nOrdenamos por nombre usando comparator");
         listaJug.forEach(j -> System.out.println("El nombre del jugador es : " + j.nombre()));
         //---
         /*
         Cuando implementas una Interface, esa clase es de tipo Object, de su propio tipo y del tipo de la Interface
-        */
+         */
         //---
     }
 
