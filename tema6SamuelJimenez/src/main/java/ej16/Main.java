@@ -49,6 +49,16 @@ public class Main {
         System.out.println("\nImprimimos los robots con más de 50% de batería");
         listaRobocesCargados.forEach(System.out::println);
 
+        System.out.println("\n" + listaRobocesCargados.get(listaRobocesCargados.size() - 1).getNumSerie());
+        System.out.println(listaRobocesCargados.get(listaRobocesCargados.size() - 2).getNumSerie());
+        System.out.println(listaRobocesCargados.get(listaRobocesCargados.size() - 3).getNumSerie() + "\n");
+
+        Comparator<Robot> criterioNumSerie = (ro1, ro2) -> Integer.compare(ro1.getNumSerie(), ro2.getNumSerie());
+        Collections.sort(listaRoboces, criterioNumSerie);
+        listaRoboces.forEach(System.out::println);
+
+        int pos = Collections.binarySearch(listaRoboces, new Robot(13, 0), criterioNumSerie);
+        System.out.println("\nEl robot con el número de serie 173 se encuentra en la posición " + pos);
     }
 
 }
