@@ -10,7 +10,7 @@ import java.util.Random;
  *
  * @author samuel
  */
-public class Robot {
+public class Robot implements Comparable<Robot> {
 
     private static Random rd = new Random();
 
@@ -18,7 +18,7 @@ public class Robot {
     private int nivelBateria;
 
     public Robot() {
-        this.numSerie = rd.nextInt(1000);
+        this.numSerie = rd.nextInt(5000);
         this.nivelBateria = rd.nextInt(101);
     }
 
@@ -68,6 +68,11 @@ public class Robot {
     @Override
     public String toString() {
         return "Robot{" + "numSerie=" + numSerie + ", nivelBateria=" + nivelBateria + '}';
+    }
+
+    @Override
+    public int compareTo(Robot o) {
+        return Integer.compare(this.numSerie, o.getNumSerie());
     }
 
 }
