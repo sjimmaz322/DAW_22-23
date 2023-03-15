@@ -4,19 +4,64 @@
  */
 package examendesfibriladoresycoros;
 
-/*
-    EJ3 (5 puntos).- En un nuevo paquete llamado ej3, crea un Enum llamado Voz con seis elementos: CONTRATENOR, TENOR, BARITONO, SOPRANO, MEZZOSOPRANO y CONTRALTO. 
-    Las tres primeras son voces masculinas y las tres últimas son femeninas. Consideraremos un coro de voces mixtas aquel en el que hay al menos un tipo de voz diferente, de las anteriores. 
-    Crea una clase, llamada Coro, sin atributos de instancia que incluya los siguientes métodos de clase públicos. Si existen atributos de clase serán privados. 
-    Si existen otros métodos, serán privados. Se pueden crear otras clases, si se estima necesario.
-    (0,75 puntos) generarVoces, que recibe un número entero mayor o igual a 6, y debe devolver un objeto tipo List<Voz> con tantas voces (masculinas y femeninas) aleatorias como indique el parámetro. 
-    En caso de que el parámetro sea incorrecto, se lanzará una excepción de tipo IllegalArgument.
-    (2 puntos) getNumeroCorosMixtos, que recibe la lista generada por el método anterior y devuelve el número de coros mixtos que se pueden agrupar según las voces contenidas en la lista.
-    (2 puntos) buscarVozMasRepetida, que recibe la lista generada por el método implementado en A y devuelve un conjunto único de voces indicando las voces que más se repiten en la lista.
-    Por ejemplo, si en una lista de 20 voces hay dos voces (A y B) con 5 repeticiones cada una y son las que más se repiten, debería devolver esas dos voces (A y B).
-    En una clase llamada PruebaCoro (0,25 puntos), dentro de ej3, implementa el código necesario para generar una lista de 20 voces aleatorias, mostrar por pantalla el resultado y probar los métodos B y C.
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
 
- */
 public class Ej3 {
 
+    public static void main(String[] args) {
+        //--- Creamos nuestra lista de Voz en este caso de 30 elementos
+        List<Ej3Voz> lista = Ej3Coro.generarVoces(30);
+
+        /*
+        
+        Hacemos una lista para hacer pruebas de nuestros métodos
+        
+        List<Voz> listaPrueba = new ArrayList<>();
+        
+        listaPrueba.add(Ej3Voz.BARITONO);
+        listaPrueba.add(Ej3Voz.CONTRALTO);
+        listaPrueba.add(Ej3Voz.CONTRATENOR);
+        listaPrueba.add(Ej3Voz.MEZZOSOPRANO);
+        listaPrueba.add(Ej3Voz.SOPRANO);
+        listaPrueba.add(Ej3Voz.TENOR);
+        
+        listaPrueba.add(Ej3Voz.BARITONO);
+        listaPrueba.add(Ej3Voz.CONTRALTO);
+        listaPrueba.add(Ej3Voz.CONTRATENOR);
+        listaPrueba.add(Ej3Voz.MEZZOSOPRANO);
+        listaPrueba.add(Ej3Voz.SOPRANO);
+        listaPrueba.add(Ej3Voz.TENOR);
+        
+        listaPrueba.add(Ej3Voz.BARITONO);
+        listaPrueba.add(Ej3Voz.CONTRALTO);
+        listaPrueba.add(Ej3Voz.CONTRATENOR);
+        listaPrueba.add(Ej3Voz.MEZZOSOPRANO);
+        listaPrueba.add(Ej3Voz.SOPRANO);
+        listaPrueba.add(Ej3Voz.TENOR);
+         */
+        //--- Ordenamos la lista para que sea más fácil ver cuantas hay de cada tipo de Voz
+        Collections.sort(lista);
+        //--- Mostramos la lista
+        lista.forEach(System.out::println);
+        //--- Creamos una separación por estética
+        System.out.println("\n----------\n");
+        //--- Guardamos el número de coros mixtos que podemos crear en una variable
+        int numCorosMixtos = Ej3Coro.getNumeroCorosMixtos(lista);
+        //--- Mostramos cuantos coros mixtos podemos crear
+        System.out.println("El número de coros mixtos que podemos formar es: " + numCorosMixtos);
+        //--- Creamos otra separación por estética
+        System.out.println("\n----------\n");
+        //--- Creamos un Map para guardar el resultado de nuestro método para buscar las voces más repetidas
+        Map<Ej3Voz, Integer> mapi = Ej3Coro.buscarVozMasRepetida(lista);
+        //--- Por cada Entry mostramos por consola
+        for (Map.Entry<Ej3Voz, Integer> entry : mapi.entrySet()) {
+            //--- Guardamos la key y el value en sus respectivas variables
+            Ej3Voz key = entry.getKey();
+            Integer val = entry.getValue();
+            //--- Mostramos el mensaje que deseamos
+            System.out.println("La voz más repetida fue " + key + " con un total de " + val + " apariciones.");
+        }
+    }
 }
