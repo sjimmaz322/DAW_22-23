@@ -8,6 +8,7 @@ package examendesfibriladoresycoros;
  *
  * @author samuel
  */
-public enum Voz {
-    CONTRATENOR,TENOR, BARITONO, SOPRANO, MEZZOSOPRANO, CONTRALTO;
+public enum Ej3Voz {
+    //--- Creamos el Enum con las voces pedidas
+    CONTRATENOR, TENOR, BARITONO, SOPRANO, MEZZOSOPRANO, CONTRALTO;
 }
