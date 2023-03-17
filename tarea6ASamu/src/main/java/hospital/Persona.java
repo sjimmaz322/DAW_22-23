@@ -45,7 +45,7 @@ public abstract class Persona {
         this.dni = dni;
     }
 
-    public void renovarNif() {
+    final public void renovarNif() {
         this.dni.setFechaCaducidad(this.dni.renovar(LocalDate.now()));
     }
 

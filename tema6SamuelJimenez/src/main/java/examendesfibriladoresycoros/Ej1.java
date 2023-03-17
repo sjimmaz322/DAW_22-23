@@ -6,6 +6,7 @@ package examendesfibriladoresycoros;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -55,9 +56,11 @@ public class Ej1 {
     private static Map<String, Desfibrilador> mapeoDesfibriladores(Set<Desfibrilador> setDes) {
         //--- Creamos un map para devolverlo al final
         Map<String, Desfibrilador> mapDes = new TreeMap<>();
-        //--- Por cada registro del Set creamos un Entry con la id del Desfibrilador y como value el propio Desfibrilador
-        for (Desfibrilador d1 : setDes) {
-            mapDes.put(d1.getId(), d1);
+        //--- Por cada registro del Set creamos un Iterator con la id del Desfibrilador y como value el propio Desfibrilador
+        for (Iterator<Desfibrilador> iterator = setDes.iterator(); iterator.hasNext();) {
+            Desfibrilador next = iterator.next();
+            mapDes.put(next.getId(), next);
+
         }
         //--- Devolvemos el Map
         return mapDes;
