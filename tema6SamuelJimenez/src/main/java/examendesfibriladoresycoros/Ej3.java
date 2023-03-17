@@ -7,6 +7,7 @@ package examendesfibriladoresycoros;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class Ej3 {
 
@@ -54,14 +55,8 @@ public class Ej3 {
         //--- Creamos otra separación por estética
         System.out.println("\n----------\n");
         //--- Creamos un Map para guardar el resultado de nuestro método para buscar las voces más repetidas
-        Map<Ej3Voz, Integer> mapi = Ej3Coro.buscarVozMasRepetida(lista);
+        Set<Ej3Voz> mapi = Ej3Coro.buscarVozMasRepetida(lista);
         //--- Por cada Entry mostramos por consola
-        for (Map.Entry<Ej3Voz, Integer> entry : mapi.entrySet()) {
-            //--- Guardamos la key y el value en sus respectivas variables
-            Ej3Voz key = entry.getKey();
-            Integer val = entry.getValue();
-            //--- Mostramos el mensaje que deseamos
-            System.out.println("La voz más repetida fue " + key + " con un total de " + val + " apariciones.");
-        }
+        mapi.forEach(System.out::println);
     }
 }

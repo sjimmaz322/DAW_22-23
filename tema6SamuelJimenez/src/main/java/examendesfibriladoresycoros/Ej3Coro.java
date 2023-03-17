@@ -5,9 +5,11 @@
 package examendesfibriladoresycoros;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import java.util.Set;
 import java.util.TreeMap;
 
 /**
@@ -77,10 +79,10 @@ public class Ej3Coro {
         return numCoros;
     }
 
-    public static Map<Ej3Voz, Integer> buscarVozMasRepetida(List<Ej3Voz> lista) {
+    public static Set<Ej3Voz> buscarVozMasRepetida(List<Ej3Voz> lista) {
         //--- Creamos dos Map, uno para trabajar con él y otro para devolverlo
         Map<Ej3Voz, Integer> aux = new TreeMap<>();
-        Map<Ej3Voz, Integer> resultado = new TreeMap<>();
+        Set<Ej3Voz> resultado = new HashSet<>();
         //---
         for (int i = 0; i < lista.size(); i++) {//--- Por cada voz de la lista
             if (aux.containsKey(lista.get(i))) {//--- Si la voz estaba en el Map
@@ -104,7 +106,7 @@ public class Ej3Coro {
             Ej3Voz key = entry.getKey();
             Integer val = entry.getValue();
             if (val == mayor) {//--- Si el value es igual al número máximo de ocurrencias de una voz lo guardamos
-                resultado.put(key, val);
+                resultado.add(key);
             }
         }
         //--- Devolvemos el Map con las voces que más se repiten
