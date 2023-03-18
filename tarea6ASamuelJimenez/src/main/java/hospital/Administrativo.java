@@ -21,6 +21,14 @@ public class Administrativo extends Empleado {
         System.out.println("El administrativo " + this.getNombre() + " " + this.getApellidos() + " registró el documento " + nombreDoc + " con un id de " + nombreDoc.hashCode());
     }
 
+    public Grupo getGrupo() {
+        return grupo;
+    }
+
+    public void setGrupo(Grupo grupo) {
+        this.grupo = grupo;
+    }
+
     @Override
     public double calcularIRPF() {
         return switch (this.grupo) {
@@ -37,7 +45,7 @@ public class Administrativo extends Empleado {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(super.toString()).append("\n");
-        sb.append("Perteneciente al grupo de IRPF").append(grupo);
+        sb.append("Perteneciente al grupo de IRPF ").append(grupo).append("\n");
         return sb.toString();
     }
 

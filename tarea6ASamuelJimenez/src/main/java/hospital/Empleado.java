@@ -41,8 +41,8 @@ public abstract class Empleado extends Persona {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(super.toString()).append("\n");
-        sb.append("Con número de la Seguridad Social").append(numSS).append(".\n");
-        sb.append("Y un salario de").append(salario).append("€ mensuales.");
+        sb.append("Con número de la Seguridad Social ").append(numSS).append(".\n");
+        sb.append("Y un salario de ").append(salario).append("€ mensuales.");
         return sb.toString();
     }
 

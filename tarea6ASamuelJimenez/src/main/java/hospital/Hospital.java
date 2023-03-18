@@ -79,9 +79,9 @@ public class Hospital {
         StringBuilder sb = new StringBuilder();
 
         sb.append("El hospital con nombre ").append(nombre).append(" situado en ").append(direccion).append("\n");
-        sb.append("Tiene un número de camas de ").append(numCamas);
-        sb.append("\nY en sus instalaciones trabajan:\n").append(listaTrabajadores);
-        sb.append("Mientras que están ingresados:\n").append(listaPacientes);
+        sb.append("Tiene un número de camas de ").append(numCamas).append("\n");
+        sb.append("\nY en sus instalaciones trabajan:\n").append(listaTrabajadores).append("\n");
+        sb.append("\nMientras que están ingresados:\n").append(listaPacientes);
         return sb.toString();
     }
 

@@ -52,10 +52,14 @@ public class Nif {
         return this.letra == other.letra;
     }
 
+    public void setFechaCaducidad(LocalDate fechaCaducidad) {
+        this.fechaCaducidad = fechaCaducidad;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("numDNI=").append(numDNI).append("-").append(letra).append(", caduca el ").append(fechaCaducidad);
+        sb.append(numDNI).append("-").append(letra).append(" caducando el ").append(fechaCaducidad);
         return sb.toString();
     }
 
@@ -68,7 +72,7 @@ public class Nif {
         return letra;
     }
 
-    public final static LocalDate renovar(LocalDate fechaSolicitud) {
+    public final LocalDate renovar(LocalDate fechaSolicitud) {
         return fechaSolicitud.plusYears(10);
 
     }

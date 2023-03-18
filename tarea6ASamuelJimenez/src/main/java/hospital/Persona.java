@@ -4,6 +4,8 @@
  */
 package hospital;
 
+import java.time.LocalDate;
+
 /**
  *
  * @author samuel
@@ -44,7 +46,7 @@ public abstract class Persona {
     }
 
     public void renovarNif() {
-        Nif.renovar(this.dni.getFechaCaducidad());
+        this.dni.setFechaCaducidad(this.dni.renovar(LocalDate.now()));
     }
 
     @Override

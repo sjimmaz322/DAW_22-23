@@ -23,7 +23,7 @@ public class Paciente extends Persona implements Nadadores {
     public void tomarMedicina(String medicina) {
         boolean bool = rd.nextBoolean();
         if (bool) {
-            System.out.println("El paciente " + this.getNombre() + " se ha curado gracias a la medicina " + medicina);
+            System.out.println("El paciente " + this.getNombre() + " se ha curado gracias a la  " + medicina);
         } else {
             System.out.println("El paciente " + this.getNombre() + " no ha conseguido curarse con " + medicina);
         }
@@ -38,7 +38,7 @@ public class Paciente extends Persona implements Nadadores {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(super.toString()).append("\n");
-        sb.append("Con número de historia clínica: ").append(numHistoria);
+        sb.append("Con número de historia clínica: ").append(numHistoria).append("\n");
         return sb.toString();
     }
 

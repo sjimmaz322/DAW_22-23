@@ -23,10 +23,27 @@ public class Medico extends Empleado implements Nadadores {
         System.out.println("El médico " + this.getNombre() + " trata con " + medicina + " al paciente " + p.getNombre());
     }
 
+    public String getEspecialidad() {
+        return especialidad;
+    }
+
+    public void setEspecialidad(String especialidad) {
+        this.especialidad = especialidad;
+    }
+
+    public Grupo getGrupo() {
+        return grupo;
+    }
+
+    public void setGrupo(Grupo grupo) {
+        this.grupo = grupo;
+    }
+    
+
     @Override
     public double calcularIRPF() {
 
-        if (especialidad.equalsIgnoreCase("Cirujía")) {
+        if (especialidad.equalsIgnoreCase("Cirugía")) {
             return ((this.getSalario() * 25) / 100);
         } else {
             return ((this.getSalario() * 23.5) / 100);
@@ -42,8 +59,8 @@ public class Medico extends Empleado implements Nadadores {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(super.toString()).append("\n");
-        sb.append("Perteneciente al grupo de IRPF").append(grupo).append("\n");
-        sb.append("De la especialidad de ").append(especialidad);
+        sb.append("Perteneciente al grupo de IRPF ").append(grupo).append("\n");
+        sb.append("De la especialidad de ").append(especialidad).append("\n");
         return sb.toString();
 
     }
