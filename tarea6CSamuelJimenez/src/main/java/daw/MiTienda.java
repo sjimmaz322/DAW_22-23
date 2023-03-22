@@ -32,8 +32,9 @@ public class MiTienda {
         Producto p6 = new LibroDigital(6548, "713958", 6, 10, 9.99, "Libro de autoayuda");
         Producto p7 = new Musica("Javaticca", 7, 10, 8, "Grupo de Disco Duro");
         Producto p8 = new Musica("Iron Coding", 8, 10, 11.49, "Música para estresarse programando");
-        //--- Producto para que no se encuentre en la lista
+        //--- Productos que no se encuentrarán en la lista
         Producto p9 = new LibroPapel(600, "453789", 9, 10, 7.95, "Un libro de desaventuras");
+        Producto p10 = new LibroDigital(100, "", 10, 4, 8, "");
         //---
         listado.add(p1);
         listado.add(p2);
@@ -66,7 +67,7 @@ public class MiTienda {
             if (listado.get(i) instanceof Libro) {
                 listaLibros.add((Libro) listado.get(i));
             }
-            
+
         }
         //---
         Iterator<Libro> it = listaLibros.iterator();
@@ -89,7 +90,7 @@ public class MiTienda {
         }
         //---
         System.out.println(listaLibros.contains((Libro) p4) ? "El libro está en la lista" : "El libro no está en la lista");
-        Producto p10 = new LibroDigital(100, "", 10, 4, 8, "");
+
         System.out.println(listaLibros.contains((Libro) p10) ? "El libro está en la lista" : "El libro no está en la lista");
         //---
         List<SeEnvia> listaEnviables = new ArrayList<>();
@@ -104,5 +105,5 @@ public class MiTienda {
         System.out.println("Probamos el método abstracto de Libro");
         listaLibros.forEach(l -> l.encanto());
     }
-    
+
 }
