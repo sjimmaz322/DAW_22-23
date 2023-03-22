@@ -23,6 +23,7 @@ public class MiTienda {
         //---
         List<Producto> listado = new ArrayList<>();
         List<Libro> listaLibros = new ArrayList<>();
+        List<SeEnvia> listaEnviables = new ArrayList<>();
         //---
         Producto p1 = new Pantalon("M", "Daaobos", 1, 21, 8.00, "Un pantalón de imitación barata");
         Producto p2 = new Pantalon("XXL", "Puma", 2, 21, 15.99, "Pantalón de deporte");
@@ -93,7 +94,7 @@ public class MiTienda {
 
         System.out.println(listaLibros.contains((Libro) p10) ? "El libro está en la lista" : "El libro no está en la lista");
         //---
-        List<SeEnvia> listaEnviables = new ArrayList<>();
+
         for (Producto p : listado) {
             if (p instanceof SeEnvia) {
                 listaEnviables.add((SeEnvia) p);
