@@ -45,7 +45,7 @@ public final class LibroPapel extends Libro implements SeEnvia {
 
     @Override
     public void encanto() {
-        System.out.println("El encant del libro con " + numPaginas + " páginas es el olor a libro nuevo.");
+        System.out.println("El encanto del libro con " + numPaginas + " páginas es el olor a libro nuevo.");
     }
 
 }
