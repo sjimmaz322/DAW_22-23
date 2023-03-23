@@ -67,6 +67,7 @@ public class Geometria {
         listado.forEach(System.out::println);
 
         //---    Solicitamos el ID de la figura a buscar, solo admitirá números enteros
+        //---   Si pongo un 4 falla, con los demás números funciona perfectamente
         int idBuscado = pedirIntConsola("\nIntroduzca el ID de la figura a buscar");
 
         //---
@@ -84,8 +85,9 @@ public class Geometria {
             if (f instanceof Triangulo) {
                 pos = Collections.binarySearch(listado, new Triangulo(0, 0, idBuscado, ""), criterioId);
             }
-
         }
+        //---   Comprobamos que el elemento de la posición dada coincide con el buscado
+        //---   System.out.println(listado.get(pos));
 
         //---   Mostramos el resultado
         System.out.println("La figura con ID " + idBuscado + " está en la posición " + pos + ".\n");
