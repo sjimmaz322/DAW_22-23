@@ -77,7 +77,7 @@ public final class Rectangulo extends Poligono implements Dibujable, Movible {//
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[i].length; j++) {
                 if (i == 0 || i == matriz.length - 1 || j == 0 || j == matriz[i].length - 1) {
-                    matriz[i][j] = "X";
+                    matriz[i][j] = "*";
                 } else {
                     matriz[i][j] = " ";
 
