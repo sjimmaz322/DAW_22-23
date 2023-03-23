@@ -10,7 +10,7 @@ import java.awt.Point;
  *
  * @author samuel
  */
-public final class Rectangulo extends Poligono implements Dibujable, Movible {
+public final class Rectangulo extends Poligono implements Dibujable, Movible {//--- Hacemos herencia múltiple gracias a las interfaces
 
     private Point p1, p2, p3, p4;
 
