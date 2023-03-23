@@ -132,6 +132,7 @@ public class Geometria {
 
     }
 
+    //---   Copiado método de mis utilidades para evitar fallos humanos en el programa
     public static int pedirIntConsola(String mensaje) {
         int num = 0;
         do {
