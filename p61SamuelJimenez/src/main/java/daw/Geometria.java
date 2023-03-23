@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -47,7 +48,7 @@ public class Geometria {
         for (Figura f : conjunto) {
             System.out.println(f);
             System.out.println("");
-            System.out.println(f.area());
+            System.out.println(f.area() + " uds. cuadradas");
         }
 
         //---   A partir del conjunto creamos una lista de figuras
@@ -63,9 +64,8 @@ public class Geometria {
         //---   Mostramos la lista ordenada
         listado.forEach(System.out::println);
 
-        //--    Solicitamos el ID de la figura a buscar
-        System.out.println("\nIntroduzca el ID de la figura a buscar");
-        int idBuscado = sc.nextInt();
+        //---    Solicitamos el ID de la figura a buscar, solo admitirá números enteros
+        int idBuscado = pedirIntConsola("\nIntroduzca el ID de la figura a buscar");
 
         //---
         int pos = 0; //--- Variable para sobrescribir la posición de la figura en la lista
@@ -130,5 +130,23 @@ public class Geometria {
             }
         }
 
+    }
+
+    public static int pedirIntConsola(String mensaje) {
+        int num = 0;
+        do {
+            try {
+                System.out.println(mensaje);
+                num = sc.nextInt();
+                break;
+            } catch (NumberFormatException nfe) {
+                System.out.println("Introduzca un número válido");
+            } catch (InputMismatchException ime) {
+                System.out.println("Introduzca un número por favor");
+                sc.nextLine();
+            }
+
+        } while (true);
+        return num;
     }
 }
