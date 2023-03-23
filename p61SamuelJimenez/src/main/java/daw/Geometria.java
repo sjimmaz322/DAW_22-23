@@ -33,6 +33,9 @@ public class Geometria {
         Figura f2 = new Triangulo(4, 5, 2, "Verde");
         Figura f3 = new Circulo(6, 3, "Rojo");
         Figura f4 = new Circulo(2, 4, "Azul");
+        //---    Cambiamos el punto de origen de uno de los circulos para las comprobaciones del apartado 8 
+        ((Circulo) f4).getP1().setLocation(1, 0);
+        //---   
         Figura f5 = new Rectangulo(5, 7, 5, "Verde");
         Figura f6 = new Rectangulo(7, 5, 6, "Rojo");
 
@@ -47,8 +50,7 @@ public class Geometria {
         //---   Por cada elemento del conjunto mostramos su toString y llamamos a su método area
         for (Figura f : conjunto) {
             System.out.println(f);
-            System.out.println("");
-            System.out.println(f.area() + " uds. cuadradas");
+            System.out.println("Su área es de " + f.area() + " uds. cuadradas.\n");
         }
 
         //---   A partir del conjunto creamos una lista de figuras
@@ -112,21 +114,32 @@ public class Geometria {
             }
              */
         }
+        //---   Mostramos las listas para comprobar su contenido
+        System.out.println("\n--- Listado de Dibujables ---");
+        listaDib.forEach(System.out::println);
+        System.out.println("\n--- Listado de Movibles ---");
+        listaMov.forEach(System.out::println);
+        System.out.println("\n--- Listado de Comparables ---");
+        listaComp.forEach(System.out::println);
 
         //---   Por cada objeto Dibujar llamámos a su método dibujar
+        System.out.println("\n--- Dibujamos las figuras Dibujables ---");
         listaDib.forEach(d -> d.dibujar());
 
         //---   Movemos los rectángulos 2 posiciones a la derecha y los circulos 3 posiciones arriba
+        //---   Y mostramos por comprobación el movimiento de los circulos por tener solo 1 punto
         for (Movible m : listaMov) {
             if (m instanceof Rectangulo) {
                 m.moverDer(2);
             }
             if (m instanceof Circulo) {
-//                System.out.println("Mostramos donde está el punto del circulo antes de moverlo");
-//                System.out.println(((Circulo) m).getP1());
+                System.out.println("\nMostramos donde está el punto del circulo antes de moverlo");
+                System.out.println(((Circulo) m).getP1());
+                //---
                 m.moverArr(3);
-//                System.out.println("Mostramos donde está el punto del circulo después de moverlo");
-//                System.out.println(((Circulo) m).getP1());
+                //---
+                System.out.println("\nMostramos donde está el punto del circulo después de moverlo");
+                System.out.println(((Circulo) m).getP1());
             }
         }
 
