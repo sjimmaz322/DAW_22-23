@@ -28,7 +28,7 @@ public class Geometria {
         //---   Creamos el conjunto Set que contendrá nuestras figuras
         Set<Figura> conjunto = new HashSet<>();
 
-        //---   Creamos las figuras
+//---   Creamos las figuras
         Figura f1 = new Triangulo(3, 3, 1, "Azul");
         Figura f2 = new Triangulo(4, 5, 2, "Verde");
         Figura f3 = new Circulo(6, 3, "Rojo");
