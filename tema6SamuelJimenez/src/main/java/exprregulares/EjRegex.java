@@ -43,6 +43,8 @@ public class EjRegex {
         //---   Creamos un buscador de patrones en el texto
         Matcher matcher = pat.matcher(txt);
         //---   Imprimimos todos los patrones encontrados en el texto
+        System.out.println("Ejercicio 1");
+        //---
         while (matcher.find()) {
 
             System.out.println("Patrón encontrado: " + matcher.group());
@@ -57,6 +59,8 @@ public class EjRegex {
         Pattern pat2 = Pattern.compile(regex2);
         //---
         Matcher matcher2 = pat2.matcher(txt2);
+        //---
+        System.out.println("\nEjercicio 2");
         //---
         while (matcher2.find()) {
 
@@ -73,7 +77,9 @@ public class EjRegex {
         //---
         Matcher matcher3 = pat3.matcher(txt3);
         //---
-         while (matcher3.find()) {
+        System.out.println("\nEjercicio 3");
+        //---
+        while (matcher3.find()) {
 
             System.out.println("Patrón encontrado: " + matcher3.group());
         }
