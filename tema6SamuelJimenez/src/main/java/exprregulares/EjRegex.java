@@ -35,7 +35,7 @@ public class EjRegex {
 
  /*----- EJERCICIO 1 -----*/
         //---   Creamos nuestra expresión regular.
-        String regex = "Localizacion: [N|S|E|O]";
+        String regex = "Localizacion: [NSEO]";
         //---   Creamos nuestro texto que si contendrá el patrón buscado.
         String txt = "Curiosamente la anidación de las águilas tomó Localizacion: N cuando siempre fue Localizacion: O";
         //---   Compilamos el patrón a buscar
@@ -69,9 +69,9 @@ public class EjRegex {
 
         /*----- EJERCICIO 3 -----*/
         //---
-        String regex3 = "[a-z|A-Z]{1}[0-9]{1}";
+        String regex3 = "^([a-zA-Z][0-9])+$";
         //---
-        String txt3 = "a4deslkjigbyfdhddfshdf8hjn48f7hdf8hy487748FDH4NFDGCJN7FXD8HJRD8H8DRB7FC87H89D/RF7HJ98DRF7JH89D";
+        String txt3 = "a4e7r8G7H5H3";
         //---
         Pattern pat3 = Pattern.compile(regex3);
         //---
