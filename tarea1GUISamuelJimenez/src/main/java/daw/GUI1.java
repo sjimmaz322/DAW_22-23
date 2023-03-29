@@ -28,7 +28,7 @@ public class GUI1 extends JPanel {
     // Método que inicializa los elementos gráficos del formulario
     private void initComponents() {
         // Construimos la etiqueta con el texto que queremos que muestre
-        etiqueta = new JLabel("Etiqueta de MiPanel");
+        etiqueta = new JLabel("Hola, soy el ejercicio 1 de Samuel Jiménez");
         // Añade la etiqueta al contenedor MiPanel (al JPanel)
         this.add(etiqueta);
     }
@@ -53,7 +53,7 @@ public class GUI1 extends JPanel {
         ventanaPrincipal.setLocationRelativeTo(null);
 
         // Añadimos un objeto MiPanel al JFrame
-        ventanaPrincipal.add(new Programa1(Color.cyan));
+        ventanaPrincipal.add(new GUI1(Color.cyan));
 
         // Hacemos visible la ventana
         ventanaPrincipal.setVisible(true);
