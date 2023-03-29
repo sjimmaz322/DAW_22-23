@@ -4,22 +4,11 @@
  */
 package daw;
 
-<<<<<<< HEAD
-=======
 import java.awt.Dimension;
 
 import javax.swing.JFrame;
 import javax.swing.border.TitledBorder;
 
->>>>>>> origin/main
-/**
- *
- * @author samuel
- */
-<<<<<<< HEAD
-public class GUI3 {
-    
-=======
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -90,5 +79,4 @@ public class GUI3 extends JPanel implements ActionListener {
 
     }
 
->>>>>>> origin/main
 }
