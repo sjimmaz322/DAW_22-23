@@ -17,18 +17,18 @@ import java.awt.event.MouseListener;
 import java.util.Random;
 
 public class GUI1 extends JPanel implements ActionListener {
-    
+
     private static Random rd = new Random();
 
     // Componentes gráficos: dos botones y un área de texto
     private JButton boton;
-    
+
     private JLabel texto;
-    
+
     public GUI1() {
         initComponents();
     }
-    
+
     private void initComponents() {
 
         // Creamos los botones, con un texto a mostrar
@@ -48,7 +48,7 @@ public class GUI1 extends JPanel implements ActionListener {
 
         // Añadimos los componentes al panel
         this.add(boton);
-        
+
         this.add(texto);
 
         // Agregamos los listeners a los botones
@@ -56,32 +56,32 @@ public class GUI1 extends JPanel implements ActionListener {
         boton.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+
             }
-            
+
             @Override
             public void mousePressed(MouseEvent e) {
-                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+
             }
-            
+
             @Override
             public void mouseReleased(MouseEvent e) {
-                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+
             }
-            
+
             @Override
             public void mouseEntered(MouseEvent e) {
                 boton.setBackground(Color.cyan);
             }
-            
+
             @Override
             public void mouseExited(MouseEvent e) {
                 boton.setBackground(Color.LIGHT_GRAY);
             }
-            
+
         });
     }
-    
+
     @Override
     // Sobrescribimos el método de la interfaz
     public void actionPerformed(ActionEvent ae) {
@@ -93,7 +93,7 @@ public class GUI1 extends JPanel implements ActionListener {
             //--- Sino es el botón para el apellido
         }
     }
-    
+
     public static void main(String[] args) {
         // Construimos la ventana
         JFrame frame = new JFrame("App");
@@ -109,6 +109,6 @@ public class GUI1 extends JPanel implements ActionListener {
         frame.setVisible(true);
         //Acción por defecto al pulsar el botón de cierre de la ventana
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
+
     }
 }
