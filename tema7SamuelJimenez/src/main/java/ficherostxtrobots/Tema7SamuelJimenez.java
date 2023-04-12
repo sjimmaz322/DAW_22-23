@@ -85,10 +85,9 @@ public class Tema7SamuelJimenez {
                 // Se guarda en el array de String cada elemento de la
                 // línea en función del carácter separador de campos del fichero CSV
                 tokens = linea.split(";");
-                for (String string : tokens) {
-                    System.out.print(string + "\t");
-                }
-                System.out.println();
+
+                System.out.println("Robot: " + tokens[0] + " - Vida: " + tokens[1]);
+
             }
         } catch (FileNotFoundException e) {
             System.out.println(e.getMessage());
