@@ -122,12 +122,20 @@ public class FicheroRobots {
                 // línea en función del carácter separador de campos del fichero CSV
                 tokens = linea.split(";");
                 String txt = tokens[0];
+                //--- Guardamos como patrón la expresión regular que busca que haya al menos
+                //--- una unidad de dígitos (números) seguidos
+                //--- Ya que buscamos el número de serie y el % de batería
                 Pattern pat = Pattern.compile("\\d+");
                 Matcher matcher = pat.matcher(txt);
-                //---
+                //--- Este if guarda la primera ocurrencia (aparición) del patrón
+                //--- o sea, el número de serie del robot, y con el setter actualizamos la variable del
+                //--- robot que creamos por defecto
                 if (matcher.find()) {
                     r.setNumSerie(Integer.parseInt(matcher.group()));
                 }
+                //--- Con este if guardamos la segunda ocurrencia (aparición) del patrón
+                //--- El nivel de batería del robot, y hacemos como el caso anterior 
+                //--- pero con la variable que nos interesa
                 if (matcher.find()) {
                     r.setNivelBateria(Integer.parseInt(matcher.group()));
                 }
