@@ -4,6 +4,7 @@
  */
 package ficherostxtrobots;
 
+import java.awt.Robot;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -13,12 +14,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
  * @author samuel
  */
-public class Tema7SamuelJimenez {
+public class FicheroRobots {
 
     /*
     Imprimir por consola y escribir en el fichero con el formato
@@ -30,7 +33,7 @@ public class Tema7SamuelJimenez {
 
         List<Robots> listado = Robots.generarListaRobots();
         //---
-        generarFicheroRobots("robots1", listado);
+        generarFicheroRobots("robots1", "txt", listado);
         //---
         System.out.println("Vemos lo que contiene nuestro archivo");
         leerFicheroRobots("robots1", "txt");
@@ -44,15 +47,15 @@ public class Tema7SamuelJimenez {
 
     }
 
-    public static void generarFicheroRobots(String nomFichero, List<Robots> listaR) {
+    public static void generarFicheroRobots(String nomFichero, String formato, List<Robots> listaR) {
         // Fichero a crear. Ruta relativa a la carpeta raíz del proyecto
-        String idFichero = nomFichero + ".txt";
+        String idFichero = nomFichero + "." + formato;
         String tmp;
         //
         try ( BufferedWriter flujo = new BufferedWriter(new FileWriter(idFichero))) {
 
             for (Robots r : listaR) {
-                tmp = r.getNumSerie() + ";" + r.getNivelBateria() + ";";
+                tmp = "Robot: " + r.getNumSerie() + " - Vida: " + r.getNivelBateria() + ";";
                 flujo.write(tmp);
                 flujo.newLine();
             }
@@ -86,7 +89,7 @@ public class Tema7SamuelJimenez {
                 // línea en función del carácter separador de campos del fichero CSV
                 tokens = linea.split(";");
 
-                System.out.println("Robot: " + tokens[0] + " - Vida: " + tokens[1]);
+                System.out.println(tokens[0]);
 
             }
         } catch (FileNotFoundException e) {
@@ -112,14 +115,22 @@ public class Tema7SamuelJimenez {
         try ( Scanner datosFichero = new Scanner(new File(idFichero), "UTF-8")) {
             // hasNextLine devuelve true mientras haya líneas por leer
             while (datosFichero.hasNextLine()) {
+                Robots r = new Robots();
                 // Guarda la línea completa en un String
                 linea = datosFichero.nextLine();
                 // Se guarda en el array de String cada elemento de la
                 // línea en función del carácter separador de campos del fichero CSV
                 tokens = linea.split(";");
-                //
-                Robots r = new Robots(Integer.parseInt(tokens[0]), Integer.parseInt(tokens[1]));
-
+                String txt = tokens[0];
+                Pattern pat = Pattern.compile("\\d+");
+                Matcher matcher = pat.matcher(txt);
+                //---
+                if (matcher.find()) {
+                    r.setNumSerie(Integer.parseInt(matcher.group()));
+                }
+                if (matcher.find()) {
+                    r.setNivelBateria(Integer.parseInt(matcher.group()));
+                }
                 lista.add(r);
             }
         } catch (FileNotFoundException e) {
@@ -128,4 +139,5 @@ public class Tema7SamuelJimenez {
 
         return lista;
     }
+
 }
