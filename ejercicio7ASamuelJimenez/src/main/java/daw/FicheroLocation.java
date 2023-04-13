@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package ficheroslocalizaciones;
+package daw;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -25,9 +25,9 @@ public class FicheroLocation {
      */
     public static void main(String[] args) {
         //---
-        leerFicheroLocation("localizaciones", "txt");
+        ServiciosFicheros.leerFichero("localizaciones", "txt");
         //---
-        List<String> listaLocations = sacarListaLocations("localizaciones", "txt");
+        List<String> listaLocations = sacarListaDelFichero("localizaciones", "txt");
         //---
         listaLocations.forEach(System.out::println);
         //---
@@ -41,45 +41,14 @@ public class FicheroLocation {
         for (Map.Entry<String, Integer> entry : mapCardinal.entrySet()) {
             String key = entry.getKey();
             Integer val = entry.getValue();
-
+            //---
             System.out.println(key + " - " + val);
-
         }
-
+        //---
+        ServiciosFicheros.generarDocumento(mapCardinal, "contadorLocalizaciones", "txt");
     }
 
-    public static void leerFicheroLocation(String nomFichero, String formato) {
-
-        // Fichero a leer con datos de ejemplo
-        String idFichero = nomFichero + "." + formato;
-
-        // Variables para guardar los datos que se van leyendo
-        String[] tokens;
-        String linea;
-
-        System.out.println("Leyendo el fichero: " + idFichero);
-
-        // Inicialización del flujo "datosFichero" en función del archivo llamado "idFichero"
-        // Estructura try-with-resources. Permite cerrar los recursos una vez finalizadas
-        // las operaciones con el archivo
-        try ( Scanner datosFichero = new Scanner(new File(idFichero), "UTF-8")) {
-            // hasNextLine devuelve true mientras haya líneas por leer
-            while (datosFichero.hasNextLine()) {
-                // Guarda la línea completa en un String
-                linea = datosFichero.nextLine();
-                // Se guarda en el array de String cada elemento de la
-                // línea en función del carácter separador de campos del fichero CSV
-                tokens = linea.split(";");
-
-                System.out.println(tokens[0]);
-
-            }
-        } catch (FileNotFoundException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
-    public static List<String> sacarListaLocations(String nomFichero, String formato) {
+    public static List<String> sacarListaDelFichero(String nomFichero, String formato) {
         // Fichero a leer con datos de ejemplo
         String idFichero = nomFichero + "." + formato;
 
@@ -170,4 +139,5 @@ public class FicheroLocation {
 
         return map;
     }
+
 }

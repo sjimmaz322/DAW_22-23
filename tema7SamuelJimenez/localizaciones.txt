@@ -18,6 +18,7 @@ Localizacion: O
 Localizacion: O
 Localizacion: N
 Localizacion: O
+Localizacion: O
 Localizacion: N
 Localizacion: E
 Localizacion: E
@@ -27,6 +28,7 @@ Localizacion: S
 Localizacion: N
 Localizacion: O
 Localizacion: N
+Localizacion: O
 Localizacion: S
 Localizacion: N
 Localizacion: O
@@ -37,8 +39,11 @@ Localizacion: E
 Localizacion: N
 Localizacion: E
 Localizacion: N
+Localizacion: E
 Localizacion: S
+Localizacion: E
 Localizacion: N
+Localizacion: O
 Localizacion: E
 Localizacion: O
-Localizacion: O
+Localizacion: E
