@@ -37,6 +37,7 @@ public class FicheroLocation {
         //--
         Map<String, Integer> mapCardinal = contadorCardinal(listaCardianl);
         //---
+        System.out.println("---*****---");
         for (Map.Entry<String, Integer> entry : mapCardinal.entrySet()) {
             String key = entry.getKey();
             Integer val = entry.getValue();
