@@ -15,8 +15,6 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import org.apache.commons.lang3.RandomStringUtils;
 import vehiculos.Deportivo;
 import vehiculos.Furgoneta;
@@ -29,51 +27,55 @@ import vehiculos.Vehiculo;
  */
 public class Ejercicio7BSamuelJimenez {
 
+    // ENUNCIADO //
     /*
-//////    A.- Generación del fichero vehiculos.txt
-//////    Usando la jerarquía de la clase Vehículo, implementa un programa que realice lo siguiente:
-//////
-//////    Crea 30 vehículos (10 Turismos, 10 Deportivos y 10 Furgonetas) con valores de tu elección y guárdalos en una lista de objetos tipo Vehiculo.
-//////    Guarda los vehículos en un fichero de texto llamado “vehículos.txt”, haciendo uso del método polimórfico toString(), 
-//////    teniendo en cuenta que el string devuelto lleve separados los campos del objeto por el carácter dos puntos (:).
-//////    Cada línea del fichero estará compuesta por un número, un espacio, un guión, un espacio y los datos del vehículo en cuestión. 
-//////    El número de cada línea será 0, 1 o 2 si el objeto es un Turismo, un Deportivo o una Furgoneta, respectivamente. 
-//////    Cada vehículo irá en una línea distinta del fichero.
-//////    Ejemplos de líneas, los campos no tienen porqué coincidir con los de tus clases:
-//////
-//////    0 – 4534JTK:Seat:Ibiza:Blanco:… (Este vehículo sería un Turismo)
-//////    1 – 3322FFF:Ford:Kuga:Rojo:… (Este vehículo sería un Deportivo)
+    A.- Generación del fichero vehiculos.txt
+    Usando la jerarquía de la clase Vehículo, implementa un programa que realice lo siguiente:
+
+    Crea 30 vehículos (10 Turismos, 10 Deportivos y 10 Furgonetas) con valores de tu elección y guárdalos en una lista de objetos tipo Vehiculo.
+    Guarda los vehículos en un fichero de texto llamado “vehículos.txt”, haciendo uso del método polimórfico toString(), 
+    teniendo en cuenta que el string devuelto lleve separados los campos del objeto por el carácter dos puntos (:).
+    Cada línea del fichero estará compuesta por un número, un espacio, un guión, un espacio y los datos del vehículo en cuestión. 
+    El número de cada línea será 0, 1 o 2 si el objeto es un Turismo, un Deportivo o una Furgoneta, respectivamente. 
+    Cada vehículo irá en una línea distinta del fichero.
+    Ejemplos de líneas, los campos no tienen porqué coincidir con los de tus clases:
+
+    0 – 4534JTK:Seat:Ibiza:Blanco:… (Este vehículo sería un Turismo)
+    1 – 3322FFF:Ford:Kuga:Rojo:… (Este vehículo sería un Deportivo)
 
 
-//////    B.- Lectura del fichero vehiculos.txt
-//////    Realiza un programa que lea los datos fichero vehiculos.txt. 
-//////    Para ello creará una lista de objetos de tipo Vehículo. 
-//////    El programa irá almacenando en la lista los objetos leídos desde el archivo de texto “vehículos.txt”. 
-//////    Una vez cargados todos los datos en la lista, ordena los vehículos por Marca y muestra el resultado por consola.
+    B.- Lectura del fichero vehiculos.txt
+    Realiza un programa que lea los datos fichero vehiculos.txt. 
+    Para ello creará una lista de objetos de tipo Vehículo. 
+    El programa irá almacenando en la lista los objetos leídos desde el archivo de texto “vehículos.txt”. 
+    Una vez cargados todos los datos en la lista, ordena los vehículos por Marca y muestra el resultado por consola.
 
 
     C.- Generación de turismos.txt, deportivos.txt, furgonetas.txt.
     A partir de los datos almacenados en vehiculos.txt, crea tres archivos de texto para almacenar los vehículos del mismo tipo.  
     
      */
-    private static Random rd = new Random();
+    private static final Random rd = new Random();
 
     public static void main(String[] args) {
+        //--- Generamos la lista gracias a nuestro método
         List<Vehiculo> lista = generarLista();
         //---
+        System.out.println("IMPRIMIMOS NUESTRA LISTA DE VEHÍCULOS");
         lista.forEach(System.out::println);
-        //---
+        //--- Generamos el fichero que contendrá la información de nuestros vehículos
         generarFichero("vehículos", "txt", lista);
-        //---
+        //--- Guardamos nuestra lista ordenada que hemos obtenido desde el archivo
         List<Vehiculo> listaOrdenada = generarListaVehiculosDesdeArchivo("vehículos", "txt", ":");
         //---
         System.out.println("\nVEMOS LA LISTA ORDENADA\n");
         listaOrdenada.forEach(System.out::println);
-        //---
+        //---Generamos cada uno de nuestros ficheros de cada uno de los tipos de vehículos
         generarFicherosTipoVehiculo(listaOrdenada);
 
     }
 
+    //--- Generamos una lista de vehículos aleatorios, 10 de cada tipo requerido
     public static List<Vehiculo> generarLista() {
         List<Vehiculo> lista = new ArrayList<>();
         String numBastidor;
@@ -201,7 +203,7 @@ public class Ejercicio7BSamuelJimenez {
         String tipoVehi = "";
         //---
         try ( BufferedWriter flujo = new BufferedWriter(new FileWriter(idFichero))) {
-
+            //--- Añadimos un substring identificador a cada línea dependiendo del tipo de Vehículo que sea
             for (Vehiculo v : l) {
                 if (v instanceof Turismo) {
                     tipoVehi = "0 - ";
@@ -249,6 +251,8 @@ public class Ejercicio7BSamuelJimenez {
                 // línea en función del carácter separador de campos del fichero CSV
                 tokens = linea.split(separador);
                 // Convierte en String tokens
+                //--- Dependiendo de como empiece la línea sabremos que tipo de objeto es
+                //--- Usamos los tokens[] para guardar cada atributo según el constructor
                 if (linea.contains("0 - ")) {//--- Si es un turismo
                     tokens[0] = tokens[0].replaceAll("0 - ", "");
 
@@ -263,7 +267,7 @@ public class Ejercicio7BSamuelJimenez {
                     tokens[0] = tokens[0].replaceAll("2 - ", "");
                     v = new Furgoneta(Long.valueOf(tokens[0]), tokens[1], tokens[2], tokens[3], tokens[4], Double.parseDouble(tokens[5]), Integer.parseInt(tokens[7]), Integer.parseInt(tokens[8]));
                 }
-
+                //--- Añadimos el Vehículo a la lista
                 lista.add(v);
             }
         } catch (FileNotFoundException e) {
@@ -275,14 +279,14 @@ public class Ejercicio7BSamuelJimenez {
 
     }
 
-    public static void generarFicheroIndividual(String nomFichero, String formato, List<Vehiculo> l) {
+    public static void generarFicheroIndividual(String nomFichero, String formato, List<Object> l) {
         // Fichero a crear. Ruta relativa a la carpeta raíz del proyecto
         String idFichero = nomFichero + "." + formato;
         String tmp;
         //
         try ( BufferedWriter flujo = new BufferedWriter(new FileWriter(idFichero))) {
-
-            for (Vehiculo v : l) {
+            //--- Por cada objeto guardamos su toString en cada una de las líneas
+            for (Object v : l) {
                 tmp = v.toString();
                 flujo.write(tmp);
                 flujo.newLine();
@@ -296,10 +300,12 @@ public class Ejercicio7BSamuelJimenez {
     }
 
     public static void generarFicherosTipoVehiculo(List<Vehiculo> lista) {
-        List<Vehiculo> turismos = new ArrayList<>();
-        List<Vehiculo> deportivos = new ArrayList<>();
-        List<Vehiculo> furgonetas = new ArrayList<>();
-        //---
+        //--- Creamos 3 listas genéricas que contendrán nuestros objetos Vehiculos
+        //--- Usamos Object porque <T> no se puede usar
+        List<Object> turismos = new ArrayList<>();
+        List<Object> deportivos = new ArrayList<>();
+        List<Object> furgonetas = new ArrayList<>();
+        //--- Por cada tipo de instancia lo guardamos en su lista
         for (Vehiculo v : lista) {
             if (v instanceof Turismo) {
                 turismos.add(v);
@@ -310,7 +316,7 @@ public class Ejercicio7BSamuelJimenez {
             if (v instanceof Furgoneta) {
                 furgonetas.add(v);
             }
-            //---
+            //--- Generamos los 3 ficheros requeridos
             generarFicheroIndividual("Turismos", "txt", turismos);
             generarFicheroIndividual("Deportivos", "txt", deportivos);
             generarFicheroIndividual("Furgonetas", "txt", furgonetas);
