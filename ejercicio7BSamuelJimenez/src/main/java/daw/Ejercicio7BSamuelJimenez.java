@@ -45,15 +45,16 @@ public class Ejercicio7BSamuelJimenez {
 //////    1 – 3322FFF:Ford:Kuga:Rojo:… (Este vehículo sería un Deportivo)
 
 
-    B.- Lectura del fichero vehiculos.txt
-    Realiza un programa que lea los datos fichero vehiculos.txt. 
-    Para ello creará una lista de objetos de tipo Vehículo. 
-    El programa irá almacenando en la lista los objetos leídos desde el archivo de texto “vehículos.txt”. 
-    Una vez cargados todos los datos en la lista, ordena los vehículos por Marca y muestra el resultado por consola.
+//////    B.- Lectura del fichero vehiculos.txt
+//////    Realiza un programa que lea los datos fichero vehiculos.txt. 
+//////    Para ello creará una lista de objetos de tipo Vehículo. 
+//////    El programa irá almacenando en la lista los objetos leídos desde el archivo de texto “vehículos.txt”. 
+//////    Una vez cargados todos los datos en la lista, ordena los vehículos por Marca y muestra el resultado por consola.
 
 
     C.- Generación de turismos.txt, deportivos.txt, furgonetas.txt.
-    A partir de los datos almacenados en vehiculos.txt, crea tres archivos de texto para almacenar los vehículos del mismo tipo.   
+    A partir de los datos almacenados en vehiculos.txt, crea tres archivos de texto para almacenar los vehículos del mismo tipo.  
+    
      */
     private static Random rd = new Random();
 
@@ -66,7 +67,10 @@ public class Ejercicio7BSamuelJimenez {
         //---
         List<Vehiculo> listaOrdenada = generarListaVehiculosDesdeArchivo("vehículos", "txt", ":");
         //---
+        System.out.println("\nVEMOS LA LISTA ORDENADA\n");
         listaOrdenada.forEach(System.out::println);
+        //---
+        generarFicherosTipoVehiculo(listaOrdenada);
 
     }
 
@@ -232,8 +236,7 @@ public class Ejercicio7BSamuelJimenez {
         String[] tokens;
         String linea;
         //---
-        String datosVehiculo = "";
-        String regex = "(?<=0|1|2 - ).*";
+
         //---
         Vehiculo v = null;
         //---
@@ -242,30 +245,23 @@ public class Ejercicio7BSamuelJimenez {
             while (datosFichero.hasNextLine()) {
                 // Guarda la línea completa en un String
                 linea = datosFichero.nextLine();
-                Pattern pat = Pattern.compile(regex);
-                //---   Creamos un buscador de patrones en el texto
-                Matcher matcher = pat.matcher(linea);
-                //---
-                if (matcher.find()) {
-                    datosVehiculo = matcher.group();
-                }
                 // Se guarda en el array de String cada elemento de la
                 // línea en función del carácter separador de campos del fichero CSV
-                tokens = datosVehiculo.split(separador);
+                tokens = linea.split(separador);
                 // Convierte en String tokens
                 if (linea.contains("0 - ")) {//--- Si es un turismo
-                    tokens[0] = tokens[0].replaceAll(" - ", "");
+                    tokens[0] = tokens[0].replaceAll("0 - ", "");
 
-                    v = new Turismo(Long.valueOf(tokens[0]), tokens[1], tokens[2], tokens[3], tokens[4], Double.parseDouble(tokens[5]), Integer.parseInt(tokens[6]), Boolean.parseBoolean(tokens[7]));
+                    v = new Turismo(Long.valueOf(tokens[0]), tokens[1], tokens[2], tokens[3], tokens[4], Double.parseDouble(tokens[5]), Integer.parseInt(tokens[7]), Boolean.parseBoolean(tokens[8]));
                 }
                 if (linea.contains("1 - ")) {//--- Si es un deportivo
-
-                    v = new Deportivo(Long.valueOf(tokens[0]), tokens[1], tokens[2], tokens[3], tokens[4], Double.parseDouble(tokens[5]), Integer.parseInt(tokens[6]));
+                    tokens[0] = tokens[0].replaceAll("1 - ", "");
+                    v = new Deportivo(Long.valueOf(tokens[0]), tokens[1], tokens[2], tokens[3], tokens[4], Double.parseDouble(tokens[5]), Integer.parseInt(tokens[7]));
 
                 }
                 if (linea.contains("2 - ")) {//--- Si es una furgoneta
-
-                    v = new Furgoneta(Long.valueOf(tokens[0]), tokens[1], tokens[2], tokens[3], tokens[4], Double.parseDouble(tokens[5]), Integer.parseInt(tokens[6]), Integer.parseInt(tokens[7]));
+                    tokens[0] = tokens[0].replaceAll("2 - ", "");
+                    v = new Furgoneta(Long.valueOf(tokens[0]), tokens[1], tokens[2], tokens[3], tokens[4], Double.parseDouble(tokens[5]), Integer.parseInt(tokens[7]), Integer.parseInt(tokens[8]));
                 }
 
                 lista.add(v);
@@ -277,5 +273,47 @@ public class Ejercicio7BSamuelJimenez {
         Collections.sort(lista, criterioMarca);
         return lista;
 
+    }
+
+    public static void generarFicheroIndividual(String nomFichero, String formato, List<Vehiculo> l) {
+        // Fichero a crear. Ruta relativa a la carpeta raíz del proyecto
+        String idFichero = nomFichero + "." + formato;
+        String tmp;
+        //
+        try ( BufferedWriter flujo = new BufferedWriter(new FileWriter(idFichero))) {
+
+            for (Vehiculo v : l) {
+                tmp = v.toString();
+                flujo.write(tmp);
+                flujo.newLine();
+            }
+            flujo.flush();
+
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    public static void generarFicherosTipoVehiculo(List<Vehiculo> lista) {
+        List<Vehiculo> turismos = new ArrayList<>();
+        List<Vehiculo> deportivos = new ArrayList<>();
+        List<Vehiculo> furgonetas = new ArrayList<>();
+        //---
+        for (Vehiculo v : lista) {
+            if (v instanceof Turismo) {
+                turismos.add(v);
+            }
+            if (v instanceof Deportivo) {
+                deportivos.add(v);
+            }
+            if (v instanceof Furgoneta) {
+                furgonetas.add(v);
+            }
+            //---
+            generarFicheroIndividual("Turismos", "txt", turismos);
+            generarFicheroIndividual("Deportivos", "txt", deportivos);
+            generarFicheroIndividual("Furgonetas", "txt", furgonetas);
+        }
     }
 }
