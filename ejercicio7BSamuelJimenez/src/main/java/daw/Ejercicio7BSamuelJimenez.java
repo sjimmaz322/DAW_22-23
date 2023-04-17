@@ -256,13 +256,13 @@ public class Ejercicio7BSamuelJimenez {
                 if (linea.contains("0 - ")) {//--- Si es un turismo
                     tokens[0] = tokens[0].replaceAll("0 - ", "");
                     v = new Turismo(Long.valueOf(tokens[0]), tokens[1], tokens[2], tokens[3], tokens[4], Double.parseDouble(tokens[5]), Integer.parseInt(tokens[7]), Boolean.parseBoolean(tokens[8]));
-                }
-                if (linea.contains("1 - ")) {//--- Si es un deportivo
+                } else if (linea.contains("1 - ")) {
+                    //--- Si es un deportivo                   
                     tokens[0] = tokens[0].replaceAll("1 - ", "");
                     v = new Deportivo(Long.valueOf(tokens[0]), tokens[1], tokens[2], tokens[3], tokens[4], Double.parseDouble(tokens[5]), Integer.parseInt(tokens[7]));
 
-                }
-                if (linea.contains("2 - ")) {//--- Si es una furgoneta
+                } else {
+                    //--- Si es una furgoneta
                     tokens[0] = tokens[0].replaceAll("2 - ", "");
                     v = new Furgoneta(Long.valueOf(tokens[0]), tokens[1], tokens[2], tokens[3], tokens[4], Double.parseDouble(tokens[5]), Integer.parseInt(tokens[7]), Integer.parseInt(tokens[8]));
                 }
