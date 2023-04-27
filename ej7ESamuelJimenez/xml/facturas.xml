@@ -2,254 +2,304 @@
 <catFacturas>
     <catalogo>
         <factura>
-            <descripcion>CWRUJfTGHRdG</descripcion>
-            <fechaEmision/>
-            <totalImporte>557.0</totalImporte>
+            <codigoUnico>1</codigoUnico>
+            <fechaEmision>2023-04-25</fechaEmision>
+            <descripcion>OuUJcECXgB</descripcion>
+            <totalImporte>936.0</totalImporte>
         </factura>
         <factura>
-            <descripcion>vLiAgcpkAahs</descripcion>
-            <fechaEmision/>
-            <totalImporte>683.0</totalImporte>
+            <codigoUnico>2</codigoUnico>
+            <fechaEmision>2023-04-25</fechaEmision>
+            <descripcion>CPUmDqlCQmkRNnWHkoore</descripcion>
+            <totalImporte>584.0</totalImporte>
         </factura>
         <factura>
-            <descripcion>OuvgxoYeXyr</descripcion>
-            <fechaEmision/>
-            <totalImporte>931.0</totalImporte>
+            <codigoUnico>3</codigoUnico>
+            <fechaEmision>2023-04-25</fechaEmision>
+            <descripcion>UoVOndBkhADY</descripcion>
+            <totalImporte>770.0</totalImporte>
         </factura>
         <factura>
-            <descripcion>bgPsWXCRXDMvyA</descripcion>
-            <fechaEmision/>
-            <totalImporte>561.0</totalImporte>
+            <codigoUnico>4</codigoUnico>
+            <fechaEmision>2023-04-25</fechaEmision>
+            <descripcion>eGyISgeYCrkYbwmKjKVTzPpQ</descripcion>
+            <totalImporte>957.0</totalImporte>
         </factura>
         <factura>
-            <descripcion>yGlDZNNZEv</descripcion>
-            <fechaEmision/>
-            <totalImporte>332.0</totalImporte>
+            <codigoUnico>5</codigoUnico>
+            <fechaEmision>2023-04-25</fechaEmision>
+            <descripcion>EOFDjKdEgLWG</descripcion>
+            <totalImporte>451.0</totalImporte>
         </factura>
         <factura>
-            <descripcion>ROZpSAOSPNlZNwibkltHUnnVsnV</descripcion>
-            <fechaEmision/>
-            <totalImporte>682.0</totalImporte>
+            <codigoUnico>6</codigoUnico>
+            <fechaEmision>2023-04-25</fechaEmision>
+            <descripcion>RhJceKCztGycTVv</descripcion>
+            <totalImporte>813.0</totalImporte>
         </factura>
         <factura>
-            <descripcion>QhoIUdfmGzWMwEUYiJGJSLJ</descripcion>
-            <fechaEmision/>
-            <totalImporte>683.0</totalImporte>
+            <codigoUnico>7</codigoUnico>
+            <fechaEmision>2023-04-25</fechaEmision>
+            <descripcion>oOLraGrTfziCYMt</descripcion>
+            <totalImporte>356.0</totalImporte>
         </factura>
         <factura>
-            <descripcion>fBgTAeUXxTgtcmsmnUViEY</descripcion>
-            <fechaEmision/>
-            <totalImporte>552.0</totalImporte>
+            <codigoUnico>8</codigoUnico>
+            <fechaEmision>2023-04-25</fechaEmision>
+            <descripcion>hTOWwivbOoMseKrFbConSeQq</descripcion>
+            <totalImporte>916.0</totalImporte>
         </factura>
         <factura>
-            <descripcion>PHoAqfDRFOeTXORzPeKId</descripcion>
-            <fechaEmision/>
-            <totalImporte>487.0</totalImporte>
+            <codigoUnico>9</codigoUnico>
+            <fechaEmision>2023-04-25</fechaEmision>
+            <descripcion>hCCAyyvLlgVsJtGzbMczlbQFwLenO</descripcion>
+            <totalImporte>766.0</totalImporte>
         </factura>
         <factura>
-            <descripcion>RDZJOKIcwol</descripcion>
-            <fechaEmision/>
-            <totalImporte>832.0</totalImporte>
+            <codigoUnico>10</codigoUnico>
+            <fechaEmision>2023-04-25</fechaEmision>
+            <descripcion>eQLNoKzRmjZGQLtWXIOMKRocF</descripcion>
+            <totalImporte>829.0</totalImporte>
         </factura>
         <factura>
-            <descripcion>LQMapPSMayp</descripcion>
-            <fechaEmision/>
-            <totalImporte>336.0</totalImporte>
+            <codigoUnico>11</codigoUnico>
+            <fechaEmision>2023-04-25</fechaEmision>
+            <descripcion>ewYkOOwoNUTRyCLiMyPBgiMFxPwYC</descripcion>
+            <totalImporte>646.0</totalImporte>
         </factura>
         <factura>
-            <descripcion>SGOuXWPISd</descripcion>
-            <fechaEmision/>
-            <totalImporte>422.0</totalImporte>
+            <codigoUnico>12</codigoUnico>
+            <fechaEmision>2023-04-25</fechaEmision>
+            <descripcion>sMqGVZOAZSqEMVQS</descripcion>
+            <totalImporte>325.0</totalImporte>
         </factura>
         <factura>
-            <descripcion>jUJZaqflqGSHoIuOiKpwq</descripcion>
-            <fechaEmision/>
-            <totalImporte>880.0</totalImporte>
+            <codigoUnico>13</codigoUnico>
+            <fechaEmision>2023-04-25</fechaEmision>
+            <descripcion>kOJbmJtkxE</descripcion>
+            <totalImporte>310.0</totalImporte>
         </factura>
         <factura>
-            <descripcion>tNbsnhvLyXlwHeyFHdsoLn</descripcion>
-            <fechaEmision/>
-            <totalImporte>749.0</totalImporte>
+            <codigoUnico>14</codigoUnico>
+            <fechaEmision>2023-04-25</fechaEmision>
+            <descripcion>uIawOwfpNkDVqp</descripcion>
+            <totalImporte>996.0</totalImporte>
         </factura>
         <factura>
-            <descripcion>YJLKKFsfVAFGjfUwnCbZAt</descripcion>
-            <fechaEmision/>
-            <totalImporte>545.0</totalImporte>
+            <codigoUnico>15</codigoUnico>
+            <fechaEmision>2023-04-25</fechaEmision>
+            <descripcion>bgeeLsKrORMnKVIwpqqxOJLszUO</descripcion>
+            <totalImporte>607.0</totalImporte>
         </factura>
         <factura>
-            <descripcion>xxOUhdPCotMCFGvFWDjr</descripcion>
-            <fechaEmision/>
-            <totalImporte>999.0</totalImporte>
+            <codigoUnico>16</codigoUnico>
+            <fechaEmision>2023-04-25</fechaEmision>
+            <descripcion>EfeoxPRJRLc</descripcion>
+            <totalImporte>369.0</totalImporte>
         </factura>
         <factura>
-            <descripcion>rWJGHVvDJNgQEhkyZFLutmcMVEwI</descripcion>
-            <fechaEmision/>
-            <totalImporte>854.0</totalImporte>
+            <codigoUnico>17</codigoUnico>
+            <fechaEmision>2023-04-25</fechaEmision>
+            <descripcion>KTyNAfnGNtKU</descripcion>
+            <totalImporte>490.0</totalImporte>
         </factura>
         <factura>
-            <descripcion>EykENLYPTGEkelXcOEwRKusNoSa</descripcion>
-            <fechaEmision/>
-            <totalImporte>661.0</totalImporte>
+            <codigoUnico>18</codigoUnico>
+            <fechaEmision>2023-04-25</fechaEmision>
+            <descripcion>kVJBrgIJOXyJEVBPbMJgbvmqyv</descripcion>
+            <totalImporte>273.0</totalImporte>
         </factura>
         <factura>
-            <descripcion>TQVlYbYhcntliYGVilW</descripcion>
-            <fechaEmision/>
-            <totalImporte>844.0</totalImporte>
+            <codigoUnico>19</codigoUnico>
+            <fechaEmision>2023-04-25</fechaEmision>
+            <descripcion>MAZqGZHfJtcAHuhZYpimgpcgowxQ</descripcion>
+            <totalImporte>888.0</totalImporte>
         </factura>
         <factura>
-            <descripcion>PbXqnERiyfEGrLnwfcLsREV</descripcion>
-            <fechaEmision/>
-            <totalImporte>336.0</totalImporte>
+            <codigoUnico>20</codigoUnico>
+            <fechaEmision>2023-04-25</fechaEmision>
+            <descripcion>JUIsBRZbFQBwxNW</descripcion>
+            <totalImporte>882.0</totalImporte>
         </factura>
         <factura>
-            <descripcion>NpaIoYJsMokSoRoSDbOsx</descripcion>
-            <fechaEmision/>
-            <totalImporte>227.0</totalImporte>
+            <codigoUnico>21</codigoUnico>
+            <fechaEmision>2023-04-25</fechaEmision>
+            <descripcion>MFIUCxKoQZj</descripcion>
+            <totalImporte>1000.0</totalImporte>
         </factura>
         <factura>
-            <descripcion>JtUczBzdGKGCRhLUpvRRVeyE</descripcion>
-            <fechaEmision/>
-            <totalImporte>709.0</totalImporte>
+            <codigoUnico>22</codigoUnico>
+            <fechaEmision>2023-04-25</fechaEmision>
+            <descripcion>PlsRtZNIGfyJrZqkd</descripcion>
+            <totalImporte>568.0</totalImporte>
         </factura>
         <factura>
-            <descripcion>sllMvePopEiGrgzdrAVUsbkmSvC</descripcion>
-            <fechaEmision/>
-            <totalImporte>244.0</totalImporte>
+            <codigoUnico>23</codigoUnico>
+            <fechaEmision>2023-04-25</fechaEmision>
+            <descripcion>yaYcGQOBCEqSZ</descripcion>
+            <totalImporte>696.0</totalImporte>
         </factura>
         <factura>
-            <descripcion>ikNAKGhFhPLFCqsen</descripcion>
-            <fechaEmision/>
-            <totalImporte>608.0</totalImporte>
+            <codigoUnico>24</codigoUnico>
+            <fechaEmision>2023-04-25</fechaEmision>
+            <descripcion>oEajqQAVAeK</descripcion>
+            <totalImporte>716.0</totalImporte>
         </factura>
         <factura>
-            <descripcion>uaWlTmbJWTIxltyfYYEo</descripcion>
-            <fechaEmision/>
-            <totalImporte>754.0</totalImporte>
-        </factura>
-        <factura>
-            <descripcion>qrDwvHOwfxyInrEddl</descripcion>
-            <fechaEmision/>
-            <totalImporte>786.0</totalImporte>
-        </factura>
-        <factura>
-            <descripcion>WFYBJwyeQhOxnWFmDTubcsFefHeKO</descripcion>
-            <fechaEmision/>
-            <totalImporte>304.0</totalImporte>
-        </factura>
-        <factura>
-            <descripcion>OncSXMYqYPzRSMYv</descripcion>
-            <fechaEmision/>
-            <totalImporte>233.0</totalImporte>
-        </factura>
-        <factura>
-            <descripcion>FlCcVGvZNCikZHIINDeltMFK</descripcion>
-            <fechaEmision/>
-            <totalImporte>519.0</totalImporte>
-        </factura>
-        <factura>
-            <descripcion>wwTHUeWlagfXgRgBtGHCQWZvxBa</descripcion>
-            <fechaEmision/>
-            <totalImporte>876.0</totalImporte>
-        </factura>
-        <factura>
-            <descripcion>zKkqXTsKhyuofvQlvYMldqx</descripcion>
-            <fechaEmision/>
-            <totalImporte>380.0</totalImporte>
-        </factura>
-        <factura>
-            <descripcion>RWAWvMWcjreEaxe</descripcion>
-            <fechaEmision/>
-            <totalImporte>192.0</totalImporte>
-        </factura>
-        <factura>
-            <descripcion>hhDvtyMBUtiBlhpEvhJgO</descripcion>
-            <fechaEmision/>
-            <totalImporte>598.0</totalImporte>
-        </factura>
-        <factura>
-            <descripcion>gbmTElEmaxXKpNMeSZNxROQc</descripcion>
-            <fechaEmision/>
-            <totalImporte>354.0</totalImporte>
-        </factura>
-        <factura>
-            <descripcion>QkgCanVtsYHKVwNdMTACzDjIp</descripcion>
-            <fechaEmision/>
-            <totalImporte>752.0</totalImporte>
-        </factura>
-        <factura>
-            <descripcion>DONopLVlPAMH</descripcion>
-            <fechaEmision/>
-            <totalImporte>424.0</totalImporte>
-        </factura>
-        <factura>
-            <descripcion>RhPekfwiQydRBtcjlspXVOvxdFHd</descripcion>
-            <fechaEmision/>
-            <totalImporte>282.0</totalImporte>
-        </factura>
-        <factura>
-            <descripcion>TNIQflQwixOVEHQVKs</descripcion>
-            <fechaEmision/>
-            <totalImporte>578.0</totalImporte>
-        </factura>
-        <factura>
-            <descripcion>QhZHQsOStBiFAEXPQU</descripcion>
-            <fechaEmision/>
-            <totalImporte>776.0</totalImporte>
-        </factura>
-        <factura>
-            <descripcion>PIIChwtPblg</descripcion>
-            <fechaEmision/>
-            <totalImporte>633.0</totalImporte>
-        </factura>
-        <factura>
-            <descripcion>ZdoMntpkoGCqMLiesENkrsmUrAFIF</descripcion>
-            <fechaEmision/>
-            <totalImporte>602.0</totalImporte>
-        </factura>
-        <factura>
-            <descripcion>JRafUhenEwZTtERfvMbTR</descripcion>
-            <fechaEmision/>
-            <totalImporte>788.0</totalImporte>
-        </factura>
-        <factura>
-            <descripcion>gotPVTAJDHVCPQk</descripcion>
-            <fechaEmision/>
+            <codigoUnico>25</codigoUnico>
+            <fechaEmision>2023-04-25</fechaEmision>
+            <descripcion>ssOcENDdtCvikbGBQZBa</descripcion>
             <totalImporte>654.0</totalImporte>
         </factura>
         <factura>
-            <descripcion>yxlLInaHylKxYwwQ</descripcion>
-            <fechaEmision/>
-            <totalImporte>133.0</totalImporte>
+            <codigoUnico>26</codigoUnico>
+            <fechaEmision>2023-04-25</fechaEmision>
+            <descripcion>JWMWHYGgRNsGIB</descripcion>
+            <totalImporte>442.0</totalImporte>
         </factura>
         <factura>
-            <descripcion>nEbCfzWTRbSTDxRsEOp</descripcion>
-            <fechaEmision/>
-            <totalImporte>533.0</totalImporte>
+            <codigoUnico>27</codigoUnico>
+            <fechaEmision>2023-04-25</fechaEmision>
+            <descripcion>yeYtBgbqTm</descripcion>
+            <totalImporte>964.0</totalImporte>
         </factura>
         <factura>
-            <descripcion>xpYHQUFxeLkZueZFAxppEAmyn</descripcion>
-            <fechaEmision/>
-            <totalImporte>351.0</totalImporte>
+            <codigoUnico>28</codigoUnico>
+            <fechaEmision>2023-04-25</fechaEmision>
+            <descripcion>ReZDmXDttmYMwVqlwHbhIBekhXZey</descripcion>
+            <totalImporte>436.0</totalImporte>
         </factura>
         <factura>
-            <descripcion>JfWARsuVjOLTouxXLUyp</descripcion>
-            <fechaEmision/>
-            <totalImporte>368.0</totalImporte>
+            <codigoUnico>29</codigoUnico>
+            <fechaEmision>2023-04-25</fechaEmision>
+            <descripcion>mFydFvewbmlrud</descripcion>
+            <totalImporte>490.0</totalImporte>
         </factura>
         <factura>
-            <descripcion>jDffNYsyosFSoCWRGPqRAZ</descripcion>
-            <fechaEmision/>
-            <totalImporte>126.0</totalImporte>
+            <codigoUnico>30</codigoUnico>
+            <fechaEmision>2023-04-25</fechaEmision>
+            <descripcion>aZPLspuaIldGeqpD</descripcion>
+            <totalImporte>627.0</totalImporte>
         </factura>
         <factura>
-            <descripcion>yJwpRbkPSmArPQQQ</descripcion>
-            <fechaEmision/>
-            <totalImporte>590.0</totalImporte>
+            <codigoUnico>31</codigoUnico>
+            <fechaEmision>2023-04-25</fechaEmision>
+            <descripcion>YHsyCjrVANlpHmeTVWa</descripcion>
+            <totalImporte>675.0</totalImporte>
         </factura>
         <factura>
-            <descripcion>aXLqKkikvqhLDvkzpjjNIhSZcftgg</descripcion>
-            <fechaEmision/>
-            <totalImporte>387.0</totalImporte>
+            <codigoUnico>32</codigoUnico>
+            <fechaEmision>2023-04-25</fechaEmision>
+            <descripcion>iDgiModpgHFCA</descripcion>
+            <totalImporte>365.0</totalImporte>
+        </factura>
+        <factura>
+            <codigoUnico>33</codigoUnico>
+            <fechaEmision>2023-04-25</fechaEmision>
+            <descripcion>kXDjwWranjEbZxQKTDJWr</descripcion>
+            <totalImporte>579.0</totalImporte>
+        </factura>
+        <factura>
+            <codigoUnico>34</codigoUnico>
+            <fechaEmision>2023-04-25</fechaEmision>
+            <descripcion>kEfShouOCktcvbzlytCfZDVuNcLnV</descripcion>
+            <totalImporte>819.0</totalImporte>
+        </factura>
+        <factura>
+            <codigoUnico>35</codigoUnico>
+            <fechaEmision>2023-04-25</fechaEmision>
+            <descripcion>mkOxogbsjhAJFwiOm</descripcion>
+            <totalImporte>411.0</totalImporte>
+        </factura>
+        <factura>
+            <codigoUnico>36</codigoUnico>
+            <fechaEmision>2023-04-25</fechaEmision>
+            <descripcion>bbWcviQcpDLpy</descripcion>
+            <totalImporte>948.0</totalImporte>
+        </factura>
+        <factura>
+            <codigoUnico>37</codigoUnico>
+            <fechaEmision>2023-04-25</fechaEmision>
+            <descripcion>RBcREtRBJmglYGlEhORUtXUvVLXgd</descripcion>
+            <totalImporte>661.0</totalImporte>
+        </factura>
+        <factura>
+            <codigoUnico>38</codigoUnico>
+            <fechaEmision>2023-04-25</fechaEmision>
+            <descripcion>WPsSUivlGZZr</descripcion>
+            <totalImporte>775.0</totalImporte>
+        </factura>
+        <factura>
+            <codigoUnico>39</codigoUnico>
+            <fechaEmision>2023-04-25</fechaEmision>
+            <descripcion>AhtbNYrwjQiMCArpxeA</descripcion>
+            <totalImporte>910.0</totalImporte>
+        </factura>
+        <factura>
+            <codigoUnico>40</codigoUnico>
+            <fechaEmision>2023-04-25</fechaEmision>
+            <descripcion>RrjdlIZwekjlgHSiHhqkGzLzg</descripcion>
+            <totalImporte>603.0</totalImporte>
+        </factura>
+        <factura>
+            <codigoUnico>41</codigoUnico>
+            <fechaEmision>2023-04-25</fechaEmision>
+            <descripcion>lPwtBlynXKDjx</descripcion>
+            <totalImporte>777.0</totalImporte>
+        </factura>
+        <factura>
+            <codigoUnico>42</codigoUnico>
+            <fechaEmision>2023-04-25</fechaEmision>
+            <descripcion>VSFeNRIoKPGsygfuFjvacERuO</descripcion>
+            <totalImporte>438.0</totalImporte>
+        </factura>
+        <factura>
+            <codigoUnico>43</codigoUnico>
+            <fechaEmision>2023-04-25</fechaEmision>
+            <descripcion>jXOKGIWNlqbyXvMVfwKLDDisTsBib</descripcion>
+            <totalImporte>757.0</totalImporte>
+        </factura>
+        <factura>
+            <codigoUnico>44</codigoUnico>
+            <fechaEmision>2023-04-25</fechaEmision>
+            <descripcion>DzLyOVUTLjrJsCVzGTuEau</descripcion>
+            <totalImporte>302.0</totalImporte>
+        </factura>
+        <factura>
+            <codigoUnico>45</codigoUnico>
+            <fechaEmision>2023-04-25</fechaEmision>
+            <descripcion>kUeApgNBMIOQejDaadvrQ</descripcion>
+            <totalImporte>582.0</totalImporte>
+        </factura>
+        <factura>
+            <codigoUnico>46</codigoUnico>
+            <fechaEmision>2023-04-25</fechaEmision>
+            <descripcion>IhiweAZbwlQBM</descripcion>
+            <totalImporte>795.0</totalImporte>
+        </factura>
+        <factura>
+            <codigoUnico>47</codigoUnico>
+            <fechaEmision>2023-04-25</fechaEmision>
+            <descripcion>YWMyfPAWjvNIpoTZtQwLxwdmUeG</descripcion>
+            <totalImporte>225.0</totalImporte>
+        </factura>
+        <factura>
+            <codigoUnico>48</codigoUnico>
+            <fechaEmision>2023-04-25</fechaEmision>
+            <descripcion>CrIlVfvYQriILhngqQpXYgHYHIzx</descripcion>
+            <totalImporte>855.0</totalImporte>
+        </factura>
+        <factura>
+            <codigoUnico>49</codigoUnico>
+            <fechaEmision>2023-04-25</fechaEmision>
+            <descripcion>TYMdrBlzZBycYmO</descripcion>
+            <totalImporte>998.0</totalImporte>
+        </factura>
+        <factura>
+            <codigoUnico>50</codigoUnico>
+            <fechaEmision>2023-04-25</fechaEmision>
+            <descripcion>nITRwfipzWiWIc</descripcion>
+            <totalImporte>672.0</totalImporte>
         </factura>
     </catalogo>
 </catFacturas>
