@@ -1,0 +1,201 @@
+[ {
+  "nombre" : " Laura",
+  "apellido" : "Cárdenas Díaz",
+  "dni" : "26800485B",
+  "puesto" : "Educación Física P.E.S.",
+  "fechaTomaPasicion" : [ 2010, 9, 1 ],
+  "fechaCese" : null,
+  "telefono" : "617704193",
+  "evaluador" : true,
+  "coordinador" : false
+}, {
+  "nombre" : " Francisco Javier",
+  "apellido" : "Díaz Puerto",
+  "dni" : "50602307F",
+  "puesto" : "Filosofía P.E.S.",
+  "fechaTomaPasicion" : [ 2012, 9, 1 ],
+  "fechaCese" : null,
+  "telefono" : "655526696",
+  "evaluador" : true,
+  "coordinador" : false
+}, {
+  "nombre" : " Julen",
+  "apellido" : "Domínguez Tamayo",
+  "dni" : "03888739Z",
+  "puesto" : "Inglés P.E.S.",
+  "fechaTomaPasicion" : [ 2012, 9, 1 ],
+  "fechaCese" : null,
+  "telefono" : "951249955",
+  "evaluador" : true,
+  "coordinador" : false
+}, {
+  "nombre" : " Emilia",
+  "apellido" : "Fagundo García",
+  "dni" : "12731426Y",
+  "puesto" : "Tecnología P.E.S.",
+  "fechaTomaPasicion" : [ 2012, 9, 1 ],
+  "fechaCese" : null,
+  "telefono" : "689100483",
+  "evaluador" : true,
+  "coordinador" : false
+}, {
+  "nombre" : " Rodrigo",
+  "apellido" : "Fernández Luzón",
+  "dni" : "74663933E",
+  "puesto" : "Informática P.E.S.",
+  "fechaTomaPasicion" : [ 2010, 9, 1 ],
+  "fechaCese" : null,
+  "telefono" : "717121280",
+  "evaluador" : true,
+  "coordinador" : true
+}, {
+  "nombre" : " Pastora",
+  "apellido" : "Fortea Molina",
+  "dni" : "77455412Z",
+  "puesto" : "Francés P.E.S.",
+  "fechaTomaPasicion" : [ 2009, 9, 1 ],
+  "fechaCese" : null,
+  "telefono" : "656491528",
+  "evaluador" : true,
+  "coordinador" : true
+}, {
+  "nombre" : " Cristina",
+  "apellido" : "Garrocho González",
+  "dni" : "33397284L",
+  "puesto" : "Matemáticas P.E.S.",
+  "fechaTomaPasicion" : [ 2011, 9, 1 ],
+  "fechaCese" : null,
+  "telefono" : "",
+  "evaluador" : true,
+  "coordinador" : false
+}, {
+  "nombre" : " María",
+  "apellido" : "Giráldez Cuevas",
+  "dni" : "07986998H",
+  "puesto" : "Física y Química P.E.S.",
+  "fechaTomaPasicion" : [ 2012, 9, 1 ],
+  "fechaCese" : null,
+  "telefono" : "636443041",
+  "evaluador" : true,
+  "coordinador" : false
+}, {
+  "nombre" : " Verónica",
+  "apellido" : "González Astilleros",
+  "dni" : "25565241M",
+  "puesto" : "Informática P.E.S.",
+  "fechaTomaPasicion" : [ 2009, 6, 22 ],
+  "fechaCese" : [ 2021, 1, 24 ],
+  "telefono" : "952795965",
+  "evaluador" : true,
+  "coordinador" : false
+}, {
+  "nombre" : " Remedios",
+  "apellido" : "Hernández Lozano",
+  "dni" : "26485849S",
+  "puesto" : "Inglés P.E.S.",
+  "fechaTomaPasicion" : [ 2008, 9, 1 ],
+  "fechaCese" : null,
+  "telefono" : "952807303",
+  "evaluador" : true,
+  "coordinador" : false
+}, {
+  "nombre" : " Ana",
+  "apellido" : "Lirola Oliva",
+  "dni" : "74868422H",
+  "puesto" : "Lengua Castellana y Literatura P.E.S.",
+  "fechaTomaPasicion" : [ 2008, 9, 1 ],
+  "fechaCese" : null,
+  "telefono" : "665475984",
+  "evaluador" : true,
+  "coordinador" : false
+}, {
+  "nombre" : " Magdalena",
+  "apellido" : "Macías Laynez",
+  "dni" : "25583669X",
+  "puesto" : "Matemáticas P.E.S.",
+  "fechaTomaPasicion" : [ 2010, 9, 1 ],
+  "fechaCese" : null,
+  "telefono" : "951965362",
+  "evaluador" : true,
+  "coordinador" : true
+}, {
+  "nombre" : " Jacqueline Cristina",
+  "apellido" : "Márquez Pineda",
+  "dni" : "74867075M",
+  "puesto" : "Orientación Educativa P.E.S.",
+  "fechaTomaPasicion" : [ 2008, 9, 1 ],
+  "fechaCese" : null,
+  "telefono" : "952340738",
+  "evaluador" : true,
+  "coordinador" : false
+}, {
+  "nombre" : " Inés",
+  "apellido" : "Martínez Fernández",
+  "dni" : "53682231R",
+  "puesto" : "Inglés P.E.S.",
+  "fechaTomaPasicion" : [ 2009, 9, 1 ],
+  "fechaCese" : null,
+  "telefono" : "952805153",
+  "evaluador" : true,
+  "coordinador" : false
+}, {
+  "nombre" : " Margarita",
+  "apellido" : "Núñez Murillo",
+  "dni" : "75111043N",
+  "puesto" : "Sistemas y Aplic. Informáticos P.T.F.P.",
+  "fechaTomaPasicion" : [ 2012, 9, 1 ],
+  "fechaCese" : null,
+  "telefono" : "699987772",
+  "evaluador" : true,
+  "coordinador" : true
+}, {
+  "nombre" : " Isabel María",
+  "apellido" : "Pacheco Rodríguez",
+  "dni" : "24882305P",
+  "puesto" : "Orientación Educativa P.E.S.",
+  "fechaTomaPasicion" : [ 2012, 9, 1 ],
+  "fechaCese" : [ 2020, 9, 4 ],
+  "telefono" : "952796064",
+  "evaluador" : true,
+  "coordinador" : false
+}, {
+  "nombre" : " Rocío",
+  "apellido" : "Rodríguez Montero",
+  "dni" : "74816539T",
+  "puesto" : "Lengua Castellana y Literatura P.E.S.",
+  "fechaTomaPasicion" : [ 2010, 9, 1 ],
+  "fechaCese" : null,
+  "telefono" : "952890188",
+  "evaluador" : true,
+  "coordinador" : false
+}, {
+  "nombre" : " Ana María",
+  "apellido" : "Serena León",
+  "dni" : "26012958G",
+  "puesto" : "Educación Física P.E.S.",
+  "fechaTomaPasicion" : [ 2010, 9, 1 ],
+  "fechaCese" : null,
+  "telefono" : "639675154",
+  "evaluador" : true,
+  "coordinador" : false
+}, {
+  "nombre" : " Antonia",
+  "apellido" : "Torres Silva",
+  "dni" : "08929037T",
+  "puesto" : "Sistemas y Aplic. Informáticos P.T.F.P.",
+  "fechaTomaPasicion" : [ 2008, 9, 1 ],
+  "fechaCese" : null,
+  "telefono" : "654167765",
+  "evaluador" : true,
+  "coordinador" : true
+}, {
+  "nombre" : " María Nieves",
+  "apellido" : "Vidal Morillas",
+  "dni" : "27347116R",
+  "puesto" : "Física y Química P.E.S.",
+  "fechaTomaPasicion" : [ 2012, 9, 1 ],
+  "fechaCese" : null,
+  "telefono" : "605837861",
+  "evaluador" : true,
+  "coordinador" : false
+} ]

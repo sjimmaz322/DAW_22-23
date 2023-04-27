@@ -5,6 +5,7 @@
 package daw;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 /**
  *
@@ -13,6 +14,7 @@ import java.time.LocalDate;
 public class Profesor {
 
     private String nombre;
+    private String apellido;
     private String dni;
     private String puesto;
     private LocalDate fechaTomaPasicion;
@@ -24,8 +26,9 @@ public class Profesor {
     public Profesor() {
     }
 
-    public Profesor(String nombre, String dni, String puesto, LocalDate fechaTomaPasicion, LocalDate fechaCese, String telefono, boolean evaluador, boolean coordinador) {
+    public Profesor(String nombre, String apellido, String dni, String puesto, LocalDate fechaTomaPasicion, LocalDate fechaCese, String telefono, boolean evaluador, boolean coordinador) {
         this.nombre = nombre;
+        this.apellido = apellido;
         this.dni = dni;
         this.puesto = puesto;
         this.fechaTomaPasicion = fechaTomaPasicion;
@@ -41,6 +44,14 @@ public class Profesor {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 
     public String getDni() {
@@ -100,8 +111,34 @@ public class Profesor {
     }
 
     @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 23 * hash + Objects.hashCode(this.nombre);
+        hash = 23 * hash + Objects.hashCode(this.dni);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Profesor other = (Profesor) obj;
+        if (!Objects.equals(this.nombre, other.nombre)) {
+            return false;
+        }
+        return Objects.equals(this.dni, other.dni);
+    }
+
+    @Override
     public String toString() {
-        return nombre + "," + dni + "," + puesto + "," + fechaTomaPasicion + "," + fechaCese + "," + telefono + "," + evaluador + "," + coordinador + ",";
+        return apellido + "," + nombre + "," + dni + "," + puesto + "," + fechaTomaPasicion + "," + fechaCese + "," + telefono + "," + evaluador + "," + coordinador + ",";
     }
 
 }

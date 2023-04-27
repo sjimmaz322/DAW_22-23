@@ -4,9 +4,15 @@
  */
 package daw;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -31,27 +37,38 @@ public class Ej7FSamuelJimenez {
 
     Las lecturas y escrituras de los ficheros se realizan de forma relativa a la carpeta raíz del proyecto Java. Cuanto más modularizado esté todo mejor.
 
-    AMPLIACIÓN DEL EJERCICIO.
-
-    a) Sin usar API Stream
-
-    - Contar el número de profesores de Tecnología.
-    - Saber si algún profesor/a de Informática es también coordinador
-     - Obtener una lista ordenada alfabéticamente con todos los apellidos de los empleados cuyo NIF contenga la letra J.
-    - Verificar que ningún profesor se llama "Jonh".
-
-    b) Repetir el apartado a) usando API Stream
+       
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+
         //---
         List<Profesor> profesorado = generarLista("./", "RelPerCen", "csv", ",");
         //---
-        
+        // profesorado.forEach(System.out::println);
+        //---Filtramos los profesores que lleven entre 15 y 10 años trabajando
+        List<Profesor> profesoradoFiltrado = profesorado.stream()
+                .filter(p -> p.getFechaTomaPasicion().isAfter(LocalDate.now().minusYears(15)))
+                .filter(p -> p.getFechaTomaPasicion().isBefore(LocalDate.now().minusYears(10)))
+                .toList();
+        //---
+        ObjectMapper mapeador = new ObjectMapper();
+        // Permite a mapeador usar fechas según java time
+        mapeador.registerModule(new JavaTimeModule());
+        // Formato JSON bien formateado. Si se comenta, el fichero queda minificado
+        //--- mapeador.configure(SerializationFeature.INDENT_OUTPUT, true);
+        //--- Creamos el archivo con todos los profesores
+        //--- generarJSON("./listadoProfesores", profesorado);
+        //--- Creamos el archivo con los profesores que llevan entre 10 y 15 años trabajando
+        generarJSON("./listadoProfesoresFiltrados", profesoradoFiltrado);
+        //---
 
     }
 
     public static List<Profesor> generarLista(String ruta, String nomFichero, String formato, String separador) {
+        //---
         List<Profesor> lista = new ArrayList<>();
+        //---
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         //---
         String idFichero = ruta + nomFichero + "." + formato;
 
@@ -59,48 +76,45 @@ public class Ej7FSamuelJimenez {
         String[] tokens;
         String linea;
         //---
-
-        //---
-        Profesor p = new Profesor();
-        //---
         try ( Scanner datosFichero = new Scanner(new File(idFichero), "ISO-8859-1")) {
             // hasNextLine devuelve true mientras haya líneas por leer
             datosFichero.nextLine();
             while (datosFichero.hasNextLine()) {
+                Profesor p = new Profesor();
                 // Guarda la línea completa en un String
                 linea = datosFichero.nextLine();
                 // Se guarda en el array de String cada elemento de la
                 // línea en función del carácter separador de campos del fichero CSV
-                tokens = linea.split(separador);
                 // Convierte en String tokens
-                /*
-                p.setNombre(tokens[0]);
-                p.setDni(tokens[1]);
-                p.setPuesto(tokens[2]);
-                if (!tokens[3].equalsIgnoreCase("")) {
-                    p.setFechaTomaPasicion(LocalDate.parse(tokens[3]));
-                } else {
+                tokens = linea.split(separador);
+                //--- Eliminamos los caracteres " para evitar fallos al parsear
+                for (int i = 0; i < tokens.length; i++) {
+                    tokens[i] = tokens[i].replaceAll("\"", "");
+                }
+                //--- Guardamos cada elemento en su token correspondiente
+                p.setApellido(tokens[0]);
+                p.setNombre(tokens[1]);
+                p.setDni(tokens[2]);
+                p.setPuesto(tokens[3]);
+                //--- bloque try-catch para evitar excepciones al tener la fecha vacía
+                try {
+                    p.setFechaTomaPasicion(LocalDate.parse(tokens[4], formatter));
+                } catch (DateTimeParseException dyf) {
                     p.setFechaTomaPasicion(null);
                 }
-                if (!tokens[4].equalsIgnoreCase("")) {
-                    p.setFechaCese(LocalDate.parse(tokens[4]));
-                } else {
-                    p.setFechaTomaPasicion(null);
+                //---
+                try {
+                    p.setFechaCese(LocalDate.parse(tokens[5], formatter));
+                } catch (DateTimeParseException dyf) {
+                    p.setFechaCese(null);
                 }
-                p.setTelefono(tokens[5]);
-                p.setEvaluador(tokens[6].equalsIgnoreCase("Sí"));
-                p.setCoordinador(tokens[7].equalsIgnoreCase("Sí"));
-                */
-                System.out.println(tokens[0]);
-                System.out.println(tokens[1]);
-                System.out.println(tokens[2]);
-                System.out.println(tokens[3]);
-                System.out.println(tokens[4]);
-                System.out.println(tokens[5]);
-                System.out.println(tokens[6]);
-                System.out.println(tokens[7]);
+                p.setTelefono(tokens[6]);
+                p.setEvaluador(tokens[7].equalsIgnoreCase("Sí"));
+                p.setCoordinador(tokens[8].equalsIgnoreCase("Sí"));
+
                 //--- Añadimos el Profesor a la lista
                 lista.add(p);
+
             }
         } catch (FileNotFoundException e) {
             System.out.println(e.getMessage());
@@ -108,6 +122,19 @@ public class Ej7FSamuelJimenez {
         //---
 
         return lista;
+
+    }
+
+    public static void generarJSON(String ruta, List<Profesor> lista) throws IOException {
+        ObjectMapper mapeador = new ObjectMapper();
+        // Permite a mapeador usar fechas según java time
+        mapeador.registerModule(new JavaTimeModule());
+        // Formato JSON bien formateado. Si se comenta, el fichero queda minificado
+        mapeador.configure(SerializationFeature.INDENT_OUTPUT, true);
+        //--- Creamos el archivo con todos los profesores
+        //mapeador.writeValue(new File("profesorado.json"), profesorado);
+        //--- Creamos el archivo con los profesores que llevan entre 10 y 15 años trabajando
+        mapeador.writeValue(new File(ruta.concat(".json")), lista);
 
     }
 }
