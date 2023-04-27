@@ -32,7 +32,7 @@ public class Factura {
     private static int contador = 1;
 
     public Factura() {
-        DoubleStream importe = new Random().doubles(100, 1000);
+        DoubleStream importe = new Random().doubles(1,100, 1000);
         this.codigoUnico = String.valueOf(contador);
         this.fechaEmision = LocalDate.now();
         this.descripcion = RandomStringUtils.randomAlphabetic(10, 30);
