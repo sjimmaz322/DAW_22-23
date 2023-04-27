@@ -32,10 +32,10 @@ public class Usuario {
         //---
         JOptionPane.showMessageDialog(null, "La factura nº " + opcionFactura + " contiene:\n" + f);
         //---
-        borrarElemento("./facturascsv/factura" + opcionFactura + ".csv");
+        borrarElemento("./facturascsv/Factura" + opcionFactura + ".csv");
         //---
         listaDirectorios = listarDirectorioALista("./facturascsv/");
-        JOptionPane.showMessageDialog(null, "Lista de facturas actualizada+\n" + listaDirectorios);
+        JOptionPane.showMessageDialog(null, "Lista de facturas actualizada \n" + listaDirectorios);
     }
 
     public static String listarDirectorioALista(String ruta) {
@@ -64,7 +64,7 @@ public class Usuario {
     public static Factura generarFactura(String numFactura, String separador) {
 
         //---
-        String idFichero = "./facturascsv/factura" + numFactura + ".csv";
+        String idFichero = "./facturascsv/Factura" + numFactura + ".csv";
 
         // Variables para guardar los datos que se van leyendo
         String[] tokens;
