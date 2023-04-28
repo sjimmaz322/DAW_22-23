@@ -28,15 +28,16 @@
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>2.13.2.2</version>
+            <version>2.13.4.1</version>
             <type>jar</type>
         </dependency>
         <!-- La siguiente dependencia habilita el uso de java time con jackson -->
          <dependency>
                 <groupId>com.fasterxml.jackson.datatype</groupId>
                 <artifactId>jackson-datatype-jsr310</artifactId>
-                <version>2.13.2</version>
-            </dependency>
+                <version>2.14.1</version>
+             <type>jar</type>
+         </dependency>
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

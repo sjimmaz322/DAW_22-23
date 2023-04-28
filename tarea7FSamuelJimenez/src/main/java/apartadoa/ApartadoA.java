@@ -46,6 +46,7 @@ public class ApartadoA {
         for (int i = 0; i < lista.size(); i++) {
             if (lista.get(i).getPuesto().contains("Informática") && (lista.get(i).isCoordinador() == true)) {
                 informaticoCoordinador = true;
+                break;
             }
         }
         //--- Respondemos a la pregunta
