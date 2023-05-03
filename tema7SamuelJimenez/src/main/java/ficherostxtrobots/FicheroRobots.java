@@ -4,7 +4,6 @@
  */
 package ficherostxtrobots;
 
-import java.awt.Robot;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
