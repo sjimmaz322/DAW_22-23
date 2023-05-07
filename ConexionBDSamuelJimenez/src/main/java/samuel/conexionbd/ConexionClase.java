@@ -1,11 +1,11 @@
-package samuel.conexionbdclase;
+package samuel.conexionbd;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 //--- Samuel Jiménez
 
-public class Conexion {
+public class ConexionClase {
 
     private static final String SERVIDOR = "jdbc:mysql://192.168.56.101:3306/";
     private static final String NOMBRE_BASE_DATOS = "bdProg";
@@ -16,7 +16,7 @@ public class Conexion {
 
     // Patrón Singleton
     // Constructor privado no accesible desde otras clases
-    private Conexion() {
+    private ConexionClase() {
 
     }
 

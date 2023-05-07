@@ -11,7 +11,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import productos.Producto;
-import samuel.conexionbdclase.Conexion;
+import samuel.conexionbd.ConexionCasa;
+//--- import samuel.conexionbd.ConexionClase;
 
 /**
  *
@@ -22,7 +23,8 @@ public class ProductoDAO implements IProducto {
     private Connection con = null;
 
     public ProductoDAO() {
-        con = Conexion.getInstance();
+        con = ConexionCasa.getInstance();
+        //---con = ConexionClase.getInstance();
     }
 
     @Override
@@ -40,7 +42,7 @@ public class ProductoDAO implements IProducto {
                 // Recogemos los datos de la persona, guardamos en un objeto
                 p.setId(res.getInt("id"));
                 p.setDescripcion(res.getString("descripcion"));
-                p.setPrecio(res.getInt("precio"));
+                p.setPrecio(res.getDouble("precio"));
 
                 //Añadimos el objeto a la lista
                 lista.add(p);
@@ -71,7 +73,7 @@ public class ProductoDAO implements IProducto {
                 // Recogemos los datos de la persona, guardamos en un objeto
                 p.setId(res.getInt("id"));
                 p.setDescripcion(res.getString("descripcion"));
-                p.setPrecio(res.getInt("precio"));
+                p.setPrecio(res.getDouble("precio"));
                 return p;
             }
 
@@ -97,7 +99,7 @@ public class ProductoDAO implements IProducto {
                 // Establecemos los parámetros de la sentencia
                 prest.setInt(1, p.getId());
                 prest.setString(2, p.getDescripcion());
-                prest.setInt(3, p.getPrecio());
+                prest.setDouble(3, p.getPrecio());
 
                 numFilas = prest.executeUpdate();
             }

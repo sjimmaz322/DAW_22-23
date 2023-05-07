@@ -17,10 +17,10 @@ public interface IProducto {
     List<Producto> getAll() throws SQLException;
 
     // Méodo para obtener un registro a partir de la PK
-    Producto findByPk(int pk) throws SQLException;
+    Producto findByPk(int id) throws SQLException;
 
     // Método para insertar un registro
-    int insertProducto(Producto persona) throws SQLException;
+    int insertProducto(Producto p) throws SQLException;
 
     // Método para insertar varios registros
     int insertProducto(List<Producto> lista) throws SQLException;
