@@ -5,6 +5,7 @@
 package p81samueljimenez;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -21,9 +22,6 @@ public class P81SamuelJimenez {
         FacturaDAO fDAO = new FacturaDAO();
         //---
         try {
-            for (Factura f : lista) {
-                fDAO.insertFactura(f);
-            }
             System.out.println("Nº Facturas insertadas " + fDAO.insertFactura(lista));
             System.out.println("-----------------------------------------");
             System.out.println("Comprobamos en una nueva lista que se recogen los datos desde la tabla.");
@@ -36,15 +34,21 @@ public class P81SamuelJimenez {
             System.out.println("-----------------------------------------");
             System.out.println("Se va a borrar la Factura con código 3");
             System.out.println("Nº facturas borradas "
-                    + fDAO.deleteFactura(new Factura()));
+                    + fDAO.deleteFactura(fDAO.findByPk(3)));
             System.out.println("-----------------------------------------");
             nuevaLista = fDAO.getAll();
             System.out.println("-------- Lista con datos recogidos desde la B.D despues de borrar una factura -------------");
             nuevaLista.forEach(System.out::println);
             System.out.println("-----------------------------------------");
             System.out.println("Modificación de la factura");
-            System.out.println("Nº Facturas modificados "
-                    + fDAO.updateFactura(5, new Factura()));
+            //
+            Factura fMod = new Factura();
+            fMod.setCodigoUnico(51);
+            fMod.setFechaEmision(LocalDate.now().minusYears(2));
+            fMod.setDescripcion("Prueba");
+            fMod.setTotalImporte(100);
+            System.out.println("Nº Facturas modificados " + fDAO.updateFactura(5, fMod));
+            //
             System.out.println("-----------------------------------------");
             nuevaLista = fDAO.getAll();
             System.out.println("-------- Lista con datos recogidos desde la B.D despues de modificar una factura -------------");

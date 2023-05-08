@@ -18,14 +18,14 @@ import org.apache.commons.lang3.RandomStringUtils;
  * @author samuel
  */
 // Anotación @XmlRootElement, nombre de la etiqueta XML raíz.
-@XmlRootElement(name = "factura")
+//@XmlRootElement(name = "factura")
 // Anotación @XmlAccesorType define el elemento que usará JAXB durante el 
 // procesamiento de datos (en este caso por atributo)
-@XmlAccessorType(XmlAccessType.FIELD)
+//@XmlAccessorType(XmlAccessType.FIELD)
 public class Factura {
 
     private int codigoUnico;
-    @XmlJavaTypeAdapter(value = LocalDateAdapter.class)
+    //@XmlJavaTypeAdapter(value = LocalDateAdapter.class)
     private LocalDate fechaEmision;
     private String descripcion;
     private double totalImporte;

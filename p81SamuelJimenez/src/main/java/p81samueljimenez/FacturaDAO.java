@@ -10,7 +10,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,7 +42,7 @@ public class FacturaDAO implements IFactura {
                 f.setCodigoUnico(res.getInt("codigoUnico"));
                 f.setDescripcion(res.getString("descripcion"));
                 f.setTotalImporte(res.getDouble("totalImporte"));
-                f.setFechaEmision(LocalDate.parse((CharSequence) res.getDate("fechaEmision")));
+                f.setFechaEmision(res.getDate("fechaEmision").toLocalDate());
 
                 //Añadimos el objeto a la lista
                 lista.add(f);
@@ -75,7 +74,7 @@ public class FacturaDAO implements IFactura {
                 f.setCodigoUnico(res.getInt("codigoUnico"));
                 f.setDescripcion(res.getString("descripcion"));
                 f.setTotalImporte(res.getDouble("totalImporte"));
-                f.setFechaEmision(LocalDate.parse((CharSequence) res.getDate("fechaEmision")));
+                f.setFechaEmision(res.getDate("fechaEmision").toLocalDate());
                 return f;
             }
 
@@ -92,6 +91,8 @@ public class FacturaDAO implements IFactura {
         if (findByPk(f.getCodigoUnico()) != null) {
             // Instanciamos el objeto PreparedStatement para inserción
             // de datos. Sentencia parametrizada
+            return numFilas;
+        } else {
             try ( PreparedStatement prest = con.prepareStatement(sql)) {
 
                 // Establecemos los parámetros de la sentencia
@@ -102,10 +103,6 @@ public class FacturaDAO implements IFactura {
 
                 numFilas = prest.executeUpdate();
             }
-            return numFilas;
-        } else {
-            // Existe un registro con esa pk
-            // No se hace la inserción
             return numFilas;
         }
 
