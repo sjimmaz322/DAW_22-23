@@ -6,8 +6,8 @@ public class Prueba {
 
     public static void main(String[] args) {
 
-        Connection con = ConexionCasa.getInstance();
-        //---Connection con = ConexionClase.getInstance();
+        //---Connection con = ConexionCasa.getInstance();
+        Connection con = ConexionClase.getInstance();
 
     }
 

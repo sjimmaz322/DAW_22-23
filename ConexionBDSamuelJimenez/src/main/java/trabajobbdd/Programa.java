@@ -12,7 +12,7 @@ import productos.Producto;
 
 /**
  *
- * @author J. Carlos F. Vico <jcarlosvico@maralboran.es>
+ * @author Samuel
  */
 public class Programa {
 
@@ -24,7 +24,7 @@ public class Programa {
         listaProductos.add(new Producto(2, "Dados Tinta Borde afilado", 7));
         listaProductos.add(new Producto(3, "Dados Mica Borde suave", 6));
         listaProductos.add(new Producto(4, "Dados Tinta Borde suave", 8));
-        listaProductos.add(new Producto(5, "Dados Mica Borde afilado 2 colores", 9));
+        listaProductos.add(new Producto(5, "Dados Mica Borde afilado 2 colores", 8.5));
 
         try {
 

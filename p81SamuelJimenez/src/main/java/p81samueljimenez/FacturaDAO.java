@@ -1,51 +1,52 @@
 /*
- * Clase que implementa la interface IPersona
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package trabajobbdd;
+package p81samueljimenez;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import productos.Producto;
-import samuel.conexionbd.ConexionClase;
-//--- import samuel.conexionbd.ConexionClase;
 
 /**
  *
- * @author J. Carlos F. Vico <jcarlosvico@maralboran.es>
+ * @author samuel
  */
-public class ProductoDAO implements IProducto {
+public class FacturaDAO implements IFactura {
 
     private Connection con = null;
 
-    public ProductoDAO() {
+    public FacturaDAO() {
 //        con = ConexionCasa.getInstance();
         con = ConexionClase.getInstance();
     }
 
     @Override
-    public List<Producto> getAll() throws SQLException {
-        List<Producto> lista = new ArrayList<>();
+    public List<Factura> getAll() throws SQLException {
+        List<Factura> lista = new ArrayList<>();
 
         // Preparamos la consulta de datos mediante un objeto Statement
         // ya que no necesitamos parametrizar la sentencia SQL
         try ( Statement st = con.createStatement()) {
             // Ejecutamos la sentencia y obtenemos las filas en el objeto ResultSet
-            ResultSet res = st.executeQuery("select * from productos");
+            ResultSet res = st.executeQuery("select * from facturas");
             // Ahora construimos la lista, recorriendo el ResultSet y mapeando los datos
             while (res.next()) {
-                Producto p = new Producto();
+                Factura f = new Factura();
                 // Recogemos los datos de la persona, guardamos en un objeto
-                p.setId(res.getInt("id"));
-                p.setDescripcion(res.getString("descripcion"));
-                p.setPrecio(res.getDouble("precio"));
+                f.setCodigoUnico(res.getInt("codigoUnico"));
+                f.setDescripcion(res.getString("descripcion"));
+                f.setTotalImporte(res.getDouble("totalImporte"));
+                f.setFechaEmision(LocalDate.parse((CharSequence) res.getDate("fechaEmision")));
 
                 //Añadimos el objeto a la lista
-                lista.add(p);
+                lista.add(f);
             }
         }
 
@@ -53,12 +54,12 @@ public class ProductoDAO implements IProducto {
     }
 
     @Override
-    public Producto findByPk(int pk) throws SQLException {
+    public Factura findByPk(int pk) throws SQLException {
 
         ResultSet res = null;
-        Producto p = new Producto();
+        Factura f = new Factura();
 
-        String sql = "select * from productos where id=?";
+        String sql = "select * from facturas where codigoUnico=?";
 
         try ( PreparedStatement prest = con.prepareStatement(sql)) {
             // Preparamos la sentencia parametrizada
@@ -71,10 +72,11 @@ public class ProductoDAO implements IProducto {
             // si existe esa pk
             if (res.next()) {
                 // Recogemos los datos de la persona, guardamos en un objeto
-                p.setId(res.getInt("id"));
-                p.setDescripcion(res.getString("descripcion"));
-                p.setPrecio(res.getDouble("precio"));
-                return p;
+                f.setCodigoUnico(res.getInt("codigoUnico"));
+                f.setDescripcion(res.getString("descripcion"));
+                f.setTotalImporte(res.getDouble("totalImporte"));
+                f.setFechaEmision(LocalDate.parse((CharSequence) res.getDate("fechaEmision")));
+                return f;
             }
 
             return null;
@@ -82,47 +84,48 @@ public class ProductoDAO implements IProducto {
     }
 
     @Override
-    public int insertProducto(Producto p) throws SQLException {
+    public int insertFactura(Factura f) throws SQLException {
 
         int numFilas = 0;
-        String sql = "insert into productos values (?,?,?)";
+        String sql = "insert into facturas values (?,?,?,?)";
 
-        if (findByPk(p.getId()) != null) {
-            // Existe un registro con esa pk
-            // No se hace la inserción
-            return numFilas;
-        } else {
+        if (findByPk(f.getCodigoUnico()) != null) {
             // Instanciamos el objeto PreparedStatement para inserción
             // de datos. Sentencia parametrizada
             try ( PreparedStatement prest = con.prepareStatement(sql)) {
 
                 // Establecemos los parámetros de la sentencia
-                prest.setInt(1, p.getId());
-                prest.setString(2, p.getDescripcion());
-                prest.setDouble(3, p.getPrecio());
+                prest.setInt(1, f.getCodigoUnico());
+                prest.setDate(2, Date.valueOf(f.getFechaEmision()));
+                prest.setString(3, f.getDescripcion());
+                prest.setDouble(4, f.getTotalImporte());
 
                 numFilas = prest.executeUpdate();
             }
+            return numFilas;
+        } else {
+            // Existe un registro con esa pk
+            // No se hace la inserción
             return numFilas;
         }
 
     }
 
     @Override
-    public int insertProducto(List<Producto> lista) throws SQLException {
+    public int insertFactura(List<Factura> lista) throws SQLException {
         int numFilas = 0;
 
-        for (Producto tmp : lista) {
-            numFilas += insertProducto(tmp);
+        for (Factura tmp : lista) {
+            numFilas += insertFactura(tmp);
         }
 
         return numFilas;
     }
 
     @Override
-    public int deleteProducto() throws SQLException {
+    public int deleteFactura() throws SQLException {
 
-        String sql = "delete from productos";
+        String sql = "delete from facturas";
 
         int nfilas = 0;
 
@@ -139,16 +142,16 @@ public class ProductoDAO implements IProducto {
     }
 
     @Override
-    public int deleteProducto(Producto persona) throws SQLException {
+    public int deleteFactura(Factura f) throws SQLException {
         int numFilas = 0;
 
-        String sql = "delete from productos where id = ?";
+        String sql = "delete from facturas where codigoUnico = ?";
 
         // Sentencia parametrizada
         try ( PreparedStatement prest = con.prepareStatement(sql)) {
 
             // Establecemos los parámetros de la sentencia
-            prest.setInt(1, persona.getId());
+            prest.setInt(1, f.getCodigoUnico());
             // Ejecutamos la sentencia
             numFilas = prest.executeUpdate();
         }
@@ -156,10 +159,10 @@ public class ProductoDAO implements IProducto {
     }
 
     @Override
-    public int updateProducto(int pk, Producto nuevosDatos) throws SQLException {
+    public int updateFactura(int pk, Factura nuevosDatos) throws SQLException {
 
         int numFilas = 0;
-        String sql = "update productos set id = ?, descripcion = ? where id=?";
+        String sql = "update facturas set codigoUnico = ?, fechaEmision = ?, descripcion = ?, totalImporte = ? where id=?";
 
         if (findByPk(pk) == null) {
             // La persona a actualizar no existe
@@ -170,9 +173,10 @@ public class ProductoDAO implements IProducto {
             try ( PreparedStatement prest = con.prepareStatement(sql)) {
 
                 // Establecemos los parámetros de la sentencia
-                prest.setInt(1, nuevosDatos.getId());
-                prest.setString(2, nuevosDatos.getDescripcion());
-                prest.setInt(3, pk);
+                prest.setInt(1, nuevosDatos.getCodigoUnico());
+                prest.setDate(2, Date.valueOf(nuevosDatos.getFechaEmision()));
+                prest.setString(3, nuevosDatos.getDescripcion());
+                prest.setDouble(4, nuevosDatos.getTotalImporte());
 
                 numFilas = prest.executeUpdate();
             }
