@@ -22,8 +22,8 @@ public class FacturaDAO implements IFactura {
     private Connection con = null;
 
     public FacturaDAO() {
-//        con = ConexionCasa.getInstance();
-        con = ConexionClase.getInstance();
+        con = ConexionCasa.getInstance();
+//        con = ConexionClase.getInstance();
     }
 
     @Override
@@ -159,21 +159,21 @@ public class FacturaDAO implements IFactura {
     public int updateFactura(int pk, Factura nuevosDatos) throws SQLException {
 
         int numFilas = 0;
-        String sql = "update facturas set codigoUnico = ?, fechaEmision = ?, descripcion = ?, totalImporte = ? where id=?";
+        String sql = "update facturas set fechaEmision = ?, descripcion = ?, totalImporte = ? where codigoUnico=?";
 
         if (findByPk(pk) == null) {
-            // La persona a actualizar no existe
+            // La factura a actualizar no existe
             return numFilas;
         } else {
-            // Instanciamos el objeto PreparedStatement para inserción
+            // Instanciamos el objeto PreparedStatement para actualización
             // de datos. Sentencia parametrizada
             try ( PreparedStatement prest = con.prepareStatement(sql)) {
 
                 // Establecemos los parámetros de la sentencia
-                prest.setInt(1, nuevosDatos.getCodigoUnico());
-                prest.setDate(2, Date.valueOf(nuevosDatos.getFechaEmision()));
-                prest.setString(3, nuevosDatos.getDescripcion());
-                prest.setDouble(4, nuevosDatos.getTotalImporte());
+                prest.setDate(1, Date.valueOf(nuevosDatos.getFechaEmision()));
+                prest.setString(2, nuevosDatos.getDescripcion());
+                prest.setDouble(3, nuevosDatos.getTotalImporte());
+                prest.setInt(4, nuevosDatos.getCodigoUnico());
 
                 numFilas = prest.executeUpdate();
             }

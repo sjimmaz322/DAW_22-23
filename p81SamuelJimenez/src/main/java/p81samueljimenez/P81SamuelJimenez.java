@@ -17,7 +17,7 @@ public class P81SamuelJimenez {
     public static void main(String[] args) {
         List<Factura> lista = p81samueljimenez.UtilidadesFactura.generarListaFacturas("facturas", "csv", ";");
         //---
-        lista.forEach(System.out::println);
+        //---lista.forEach(System.out::println);
         //---
         FacturaDAO fDAO = new FacturaDAO();
         //---
@@ -43,10 +43,11 @@ public class P81SamuelJimenez {
             System.out.println("Modificación de la factura");
             //
             Factura fMod = new Factura();
-            fMod.setCodigoUnico(51);
+            fMod.setCodigoUnico(5);
             fMod.setFechaEmision(LocalDate.now().minusYears(2));
             fMod.setDescripcion("Prueba");
             fMod.setTotalImporte(100);
+            //---
             System.out.println("Nº Facturas modificados " + fDAO.updateFactura(5, fMod));
             //
             System.out.println("-----------------------------------------");

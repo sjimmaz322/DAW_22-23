@@ -8,7 +8,7 @@ import java.sql.SQLException;
 public class ConexionClase {
 
     private static final String SERVIDOR = "jdbc:mysql://192.168.56.101:3306/";
-    private static final String NOMBRE_BASE_DATOS = "p81SamuelJimenez";
+    private static final String NOMBRE_BASE_DATOS = "p81samueljimenez";
     private static final String USER = "user";
     private static final String PASS = "admin";
 
