@@ -42,7 +42,7 @@ public class Ejercicio5 {
         //
         try ( Scanner datosFichero = new Scanner(new File(idFichero), "ISO-8859-1")) {
             // hasNextLine devuelve true mientras haya líneas por leer
-
+            //--- toCharArray probarlo en casa
             while (datosFichero.hasNextLine()) {
                 // Guarda la línea completa en un String
                 linea = datosFichero.nextLine();

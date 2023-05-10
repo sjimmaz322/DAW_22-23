@@ -17,7 +17,7 @@ public class P81SamuelJimenez {
     public static void main(String[] args) {
         List<Factura> lista = p81samueljimenez.UtilidadesFactura.generarListaFacturas("facturas", "csv", ";");
         //---
-        //---lista.forEach(System.out::println);
+        //lista.forEach(System.out::println);
         //---
         FacturaDAO fDAO = new FacturaDAO();
         //---
