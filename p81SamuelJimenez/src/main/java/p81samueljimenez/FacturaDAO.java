@@ -120,7 +120,7 @@ public class FacturaDAO implements IFactura {
     }
 
     @Override
-    public int deleteFactura() throws SQLException {
+    public int deleteAll() throws SQLException {
 
         String sql = "delete from facturas";
 

@@ -6,7 +6,6 @@ package p81samueljimenez;
 
 import java.sql.SQLException;
 import java.util.List;
-import p81samueljimenez.Factura;
 
 /**
  *
@@ -30,7 +29,7 @@ public interface IFactura {
     int deleteFactura(Factura f) throws SQLException;
 
     // Método para borrar toda la tabla
-    int deleteFactura() throws SQLException;
+    int deleteAll() throws SQLException;
 
     // Método para modificar una persona. Se modifica a la persona que tenga esa 'pk'
     // con los nuevos datos que traiga la persona 'nuevosDatos'
