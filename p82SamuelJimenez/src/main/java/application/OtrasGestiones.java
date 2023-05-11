@@ -9,7 +9,9 @@ import controllers.exceptions.NonexistentEntityException;
 import entities.Facturas;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.util.Date;
+import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -53,6 +55,7 @@ public class OtrasGestiones extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         panelBuscar = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(800, 610));
@@ -118,6 +121,8 @@ public class OtrasGestiones extends javax.swing.JFrame {
             }
         });
 
+        jLabel7.setText("Modificar SIN cambiar el formato, sino peta");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -145,6 +150,11 @@ public class OtrasGestiones extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnMod)
+                                .addGap(71, 71, 71)
+                                .addComponent(btnBorrar)
+                                .addGap(83, 83, 83))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -152,15 +162,12 @@ public class OtrasGestiones extends javax.swing.JFrame {
                                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(56, 56, 56)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(panelCod)
-                                    .addComponent(panelFecha)
-                                    .addComponent(panelDes)
-                                    .addComponent(panelImporte, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnMod)
-                                .addGap(71, 71, 71)
-                                .addComponent(btnBorrar)
-                                .addGap(83, 83, 83)))
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(panelCod)
+                                        .addComponent(panelFecha)
+                                        .addComponent(panelDes)
+                                        .addComponent(panelImporte, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)))))
                         .addGap(205, 205, 205))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -182,7 +189,9 @@ public class OtrasGestiones extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(panelFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(50, 50, 50)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(panelDes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -217,30 +226,35 @@ public class OtrasGestiones extends javax.swing.JFrame {
 
     private void btnModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModActionPerformed
         // TODO add your handling code here:
-        
+
         Date fechaDate = null;
         Facturas f = fjc.findFacturas(Integer.valueOf(panelBuscar.getText()));
 
         f.setDescripcion(panelDes.getText());
-        String fecha = panelFecha.getText();
 
-        SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
+        String fechaStr = panelFecha.getText();
+        SimpleDateFormat formato = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.ENGLISH);
+        Date fecha = null;
         try {
-            fechaDate = formato.parse(fecha);
+            fecha = formato.parse(fechaStr);
         } catch (ParseException ex) {
+            JOptionPane.showMessageDialog(null, "Fallo al actualizar factura");
             Logger.getLogger(OtrasGestiones.class.getName()).log(Level.SEVERE, null, ex);
         }
-        f.setFechaEmision(fechaDate);
+        f.setFechaEmision(fecha);
         f.setTotalImporte(Double.parseDouble(panelImporte.getText()));
         try {
             fjc.edit(f);
+            JOptionPane.showMessageDialog(null, "Factura actualizada correctamente");
         } catch (Exception ex) {
             Logger.getLogger(OtrasGestiones.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Fallo al actualizar factura");
         }
     }//GEN-LAST:event_btnModActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         int cod = 0;
         Facturas f = null;
@@ -253,7 +267,12 @@ public class OtrasGestiones extends javax.swing.JFrame {
         if (f != null) {
 
             panelCod.setText(f.getCodigoUnico().toString());
-            panelFecha.setText(f.getFechaEmision().toString());
+            try {
+                panelFecha.setText(f.getFechaEmision().toString());
+            } catch (NullPointerException npe) {
+                panelFecha.setText(Date.from(Instant.EPOCH).toString());
+                JOptionPane.showMessageDialog(null, "La fecha introducida no es válida,\nprocediendo a asignar una por defecto");
+            }
             panelDes.setText(f.getDescripcion());
             panelImporte.setText(String.valueOf(f.getTotalImporte()));
         } else {
@@ -326,6 +345,7 @@ public class OtrasGestiones extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField panelBuscar;
     private javax.swing.JTextField panelCod;

@@ -11,6 +11,8 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.List;
+import java.util.Optional;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,7 +20,7 @@ import javax.swing.JOptionPane;
  * @author sajm <sjimmaz322 at sjimmaz322@g.educaand.es>
  */
 public class AniadirFactura extends javax.swing.JFrame {
-
+    
     FacturasJpaController fjc = new FacturasJpaController();
 
     /**
@@ -53,6 +55,8 @@ public class AniadirFactura extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        panelCod = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -79,7 +83,7 @@ public class AniadirFactura extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Introduzca la fecha según el siguiente formato \"Día-Mes-Año\"");
+        jLabel7.setText("Introduzca la fecha según el siguiente formato \"dd-MM-yyyy\"");
 
         btnAniadirFactura.setText("AÑADIR");
         btnAniadirFactura.addActionListener(new java.awt.event.ActionListener() {
@@ -95,6 +99,8 @@ public class AniadirFactura extends javax.swing.JFrame {
 
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("EUROS");
+
+        jLabel11.setText("Código");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -116,12 +122,14 @@ public class AniadirFactura extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(30, 30, 30)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(panelCod)
                             .addComponent(panelDescripcion)
                             .addComponent(panelFecha)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -147,7 +155,11 @@ public class AniadirFactura extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41)
                 .addComponent(jLabel2)
-                .addGap(54, 54, 54)
+                .addGap(17, 17, 17)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(panelCod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(panelFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -192,7 +204,17 @@ public class AniadirFactura extends javax.swing.JFrame {
         // TODO add your handling code here:
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         Facturas f = new Facturas();
-        
+        List<entities.Facturas> lista = fjc.findFacturasEntities();
+        List<Integer> listaCod = lista.stream()
+                .map(fa -> fa.getCodigoUnico())
+                .toList();
+        if (listaCod.contains(Integer.valueOf(panelCod.getText()))) {
+            JOptionPane.showMessageDialog(null, "El código introducido ya está utilizado,\nasignando el primer valor disponible");
+            int max = listaCod.stream().max(Integer::compareTo).get();
+            f.setCodigoUnico(max + 1);
+        } else {
+            f.setCodigoUnico(Integer.valueOf(panelCod.getText()));
+        }
         String fechaStr = panelFecha.getText();
         DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         LocalDate fechaLocal = LocalDate.parse(fechaStr, formatoFecha);
@@ -201,7 +223,7 @@ public class AniadirFactura extends javax.swing.JFrame {
         f.setDescripcion(panelDescripcion.getText());
         f.setTotalImporte(Double.parseDouble(panelImporteEuros.getText().concat(".").concat(panelImporteCentimos.getText())));
         fjc.create(f);
-
+        
         JOptionPane.showMessageDialog(this, "La factura ha sido añadida con éxito", "Operación realizada", JOptionPane.INFORMATION_MESSAGE);
 
     }//GEN-LAST:event_btnAniadirFacturaActionPerformed
@@ -232,7 +254,7 @@ public class AniadirFactura extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(AniadirFactura.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
             
@@ -244,6 +266,7 @@ public class AniadirFactura extends javax.swing.JFrame {
     private javax.swing.JButton btnAniadirFactura;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -253,6 +276,7 @@ public class AniadirFactura extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField panelCod;
     private javax.swing.JTextField panelDescripcion;
     private javax.swing.JTextField panelFecha;
     private javax.swing.JTextField panelImporteCentimos;
