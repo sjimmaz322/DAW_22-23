@@ -76,6 +76,11 @@ public class App extends javax.swing.JFrame {
 
         btnOtros.setText("OTRAS GESTIONES");
         btnOtros.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnOtros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOtrosActionPerformed(evt);
+            }
+        });
 
         btnObtenerTodas.setText("OBTENER TODAS");
         btnObtenerTodas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -148,12 +153,23 @@ public class App extends javax.swing.JFrame {
 
     private void btnAniadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAniadirActionPerformed
         // TODO add your handling code here:
+        java.awt.EventQueue.invokeLater(() -> {
+            new AniadirFactura().setVisible(true);
+        });
     }//GEN-LAST:event_btnAniadirActionPerformed
 
     private void btnObtenerTodasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnObtenerTodasActionPerformed
         // TODO add your handling code here:
         cargarTabla();
     }//GEN-LAST:event_btnObtenerTodasActionPerformed
+
+    private void btnOtrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOtrosActionPerformed
+        // TODO add your handling code here:
+        
+        java.awt.EventQueue.invokeLater(() -> {
+            new OtrasGestiones().setVisible(true);
+        });
+    }//GEN-LAST:event_btnOtrosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -216,6 +232,7 @@ public class App extends javax.swing.JFrame {
         TablaFacturas.setModel(dfm);
 
     }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TablaFacturas;
