@@ -22,8 +22,8 @@ public class FacturaDAO implements IFactura {
     private Connection con = null;
 
     public FacturaDAO() {
-//        con = ConexionCasa.getInstance();
-        con = ConexionClase.getInstance();
+        con = ConexionCasa.getInstance();
+        //con = ConexionClase.getInstance();
     }
 
     @Override
