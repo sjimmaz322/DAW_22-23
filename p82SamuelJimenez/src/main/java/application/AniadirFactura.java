@@ -190,8 +190,9 @@ public class AniadirFactura extends javax.swing.JFrame {
 
     private void btnAniadirFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAniadirFacturaActionPerformed
         // TODO add your handling code here:
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         Facturas f = new Facturas();
-
+        
         String fechaStr = panelFecha.getText();
         DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         LocalDate fechaLocal = LocalDate.parse(fechaStr, formatoFecha);
@@ -231,9 +232,10 @@ public class AniadirFactura extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(AniadirFactura.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
+            
             new AniadirFactura().setVisible(true);
         });
     }

@@ -217,6 +217,7 @@ public class OtrasGestiones extends javax.swing.JFrame {
 
     private void btnModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModActionPerformed
         // TODO add your handling code here:
+        
         Date fechaDate = null;
         Facturas f = fjc.findFacturas(Integer.valueOf(panelBuscar.getText()));
 
@@ -240,6 +241,7 @@ public class OtrasGestiones extends javax.swing.JFrame {
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         int cod = 0;
         Facturas f = null;
         try {
