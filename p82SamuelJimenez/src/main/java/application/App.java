@@ -216,7 +216,7 @@ public class App extends javax.swing.JFrame {
             }
         };
 
-        String[] cabecera = {"Código Unico", "Fecha Emisión", "Descipción", "Importe Total"};
+        String[] cabecera = {"Código Unico", "Fecha Emisión", "Descripción", "Importe Total"};
 
         dfm.setColumnIdentifiers(cabecera);
 
