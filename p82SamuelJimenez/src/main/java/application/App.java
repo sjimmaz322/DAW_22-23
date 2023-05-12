@@ -160,6 +160,8 @@ public class App extends javax.swing.JFrame {
 
     private void btnObtenerTodasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnObtenerTodasActionPerformed
         // TODO add your handling code here:
+        //Llamamos a nuestro método cargar tabla para que al pulsar el botón
+        //se nos muestre la información de nuestra BBDD
         cargarTabla();
     }//GEN-LAST:event_btnObtenerTodasActionPerformed
 
@@ -207,21 +209,23 @@ public class App extends javax.swing.JFrame {
         });
     }
 
+    // Método para cargar las facturas en la tabla
     private void cargarTabla() {
+        //Creamos un modelo de tabla predeterminado
         DefaultTableModel dfm = new DefaultTableModel() {
-
+            //Evitamos que las celdas sean modificables
             @Override
             public boolean isCellEditable(int row, int column) {
                 return false;
             }
         };
-
+        //Creamos una cabecera
         String[] cabecera = {"Código Unico", "Fecha Emisión", "Descripción", "Importe Total"};
-
+        //Añadimos la cabecera a la tabla
         dfm.setColumnIdentifiers(cabecera);
-
+        //Guardamos en una lista las facturas
         List<entities.Facturas> lista = fjc.findFacturasEntities();
-
+        //Por cada factura de la lista añadimos una fila a la tabla
         if (!lista.isEmpty()) {
             for (Facturas f : lista) {
                 Object[] o = {f.getCodigoUnico(), f.getFechaEmision(), f.getDescripcion(), f.getTotalImporte()};
@@ -229,6 +233,7 @@ public class App extends javax.swing.JFrame {
                 dfm.addRow(o);
             }
         }
+        //Añadimos el modelo a nuestra tabla para que se muestre la información
         TablaFacturas.setModel(dfm);
 
     }

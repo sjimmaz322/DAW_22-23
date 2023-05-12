@@ -229,8 +229,9 @@ public class OtrasGestiones extends javax.swing.JFrame {
 
     private void btnModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModActionPerformed
         // TODO add your handling code here:
-
+        
         Date fechaDate = null;
+        //Cargamos la factura que hemos buscado y con set actualizamos la información recogida de los paneles de texto
         Facturas f = fjc.findFacturas(Integer.valueOf(panelBuscar.getText()));
 
         f.setDescripcion(panelDes.getText());
@@ -257,18 +258,20 @@ public class OtrasGestiones extends javax.swing.JFrame {
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
-
+        //Hacemos que no se cierre todo al cerrar la ventana
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         int cod = 0;
         Facturas f = null;
+        //Cargamos en factura la factura con el id buscado
         try {
             cod = Integer.parseInt(panelBuscar.getText());
             f = fjc.findFacturas(cod);
         } catch (NullPointerException npe) {
             JOptionPane.showMessageDialog(null, "La factura buscada no existe");
         }
+        //Si no es nula cogemos la información de la factura y la mostramos por los paneles de texto
         if (f != null) {
-
+            
             panelCod.setText(f.getCodigoUnico().toString());
             try {
                 panelFecha.setText(f.getFechaEmision().toString());
@@ -286,9 +289,9 @@ public class OtrasGestiones extends javax.swing.JFrame {
     private void btnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarActionPerformed
         // TODO add your handling code here:
         Facturas f = null;
-
+        //Buscamos una factura y la cargamos en la variable f
         f = fjc.findFacturas(Integer.valueOf(panelBuscar.getText()));
-
+        //Si existe la borramos, sino avisamos de que no existe
         if (f != null) {
             try {
                 fjc.destroy(Integer.valueOf(panelBuscar.getText()));

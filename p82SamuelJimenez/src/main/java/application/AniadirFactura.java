@@ -69,12 +69,15 @@ public class AniadirFactura extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel2.setText("Rellene los siguientes datos  y presione el botón \"Añadir\"");
 
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Fecha de emisión");
         jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Descripción");
         jLabel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Importe Total");
         jLabel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -103,6 +106,7 @@ public class AniadirFactura extends javax.swing.JFrame {
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("EUROS");
 
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("Código");
         jLabel11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -208,28 +212,40 @@ public class AniadirFactura extends javax.swing.JFrame {
 
     private void btnAniadirFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAniadirFacturaActionPerformed
         // TODO add your handling code here:
+        //Hacemos que al cerrar esta ventana no se cierre todo
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        //Creamos la factura vacía para trabajar con ella
         Facturas f = new Facturas();
+        //Guardamos en una lista todas nuestras fcturas
         List<entities.Facturas> lista = fjc.findFacturasEntities();
+        //Guardamos una lista con todos nuestros códigos únicos
         List<Integer> listaCod = lista.stream()
                 .map(fa -> fa.getCodigoUnico())
                 .toList();
+        //Si el número de nuestro panel donde introducimos el código está en la lista de códigos
         if (listaCod.contains(Integer.valueOf(panelCod.getText()))) {
+            //Nos informa de que ya hay una pk con ese valor
             JOptionPane.showMessageDialog(null, "El código introducido ya está utilizado,\nasignando el primer valor disponible");
+            //Seleccina el máximo número de nuestros códigos
             int max = listaCod.stream().max(Integer::compareTo).get();
+            //Cambia el código al máximo más 1 para añadirlo al final de la lista
             f.setCodigoUnico(max + 1);
         } else {
+            //Si el código no está en la lista lo añade al atributo
             f.setCodigoUnico(Integer.valueOf(panelCod.getText()));
         }
+        //Parseamos y casteamos la fecha para que se adapte a las necesidades
         String fechaStr = panelFecha.getText();
         DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         LocalDate fechaLocal = LocalDate.parse(fechaStr, formatoFecha);
         Instant fechaInstant = fechaLocal.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant();
+        //Guardamos cada valor en su atributo
         f.setFechaEmision(Date.from(fechaInstant));
         f.setDescripcion(panelDescripcion.getText());
         f.setTotalImporte(Double.parseDouble(panelImporteEuros.getText().concat(".").concat(panelImporteCentimos.getText())));
+        //Creamos la factura
         fjc.create(f);
-        
+        //Informamos de que la operación se realizó
         JOptionPane.showMessageDialog(this, "La factura ha sido añadida con éxito", "Operación realizada", JOptionPane.INFORMATION_MESSAGE);
 
     }//GEN-LAST:event_btnAniadirFacturaActionPerformed
