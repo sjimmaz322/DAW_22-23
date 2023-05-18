@@ -1,4 +1,3 @@
-
 package programa;
 
 import controladores.AlquilerJpaController;
@@ -15,6 +14,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.NoResultException;
+import javax.persistence.NonUniqueResultException;
 import javax.persistence.Persistence;
 
 /**
@@ -35,7 +36,7 @@ public class CreacionModificacionBorradoEntidades {
         t.setCsv(22);
         t.setFechaCaducidadLocalDate(LocalDate.now());
         t.setNumero("122155");
-        tc.create(t);  
+        tc.create(t);
     }
 
     public static void crearCliente() {
@@ -47,7 +48,7 @@ public class CreacionModificacionBorradoEntidades {
         c.setNif("88888888S");
         cc.create(c);
     }
-    
+
     public static void crearClienteConTarjeta(TarjetaBancaria t) {
         // Se crea un cliente con la tarjeta asociada
         // En este caso el cliente no tiene alquileres asociados
@@ -70,10 +71,10 @@ public class CreacionModificacionBorradoEntidades {
         v1.setMatricula("3456TTT");
         v1.setPrecio(23.9);
         vc.create(v1); // Ya no hay excepción
-       
+
     }
-    
-    public static void crearVehiculoConAlquiler(Alquiler a){
+
+    public static void crearVehiculoConAlquiler(Alquiler a) {
         //Creación de un vehículo con un alquiler que existe en la BD
         // Si hay algún alquiler a null en la lista lanza excepción
         var v1 = new Vehiculo();
@@ -81,15 +82,15 @@ public class CreacionModificacionBorradoEntidades {
         v1.setMarca("Chatarra Go");
         v1.setMatricula("9999ZZZ");
         v1.setPrecio(31.9);
-        
+
         List<Alquiler> listaAlquileres = new ArrayList<>();
         listaAlquileres.add(a);
         v1.setAlquilerList(listaAlquileres);
         vc.create(v1);
-        
+
     }
-    
-    public static void crearAlquiler(Cliente c, Vehiculo v){
+
+    public static void crearAlquiler(Cliente c, Vehiculo v) {
         // Creación de un alquiler, durante 3 días desde hoy
         Alquiler al = new Alquiler();
         al.setCliente(c);
@@ -98,8 +99,8 @@ public class CreacionModificacionBorradoEntidades {
         al.setNumeroDias(3);
         ac.create(al);
     }
-    
-    public static void modificarVehiculo(Vehiculo v) throws NonexistentEntityException, Exception{
+
+    public static void modificarVehiculo(Vehiculo v) throws NonexistentEntityException, Exception {
         // Para editar un vehículo, primero se busca, se hacen los cambios
         // y finalmente se llama al controlador
         var coche = vc.findVehiculo(3);
@@ -111,8 +112,8 @@ public class CreacionModificacionBorradoEntidades {
         }
         vc.edit(coche);
     }
-    
-    public static void borrarCliente(Integer id) throws IllegalOrphanException, NonexistentEntityException{
+
+    public static void borrarCliente(Integer id) throws IllegalOrphanException, NonexistentEntityException {
         // Se borra el cliente por ID, si no existe lanza excepción NonexistentEntityException
         // Si tiene alquileres lanza excepción IllegalOrphanException
         // Si tiene una tarjeta asociada, la tarjeta queda sin Cliente
@@ -122,22 +123,26 @@ public class CreacionModificacionBorradoEntidades {
     public static void main(String[] args) throws NonexistentEntityException, Exception {
 
         // CONSULTAR LAS TABLAS PARA COMPROBAR REGISTROS
-        
         // Creación de una tarjeta
         crearTarjeta();
         System.out.println("CREACIÓN DE UNA TARJETA BANCARIA --------------");
         Consultas.mostrarTarjetas();
-        
+
         // Creación de un cliente, sin tarjeta
         System.out.println("CREACIÓN DE UN CLIENTE NUEVO --------------");
         crearCliente();
         Consultas.mostrarClientes();
-        
+
         // Creación de un cliente, asignandole la tarejeta anterior
         // Para ello busco la tarjeta y se la paso al método
         System.out.println("CREACIÓN DE UN CLIENTE CON UNA TARJETA EXISTENTE EN LA BD --------------");
-        TarjetaBancaria t = tc.findByNumero("122155");
-        crearClienteConTarjeta(t);
+        try {
+            TarjetaBancaria t = tc.findByNumero("122155");
+            crearClienteConTarjeta(t);
+        } catch (NonUniqueResultException nue) {
+            System.out.println(nue +" El mismo campo devuelve más de un resultado único");
+        }
+
         Consultas.mostrarClientes();
 
         System.out.println("CREACIÓN DE UN VEHICULO CON UN ALQUILER EXISTENTE EN LA BD --------------");
@@ -146,26 +151,35 @@ public class CreacionModificacionBorradoEntidades {
         // al vehículo que tenga el alquiler 3 se le quita. De esto se 
         // encarga el controlador JPA.
         Alquiler alq = ac.findAlquiler(3); // Existe
-        crearVehiculoConAlquiler(alq);
+        try {
+            crearVehiculoConAlquiler(alq);
+        } catch (NullPointerException npe) {
+            System.out.println(npe + " capturada");
+        }
         Consultas.mostrarVehiculos();
-        
+
         System.out.println("CREACIÓN DE UN ALQUILER, A PARTIR DE UN CLIENTE Y UN VEHÍCULO EXISTENTES --------------");
         Cliente c = cc.findCliente(1);
         Vehiculo v = vc.findVehiculo(2);
         crearAlquiler(c, v);
         Consultas.mostrarAlquileres();
-        
+
         System.out.println("MODIFICACIÓN DE UN VEHÍCULO --------------");
         // Primero se busca el vehículo a modificar en la BD
         v = vc.findByMatricula("1234AAB");
         modificarVehiculo(v);
         Consultas.mostrarVehiculos();
-        
+
         System.out.println("BORRADO DE UN CLIENTE --------------");
         //borrarCliente(10000); // No existe --> NonexistentEntityException
         //borrarCliente(1); // Existe pero tiene alquileres activos --> IllegalOrphanException
-        Cliente paraBorrar = cc.findByNif("99999999S"); // Ernesto Mate
-        borrarCliente(paraBorrar.getId());
+        try {
+            Cliente paraBorrar = cc.findByNif("99999999S"); // Ernesto Mate
+            borrarCliente(paraBorrar.getId());
+        } catch (NoResultException nre) {
+            System.out.println("Capturada la excepción - " + nre);
+        }
+
         Consultas.mostrarTarjetas();
 
     }
