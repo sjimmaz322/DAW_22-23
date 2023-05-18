@@ -22,6 +22,7 @@ public class App extends javax.swing.JFrame {
      */
     public App() {
         initComponents();
+        cargarTabla();
     }
 
     /**
