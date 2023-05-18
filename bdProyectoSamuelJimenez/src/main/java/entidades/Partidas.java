@@ -20,7 +20,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author samuel
+ * @author sajm <sjimmaz322 at sjimmaz322@g.educaand.es>
  */
 @Entity
 @Table(name = "partidas")

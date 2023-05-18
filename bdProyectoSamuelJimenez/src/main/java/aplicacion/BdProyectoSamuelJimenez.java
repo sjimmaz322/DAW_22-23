@@ -13,12 +13,12 @@ import java.util.List;
  * @author sajm <sjimmaz322 at sjimmaz322@g.educaand.es>
  */
 public class BdProyectoSamuelJimenez {
-    
+
     public static void main(String[] args) {
         JugadoresJpaController jpc = new JugadoresJpaController();
-        
+
         List<Jugadores> lista = jpc.findJugadoresEntities();
-        
+
         lista.forEach(System.out::println);
     }
 }

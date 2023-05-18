@@ -21,7 +21,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author samuel
+ * @author sajm <sjimmaz322 at sjimmaz322@g.educaand.es>
  */
 @Entity
 @Table(name = "jugadores")
@@ -119,9 +119,17 @@ public class Jugadores implements Serializable {
 
     @Override
     public String toString() {
-        return "Jugadores{" + "id=" + id + ", nombre=" + nombre + ", apodo=" + apodo + ", edad=" + edad + ", personajesList=" + personajesList.toString() + '}';
+        return "Jugadores{" + "id=" + id + ", nombre=" + nombre + ", apodo=" + apodo + ", edad=" + edad + ", personajesList=" + toStringPersonajes() + '}';
     }
 
-    
-    
+    private String toStringPersonajes() {
+
+        StringBuilder tmp = new StringBuilder();
+        for (Personajes p : personajesList) {
+            tmp.append(p.toString()).append(", ");
+        }
+
+        return tmp.length() == 0 ? tmp.toString() : tmp.toString() + "\b\b";
+    }
+
 }

@@ -24,7 +24,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author samuel
+ * @author sajm <sjimmaz322 at sjimmaz322@g.educaand.es>
  */
 @Entity
 @Table(name = "personajes")
@@ -155,7 +155,7 @@ public class Personajes implements Serializable {
 
     @Override
     public String toString() {
-        return "entidades.Personajes[ id=" + id + " ]";
+        return "Personajes[ id=" + id + " ]";
     }
     
 }

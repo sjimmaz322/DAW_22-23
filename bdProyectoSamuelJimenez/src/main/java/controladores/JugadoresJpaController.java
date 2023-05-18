@@ -20,15 +20,16 @@ import javax.persistence.Persistence;
 
 /**
  *
- * @author samuel
+ * @author sajm <sjimmaz322 at sjimmaz322@g.educaand.es>
  */
 public class JugadoresJpaController implements Serializable {
 
     public JugadoresJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
-      public JugadoresJpaController() {
-        this.emf = emf = Persistence.createEntityManagerFactory("bdProyectoSamuelJimenez");
+    
+     public JugadoresJpaController() {
+        this.emf = Persistence.createEntityManagerFactory("bdProyectoSamuelJimenez");
     }
     private EntityManagerFactory emf = null;
 
