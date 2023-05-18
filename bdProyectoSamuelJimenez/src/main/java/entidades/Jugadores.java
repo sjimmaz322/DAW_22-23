@@ -119,17 +119,20 @@ public class Jugadores implements Serializable {
 
     @Override
     public String toString() {
-        return "Jugadores{" + "id=" + id + ", nombre=" + nombre + ", apodo=" + apodo + ", edad=" + edad + ", personajesList=" + toStringPersonajes() + '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append("---***---").append("\n");
+        sb.append("Nombre: ").append(nombre).append("\n");
+        sb.append("A.k.a: ").append(apodo).append("\n");
+        sb.append("Lista de personajes:").append(listaPersonajesUsados()).append("\n");
+        sb.append("---***---");
+        return sb.toString();
     }
 
-    private String toStringPersonajes() {
-
+    private String listaPersonajesUsados() {
         StringBuilder tmp = new StringBuilder();
         for (Personajes p : personajesList) {
-            tmp.append(p.toString()).append(", ");
+            tmp.append("\n").append("\t").append(p.getNombre());
         }
-
-        return tmp.length() == 0 ? tmp.toString() : tmp.toString() + "\b\b";
+        return tmp.toString();
     }
-
 }

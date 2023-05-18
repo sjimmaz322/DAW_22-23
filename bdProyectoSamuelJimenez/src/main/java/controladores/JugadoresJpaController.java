@@ -23,20 +23,20 @@ import javax.persistence.Persistence;
  * @author sajm <sjimmaz322 at sjimmaz322@g.educaand.es>
  */
 public class JugadoresJpaController implements Serializable {
-
+    
     public JugadoresJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
-    
-     public JugadoresJpaController() {
+
+    public JugadoresJpaController() {
         this.emf = Persistence.createEntityManagerFactory("bdProyectoSamuelJimenez");
     }
     private EntityManagerFactory emf = null;
-
+    
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
-
+    
     public void create(Jugadores jugadores) {
         if (jugadores.getPersonajesList() == null) {
             jugadores.setPersonajesList(new ArrayList<Personajes>());
@@ -68,7 +68,7 @@ public class JugadoresJpaController implements Serializable {
             }
         }
     }
-
+    
     public void edit(Jugadores jugadores) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
@@ -118,7 +118,7 @@ public class JugadoresJpaController implements Serializable {
             }
         }
     }
-
+    
     public void destroy(Integer id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
@@ -144,15 +144,15 @@ public class JugadoresJpaController implements Serializable {
             }
         }
     }
-
+    
     public List<Jugadores> findJugadoresEntities() {
         return findJugadoresEntities(true, -1, -1);
     }
-
+    
     public List<Jugadores> findJugadoresEntities(int maxResults, int firstResult) {
         return findJugadoresEntities(false, maxResults, firstResult);
     }
-
+    
     private List<Jugadores> findJugadoresEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
@@ -168,7 +168,7 @@ public class JugadoresJpaController implements Serializable {
             em.close();
         }
     }
-
+    
     public Jugadores findJugadores(Integer id) {
         EntityManager em = getEntityManager();
         try {
@@ -177,7 +177,7 @@ public class JugadoresJpaController implements Serializable {
             em.close();
         }
     }
-
+    
     public int getJugadoresCount() {
         EntityManager em = getEntityManager();
         try {

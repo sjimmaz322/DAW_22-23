@@ -155,7 +155,24 @@ public class Personajes implements Serializable {
 
     @Override
     public String toString() {
-        return "Personajes[ id=" + id + " ]";
+        StringBuilder sb = new StringBuilder();
+        sb.append("---***---").append("\n");
+        sb.append("Nombre: ").append(nombre).append("\n");
+        sb.append("Clase: ").append(arquetipo).append("\n");
+        sb.append("Trasfondo: ").append(trasfondo).append("\n");
+        sb.append("Nivel: ").append(nivel).append("\n");
+        sb.append("Moralidad: ").append(alineacion).append("\n");
+        sb.append("Jugador por: ").append(idJugador.getApodo()).append("\n");
+        sb.append("Jugador en: ").append(listaPartidasPersonaje()).append("\n");
+        sb.append("---***---");
+        return sb.toString();
     }
-    
+
+    private String listaPartidasPersonaje() {
+        StringBuilder tmp = new StringBuilder();
+        for (Partidas p : partidasList) {
+            tmp.append("\n").append("\t").append(p.getNombreCampania());
+        }
+        return tmp.toString();
+    }
 }

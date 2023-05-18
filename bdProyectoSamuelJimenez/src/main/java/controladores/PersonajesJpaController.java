@@ -24,7 +24,7 @@ import javax.persistence.Persistence;
  * @author sajm <sjimmaz322 at sjimmaz322@g.educaand.es>
  */
 public class PersonajesJpaController implements Serializable {
-
+    
     public PersonajesJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
@@ -32,13 +32,12 @@ public class PersonajesJpaController implements Serializable {
     public PersonajesJpaController() {
         this.emf = Persistence.createEntityManagerFactory("bdProyectoSamuelJimenez");
     }
-
     private EntityManagerFactory emf = null;
-
+    
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
-
+    
     public void create(Personajes personajes) {
         if (personajes.getPartidasList() == null) {
             personajes.setPartidasList(new ArrayList<Partidas>());
@@ -79,7 +78,7 @@ public class PersonajesJpaController implements Serializable {
             }
         }
     }
-
+    
     public void edit(Personajes personajes) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
@@ -143,7 +142,7 @@ public class PersonajesJpaController implements Serializable {
             }
         }
     }
-
+    
     public void destroy(Integer id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
@@ -174,15 +173,15 @@ public class PersonajesJpaController implements Serializable {
             }
         }
     }
-
+    
     public List<Personajes> findPersonajesEntities() {
         return findPersonajesEntities(true, -1, -1);
     }
-
+    
     public List<Personajes> findPersonajesEntities(int maxResults, int firstResult) {
         return findPersonajesEntities(false, maxResults, firstResult);
     }
-
+    
     private List<Personajes> findPersonajesEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
@@ -198,7 +197,7 @@ public class PersonajesJpaController implements Serializable {
             em.close();
         }
     }
-
+    
     public Personajes findPersonajes(Integer id) {
         EntityManager em = getEntityManager();
         try {
@@ -207,7 +206,7 @@ public class PersonajesJpaController implements Serializable {
             em.close();
         }
     }
-
+    
     public int getPersonajesCount() {
         EntityManager em = getEntityManager();
         try {
@@ -220,5 +219,5 @@ public class PersonajesJpaController implements Serializable {
             em.close();
         }
     }
-
+    
 }

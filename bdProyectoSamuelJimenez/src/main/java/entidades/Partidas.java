@@ -129,7 +129,15 @@ public class Partidas implements Serializable {
 
     @Override
     public String toString() {
-        return "entidades.Partidas[ numPartida=" + numPartida + " ]";
+        StringBuilder sb = new StringBuilder();
+        sb.append("---***---").append("\n");
+        sb.append("Título: ").append(nombreCampania).append("\n");
+        sb.append("Dirigida por: ").append(nomDirector).append("\n");
+        sb.append("Nº Sesiones: ").append(numSesiones).append("\n");
+        sb.append("Sistema: ").append(sistema).append("\n");
+        sb.append("Participante: ").append(idPersonaje.getNombre()).append("\n");
+        sb.append("---***---");
+        return sb.toString();
     }
-    
+
 }
