@@ -24,7 +24,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author sajm <sjimmaz322 at sjimmaz322@g.educaand.es>
+ * @author samuel
  */
 @Entity
 @Table(name = "personajes")
@@ -158,21 +158,22 @@ public class Personajes implements Serializable {
         StringBuilder sb = new StringBuilder();
         sb.append("---***---").append("\n");
         sb.append("Nombre: ").append(nombre).append("\n");
-        sb.append("Clase: ").append(arquetipo).append("\n");
+        sb.append("Arquetipo: ").append(arquetipo).append("\n");
         sb.append("Trasfondo: ").append(trasfondo).append("\n");
         sb.append("Nivel: ").append(nivel).append("\n");
-        sb.append("Moralidad: ").append(alineacion).append("\n");
-        sb.append("Jugador por: ").append(idJugador.getApodo()).append("\n");
-        sb.append("Jugador en: ").append(listaPartidasPersonaje()).append("\n");
+        sb.append("Alineación: ").append(alineacion).append("\n");
+        sb.append("Jugado por: ").append(idJugador.getApodo()).append("\n");
+        sb.append("Usado en: \n").append(toStringPartidas()).append("\n");
         sb.append("---***---");
         return sb.toString();
     }
 
-    private String listaPartidasPersonaje() {
+    private String toStringPartidas() {
         StringBuilder tmp = new StringBuilder();
         for (Partidas p : partidasList) {
-            tmp.append("\n").append("\t").append(p.getNombreCampania());
+            tmp.append("\t").append(p.getNombreCampania());
         }
         return tmp.toString();
     }
+
 }

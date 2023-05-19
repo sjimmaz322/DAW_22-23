@@ -11,6 +11,7 @@ import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+import entidades.Usuarios;
 import entidades.Personajes;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +21,7 @@ import javax.persistence.Persistence;
 
 /**
  *
- * @author sajm <sjimmaz322 at sjimmaz322@g.educaand.es>
+ * @author samuel
  */
 public class JugadoresJpaController implements Serializable {
     
@@ -45,6 +46,11 @@ public class JugadoresJpaController implements Serializable {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
+            Usuarios codUsuario = jugadores.getCodUsuario();
+            if (codUsuario != null) {
+                codUsuario = em.getReference(codUsuario.getClass(), codUsuario.getCodUsuario());
+                jugadores.setCodUsuario(codUsuario);
+            }
             List<Personajes> attachedPersonajesList = new ArrayList<Personajes>();
             for (Personajes personajesListPersonajesToAttach : jugadores.getPersonajesList()) {
                 personajesListPersonajesToAttach = em.getReference(personajesListPersonajesToAttach.getClass(), personajesListPersonajesToAttach.getId());
@@ -52,6 +58,15 @@ public class JugadoresJpaController implements Serializable {
             }
             jugadores.setPersonajesList(attachedPersonajesList);
             em.persist(jugadores);
+            if (codUsuario != null) {
+                Jugadores oldJugadorOfCodUsuario = codUsuario.getJugador();
+                if (oldJugadorOfCodUsuario != null) {
+                    oldJugadorOfCodUsuario.setCodUsuario(null);
+                    oldJugadorOfCodUsuario = em.merge(oldJugadorOfCodUsuario);
+                }
+                codUsuario.setJugador(jugadores);
+                codUsuario = em.merge(codUsuario);
+            }
             for (Personajes personajesListPersonajes : jugadores.getPersonajesList()) {
                 Jugadores oldIdJugadorOfPersonajesListPersonajes = personajesListPersonajes.getIdJugador();
                 personajesListPersonajes.setIdJugador(jugadores);
@@ -75,8 +90,14 @@ public class JugadoresJpaController implements Serializable {
             em = getEntityManager();
             em.getTransaction().begin();
             Jugadores persistentJugadores = em.find(Jugadores.class, jugadores.getId());
+            Usuarios codUsuarioOld = persistentJugadores.getCodUsuario();
+            Usuarios codUsuarioNew = jugadores.getCodUsuario();
             List<Personajes> personajesListOld = persistentJugadores.getPersonajesList();
             List<Personajes> personajesListNew = jugadores.getPersonajesList();
+            if (codUsuarioNew != null) {
+                codUsuarioNew = em.getReference(codUsuarioNew.getClass(), codUsuarioNew.getCodUsuario());
+                jugadores.setCodUsuario(codUsuarioNew);
+            }
             List<Personajes> attachedPersonajesListNew = new ArrayList<Personajes>();
             for (Personajes personajesListNewPersonajesToAttach : personajesListNew) {
                 personajesListNewPersonajesToAttach = em.getReference(personajesListNewPersonajesToAttach.getClass(), personajesListNewPersonajesToAttach.getId());
@@ -85,6 +106,19 @@ public class JugadoresJpaController implements Serializable {
             personajesListNew = attachedPersonajesListNew;
             jugadores.setPersonajesList(personajesListNew);
             jugadores = em.merge(jugadores);
+            if (codUsuarioOld != null && !codUsuarioOld.equals(codUsuarioNew)) {
+                codUsuarioOld.setJugador(null);
+                codUsuarioOld = em.merge(codUsuarioOld);
+            }
+            if (codUsuarioNew != null && !codUsuarioNew.equals(codUsuarioOld)) {
+                Jugadores oldJugadorOfCodUsuario = codUsuarioNew.getJugador();
+                if (oldJugadorOfCodUsuario != null) {
+                    oldJugadorOfCodUsuario.setCodUsuario(null);
+                    oldJugadorOfCodUsuario = em.merge(oldJugadorOfCodUsuario);
+                }
+                codUsuarioNew.setJugador(jugadores);
+                codUsuarioNew = em.merge(codUsuarioNew);
+            }
             for (Personajes personajesListOldPersonajes : personajesListOld) {
                 if (!personajesListNew.contains(personajesListOldPersonajes)) {
                     personajesListOldPersonajes.setIdJugador(null);
@@ -130,6 +164,11 @@ public class JugadoresJpaController implements Serializable {
                 jugadores.getId();
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The jugadores with id " + id + " no longer exists.", enfe);
+            }
+            Usuarios codUsuario = jugadores.getCodUsuario();
+            if (codUsuario != null) {
+                codUsuario.setJugador(null);
+                codUsuario = em.merge(codUsuario);
             }
             List<Personajes> personajesList = jugadores.getPersonajesList();
             for (Personajes personajesListPersonajes : personajesList) {

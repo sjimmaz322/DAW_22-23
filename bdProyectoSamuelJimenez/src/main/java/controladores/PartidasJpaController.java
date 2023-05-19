@@ -19,14 +19,13 @@ import javax.persistence.Persistence;
 
 /**
  *
- * @author sajm <sjimmaz322 at sjimmaz322@g.educaand.es>
+ * @author samuel
  */
 public class PartidasJpaController implements Serializable {
 
     public PartidasJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
-
     public PartidasJpaController() {
         this.emf = Persistence.createEntityManagerFactory("bdProyectoSamuelJimenez");
     }
@@ -168,5 +167,5 @@ public class PartidasJpaController implements Serializable {
             em.close();
         }
     }
-
+    
 }

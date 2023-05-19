@@ -7,9 +7,11 @@ package aplicacion;
 import controladores.JugadoresJpaController;
 import controladores.PartidasJpaController;
 import controladores.PersonajesJpaController;
+import controladores.UsuariosJpaController;
 import entidades.Jugadores;
 import entidades.Partidas;
 import entidades.Personajes;
+import entidades.Usuarios;
 import java.util.List;
 
 /**
@@ -17,23 +19,27 @@ import java.util.List;
  * @author sajm <sjimmaz322 at sjimmaz322@g.educaand.es>
  */
 public class BdProyectoSamuelJimenez {
-    
+
     public static void main(String[] args) {
         //---
+        UsuariosJpaController ujc = new UsuariosJpaController();
         JugadoresJpaController jjc = new JugadoresJpaController();
         PersonajesJpaController pjc = new PersonajesJpaController();
         PartidasJpaController parjc = new PartidasJpaController();
         //---
+        System.out.println("---*** USUARIOS ***---");
+        List<Usuarios> listaUsuarios = ujc.findUsuariosEntities();
+        listaUsuarios.forEach(System.out::println);
         //---
-        System.out.println("---*** JUGADORES ***---");
+        System.out.println("\n---*** JUGADORES ***---");
         List<Jugadores> listaJugadores = jjc.findJugadoresEntities();
         listaJugadores.forEach(System.out::println);
         //---
-        System.out.println("---*** PERSONAJES ***---");
+        System.out.println("\n---*** PERSONAJES ***---");
         List<Personajes> listaPersonajes = pjc.findPersonajesEntities();
         listaPersonajes.forEach(System.out::println);
         //---
-        System.out.println("---*** PARTIDAS ***---");
+        System.out.println("\n---*** PARTIDAS ***---");
         List<Partidas> listaPartidas = parjc.findPartidasEntities();
         listaPartidas.forEach(System.out::println);
     }

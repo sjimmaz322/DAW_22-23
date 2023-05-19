@@ -12,16 +12,18 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author sajm <sjimmaz322 at sjimmaz322@g.educaand.es>
+ * @author samuel
  */
 @Entity
 @Table(name = "jugadores")
@@ -29,9 +31,9 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "Jugadores.findAll", query = "SELECT j FROM Jugadores j"),
     @NamedQuery(name = "Jugadores.findById", query = "SELECT j FROM Jugadores j WHERE j.id = :id"),
-    @NamedQuery(name = "Jugadores.findByNombre", query = "SELECT j FROM Jugadores j WHERE j.nombre = :nombre"),
     @NamedQuery(name = "Jugadores.findByApodo", query = "SELECT j FROM Jugadores j WHERE j.apodo = :apodo"),
-    @NamedQuery(name = "Jugadores.findByEdad", query = "SELECT j FROM Jugadores j WHERE j.edad = :edad")})
+    @NamedQuery(name = "Jugadores.findBySistemaPredilecto", query = "SELECT j FROM Jugadores j WHERE j.sistemaPredilecto = :sistemaPredilecto"),
+    @NamedQuery(name = "Jugadores.findByRolPreferido", query = "SELECT j FROM Jugadores j WHERE j.rolPreferido = :rolPreferido")})
 public class Jugadores implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -40,14 +42,17 @@ public class Jugadores implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
-    @Column(name = "nombre")
-    private String nombre;
     @Column(name = "apodo")
     private String apodo;
-    @Column(name = "edad")
-    private Integer edad;
+    @Column(name = "sistemaPredilecto")
+    private String sistemaPredilecto;
+    @Column(name = "rolPreferido")
+    private String rolPreferido;
     @OneToMany(mappedBy = "idJugador")
     private List<Personajes> personajesList;
+    @JoinColumn(name = "codUsuario", referencedColumnName = "codUsuario")
+    @OneToOne
+    private Usuarios codUsuario;
 
     public Jugadores() {
     }
@@ -64,14 +69,6 @@ public class Jugadores implements Serializable {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
     public String getApodo() {
         return apodo;
     }
@@ -80,12 +77,20 @@ public class Jugadores implements Serializable {
         this.apodo = apodo;
     }
 
-    public Integer getEdad() {
-        return edad;
+    public String getSistemaPredilecto() {
+        return sistemaPredilecto;
     }
 
-    public void setEdad(Integer edad) {
-        this.edad = edad;
+    public void setSistemaPredilecto(String sistemaPredilecto) {
+        this.sistemaPredilecto = sistemaPredilecto;
+    }
+
+    public String getRolPreferido() {
+        return rolPreferido;
+    }
+
+    public void setRolPreferido(String rolPreferido) {
+        this.rolPreferido = rolPreferido;
     }
 
     @XmlTransient
@@ -95,6 +100,14 @@ public class Jugadores implements Serializable {
 
     public void setPersonajesList(List<Personajes> personajesList) {
         this.personajesList = personajesList;
+    }
+
+    public Usuarios getCodUsuario() {
+        return codUsuario;
+    }
+
+    public void setCodUsuario(Usuarios codUsuario) {
+        this.codUsuario = codUsuario;
     }
 
     @Override
@@ -121,17 +134,19 @@ public class Jugadores implements Serializable {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("---***---").append("\n");
-        sb.append("Nombre: ").append(nombre).append("\n");
-        sb.append("A.k.a: ").append(apodo).append("\n");
-        sb.append("Lista de personajes:").append(listaPersonajesUsados()).append("\n");
-        sb.append("---***---");
+        sb.append("Conocido como: ").append(apodo).append("\n");
+        sb.append("Suele jugar a: ").append(sistemaPredilecto).append("\n");
+        sb.append("Juega como: ").append(rolPreferido).append("\n");
+        sb.append("Sus personajes son: \n").append(toStringPersonajes()).append("\n");
+        sb.append("Se llama: ").append(codUsuario.getNombre()).append("\n");
+        sb.append("---***---").append("\n");
         return sb.toString();
     }
 
-    private String listaPersonajesUsados() {
+    private String toStringPersonajes() {
         StringBuilder tmp = new StringBuilder();
         for (Personajes p : personajesList) {
-            tmp.append("\n").append("\t").append(p.getNombre());
+            tmp.append("\t").append(p.getNombre());
         }
         return tmp.toString();
     }

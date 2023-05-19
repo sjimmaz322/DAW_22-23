@@ -4,6 +4,7 @@
  */
 package entidades;
 
+import controladores.PersonajesJpaController;
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -20,7 +21,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author sajm <sjimmaz322 at sjimmaz322@g.educaand.es>
+ * @author samuel
  */
 @Entity
 @Table(name = "partidas")
@@ -131,11 +132,11 @@ public class Partidas implements Serializable {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("---***---").append("\n");
-        sb.append("Título: ").append(nombreCampania).append("\n");
         sb.append("Dirigida por: ").append(nomDirector).append("\n");
+        sb.append("Título: ").append(nombreCampania).append("\n");
         sb.append("Nº Sesiones: ").append(numSesiones).append("\n");
-        sb.append("Sistema: ").append(sistema).append("\n");
-        sb.append("Participante: ").append(idPersonaje.getNombre()).append("\n");
+        sb.append("Sistema utilizado: ").append(sistema).append("\n");
+        sb.append("Participando: ").append(idPersonaje.getNombre()).append("\n");
         sb.append("---***---");
         return sb.toString();
     }
