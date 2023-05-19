@@ -65,6 +65,14 @@ public class Usuarios implements Serializable {
         this.codUsuario = codUsuario;
     }
 
+    public Usuarios(String nombre, Integer edad, String direccion, Date fecCumpleanios) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.direccion = direccion;
+        this.fecCumpleanios = fecCumpleanios;
+        this.jugador = null;
+    }
+
     public Integer getCodUsuario() {
         return codUsuario;
     }
@@ -147,7 +155,11 @@ public class Usuarios implements Serializable {
         sb.append("Direccion: ").append(direccion).append("\n");
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         sb.append("Cumpleaños: ").append(this.getFecCumpleanios().format(dtf)).append("\n");
-        sb.append("A.k.a: ").append(jugador.getApodo()).append("\n");
+        try {
+            sb.append("A.k.a: ").append(jugador.getApodo()).append("\n");
+        } catch (NullPointerException npe) {
+            sb.append("No tiene jugador asociado").append("\n");
+        }
         sb.append("---***---");
         return sb.toString();
     }

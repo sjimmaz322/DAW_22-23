@@ -68,6 +68,15 @@ public class Personajes implements Serializable {
         this.id = id;
     }
 
+    public Personajes(String nombre, String arquetipo, String trasfondo, Integer nivel, String alineacion) {
+        this.nombre = nombre;
+        this.arquetipo = arquetipo;
+        this.trasfondo = trasfondo;
+        this.nivel = nivel;
+        this.alineacion = alineacion;
+        this.idJugador = null;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -162,8 +171,20 @@ public class Personajes implements Serializable {
         sb.append("Trasfondo: ").append(trasfondo).append("\n");
         sb.append("Nivel: ").append(nivel).append("\n");
         sb.append("Alineación: ").append(alineacion).append("\n");
-        sb.append("Jugado por: ").append(idJugador.getApodo()).append("\n");
-        sb.append("Usado en: \n").append(toStringPartidas()).append("\n");
+        try {
+            sb.append("Jugado por: ").append(idJugador.getApodo()).append("\n");
+        } catch (NullPointerException npe) {
+            sb.append("No hay jugador asociado").append("\n");
+        }
+        try {
+            if (!toStringPartidas().equalsIgnoreCase("")) {
+                sb.append("Usado en: \n").append(toStringPartidas()).append("\n");
+            } else {
+                sb.append("Usado en: \n").append("Ninguna partida").append("\n");
+            }
+        } catch (NullPointerException npe) {
+            sb.append("\n").append("No hay campañas en las que participe").append("\n");
+        }
         sb.append("---***---");
         return sb.toString();
     }

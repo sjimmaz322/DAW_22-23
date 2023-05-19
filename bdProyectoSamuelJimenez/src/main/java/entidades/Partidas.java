@@ -60,6 +60,15 @@ public class Partidas implements Serializable {
         this.numPartida = numPartida;
     }
 
+    public Partidas(String nomDirector, String nombreCampania, Integer numSesiones, String sistema) {
+        this.nomDirector = nomDirector;
+        this.nombreCampania = nombreCampania;
+        this.numSesiones = numSesiones;
+        this.sistema = sistema;
+        this.idPersonaje = null;
+    }
+    
+
     public Integer getNumPartida() {
         return numPartida;
     }
@@ -136,7 +145,11 @@ public class Partidas implements Serializable {
         sb.append("Título: ").append(nombreCampania).append("\n");
         sb.append("Nº Sesiones: ").append(numSesiones).append("\n");
         sb.append("Sistema utilizado: ").append(sistema).append("\n");
-        sb.append("Participando: ").append(idPersonaje.getNombre()).append("\n");
+        try {
+            sb.append("Participando: ").append(idPersonaje.getNombre()).append("\n");
+        } catch (NullPointerException npe) {
+            sb.append("No hay personajes participando").append("\n");
+        }
         sb.append("---***---");
         return sb.toString();
     }

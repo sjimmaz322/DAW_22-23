@@ -5,6 +5,7 @@
 package entidades;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -59,6 +60,14 @@ public class Jugadores implements Serializable {
 
     public Jugadores(Integer id) {
         this.id = id;
+    }
+
+    public Jugadores(String apodo, String sistemaPredilecto, String rolPreferido, List<Personajes> personajesList) {
+        this.apodo = apodo;
+        this.sistemaPredilecto = sistemaPredilecto;
+        this.rolPreferido = rolPreferido;
+        this.personajesList = new ArrayList<>();
+        this.codUsuario = null;
     }
 
     public Integer getId() {
@@ -137,9 +146,17 @@ public class Jugadores implements Serializable {
         sb.append("Conocido como: ").append(apodo).append("\n");
         sb.append("Suele jugar a: ").append(sistemaPredilecto).append("\n");
         sb.append("Juega como: ").append(rolPreferido).append("\n");
-        sb.append("Sus personajes son: \n").append(toStringPersonajes()).append("\n");
-        sb.append("Se llama: ").append(codUsuario.getNombre()).append("\n");
-        sb.append("---***---").append("\n");
+        if (!toStringPersonajes().equalsIgnoreCase("")) {
+            sb.append("Sus personajes son: \n").append(toStringPersonajes()).append("\n");
+        } else {
+            sb.append("Sus personajes son: \n").append("No hay personajes asociados").append("\n");
+        }
+        try {
+            sb.append("Se llama: ").append(codUsuario.getNombre()).append("\n");
+        } catch (NullPointerException npe) {
+            sb.append("No hay usuario asociado").append("\n");
+        }
+        sb.append("---***---");
         return sb.toString();
     }
 

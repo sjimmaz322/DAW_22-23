@@ -12,6 +12,7 @@ import entidades.Jugadores;
 import entidades.Partidas;
 import entidades.Personajes;
 import entidades.Usuarios;
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -26,21 +27,23 @@ public class BdProyectoSamuelJimenez {
         JugadoresJpaController jjc = new JugadoresJpaController();
         PersonajesJpaController pjc = new PersonajesJpaController();
         PartidasJpaController parjc = new PartidasJpaController();
-        //---
-        System.out.println("---*** USUARIOS ***---");
-        List<Usuarios> listaUsuarios = ujc.findUsuariosEntities();
-        listaUsuarios.forEach(System.out::println);
-        //---
-        System.out.println("\n---*** JUGADORES ***---");
-        List<Jugadores> listaJugadores = jjc.findJugadoresEntities();
-        listaJugadores.forEach(System.out::println);
-        //---
-        System.out.println("\n---*** PERSONAJES ***---");
-        List<Personajes> listaPersonajes = pjc.findPersonajesEntities();
-        listaPersonajes.forEach(System.out::println);
-        //---
-        System.out.println("\n---*** PARTIDAS ***---");
-        List<Partidas> listaPartidas = parjc.findPartidasEntities();
-        listaPartidas.forEach(System.out::println);
+//        //---
+//        ujc.create(new Usuarios("Nacho", 33, "Calle Perico", utilidades.Utilidades.localToDate(LocalDate.of(1933, 9, 15))));
+//        //---
+//        System.out.println("---*** USUARIOS ***---");
+//        List<Usuarios> listaUsuarios = ujc.findUsuariosEntities();
+//        listaUsuarios.forEach(System.out::println);
+//        //---
+//        System.out.println("\n---*** JUGADORES ***---");
+//        List<Jugadores> listaJugadores = jjc.findJugadoresEntities();
+//        listaJugadores.forEach(System.out::println);
+//        //---
+//        System.out.println("\n---*** PERSONAJES ***---");
+//        List<Personajes> listaPersonajes = pjc.findPersonajesEntities();
+//        listaPersonajes.forEach(System.out::println);
+//        //---
+//        System.out.println("\n---*** PARTIDAS ***---");
+//        List<Partidas> listaPartidas = parjc.findPartidasEntities();
+//        listaPartidas.forEach(System.out::println);
     }
 }
