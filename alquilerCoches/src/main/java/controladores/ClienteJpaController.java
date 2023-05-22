@@ -245,7 +245,7 @@ public class ClienteJpaController implements Serializable {
         Query q = em.createNamedQuery("Cliente.findByNif");
         // Se establece el parámetro de la consulta
         q.setParameter("nif", nif);
-        return (Cliente)q.getSingleResult();
+        return (Cliente) q.getSingleResult();
     }
     
 }

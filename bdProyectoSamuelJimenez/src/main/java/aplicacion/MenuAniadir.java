@@ -26,23 +26,69 @@ public class MenuAniadir extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnUsuario = new javax.swing.JButton();
+        btnJugador = new javax.swing.JButton();
+        btnPersonaje = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("MENÚ AÑADIR");
+        setLocation(new java.awt.Point(400, 200));
         setResizable(false);
+
+        btnUsuario.setText("USUARIOS");
+        btnUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUsuarioActionPerformed(evt);
+            }
+        });
+
+        btnJugador.setText("JUGADORES");
+
+        btnPersonaje.setText("PERSONAJES");
+
+        jLabel1.setText("FONDO");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(107, 107, 107)
+                .addComponent(btnUsuario)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnJugador)
+                .addGap(133, 133, 133))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel1)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(339, 339, 339)
+                .addComponent(btnPersonaje)
+                .addContainerGap(356, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel1)
+                .addGap(87, 87, 87)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnUsuario)
+                    .addComponent(btnJugador))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 235, Short.MAX_VALUE)
+                .addComponent(btnPersonaje)
+                .addGap(216, 216, 216))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuarioActionPerformed
+        // TODO add your handling code here:
+        java.awt.EventQueue.invokeLater(() -> {
+            new AniadirUsuario().setVisible(true);
+        });
+    }//GEN-LAST:event_btnUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -80,5 +126,9 @@ public class MenuAniadir extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnJugador;
+    private javax.swing.JButton btnPersonaje;
+    private javax.swing.JButton btnUsuario;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

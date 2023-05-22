@@ -11,9 +11,7 @@ import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import entidades.Jugadores;
-import entidades.Partidas;
 import entidades.Personajes;
-import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -39,9 +37,6 @@ public class PersonajesJpaController implements Serializable {
     }
 
     public void create(Personajes personajes) {
-        if (personajes.getPartidasList() == null) {
-            personajes.setPartidasList(new ArrayList<Partidas>());
-        }
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -51,25 +46,10 @@ public class PersonajesJpaController implements Serializable {
                 idJugador = em.getReference(idJugador.getClass(), idJugador.getId());
                 personajes.setIdJugador(idJugador);
             }
-            List<Partidas> attachedPartidasList = new ArrayList<Partidas>();
-            for (Partidas partidasListPartidasToAttach : personajes.getPartidasList()) {
-                partidasListPartidasToAttach = em.getReference(partidasListPartidasToAttach.getClass(), partidasListPartidasToAttach.getNumPartida());
-                attachedPartidasList.add(partidasListPartidasToAttach);
-            }
-            personajes.setPartidasList(attachedPartidasList);
             em.persist(personajes);
             if (idJugador != null) {
                 idJugador.getPersonajesList().add(personajes);
                 idJugador = em.merge(idJugador);
-            }
-            for (Partidas partidasListPartidas : personajes.getPartidasList()) {
-                Personajes oldIdPersonajeOfPartidasListPartidas = partidasListPartidas.getIdPersonaje();
-                partidasListPartidas.setIdPersonaje(personajes);
-                partidasListPartidas = em.merge(partidasListPartidas);
-                if (oldIdPersonajeOfPartidasListPartidas != null) {
-                    oldIdPersonajeOfPartidasListPartidas.getPartidasList().remove(partidasListPartidas);
-                    oldIdPersonajeOfPartidasListPartidas = em.merge(oldIdPersonajeOfPartidasListPartidas);
-                }
             }
             em.getTransaction().commit();
         } finally {
@@ -87,19 +67,10 @@ public class PersonajesJpaController implements Serializable {
             Personajes persistentPersonajes = em.find(Personajes.class, personajes.getId());
             Jugadores idJugadorOld = persistentPersonajes.getIdJugador();
             Jugadores idJugadorNew = personajes.getIdJugador();
-            List<Partidas> partidasListOld = persistentPersonajes.getPartidasList();
-            List<Partidas> partidasListNew = personajes.getPartidasList();
             if (idJugadorNew != null) {
                 idJugadorNew = em.getReference(idJugadorNew.getClass(), idJugadorNew.getId());
                 personajes.setIdJugador(idJugadorNew);
             }
-            List<Partidas> attachedPartidasListNew = new ArrayList<Partidas>();
-            for (Partidas partidasListNewPartidasToAttach : partidasListNew) {
-                partidasListNewPartidasToAttach = em.getReference(partidasListNewPartidasToAttach.getClass(), partidasListNewPartidasToAttach.getNumPartida());
-                attachedPartidasListNew.add(partidasListNewPartidasToAttach);
-            }
-            partidasListNew = attachedPartidasListNew;
-            personajes.setPartidasList(partidasListNew);
             personajes = em.merge(personajes);
             if (idJugadorOld != null && !idJugadorOld.equals(idJugadorNew)) {
                 idJugadorOld.getPersonajesList().remove(personajes);
@@ -108,23 +79,6 @@ public class PersonajesJpaController implements Serializable {
             if (idJugadorNew != null && !idJugadorNew.equals(idJugadorOld)) {
                 idJugadorNew.getPersonajesList().add(personajes);
                 idJugadorNew = em.merge(idJugadorNew);
-            }
-            for (Partidas partidasListOldPartidas : partidasListOld) {
-                if (!partidasListNew.contains(partidasListOldPartidas)) {
-                    partidasListOldPartidas.setIdPersonaje(null);
-                    partidasListOldPartidas = em.merge(partidasListOldPartidas);
-                }
-            }
-            for (Partidas partidasListNewPartidas : partidasListNew) {
-                if (!partidasListOld.contains(partidasListNewPartidas)) {
-                    Personajes oldIdPersonajeOfPartidasListNewPartidas = partidasListNewPartidas.getIdPersonaje();
-                    partidasListNewPartidas.setIdPersonaje(personajes);
-                    partidasListNewPartidas = em.merge(partidasListNewPartidas);
-                    if (oldIdPersonajeOfPartidasListNewPartidas != null && !oldIdPersonajeOfPartidasListNewPartidas.equals(personajes)) {
-                        oldIdPersonajeOfPartidasListNewPartidas.getPartidasList().remove(partidasListNewPartidas);
-                        oldIdPersonajeOfPartidasListNewPartidas = em.merge(oldIdPersonajeOfPartidasListNewPartidas);
-                    }
-                }
             }
             em.getTransaction().commit();
         } catch (Exception ex) {
@@ -159,11 +113,6 @@ public class PersonajesJpaController implements Serializable {
             if (idJugador != null) {
                 idJugador.getPersonajesList().remove(personajes);
                 idJugador = em.merge(idJugador);
-            }
-            List<Partidas> partidasList = personajes.getPartidasList();
-            for (Partidas partidasListPartidas : partidasList) {
-                partidasListPartidas.setIdPersonaje(null);
-                partidasListPartidas = em.merge(partidasListPartidas);
             }
             em.remove(personajes);
             em.getTransaction().commit();

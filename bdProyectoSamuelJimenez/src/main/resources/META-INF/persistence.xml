@@ -3,13 +3,12 @@
   <persistence-unit name="bdProyectoSamuelJimenez" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>entidades.Personajes</class>
-    <class>entidades.Partidas</class>
     <class>entidades.Jugadores</class>
     <class>entidades.Usuarios</class>
     <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/bdProyectoSamuelJimenez?zeroDateTimeBehavior=CONVERT_TO_NULL"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://192.168.56.101:3306/bdProyectoSamuelJimenez?zeroDateTimeBehavior=CONVERT_TO_NULL"/>
       <!-- <property name="javax.persistence.jdbc.url" value="jdbc:mysql://192.168.56.101:3306/bdProyectoSamuelJimenez?zeroDateTimeBehavior=CONVERT_TO_NULL"/>-->
-      <property name="javax.persistence.jdbc.user" value="root"/>
+      <property name="javax.persistence.jdbc.user" value="user"/>
       <!-- <property name="javax.persistence.jdbc.user" value="user"/>-->
       <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
       <property name="javax.persistence.jdbc.password" value="admin"/>

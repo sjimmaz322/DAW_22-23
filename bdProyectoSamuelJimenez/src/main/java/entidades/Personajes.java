@@ -58,9 +58,7 @@ public class Personajes implements Serializable {
     @JoinColumn(name = "idJugador", referencedColumnName = "id")
     @ManyToOne
     private Jugadores idJugador;
-    @OneToMany(mappedBy = "idPersonaje")
-    private List<Partidas> partidasList;
-
+   
     public Personajes() {
     }
 
@@ -133,14 +131,6 @@ public class Personajes implements Serializable {
         this.idJugador = idJugador;
     }
 
-    @XmlTransient
-    public List<Partidas> getPartidasList() {
-        return partidasList;
-    }
-
-    public void setPartidasList(List<Partidas> partidasList) {
-        this.partidasList = partidasList;
-    }
 
     @Override
     public int hashCode() {
@@ -176,25 +166,11 @@ public class Personajes implements Serializable {
         } catch (NullPointerException npe) {
             sb.append("No hay jugador asociado").append("\n");
         }
-        try {
-            if (!toStringPartidas().equalsIgnoreCase("")) {
-                sb.append("Usado en: \n").append(toStringPartidas()).append("\n");
-            } else {
-                sb.append("Usado en: \n").append("Ninguna partida").append("\n");
-            }
-        } catch (NullPointerException npe) {
-            sb.append("\n").append("No hay campañas en las que participe").append("\n");
-        }
+      
         sb.append("---***---");
         return sb.toString();
     }
 
-    private String toStringPartidas() {
-        StringBuilder tmp = new StringBuilder();
-        for (Partidas p : partidasList) {
-            tmp.append("\t").append(p.getNombreCampania());
-        }
-        return tmp.toString();
-    }
+   
 
 }
