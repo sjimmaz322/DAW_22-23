@@ -44,6 +44,11 @@ public class MenuAniadir extends javax.swing.JFrame {
         });
 
         btnJugador.setText("JUGADORES");
+        btnJugador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnJugadorActionPerformed(evt);
+            }
+        });
 
         btnPersonaje.setText("PERSONAJES");
 
@@ -89,6 +94,10 @@ public class MenuAniadir extends javax.swing.JFrame {
             new AniadirUsuario().setVisible(true);
         });
     }//GEN-LAST:event_btnUsuarioActionPerformed
+
+    private void btnJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJugadorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnJugadorActionPerformed
 
     /**
      * @param args the command line arguments

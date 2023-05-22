@@ -6,11 +6,13 @@ package aplicacion;
 
 import controladores.UsuariosJpaController;
 import entidades.Usuarios;
-import java.time.Instant;
+import java.awt.Window;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -132,10 +134,14 @@ public class AniadirUsuario extends javax.swing.JFrame {
         u.setEdad(Integer.valueOf(campoEdad.getText()));
         u.setDireccion(campoDireccion.getText());
         u.setFechaInicio(fecha);
-
-        ujp.create(u);
-        if (ujp.findUsuarios(u.getCodUsuario()) != null) {
-            JOptionPane.showMessageDialog(null, "Usuario creado correctamente");
+        if (ujp.findUsuariosEntities().contains(u)) {
+            JOptionPane.showMessageDialog(null, "Este usuario ya se encuentra en la base de datos");
+        } else {
+            ujp.create(u);
+            if (ujp.findUsuarios(u.getCodUsuario()) != null) {
+                JOptionPane.showMessageDialog(null, "Usuario creado correctamente");
+                this.dispose();
+            }
         }
 
     }//GEN-LAST:event_btnAniadirActionPerformed

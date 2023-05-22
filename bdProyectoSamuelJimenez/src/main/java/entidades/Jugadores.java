@@ -7,6 +7,7 @@ package entidades;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -127,17 +128,30 @@ public class Jugadores implements Serializable {
     }
 
     @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Jugadores)) {
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
             return false;
         }
-        Jugadores other = (Jugadores) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if (getClass() != obj.getClass()) {
             return false;
         }
-        return true;
+        final Jugadores other = (Jugadores) obj;
+        if (!Objects.equals(this.apodo, other.apodo)) {
+            return false;
+        }
+        if (!Objects.equals(this.sistemaPredilecto, other.sistemaPredilecto)) {
+            return false;
+        }
+        if (!Objects.equals(this.rolPreferido, other.rolPreferido)) {
+            return false;
+        }
+        return Objects.equals(this.codUsuario, other.codUsuario);
     }
+
+
 
     @Override
     public String toString() {
