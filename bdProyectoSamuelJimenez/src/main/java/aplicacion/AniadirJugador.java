@@ -51,21 +51,31 @@ public class AniadirJugador extends javax.swing.JFrame {
         radioDM = new javax.swing.JRadioButton();
         radioPJ = new javax.swing.JRadioButton();
         btnAniadir = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(500, 200));
         setPreferredSize(new java.awt.Dimension(800, 600));
         setSize(new java.awt.Dimension(800, 600));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("APODO:");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(221, 125, -1, -1));
 
         jLabel2.setText("SISTEMA:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(221, 188, -1, -1));
 
         jLabel3.setText("ROL:");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(221, 240, -1, -1));
 
         jScrollPane1.setViewportView(listaUsuario);
 
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(385, 283, 273, -1));
+
         jLabel4.setText("JUGADOR ASOCIADO:");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(221, 283, -1, -1));
+        getContentPane().add(campoApodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(385, 123, 166, -1));
+        getContentPane().add(campoSistema, new org.netbeans.lib.awtextra.AbsoluteConstraints(385, 184, 166, -1));
 
         radioDM.setText("DM");
         radioDM.addActionListener(new java.awt.event.ActionListener() {
@@ -73,6 +83,7 @@ public class AniadirJugador extends javax.swing.JFrame {
                 radioDMActionPerformed(evt);
             }
         });
+        getContentPane().add(radioDM, new org.netbeans.lib.awtextra.AbsoluteConstraints(385, 236, -1, -1));
 
         radioPJ.setText("PJ");
         radioPJ.addActionListener(new java.awt.event.ActionListener() {
@@ -80,6 +91,7 @@ public class AniadirJugador extends javax.swing.JFrame {
                 radioPJActionPerformed(evt);
             }
         });
+        getContentPane().add(radioPJ, new org.netbeans.lib.awtextra.AbsoluteConstraints(443, 236, -1, -1));
 
         btnAniadir.setText("AÑADIR");
         btnAniadir.addActionListener(new java.awt.event.ActionListener() {
@@ -87,60 +99,11 @@ public class AniadirJugador extends javax.swing.JFrame {
                 btnAniadirActionPerformed(evt);
             }
         });
+        getContentPane().add(btnAniadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 478, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(221, 221, 221)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))
-                        .addGap(53, 53, 53)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(radioDM)
-                                .addGap(18, 18, 18)
-                                .addComponent(radioPJ))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(campoSistema, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
-                                .addComponent(campoApodo, javax.swing.GroupLayout.Alignment.LEADING))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(340, 340, 340)
-                        .addComponent(btnAniadir)))
-                .addContainerGap(135, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(123, 123, 123)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(campoApodo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(46, 46, 46)
-                        .addComponent(jLabel2))
-                    .addComponent(campoSistema, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(radioDM)
-                    .addComponent(radioPJ))
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addGap(64, 64, 64)
-                .addComponent(btnAniadir)
-                .addContainerGap(101, Short.MAX_VALUE))
-        );
+        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\samue\\Documents\\NetBeansProjects\\DAW_22-23\\bdProyectoSamuelJimenez\\img\\fondoMenuPrincipal.jpg")); // NOI18N
+        jLabel5.setText("jLabel5");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -240,6 +203,7 @@ public class AniadirJugador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JList<String> listaUsuario;
     private javax.swing.JRadioButton radioDM;
