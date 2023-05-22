@@ -5,9 +5,7 @@
 package entidades;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -25,7 +23,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author samuel
+ * @author sajm <sjimmaz322 at sjimmaz322@g.educaand.es>
  */
 @Entity
 @Table(name = "jugadores")
@@ -61,22 +59,6 @@ public class Jugadores implements Serializable {
 
     public Jugadores(Integer id) {
         this.id = id;
-    }
-
-    public Jugadores(String apodo, String sistemaPredilecto, String rolPreferido, List<Personajes> personajesList) {
-        this.apodo = apodo;
-        this.sistemaPredilecto = sistemaPredilecto;
-        this.rolPreferido = rolPreferido;
-        this.personajesList = new ArrayList<>();
-        this.codUsuario = null;
-    }
-
-    public Jugadores(String apodo, String sistemaPredilecto, String rolPreferido, List<Personajes> personajesList, Usuarios codUsuario) {
-        this.apodo = apodo;
-        this.sistemaPredilecto = sistemaPredilecto;
-        this.rolPreferido = rolPreferido;
-        this.personajesList = new ArrayList<>();
-        this.codUsuario = codUsuario;
     }
 
     public Integer getId() {
@@ -136,55 +118,21 @@ public class Jugadores implements Serializable {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Jugadores)) {
             return false;
         }
-        if (getClass() != obj.getClass()) {
+        Jugadores other = (Jugadores) object;
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
-        final Jugadores other = (Jugadores) obj;
-        if (!Objects.equals(this.apodo, other.apodo)) {
-            return false;
-        }
-        if (!Objects.equals(this.sistemaPredilecto, other.sistemaPredilecto)) {
-            return false;
-        }
-        if (!Objects.equals(this.rolPreferido, other.rolPreferido)) {
-            return false;
-        }
-        return Objects.equals(this.codUsuario, other.codUsuario);
+        return true;
     }
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("---***---").append("\n");
-        sb.append("Conocido como: ").append(apodo).append("\n");
-        sb.append("Suele jugar a: ").append(sistemaPredilecto).append("\n");
-        sb.append("Juega como: ").append(rolPreferido).append("\n");
-        if (!toStringPersonajes().equalsIgnoreCase("")) {
-            sb.append("Sus personajes son: \n").append(toStringPersonajes()).append("\n");
-        } else {
-            sb.append("Sus personajes son: \n").append("No hay personajes asociados").append("\n");
-        }
-        try {
-            sb.append("Se llama: ").append(codUsuario.getNombre()).append("\n");
-        } catch (NullPointerException npe) {
-            sb.append("No hay usuario asociado").append("\n");
-        }
-        sb.append("---***---");
-        return sb.toString();
+        return "entidades.Jugadores[ id=" + id + " ]";
     }
-
-    private String toStringPersonajes() {
-        StringBuilder tmp = new StringBuilder();
-        for (Personajes p : personajesList) {
-            tmp.append("\t").append(p.getNombre());
-        }
-        return tmp.toString();
-    }
+    
 }

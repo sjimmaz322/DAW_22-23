@@ -5,7 +5,6 @@
 package entidades;
 
 import java.io.Serializable;
-import java.util.Objects;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,7 +21,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author samuel
+ * @author sajm <sjimmaz322 at sjimmaz322@g.educaand.es>
  */
 @Entity
 @Table(name = "personajes")
@@ -62,24 +61,6 @@ public class Personajes implements Serializable {
 
     public Personajes(Integer id) {
         this.id = id;
-    }
-
-    public Personajes(String nombre, String arquetipo, String trasfondo, Integer nivel, String alineacion) {
-        this.nombre = nombre;
-        this.arquetipo = arquetipo;
-        this.trasfondo = trasfondo;
-        this.nivel = nivel;
-        this.alineacion = alineacion;
-        this.idJugador = null;
-    }
-
-    public Personajes(String nombre, String arquetipo, String trasfondo, Integer nivel, String alineacion, Jugadores idJugador) {
-        this.nombre = nombre;
-        this.arquetipo = arquetipo;
-        this.trasfondo = trasfondo;
-        this.nivel = nivel;
-        this.alineacion = alineacion;
-        this.idJugador = idJugador;
     }
 
     public Integer getId() {
@@ -146,46 +127,21 @@ public class Personajes implements Serializable {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Personajes)) {
             return false;
         }
-        if (getClass() != obj.getClass()) {
+        Personajes other = (Personajes) object;
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
-        final Personajes other = (Personajes) obj;
-        if (!Objects.equals(this.nombre, other.nombre)) {
-            return false;
-        }
-        if (!Objects.equals(this.arquetipo, other.arquetipo)) {
-            return false;
-        }
-        if (!Objects.equals(this.alineacion, other.alineacion)) {
-            return false;
-        }
-        return Objects.equals(this.idJugador, other.idJugador);
+        return true;
     }
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("---***---").append("\n");
-        sb.append("Nombre: ").append(nombre).append("\n");
-        sb.append("Arquetipo: ").append(arquetipo).append("\n");
-        sb.append("Trasfondo: ").append(trasfondo).append("\n");
-        sb.append("Nivel: ").append(nivel).append("\n");
-        sb.append("Alineación: ").append(alineacion).append("\n");
-        try {
-            sb.append("Jugado por: ").append(idJugador.getApodo()).append("\n");
-        } catch (NullPointerException npe) {
-            sb.append("No hay jugador asociado").append("\n");
-        }
-
-        sb.append("---***---");
-        return sb.toString();
+        return "entidades.Personajes[ id=" + id + " ]";
     }
-
+    
 }

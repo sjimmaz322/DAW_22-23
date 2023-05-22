@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package aplicacion;
+package app;
 
 import controladores.JugadoresJpaController;
 import controladores.UsuariosJpaController;
@@ -55,7 +55,6 @@ public class AniadirJugador extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(500, 200));
-        setPreferredSize(new java.awt.Dimension(800, 600));
         setSize(new java.awt.Dimension(800, 600));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -101,7 +100,7 @@ public class AniadirJugador extends javax.swing.JFrame {
         });
         getContentPane().add(btnAniadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 478, -1, -1));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\samue\\Documents\\NetBeansProjects\\DAW_22-23\\bdProyectoSamuelJimenez\\img\\fondoMenuPrincipal.jpg")); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\samue\\Documents\\NetBeansProjects\\DAW_22-23\\bdProyectoSamuelJimenez\\src\\main\\resources\\img\\fondoMenuAniadirJugador.jpg")); // NOI18N
         jLabel5.setText("jLabel5");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 

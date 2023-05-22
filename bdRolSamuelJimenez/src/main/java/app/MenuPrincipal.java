@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package aplicacion;
+package app;
 
 /**
  *
@@ -38,12 +38,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MENÚ PRINCIPAL");
         setLocation(new java.awt.Point(500, 200));
-        setPreferredSize(new java.awt.Dimension(800, 600));
         setResizable(false);
         setSize(new java.awt.Dimension(800, 600));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        cartelAniadir.setIcon(new javax.swing.ImageIcon("/home/samuel/Documentos/Programacion/DAW_22-23/bdProyectoSamuelJimenez/img/botonAniadir.jpg")); // NOI18N
+        cartelAniadir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/botonAniadir.jpg"))); // NOI18N
         cartelAniadir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cartelAniadir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -52,7 +51,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         getContentPane().add(cartelAniadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 80, 30));
 
-        cartelEditar.setIcon(new javax.swing.ImageIcon("/home/samuel/Documentos/Programacion/DAW_22-23/bdProyectoSamuelJimenez/img/botonEdit.jpg")); // NOI18N
+        cartelEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/botonEdit.jpg"))); // NOI18N
         cartelEditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cartelEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -61,7 +60,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         getContentPane().add(cartelEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, 80, 30));
 
-        cartelBorrar.setIcon(new javax.swing.ImageIcon("/home/samuel/Documentos/Programacion/DAW_22-23/bdProyectoSamuelJimenez/img/botonBorrar.jpg")); // NOI18N
+        cartelBorrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/botonBorrar.jpg"))); // NOI18N
         cartelBorrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cartelBorrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,9 +93,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         getContentPane().add(btnAniadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, 130, 340));
 
-        fondo.setIcon(new javax.swing.ImageIcon("/home/samuel/Documentos/Programacion/DAW_22-23/bdProyectoSamuelJimenez/img/fondoMenuPrincipal.jpg")); // NOI18N
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondoMenuPrincipal.jpg"))); // NOI18N
         fondo.setNextFocusableComponent(fondo);
-        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

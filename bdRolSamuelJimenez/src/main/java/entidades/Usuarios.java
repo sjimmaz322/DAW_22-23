@@ -5,11 +5,8 @@
 package entidades;
 
 import java.io.Serializable;
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
-import java.util.Objects;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -27,7 +24,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author samuel
+ * @author sajm <sjimmaz322 at sjimmaz322@g.educaand.es>
  */
 @Entity
 @Table(name = "usuarios")
@@ -66,22 +63,6 @@ public class Usuarios implements Serializable {
         this.codUsuario = codUsuario;
     }
 
-    public Usuarios(String nombre, Integer edad, String direccion, Date fecCumpleanios) {
-        this.nombre = nombre;
-        this.edad = edad;
-        this.direccion = direccion;
-        this.fecCumpleanios = fecCumpleanios;
-        this.jugador = null;
-    }
-
-    public Usuarios(String nombre, Integer edad, String direccion, Date fecCumpleanios, Jugadores jugador) {
-        this.nombre = nombre;
-        this.edad = edad;
-        this.direccion = direccion;
-        this.fecCumpleanios = fecCumpleanios;
-        this.jugador = jugador;
-    }
-
     public Integer getCodUsuario() {
         return codUsuario;
     }
@@ -114,24 +95,12 @@ public class Usuarios implements Serializable {
         this.direccion = direccion;
     }
 
-    public LocalDate getFecCumpleanios() {
-        return new Date(this.fecCumpleanios.getTime()).
-                toInstant().
-                atZone(ZoneId.systemDefault()).
-                toLocalDate();
+    public Date getFecCumpleanios() {
+        return fecCumpleanios;
     }
 
-    public void setFechaInicio(Date fechaInicio) {
-        this.fecCumpleanios = fechaInicio;
-    }
-
-    @XmlTransient
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (codUsuario != null ? codUsuario.hashCode() : 0);
-        return hash;
+    public void setFecCumpleanios(Date fecCumpleanios) {
+        this.fecCumpleanios = fecCumpleanios;
     }
 
     public Jugadores getJugador() {
@@ -143,45 +112,28 @@ public class Usuarios implements Serializable {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
+    public int hashCode() {
+        int hash = 0;
+        hash += (codUsuario != null ? codUsuario.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Usuarios)) {
             return false;
         }
-        if (getClass() != obj.getClass()) {
+        Usuarios other = (Usuarios) object;
+        if ((this.codUsuario == null && other.codUsuario != null) || (this.codUsuario != null && !this.codUsuario.equals(other.codUsuario))) {
             return false;
         }
-        final Usuarios other = (Usuarios) obj;
-        if (!Objects.equals(this.nombre, other.nombre)) {
-            return false;
-        }
-        if (!Objects.equals(this.direccion, other.direccion)) {
-            return false;
-        }
-        if (!Objects.equals(this.edad, other.edad)) {
-            return false;
-        }
-        return Objects.equals(this.fecCumpleanios, other.fecCumpleanios);
+        return true;
     }
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("---***---").append("\n");
-        sb.append("Nombre: ").append(nombre).append("\n");
-        sb.append("Edad: ").append(edad).append("\n");
-        sb.append("Direccion: ").append(direccion).append("\n");
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-        sb.append("Cumpleaños: ").append(this.getFecCumpleanios().format(dtf)).append("\n");
-        try {
-            sb.append("A.k.a: ").append(jugador.getApodo()).append("\n");
-        } catch (NullPointerException npe) {
-            sb.append("No tiene jugador asociado").append("\n");
-        }
-        sb.append("---***---");
-        return sb.toString();
+        return "entidades.Usuarios[ codUsuario=" + codUsuario + " ]";
     }
 
 }

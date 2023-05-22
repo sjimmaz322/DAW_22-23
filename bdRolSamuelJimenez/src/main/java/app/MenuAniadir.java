@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package aplicacion;
+package app;
 
 /**
  *
@@ -15,6 +15,7 @@ public class MenuAniadir extends javax.swing.JFrame {
      */
     public MenuAniadir() {
         initComponents();
+        botonesTransparentes();
     }
 
     /**
@@ -29,61 +30,47 @@ public class MenuAniadir extends javax.swing.JFrame {
         btnUsuario = new javax.swing.JButton();
         btnJugador = new javax.swing.JButton();
         btnPersonaje = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("MENÚ AÑADIR");
-        setLocation(new java.awt.Point(400, 200));
+        setLocation(new java.awt.Point(500, 200));
         setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnUsuario.setText("USUARIOS");
+        btnUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUsuarioActionPerformed(evt);
             }
         });
+        getContentPane().add(btnUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 150, 200));
 
-        btnJugador.setText("JUGADORES");
+        btnJugador.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnJugador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnJugadorActionPerformed(evt);
             }
         });
+        getContentPane().add(btnJugador, new org.netbeans.lib.awtextra.AbsoluteConstraints(647, 200, 110, 200));
 
-        btnPersonaje.setText("PERSONAJES");
+        btnPersonaje.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(btnPersonaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 210, 140, 70));
 
-        jLabel1.setText("FONDO");
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/botonUsuarios.jpg"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 350, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(107, 107, 107)
-                .addComponent(btnUsuario)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnJugador)
-                .addGap(133, 133, 133))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(339, 339, 339)
-                .addComponent(btnPersonaje)
-                .addContainerGap(356, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addGap(87, 87, 87)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnUsuario)
-                    .addComponent(btnJugador))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 235, Short.MAX_VALUE)
-                .addComponent(btnPersonaje)
-                .addGap(216, 216, 216))
-        );
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/botonPersonajes.jpg"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 230, -1, -1));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/botonJugadores.jpg"))); // NOI18N
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 290, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondoMenuAniadir.jpg"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -134,10 +121,25 @@ public class MenuAniadir extends javax.swing.JFrame {
         });
     }
 
+    private void botonesTransparentes() {
+        btnJugador.setOpaque(false);
+        btnJugador.setBorderPainted(false);
+        btnJugador.setContentAreaFilled(false);
+        btnPersonaje.setOpaque(false);
+        btnPersonaje.setBorderPainted(false);
+        btnPersonaje.setContentAreaFilled(false);
+        btnUsuario.setOpaque(false);
+        btnUsuario.setBorderPainted(false);
+        btnUsuario.setContentAreaFilled(false);
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnJugador;
     private javax.swing.JButton btnPersonaje;
     private javax.swing.JButton btnUsuario;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     // End of variables declaration//GEN-END:variables
 }
