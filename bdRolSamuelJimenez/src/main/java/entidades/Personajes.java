@@ -32,7 +32,9 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Personajes.findByNombre", query = "SELECT p FROM Personajes p WHERE p.nombre = :nombre"),
     @NamedQuery(name = "Personajes.findByArquetipo", query = "SELECT p FROM Personajes p WHERE p.arquetipo = :arquetipo"),
     @NamedQuery(name = "Personajes.findByNivel", query = "SELECT p FROM Personajes p WHERE p.nivel = :nivel"),
-    @NamedQuery(name = "Personajes.findByAlineacion", query = "SELECT p FROM Personajes p WHERE p.alineacion = :alineacion")})
+    @NamedQuery(name = "Personajes.findByAlineacion", query = "SELECT p FROM Personajes p WHERE p.alineacion = :alineacion"),
+    @NamedQuery(name = "Personajes.findByJugador", query = "SELECT p FROM Personajes p WHERE p.idJugador.apodo = :apodo")})
+
 public class Personajes implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -141,7 +143,16 @@ public class Personajes implements Serializable {
 
     @Override
     public String toString() {
-        return "entidades.Personajes[ id=" + id + " ]";
+        StringBuilder sb = new StringBuilder();
+        sb.append("Personajes{");
+        sb.append("id=").append(id);
+        sb.append(", nombre=").append(nombre);
+        sb.append(", arquetipo=").append(arquetipo);
+        sb.append(", trasfondo=").append(trasfondo);
+        sb.append(", nivel=").append(nivel);
+        sb.append(", alineacion=").append(alineacion);
+        sb.append('}');
+        return sb.toString();
     }
-    
+
 }

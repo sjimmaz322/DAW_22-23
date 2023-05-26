@@ -4,6 +4,8 @@
  */
 package app;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author sajm <sjimmaz322 at sjimmaz322@g.educaand.es>
@@ -26,24 +28,112 @@ public class MenuEditar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        radioUsuarios = new javax.swing.JRadioButton();
+        radioJugadores = new javax.swing.JRadioButton();
+        radioPersonajes = new javax.swing.JRadioButton();
+        btnEditar = new javax.swing.JButton();
+        fondo = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("MENÚ EDITAR");
         setLocation(new java.awt.Point(500, 200));
+        setMaximumSize(new java.awt.Dimension(800, 600));
         setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
-        );
+        radioUsuarios.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        radioUsuarios.setForeground(new java.awt.Color(255, 255, 255));
+        radioUsuarios.setText("USUARIOS");
+        radioUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radioUsuariosActionPerformed(evt);
+            }
+        });
+        getContentPane().add(radioUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 130, 90, -1));
+
+        radioJugadores.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        radioJugadores.setForeground(new java.awt.Color(255, 255, 255));
+        radioJugadores.setText("JUGADORES");
+        radioJugadores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radioJugadoresActionPerformed(evt);
+            }
+        });
+        getContentPane().add(radioJugadores, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 180, -1, -1));
+
+        radioPersonajes.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        radioPersonajes.setForeground(new java.awt.Color(255, 255, 255));
+        radioPersonajes.setText("PERSONAJES");
+        radioPersonajes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radioPersonajesActionPerformed(evt);
+            }
+        });
+        getContentPane().add(radioPersonajes, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 230, -1, -1));
+
+        btnEditar.setText("EDITAR");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 290, 160, 170));
+
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondoEditar.jpg"))); // NOI18N
+        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void radioUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioUsuariosActionPerformed
+        // TODO add your handling code here:
+        if (radioUsuarios.isSelected()) {
+            radioJugadores.setSelected(false);
+            radioPersonajes.setSelected(false);
+        }
+    }//GEN-LAST:event_radioUsuariosActionPerformed
+
+    private void radioJugadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioJugadoresActionPerformed
+        // TODO add your handling code here:
+        if (radioJugadores.isSelected()) {
+            radioUsuarios.setSelected(false);
+            radioPersonajes.setSelected(false);
+        }
+    }//GEN-LAST:event_radioJugadoresActionPerformed
+
+    private void radioPersonajesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioPersonajesActionPerformed
+        // TODO add your handling code here:
+        if (radioPersonajes.isSelected()) {
+            radioJugadores.setSelected(false);
+            radioUsuarios.setSelected(false);
+        }
+    }//GEN-LAST:event_radioPersonajesActionPerformed
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        // TODO add your handling code here:
+        if (radioPersonajes.isSelected()) {
+            java.awt.EventQueue.invokeLater(new Runnable() {
+                public void run() {
+                    new MenuEditarPersonaje().setVisible(true);
+                }
+            });
+        } else if (radioJugadores.isSelected()) {
+            java.awt.EventQueue.invokeLater(new Runnable() {
+                public void run() {
+                    new MenuEditarJugador().setVisible(true);
+                }
+            });
+        } else if (radioUsuarios.isSelected()) {
+            java.awt.EventQueue.invokeLater(new Runnable() {
+                public void run() {
+                    new MenuEditarUsuario().setVisible(true);
+                }
+            });
+        } else {
+            JOptionPane.showMessageDialog(null, "Seleccione una opción de las dadas, por favor.");
+        }
+
+    }//GEN-LAST:event_btnEditarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -82,5 +172,10 @@ public class MenuEditar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEditar;
+    private javax.swing.JLabel fondo;
+    private javax.swing.JRadioButton radioJugadores;
+    private javax.swing.JRadioButton radioPersonajes;
+    private javax.swing.JRadioButton radioUsuarios;
     // End of variables declaration//GEN-END:variables
 }

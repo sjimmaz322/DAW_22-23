@@ -169,4 +169,22 @@ public class PersonajesJpaController implements Serializable {
         }
     }
 
+    public Personajes findById(int id) {
+        EntityManager em = getEntityManager();
+        // Se crea la query usando el nombre de la named query
+        Query q = em.createNamedQuery("Personajes.findById");
+        // Se establece el parámetro de la consulta
+        q.setParameter("id", id);
+        return (Personajes) q.getSingleResult();
+    }
+
+    public Personajes findByNombre(String nombre) {
+        EntityManager em = getEntityManager();
+        // Se crea la query usando el nombre de la named query
+        Query q = em.createNamedQuery("Personajes.findByNombre");
+        // Se establece el parámetro de la consulta
+        q.setParameter("nombre", nombre);
+        return (Personajes) q.getSingleResult();
+    }
+
 }

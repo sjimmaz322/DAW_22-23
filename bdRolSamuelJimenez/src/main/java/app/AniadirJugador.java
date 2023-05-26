@@ -9,9 +9,9 @@ import controladores.UsuariosJpaController;
 import entidades.Jugadores;
 import entidades.Usuarios;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -26,6 +26,7 @@ public class AniadirJugador extends javax.swing.JFrame {
      * Creates new form AniadirJugador
      */
     public AniadirJugador() {
+        comprobarUsuariosLibres();
         initComponents();
         cargarUsuario();
     }
@@ -51,32 +52,52 @@ public class AniadirJugador extends javax.swing.JFrame {
         radioDM = new javax.swing.JRadioButton();
         radioPJ = new javax.swing.JRadioButton();
         btnAniadir = new javax.swing.JButton();
+        btnRecargar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("AÑADIR JUGADOR");
         setLocation(new java.awt.Point(500, 200));
+        setResizable(false);
         setSize(new java.awt.Dimension(800, 600));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("APODO:");
+        jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(221, 125, -1, -1));
 
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("SISTEMA:");
+        jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(221, 188, -1, -1));
 
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("ROL:");
+        jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(221, 240, -1, -1));
 
         jScrollPane1.setViewportView(listaUsuario);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(385, 283, 273, -1));
 
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("JUGADOR ASOCIADO:");
+        jLabel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(221, 283, -1, -1));
         getContentPane().add(campoApodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(385, 123, 166, -1));
         getContentPane().add(campoSistema, new org.netbeans.lib.awtextra.AbsoluteConstraints(385, 184, 166, -1));
 
+        radioDM.setBackground(new java.awt.Color(255, 255, 255));
+        radioDM.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        radioDM.setForeground(new java.awt.Color(0, 0, 0));
         radioDM.setText("DM");
+        radioDM.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        radioDM.setBorderPainted(true);
         radioDM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioDMActionPerformed(evt);
@@ -84,7 +105,12 @@ public class AniadirJugador extends javax.swing.JFrame {
         });
         getContentPane().add(radioDM, new org.netbeans.lib.awtextra.AbsoluteConstraints(385, 236, -1, -1));
 
+        radioPJ.setBackground(new java.awt.Color(255, 255, 255));
+        radioPJ.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        radioPJ.setForeground(new java.awt.Color(0, 0, 0));
         radioPJ.setText("PJ");
+        radioPJ.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        radioPJ.setBorderPainted(true);
         radioPJ.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioPJActionPerformed(evt);
@@ -100,8 +126,15 @@ public class AniadirJugador extends javax.swing.JFrame {
         });
         getContentPane().add(btnAniadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 478, -1, -1));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\samue\\Documents\\NetBeansProjects\\DAW_22-23\\bdProyectoSamuelJimenez\\src\\main\\resources\\img\\fondoMenuAniadirJugador.jpg")); // NOI18N
-        jLabel5.setText("jLabel5");
+        btnRecargar.setText("RECARGAR");
+        btnRecargar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRecargarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnRecargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 340, -1, -1));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondoMenuAniadirJugador.jpg"))); // NOI18N
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
@@ -134,13 +167,18 @@ public class AniadirJugador extends javax.swing.JFrame {
                 .findFirst()
                 .get();
 
-        user.setCodUsuario(j.getId());
-
+        j.setCodUsuario(user);
         jjc.create(j);
 
-        j.setCodUsuario(user);
         user.setJugador(j);
+        user.setCodUsuario(j.getId());
+
     }//GEN-LAST:event_btnAniadirActionPerformed
+
+    private void btnRecargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecargarActionPerformed
+        // TODO add your handling code here:
+        cargarUsuario();
+    }//GEN-LAST:event_btnRecargarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -179,7 +217,7 @@ public class AniadirJugador extends javax.swing.JFrame {
 
     private void cargarUsuario() {
         List<Usuarios> usuarios = ujc.findUsuariosEntities();
-        List<String> nombres = usuarios.stream().map(Usuarios::getNombre).collect(Collectors.toList());
+        List<String> nombres = usuarios.stream().filter(u -> u.getJugador() == null).map(Usuarios::getNombre).collect(Collectors.toList());
 
         // Convertir la lista de nombres a un arreglo
         String[] lista = nombres.toArray(new String[0]);
@@ -193,8 +231,22 @@ public class AniadirJugador extends javax.swing.JFrame {
 
     }
 
+    private void comprobarUsuariosLibres() {
+        if (ujc.findUsuariosEntities().stream().filter(u -> u.getJugador() == null).count() == 0) {
+            JOptionPane.showMessageDialog(null, "No hay usuarios sin perfil de jugador asociado.\nCree un nuevo Usuario para continuar");
+
+            this.dispose();
+
+            java.awt.EventQueue.invokeLater(() -> {
+                new AniadirUsuario().setVisible(true);
+            });
+        }
+
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAniadir;
+    private javax.swing.JButton btnRecargar;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JTextField campoApodo;
     private javax.swing.JTextField campoSistema;

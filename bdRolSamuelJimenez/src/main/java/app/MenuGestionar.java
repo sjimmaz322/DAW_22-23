@@ -8,12 +8,12 @@ package app;
  *
  * @author sajm <sjimmaz322 at sjimmaz322@g.educaand.es>
  */
-public class MenuPrincipal extends javax.swing.JFrame {
+public class MenuGestionar extends javax.swing.JFrame {
 
     /**
      * Creates new form MenuPrincipal
      */
-    public MenuPrincipal() {
+    public MenuGestionar() {
         initComponents();
         botonesTransparentes();
     }
@@ -35,7 +35,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btnAniadir = new javax.swing.JButton();
         fondo = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("MENÚ PRINCIPAL");
         setLocation(new java.awt.Point(500, 200));
         setResizable(false);
@@ -93,7 +93,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         getContentPane().add(btnAniadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, 130, 340));
 
-        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondoMenuPrincipal.jpg"))); // NOI18N
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondoMenu.jpg"))); // NOI18N
         fondo.setNextFocusableComponent(fondo);
         getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 600));
 
@@ -158,20 +158,21 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuGestionar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuGestionar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuGestionar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuGestionar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MenuPrincipal().setVisible(true);
+                new MenuGestionar().setVisible(true);
 
             }
         });

@@ -40,7 +40,7 @@ public class JugadoresJpaController implements Serializable {
 
     public void create(Jugadores jugadores) {
         if (jugadores.getPersonajesList() == null) {
-            jugadores.setPersonajesList(new ArrayList<Personajes>());
+            jugadores.setPersonajesList(new ArrayList<>());
         }
         EntityManager em = null;
         try {

@@ -15,7 +15,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
      */
     public MenuPrincipal() {
         initComponents();
-        botonesTransparentes();
+        botonesInvisibles();
     }
 
     /**
@@ -27,119 +27,63 @@ public class MenuPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        cartelAniadir = new javax.swing.JButton();
-        cartelEditar = new javax.swing.JButton();
-        cartelBorrar = new javax.swing.JButton();
-        btnEditar = new javax.swing.JButton();
-        btnBorrar = new javax.swing.JButton();
-        btnAniadir = new javax.swing.JButton();
-        fondo = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        btnLectura = new javax.swing.JButton();
+        btnGestionar = new javax.swing.JButton();
+        btnAdministrar = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+
+        jLabel2.setText("jLabel2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("MENÚ PRINCIPAL");
         setLocation(new java.awt.Point(500, 200));
+        setMaximumSize(new java.awt.Dimension(800, 600));
+        setMinimumSize(new java.awt.Dimension(800, 600));
+        setPreferredSize(new java.awt.Dimension(800, 600));
         setResizable(false);
         setSize(new java.awt.Dimension(800, 600));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        cartelAniadir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/botonAniadir.jpg"))); // NOI18N
-        cartelAniadir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        cartelAniadir.addActionListener(new java.awt.event.ActionListener() {
+        btnLectura.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(btnLectura, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 220, 390));
+
+        btnGestionar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnGestionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cartelAniadirActionPerformed(evt);
+                btnGestionarActionPerformed(evt);
             }
         });
-        getContentPane().add(cartelAniadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 80, 30));
+        getContentPane().add(btnGestionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(333, 115, 180, 370));
 
-        cartelEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/botonEdit.jpg"))); // NOI18N
-        cartelEditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        cartelEditar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cartelEditarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(cartelEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, 80, 30));
+        btnAdministrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(btnAdministrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(573, 105, 180, 380));
 
-        cartelBorrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/botonBorrar.jpg"))); // NOI18N
-        cartelBorrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        cartelBorrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cartelBorrarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(cartelBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 140, 80, 30));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/botonLectura.jpg"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, -1, -1));
 
-        btnEditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnEditar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 180, 130, 340));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/botonGestionar.jpg"))); // NOI18N
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 250, -1, -1));
 
-        btnBorrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnBorrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBorrarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 180, 130, 340));
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/botonAdministrar.jpg"))); // NOI18N
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 260, -1, -1));
 
-        btnAniadir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnAniadir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAniadirActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnAniadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, 130, 340));
-
-        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondoMenuPrincipal.jpg"))); // NOI18N
-        fondo.setNextFocusableComponent(fondo);
-        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 600));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondoMenuPrincipal.jpg"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cartelAniadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cartelAniadirActionPerformed
+    private void btnGestionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarActionPerformed
         // TODO add your handling code here:
-        java.awt.EventQueue.invokeLater(() -> {
-            new MenuAniadir().setVisible(true);
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new MenuGestionar().setVisible(true);
+            }
         });
-    }//GEN-LAST:event_cartelAniadirActionPerformed
-
-    private void btnAniadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAniadirActionPerformed
-        java.awt.EventQueue.invokeLater(() -> {
-            new MenuAniadir().setVisible(true);
-        });
-    }//GEN-LAST:event_btnAniadirActionPerformed
-
-    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        // TODO add your handling code here:
-        java.awt.EventQueue.invokeLater(() -> {
-            new MenuEditar().setVisible(true);
-        });
-    }//GEN-LAST:event_btnEditarActionPerformed
-
-    private void btnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarActionPerformed
-        // TODO add your handling code here:
-        java.awt.EventQueue.invokeLater(() -> {
-            new MenuBorrar().setVisible(true);
-        });
-    }//GEN-LAST:event_btnBorrarActionPerformed
-
-    private void cartelEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cartelEditarActionPerformed
-        // TODO add your handling code here:
-        java.awt.EventQueue.invokeLater(() -> {
-            new MenuEditar().setVisible(true);
-        });
-    }//GEN-LAST:event_cartelEditarActionPerformed
-
-    private void cartelBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cartelBorrarActionPerformed
-        // TODO add your handling code here:
-        java.awt.EventQueue.invokeLater(() -> {
-            new MenuBorrar().setVisible(true);
-        });
-    }//GEN-LAST:event_cartelBorrarActionPerformed
+    }//GEN-LAST:event_btnGestionarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -172,31 +116,31 @@ public class MenuPrincipal extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MenuPrincipal().setVisible(true);
-
             }
         });
     }
 
-    public void botonesTransparentes() {
-        btnAniadir.setOpaque(false);
-        btnAniadir.setContentAreaFilled(false);
-        btnAniadir.setBorderPainted(false);
-        btnEditar.setOpaque(false);
-        btnEditar.setContentAreaFilled(false);
-        btnEditar.setBorderPainted(false);
-        btnBorrar.setOpaque(false);
-        btnBorrar.setContentAreaFilled(false);
-        btnBorrar.setBorderPainted(false);
+    private void botonesInvisibles() {
+        btnAdministrar.setOpaque(false);
+        btnAdministrar.setContentAreaFilled(false);
+        btnAdministrar.setBorderPainted(false);
+        btnGestionar.setOpaque(false);
+        btnGestionar.setContentAreaFilled(false);
+        btnGestionar.setBorderPainted(false);
+        btnLectura.setOpaque(false);
+        btnLectura.setContentAreaFilled(false);
+        btnLectura.setBorderPainted(false);
 
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAniadir;
-    private javax.swing.JButton btnBorrar;
-    private javax.swing.JButton btnEditar;
-    private javax.swing.JButton cartelAniadir;
-    private javax.swing.JButton cartelBorrar;
-    private javax.swing.JButton cartelEditar;
-    private javax.swing.JLabel fondo;
+    private javax.swing.JButton btnAdministrar;
+    private javax.swing.JButton btnGestionar;
+    private javax.swing.JButton btnLectura;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     // End of variables declaration//GEN-END:variables
 }

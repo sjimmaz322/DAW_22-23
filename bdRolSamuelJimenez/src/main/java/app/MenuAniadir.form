@@ -7,6 +7,9 @@
     <Property name="location" type="java.awt.Point" editor="org.netbeans.beaninfo.editors.PointEditor">
       <Point value="[500, 200]"/>
     </Property>
+    <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[800, 600]"/>
+    </Property>
     <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
@@ -66,6 +69,9 @@
           <Color id="Cursor de Mano"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPersonajeActionPerformed"/>
+      </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="330" y="210" width="140" height="70"/>

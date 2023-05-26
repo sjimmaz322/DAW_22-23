@@ -133,7 +133,17 @@ public class Usuarios implements Serializable {
 
     @Override
     public String toString() {
-        return "entidades.Usuarios[ codUsuario=" + codUsuario + " ]";
+        StringBuilder sb = new StringBuilder();
+        sb.append("Usuarios{");
+        sb.append("codUsuario=").append(codUsuario);
+        sb.append(", nombre=").append(nombre);
+        sb.append(", edad=").append(edad);
+        sb.append(", direccion=").append(direccion);
+        sb.append(", fecCumpleanios=").append(fecCumpleanios);
+        sb.append('}');
+        return sb.toString();
     }
+
+
 
 }

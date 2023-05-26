@@ -4,17 +4,36 @@
  */
 package app;
 
+import controladores.JugadoresJpaController;
+import controladores.PersonajesJpaController;
+import controladores.UsuariosJpaController;
+import controladores.exceptions.NonexistentEntityException;
+import entidades.Jugadores;
+import entidades.Personajes;
+import entidades.Usuarios;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author sajm <sjimmaz322 at sjimmaz322@g.educaand.es>
  */
 public class MenuBorrar extends javax.swing.JFrame {
 
+    private static int identificador;
+
+    UsuariosJpaController ujc = new UsuariosJpaController();
+    JugadoresJpaController jjc = new JugadoresJpaController();
+    PersonajesJpaController pjc = new PersonajesJpaController();
+
     /**
      * Creates new form MenuAniadir
      */
     public MenuBorrar() {
         initComponents();
+        botonesTransparentes();
     }
 
     /**
@@ -26,9 +45,15 @@ public class MenuBorrar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnUsuario = new javax.swing.JButton();
+        btnPersonaje = new javax.swing.JButton();
+        btnJugador = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        btnBorrar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablaContenidos = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -37,24 +62,224 @@ public class MenuBorrar extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setText("jButton1");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 5, 130, 230));
+        btnUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUsuarioActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 40, 130, 110));
 
-        jButton2.setText("jButton2");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(133, 480, 360, 120));
+        btnPersonaje.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnPersonaje.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPersonajeActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnPersonaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 40, 130, 110));
 
-        jButton3.setText("jButton3");
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 5, 130, 100));
+        btnJugador.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnJugador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnJugadorActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnJugador, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 130, 110));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/lapidaJugador.png"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, -1, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/lapidaUsuario.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 40, -1, -1));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/lapidaPersonaje.png"))); // NOI18N
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 40, -1, -1));
+
+        btnBorrar.setText("BORRRAR");
+        btnBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBorrarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 470, -1, -1));
+
+        tablaContenidos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane1.setViewportView(tablaContenidos);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 650, 260));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondoMenuBorrar.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
+    private void btnJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJugadorActionPerformed
+        // TODO add your handling code here:
+
+        identificador = 1;
+
+        DefaultTableModel dfm = new DefaultTableModel() {
+            //Evitamos que las celdas sean modificables
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+        //Creamos una cabecera
+        String[] cabecera = {"ID", "APODO", "SISTEMA", "ROL", "USUARIO"};
+        //Añadimos la cabecera a la tabla
+        dfm.setColumnIdentifiers(cabecera);
+        //Guardamos en una lista las facturas
+        List<Jugadores> lista = jjc.findJugadoresEntities();
+        //Por cada factura de la lista añadimos una fila a la tabla
+        if (!lista.isEmpty()) {
+            for (Jugadores j : lista) {
+                try {
+                    Object[] o = {j.getId(), j.getApodo(), j.getSistemaPredilecto(), j.getRolPreferido(), j.getCodUsuario().getNombre()};
+                    dfm.addRow(o);
+                } catch (NullPointerException npe) {
+                    Object[] o = {j.getId(), j.getApodo(), j.getSistemaPredilecto(), j.getRolPreferido(), "Sin Usuario asociado"};
+                    dfm.addRow(o);
+                }
+
+            }
+        }
+        //Añadimos el modelo a nuestra tabla para que se muestre la información
+
+        tablaContenidos.setModel(dfm);
+    }//GEN-LAST:event_btnJugadorActionPerformed
+
+    private void btnUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuarioActionPerformed
+        // TODO add your handling code here:
+        identificador = 2;
+
+        DefaultTableModel dfm = new DefaultTableModel() {
+            //Evitamos que las celdas sean modificables
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+        //Creamos una cabecera
+        String[] cabecera = {"ID", "NOMBRE", "EDAD", "DIRECCIÓN", "CUMPLEAÑOS"};
+        //Añadimos la cabecera a la tabla
+        dfm.setColumnIdentifiers(cabecera);
+        //Guardamos en una lista las facturas
+        List<Usuarios> lista = ujc.findUsuariosEntities();
+        //Por cada factura de la lista añadimos una fila a la tabla
+        if (!lista.isEmpty()) {
+            for (Usuarios u : lista) {
+                Object[] o = {u.getCodUsuario(), u.getNombre(), u.getEdad(), u.getDireccion(), u.getFecCumpleanios()};
+                dfm.addRow(o);
+            }
+        }
+        //Añadimos el modelo a nuestra tabla para que se muestre la información
+
+        tablaContenidos.setModel(dfm);
+    }//GEN-LAST:event_btnUsuarioActionPerformed
+
+    private void btnPersonajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPersonajeActionPerformed
+        // TODO add your handling code here:
+
+        identificador = 3;
+
+        DefaultTableModel dfm = new DefaultTableModel() {
+            //Evitamos que las celdas sean modificables
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+        //Creamos una cabecera
+        String[] cabecera = {"ID", "NOMBRE", "TRASFONDO", "NIVEL", "ALINEACION", "JUGADOR"};
+        //Añadimos la cabecera a la tabla
+        dfm.setColumnIdentifiers(cabecera);
+        //Guardamos en una lista las facturas
+        List<Personajes> lista = pjc.findPersonajesEntities();
+        //Por cada factura de la lista añadimos una fila a la tabla
+        if (!lista.isEmpty()) {
+            for (Personajes p : lista) {
+                try {
+                    Object[] o = {p.getId(), p.getArquetipo(), p.getTrasfondo(), p.getNivel(), p.getAlineacion(), p.getIdJugador().getApodo()};
+
+                    dfm.addRow(o);
+                } catch (NullPointerException npe) {
+                    Object[] o = {p.getId(), p.getArquetipo(), p.getTrasfondo(), p.getNivel(), p.getAlineacion(), "Sin jugador asociado"};
+
+                    dfm.addRow(o);
+                }
+            }
+        }
+        //Añadimos el modelo a nuestra tabla para que se muestre la información
+
+        tablaContenidos.setModel(dfm);
+    }//GEN-LAST:event_btnPersonajeActionPerformed
+
+    private void btnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarActionPerformed
+        // TODO add your handling code here:
+        int num = tablaContenidos.getSelectedRow();
+        String o = tablaContenidos.getModel().getValueAt(num, 0).toString();
+
+        switch (identificador) {
+            case 1:
+                Jugadores j = jjc.findJugadores(Integer.valueOf(o));
+
+                 {
+                    try {
+                        jjc.destroy(j.getId());
+                    } catch (NonexistentEntityException ex) {
+                        Logger.getLogger(MenuBorrar.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
+                    btnJugadorActionPerformed(evt);
+                }
+
+                break;
+
+            case 2:
+                Usuarios u = ujc.findUsuarios(Integer.valueOf(o));
+
+                 {
+                    try {
+                        ujc.destroy(u.getCodUsuario());
+                    } catch (NonexistentEntityException ex) {
+                        Logger.getLogger(MenuBorrar.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    btnUsuarioActionPerformed(evt);
+                }
+
+                break;
+
+            case 3:
+                Personajes p = pjc.findPersonajes(Integer.valueOf(o));
+
+                 {
+                    try {
+                        pjc.destroy(p.getId());
+                    } catch (NonexistentEntityException ex) {
+                        Logger.getLogger(MenuBorrar.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    btnPersonajeActionPerformed(evt);
+                }
+
+                break;
+
+
+    }//GEN-LAST:event_btnBorrarActionPerformed
+
+    }
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -88,10 +313,28 @@ public class MenuBorrar extends javax.swing.JFrame {
         });
     }
 
+    private void botonesTransparentes() {
+        btnJugador.setOpaque(false);
+        btnJugador.setBorderPainted(false);
+        btnJugador.setContentAreaFilled(false);
+        btnPersonaje.setOpaque(false);
+        btnPersonaje.setBorderPainted(false);
+        btnPersonaje.setContentAreaFilled(false);
+        btnUsuario.setOpaque(false);
+        btnUsuario.setBorderPainted(false);
+        btnUsuario.setContentAreaFilled(false);
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btnBorrar;
+    private javax.swing.JButton btnJugador;
+    private javax.swing.JButton btnPersonaje;
+    private javax.swing.JButton btnUsuario;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tablaContenidos;
     // End of variables declaration//GEN-END:variables
 }

@@ -132,7 +132,17 @@ public class Jugadores implements Serializable {
 
     @Override
     public String toString() {
-        return "entidades.Jugadores[ id=" + id + " ]";
+        StringBuilder sb = new StringBuilder();
+        sb.append("Jugadores{");
+        sb.append("id=").append(id);
+        sb.append(", apodo=").append(apodo);
+        sb.append(", sistemaPredilecto=").append(sistemaPredilecto);
+        sb.append(", rolPreferido=").append(rolPreferido);
+    
+        sb.append('}');
+        return sb.toString();
     }
+
+  
     
 }

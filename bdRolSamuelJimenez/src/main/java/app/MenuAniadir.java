@@ -38,6 +38,7 @@ public class MenuAniadir extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("MENÚ AÑADIR");
         setLocation(new java.awt.Point(500, 200));
+        setMaximumSize(new java.awt.Dimension(800, 600));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -58,6 +59,11 @@ public class MenuAniadir extends javax.swing.JFrame {
         getContentPane().add(btnJugador, new org.netbeans.lib.awtextra.AbsoluteConstraints(647, 200, 110, 200));
 
         btnPersonaje.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnPersonaje.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPersonajeActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnPersonaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 210, 140, 70));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/botonUsuarios.jpg"))); // NOI18N
@@ -84,7 +90,17 @@ public class MenuAniadir extends javax.swing.JFrame {
 
     private void btnJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJugadorActionPerformed
         // TODO add your handling code here:
+        java.awt.EventQueue.invokeLater(() -> {
+            new AniadirJugador().setVisible(true);
+        });
     }//GEN-LAST:event_btnJugadorActionPerformed
+
+    private void btnPersonajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPersonajeActionPerformed
+        // TODO add your handling code here:
+        java.awt.EventQueue.invokeLater(() -> {
+            new AniadirPersonaje().setVisible(true);
+        });
+    }//GEN-LAST:event_btnPersonajeActionPerformed
 
     /**
      * @param args the command line arguments
