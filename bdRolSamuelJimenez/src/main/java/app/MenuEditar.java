@@ -42,7 +42,7 @@ public class MenuEditar extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         radioUsuarios.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
-        radioUsuarios.setForeground(new java.awt.Color(255, 255, 255));
+        radioUsuarios.setForeground(new java.awt.Color(0, 0, 0));
         radioUsuarios.setText("USUARIOS");
         radioUsuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -52,7 +52,7 @@ public class MenuEditar extends javax.swing.JFrame {
         getContentPane().add(radioUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 130, 90, -1));
 
         radioJugadores.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
-        radioJugadores.setForeground(new java.awt.Color(255, 255, 255));
+        radioJugadores.setForeground(new java.awt.Color(0, 0, 0));
         radioJugadores.setText("JUGADORES");
         radioJugadores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,7 +62,7 @@ public class MenuEditar extends javax.swing.JFrame {
         getContentPane().add(radioJugadores, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 180, -1, -1));
 
         radioPersonajes.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
-        radioPersonajes.setForeground(new java.awt.Color(255, 255, 255));
+        radioPersonajes.setForeground(new java.awt.Color(0, 0, 0));
         radioPersonajes.setText("PERSONAJES");
         radioPersonajes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

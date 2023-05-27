@@ -4,13 +4,10 @@
  */
 package app;
 
-import controladores.JugadoresJpaController;
 import controladores.PersonajesJpaController;
-import entidades.Jugadores;
 import entidades.Personajes;
 import java.util.List;
-import java.util.stream.Collectors;
-import javax.swing.JComboBox;
+import java.util.Objects;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -20,8 +17,8 @@ import javax.swing.table.DefaultTableModel;
  */
 public class MenuEditarPersonaje extends javax.swing.JFrame {
 
-    JugadoresJpaController jjc = new JugadoresJpaController();
     PersonajesJpaController pjc = new PersonajesJpaController();
+    public static int code;
 
     /**
      * Creates new form MenuEditarPersonaje
@@ -48,8 +45,8 @@ public class MenuEditarPersonaje extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         btnBuscar = new javax.swing.JButton();
         btnModificar = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        listaPersonajes = new javax.swing.JList<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablaContenidos = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -62,28 +59,53 @@ public class MenuEditarPersonaje extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         rId.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
-        rId.setForeground(new java.awt.Color(255, 255, 255));
+        rId.setForeground(new java.awt.Color(0, 0, 0));
         rId.setText("ID");
+        rId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rIdActionPerformed(evt);
+            }
+        });
         getContentPane().add(rId, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 90, -1, -1));
 
         rNombre.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
-        rNombre.setForeground(new java.awt.Color(255, 255, 255));
+        rNombre.setForeground(new java.awt.Color(0, 0, 0));
         rNombre.setText("NOMBRE");
+        rNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rNombreActionPerformed(evt);
+            }
+        });
         getContentPane().add(rNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, -1, -1));
 
         rNivel.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
-        rNivel.setForeground(new java.awt.Color(255, 255, 255));
+        rNivel.setForeground(new java.awt.Color(0, 0, 0));
         rNivel.setText("NIVEL");
+        rNivel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rNivelActionPerformed(evt);
+            }
+        });
         getContentPane().add(rNivel, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 90, -1, -1));
 
         rJugador.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
-        rJugador.setForeground(new java.awt.Color(255, 255, 255));
+        rJugador.setForeground(new java.awt.Color(0, 0, 0));
         rJugador.setText("JUGADOR");
+        rJugador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rJugadorActionPerformed(evt);
+            }
+        });
         getContentPane().add(rJugador, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 130, -1, -1));
 
         rArquetipo.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
-        rArquetipo.setForeground(new java.awt.Color(255, 255, 255));
+        rArquetipo.setForeground(new java.awt.Color(0, 0, 0));
         rArquetipo.setText("ARQUETIPO");
+        rArquetipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rArquetipoActionPerformed(evt);
+            }
+        });
         getContentPane().add(rArquetipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, -1, -1));
         getContentPane().add(campoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 200, 220, -1));
 
@@ -102,11 +124,27 @@ public class MenuEditarPersonaje extends javax.swing.JFrame {
         getContentPane().add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 260, -1, -1));
 
         btnModificar.setText("MODIFICAR");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 500, -1, -1));
 
-        jScrollPane2.setViewportView(listaPersonajes);
+        tablaContenidos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 320, 280, -1));
+            }
+        ));
+        jScrollPane1.setViewportView(tablaContenidos);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 310, 540, 170));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondoEditar.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -116,37 +154,156 @@ public class MenuEditarPersonaje extends javax.swing.JFrame {
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
-        String campo = campoTxt.getText();
-        List<Jugadores> jugadores = jjc.findJugadoresEntities();
+        DefaultTableModel dfm = new DefaultTableModel() {
+            //Evitamos que las celdas sean modificables
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+        List<Personajes> pjs;
+        //Creamos una cabecera
+        String[] cabecera = {"ID", "NOMBRE", "ARQUETIPO", "NIVEL", "ALINEACION", "JUGADOR"};
+        //Añadimos la cabecera a la tabla
+        dfm.setColumnIdentifiers(cabecera);
+
+        List<Personajes> lista = pjc.findPersonajesEntities();
         if (rId.isSelected()) {
+            pjs = lista.stream().filter(p -> Objects.equals(p.getId(), Integer.valueOf(campoTxt.getText()))).toList();
+            if (!pjs.isEmpty()) {
+                for (Personajes p : pjs) {
+                    try {
+                        Object[] o = {p.getId(), p.getNombre(), p.getArquetipo(), p.getNivel(), p.getAlineacion(), p.getIdJugador().getApodo()};
+
+                        dfm.addRow(o);
+                    } catch (NullPointerException npe) {
+                        Object[] o = {p.getId(), p.getNombre(), p.getArquetipo(), p.getNivel(), p.getAlineacion(), "Sin jugador asociado"};
+
+                        dfm.addRow(o);
+                    }
+                }
+            }
 
         } else if (rNombre.isSelected()) {
+            pjs = lista.stream().filter(p -> p.getNombre().equalsIgnoreCase(campoTxt.getText())).toList();
+            if (!pjs.isEmpty()) {
+                for (Personajes p : pjs) {
+                    try {
+                        Object[] o = {p.getId(), p.getNombre(), p.getArquetipo(), p.getNivel(), p.getAlineacion(), p.getIdJugador().getApodo()};
 
+                        dfm.addRow(o);
+                    } catch (NullPointerException npe) {
+                        Object[] o = {p.getId(), p.getNombre(), p.getArquetipo(), p.getNivel(), p.getAlineacion(), "Sin jugador asociado"};
+
+                        dfm.addRow(o);
+                    }
+                }
+            }
         } else if (rNivel.isSelected()) {
+            pjs = lista.stream().filter(p -> (p.getNivel() == Integer.valueOf(campoTxt.getText()))).toList();
+            if (!pjs.isEmpty()) {
+                for (Personajes p : pjs) {
+                    try {
+                        Object[] o = {p.getId(), p.getNombre(), p.getArquetipo(), p.getNivel(), p.getAlineacion(), p.getIdJugador().getApodo()};
 
+                        dfm.addRow(o);
+                    } catch (NullPointerException npe) {
+                        Object[] o = {p.getId(), p.getNombre(), p.getArquetipo(), p.getNivel(), p.getAlineacion(), "Sin jugador asociado"};
+
+                        dfm.addRow(o);
+                    }
+                }
+            }
         } else if (rArquetipo.isSelected()) {
+            pjs = lista.stream().filter(p -> p.getArquetipo().equalsIgnoreCase(campoTxt.getText())).toList();
+            if (!pjs.isEmpty()) {
+                for (Personajes p : pjs) {
+                    try {
+                        Object[] o = {p.getId(), p.getNombre(), p.getArquetipo(), p.getNivel(), p.getAlineacion(), p.getIdJugador().getApodo()};
 
+                        dfm.addRow(o);
+                    } catch (NullPointerException npe) {
+                        Object[] o = {p.getId(), p.getNombre(), p.getArquetipo(), p.getNivel(), p.getAlineacion(), "Sin jugador asociado"};
+
+                        dfm.addRow(o);
+                    }
+                }
+            }
         } else if (rJugador.isSelected()) {
+            pjs = lista.stream().filter(p -> p.getIdJugador().getApodo().equalsIgnoreCase(campoTxt.getText())).toList();
+            if (!pjs.isEmpty()) {
+                for (Personajes p : pjs) {
+                    try {
+                        Object[] o = {p.getId(), p.getNombre(), p.getArquetipo(), p.getNivel(), p.getAlineacion(), p.getIdJugador().getApodo()};
 
+                        dfm.addRow(o);
+                    } catch (NullPointerException npe) {
+                        Object[] o = {p.getId(), p.getNombre(), p.getArquetipo(), p.getNivel(), p.getAlineacion(), "Sin jugador asociado"};
+
+                        dfm.addRow(o);
+                    }
+                }
+            }
         } else {
             JOptionPane.showMessageDialog(null, "Seleccione una de las opciones dadas");
         }
-        List<String> nombres = jugadores.stream().map(Jugadores::getApodo).collect(Collectors.toList());
 
-        // Convertir la lista de nombres a un arreglo
-        String[] lista = nombres.toArray(String[]::new);
-
-        // Cargar la lista en el JComboBox
-        JComboBox<String> comboBox = new JComboBox<>(lista);
-
-        // Asignar el JComboBox a tu control Swing
-        // Por ejemplo, si tu control se llama "comboBoxUsuarios", puedes hacer:
-        listaPersonajes.setModel(comboBox.getModel());
-
-        //Añadimos el modelo a nuestra tabla para que se muestre la información
-        //Añadimos el modelo a nuestra tabla para que se muestre la información
+        tablaContenidos.setModel(dfm);
 
     }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void rIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rIdActionPerformed
+        // TODO add your handling code here:
+        rArquetipo.setSelected(false);
+        rNombre.setSelected(false);
+        rNivel.setSelected(false);
+        rJugador.setSelected(false);
+    }//GEN-LAST:event_rIdActionPerformed
+
+    private void rNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rNombreActionPerformed
+        // TODO add your handling code here:
+        rArquetipo.setSelected(false);
+        rNivel.setSelected(false);
+        rJugador.setSelected(false);
+        rId.setSelected(false);
+    }//GEN-LAST:event_rNombreActionPerformed
+
+    private void rNivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rNivelActionPerformed
+        // TODO add your handling code here:
+        rArquetipo.setSelected(false);
+        rNombre.setSelected(false);
+        rJugador.setSelected(false);
+        rId.setSelected(false);
+    }//GEN-LAST:event_rNivelActionPerformed
+
+    private void rArquetipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rArquetipoActionPerformed
+        // TODO add your handling code here:
+        rNombre.setSelected(false);
+        rNivel.setSelected(false);
+        rJugador.setSelected(false);
+        rId.setSelected(false);
+    }//GEN-LAST:event_rArquetipoActionPerformed
+
+    private void rJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rJugadorActionPerformed
+        // TODO add your handling code here:
+        rArquetipo.setSelected(false);
+        rNombre.setSelected(false);
+        rNivel.setSelected(false);
+        rId.setSelected(false);
+    }//GEN-LAST:event_rJugadorActionPerformed
+
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+        // TODO add your handling code here:
+
+        int filaSeleccionada = tablaContenidos.getSelectedRow();
+        int valor = (int) tablaContenidos.getValueAt(filaSeleccionada, 0);
+
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new EdicionPJ(valor).setVisible(true);
+            }
+        });
+    }//GEN-LAST:event_btnModificarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -190,12 +347,12 @@ public class MenuEditarPersonaje extends javax.swing.JFrame {
     private javax.swing.JTextField campoTxt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JList<String> listaPersonajes;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JRadioButton rArquetipo;
     private javax.swing.JRadioButton rId;
     private javax.swing.JRadioButton rJugador;
     private javax.swing.JRadioButton rNivel;
     private javax.swing.JRadioButton rNombre;
+    private javax.swing.JTable tablaContenidos;
     // End of variables declaration//GEN-END:variables
 }

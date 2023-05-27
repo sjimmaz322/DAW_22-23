@@ -143,16 +143,7 @@ public class Personajes implements Serializable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Personajes{");
-        sb.append("id=").append(id);
-        sb.append(", nombre=").append(nombre);
-        sb.append(", arquetipo=").append(arquetipo);
-        sb.append(", trasfondo=").append(trasfondo);
-        sb.append(", nivel=").append(nivel);
-        sb.append(", alineacion=").append(alineacion);
-        sb.append('}');
-        return sb.toString();
+        return id + ";" + nombre + ";" + arquetipo + ";" + trasfondo + ";" + nivel + ";" + alineacion + ";" + idJugador.getApodo();
     }
 
 }

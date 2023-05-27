@@ -5,9 +5,10 @@
 package app;
 
 import controladores.JugadoresJpaController;
-import controladores.UsuariosJpaController;
-import entidades.Personajes;
+import entidades.Jugadores;
 import java.util.List;
+import java.util.Objects;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -16,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class MenuEditarJugador extends javax.swing.JFrame {
 
-    UsuariosJpaController ujc = new UsuariosJpaController();
+    public static int code;
     JugadoresJpaController jjc = new JugadoresJpaController();
 
     /**
@@ -56,23 +57,43 @@ public class MenuEditarJugador extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         rId.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
-        rId.setForeground(new java.awt.Color(255, 255, 255));
+        rId.setForeground(new java.awt.Color(0, 0, 0));
         rId.setText("ID");
+        rId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rIdActionPerformed(evt);
+            }
+        });
         getContentPane().add(rId, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 90, -1, -1));
 
         rAPODO.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
-        rAPODO.setForeground(new java.awt.Color(255, 255, 255));
+        rAPODO.setForeground(new java.awt.Color(0, 0, 0));
         rAPODO.setText("APODO");
+        rAPODO.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rAPODOActionPerformed(evt);
+            }
+        });
         getContentPane().add(rAPODO, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, -1, -1));
 
         rSistema.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
-        rSistema.setForeground(new java.awt.Color(255, 255, 255));
+        rSistema.setForeground(new java.awt.Color(0, 0, 0));
         rSistema.setText("SISTEMA");
+        rSistema.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rSistemaActionPerformed(evt);
+            }
+        });
         getContentPane().add(rSistema, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 130, -1, -1));
 
         rRol.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
-        rRol.setForeground(new java.awt.Color(255, 255, 255));
+        rRol.setForeground(new java.awt.Color(0, 0, 0));
         rRol.setText("ROL");
+        rRol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rRolActionPerformed(evt);
+            }
+        });
         getContentPane().add(rRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, -1, -1));
         getContentPane().add(campoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 200, 220, -1));
 
@@ -106,6 +127,11 @@ public class MenuEditarJugador extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, 560, 160));
 
         btnModificar.setText("MODIFICAR");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 500, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondoEditar.jpg"))); // NOI18N
@@ -124,29 +150,119 @@ public class MenuEditarJugador extends javax.swing.JFrame {
             }
         };
         //Creamos una cabecera
-        String[] cabecera = {"ID", "NOMBRE", "TRASFONDO", "NIVEL", "ALINEACION", "JUGADOR"};
+        String[] cabecera = {"ID", "APODO", "SISTEMA", "ROL", "N. USUARIO"};
         //Añadimos la cabecera a la tabla
         dfm.setColumnIdentifiers(cabecera);
         //Guardamos en una lista las facturas
-        List<Personajes> lista = pjc.findPersonajesEntities();
-        //Por cada factura de la lista añadimos una fila a la tabla
-        if (!lista.isEmpty()) {
-            for (Personajes p : lista) {
-                try {
-                    Object[] o = {p.getId(), p.getArquetipo(), p.getTrasfondo(), p.getNivel(), p.getAlineacion(), p.getIdJugador().getApodo()};
+        List<Jugadores> lista = jjc.findJugadoresEntities();
+        List<Jugadores> jug;
+        if (rId.isSelected()) {
+            jug = lista.stream().filter(p -> Objects.equals(p.getId(), Integer.valueOf(campoTxt.getText()))).toList();
+            if (!jug.isEmpty()) {
+                for (Jugadores p : jug) {
+                    try {
+                        Object[] o = {p.getId(), p.getApodo(), p.getSistemaPredilecto(), p.getRolPreferido(), p.getCodUsuario().getNombre()};
 
-                    dfm.addRow(o);
-                } catch (NullPointerException npe) {
-                    Object[] o = {p.getId(), p.getArquetipo(), p.getTrasfondo(), p.getNivel(), p.getAlineacion(), "Sin jugador asociado"};
+                        dfm.addRow(o);
+                    } catch (NullPointerException npe) {
+                        Object[] o = {p.getId(), p.getApodo(), p.getSistemaPredilecto(), p.getRolPreferido(), "Sin jugador asociado"};
 
-                    dfm.addRow(o);
+                        dfm.addRow(o);
+                    }
                 }
             }
-        }
-        //Añadimos el modelo a nuestra tabla para que se muestre la información
+        } else if (rAPODO.isSelected()) {
+            jug = lista.stream().filter(p -> Objects.equals(p.getApodo(), (campoTxt.getText()))).toList();
+            if (!jug.isEmpty()) {
+                for (Jugadores p : jug) {
+                    try {
+                        Object[] o = {p.getId(), p.getApodo(), p.getSistemaPredilecto(), p.getRolPreferido(), p.getCodUsuario().getNombre()};
 
+                        dfm.addRow(o);
+                    } catch (NullPointerException npe) {
+                        Object[] o = {p.getId(), p.getApodo(), p.getSistemaPredilecto(), p.getRolPreferido(), "Sin jugador asociado"};
+
+                        dfm.addRow(o);
+                    }
+                }
+            }
+        } else if (rSistema.isSelected()) {
+            jug = lista.stream().filter(p -> p.getSistemaPredilecto().equalsIgnoreCase(campoTxt.getText())).toList();
+            if (!jug.isEmpty()) {
+                for (Jugadores p : jug) {
+                    try {
+                        Object[] o = {p.getId(), p.getApodo(), p.getSistemaPredilecto(), p.getRolPreferido(), p.getCodUsuario().getNombre()};
+
+                        dfm.addRow(o);
+                    } catch (NullPointerException npe) {
+                        Object[] o = {p.getId(), p.getApodo(), p.getSistemaPredilecto(), p.getRolPreferido(), "Sin jugador asociado"};
+
+                        dfm.addRow(o);
+                    }
+                }
+            }
+        } else if (rRol.isSelected()) {
+            jug = lista.stream().filter(p -> p.getRolPreferido().equalsIgnoreCase(campoTxt.getText())).toList();
+            if (!jug.isEmpty()) {
+                for (Jugadores p : jug) {
+                    try {
+                        Object[] o = {p.getId(), p.getApodo(), p.getSistemaPredilecto(), p.getRolPreferido(), p.getCodUsuario().getNombre()};
+
+                        dfm.addRow(o);
+                    } catch (NullPointerException npe) {
+                        Object[] o = {p.getId(), p.getApodo(), p.getSistemaPredilecto(), p.getRolPreferido(), "Sin jugador asociado"};
+
+                        dfm.addRow(o);
+                    }
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Seleccione una de las opciones dadas");
+        }
+
+        //Añadimos el modelo a nuestra tabla para que se muestre la información
         tablaContenidos.setModel(dfm);
     }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void rIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rIdActionPerformed
+        // TODO add your handling code here:
+        rAPODO.setSelected(false);
+        rRol.setSelected(false);
+        rSistema.setSelected(false);
+    }//GEN-LAST:event_rIdActionPerformed
+
+    private void rAPODOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rAPODOActionPerformed
+        // TODO add your handling code here:
+        rId.setSelected(false);
+        rRol.setSelected(false);
+        rSistema.setSelected(false);
+    }//GEN-LAST:event_rAPODOActionPerformed
+
+    private void rRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rRolActionPerformed
+        // TODO add your handling code here:
+        rAPODO.setSelected(false);
+        rId.setSelected(false);
+        rSistema.setSelected(false);
+    }//GEN-LAST:event_rRolActionPerformed
+
+    private void rSistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSistemaActionPerformed
+        // TODO add your handling code here:
+        rAPODO.setSelected(false);
+        rId.setSelected(false);
+        rRol.setSelected(false);
+    }//GEN-LAST:event_rSistemaActionPerformed
+
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+        // TODO add your handling code here:
+        int filaSeleccionada = tablaContenidos.getSelectedRow();
+        int valor = (int) tablaContenidos.getValueAt(filaSeleccionada, 0);
+
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new EdicionJugador(valor).setVisible(true);
+            }
+        });
+    }//GEN-LAST:event_btnModificarActionPerformed
 
     /**
      * @param args the command line arguments

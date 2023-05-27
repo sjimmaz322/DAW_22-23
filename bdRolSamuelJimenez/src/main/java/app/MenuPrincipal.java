@@ -39,6 +39,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jLabel2.setText("jLabel2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("MENÚ PRINCIPAL");
         setLocation(new java.awt.Point(500, 200));
         setMaximumSize(new java.awt.Dimension(800, 600));
         setMinimumSize(new java.awt.Dimension(800, 600));
@@ -48,6 +49,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnLectura.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLectura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLecturaActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnLectura, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 220, 390));
 
         btnGestionar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -59,6 +65,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         getContentPane().add(btnGestionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(333, 115, 180, 370));
 
         btnAdministrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAdministrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdministrarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnAdministrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(573, 105, 180, 380));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/botonLectura.jpg"))); // NOI18N
@@ -84,6 +95,24 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
     }//GEN-LAST:event_btnGestionarActionPerformed
+
+    private void btnLecturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLecturaActionPerformed
+        // TODO add your handling code here:
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new ModoLectura().setVisible(true);
+            }
+        });
+    }//GEN-LAST:event_btnLecturaActionPerformed
+
+    private void btnAdministrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdministrarActionPerformed
+        // TODO add your handling code here:
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new ModoAdministrar().setVisible(true);
+            }
+        });
+    }//GEN-LAST:event_btnAdministrarActionPerformed
 
     /**
      * @param args the command line arguments

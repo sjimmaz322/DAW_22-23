@@ -179,4 +179,13 @@ public class UsuariosJpaController implements Serializable {
         }
     }
 
+    public Usuarios findByNombre(String nombre) {
+        EntityManager em = getEntityManager();
+        // Se crea la query usando el nombre de la named query
+        Query q = em.createNamedQuery("Usuarios.findByNombre");
+        // Se establece el parámetro de la consulta
+        q.setParameter("nombre", nombre);
+        return (Usuarios) q.getSingleResult();
+    }
+
 }

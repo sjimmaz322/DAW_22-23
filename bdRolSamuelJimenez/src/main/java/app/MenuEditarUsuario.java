@@ -5,8 +5,10 @@
 package app;
 
 import controladores.UsuariosJpaController;
-import entidades.Personajes;
+import entidades.Usuarios;
 import java.util.List;
+import java.util.Objects;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -15,12 +17,14 @@ import javax.swing.table.DefaultTableModel;
  */
 public class MenuEditarUsuario extends javax.swing.JFrame {
 
+    public static int code;
     UsuariosJpaController ujc = new UsuariosJpaController();
 
     /**
      * Creates new form MenuEditarUsuario
      */
     public MenuEditarUsuario() {
+
         initComponents();
     }
 
@@ -38,7 +42,6 @@ public class MenuEditarUsuario extends javax.swing.JFrame {
         rNombre = new javax.swing.JRadioButton();
         rEdad = new javax.swing.JRadioButton();
         rDirecc = new javax.swing.JRadioButton();
-        rCumple = new javax.swing.JRadioButton();
         campoTxt = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -51,13 +54,17 @@ public class MenuEditarUsuario extends javax.swing.JFrame {
         setLocation(new java.awt.Point(500, 200));
         setMaximumSize(new java.awt.Dimension(800, 600));
         setMinimumSize(new java.awt.Dimension(800, 600));
-        setPreferredSize(new java.awt.Dimension(800, 600));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         rId.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
-        rId.setForeground(new java.awt.Color(255, 255, 255));
+        rId.setForeground(new java.awt.Color(0, 0, 0));
         rId.setText("ID");
+        rId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rIdActionPerformed(evt);
+            }
+        });
         getContentPane().add(rId, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 90, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
@@ -67,24 +74,34 @@ public class MenuEditarUsuario extends javax.swing.JFrame {
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 40, -1, -1));
 
         rNombre.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
-        rNombre.setForeground(new java.awt.Color(255, 255, 255));
+        rNombre.setForeground(new java.awt.Color(0, 0, 0));
         rNombre.setText("NOMBRE");
+        rNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rNombreActionPerformed(evt);
+            }
+        });
         getContentPane().add(rNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, -1, -1));
 
         rEdad.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
-        rEdad.setForeground(new java.awt.Color(255, 255, 255));
+        rEdad.setForeground(new java.awt.Color(0, 0, 0));
         rEdad.setText("EDAD");
-        getContentPane().add(rEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 90, -1, -1));
+        rEdad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rEdadActionPerformed(evt);
+            }
+        });
+        getContentPane().add(rEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 130, -1, -1));
 
         rDirecc.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
-        rDirecc.setForeground(new java.awt.Color(255, 255, 255));
+        rDirecc.setForeground(new java.awt.Color(0, 0, 0));
         rDirecc.setText("DIRECCIÓN");
-        getContentPane().add(rDirecc, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, -1, -1));
-
-        rCumple.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
-        rCumple.setForeground(new java.awt.Color(255, 255, 255));
-        rCumple.setText("CUMPLEAÑOS");
-        getContentPane().add(rCumple, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 130, -1, -1));
+        rDirecc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rDireccActionPerformed(evt);
+            }
+        });
+        getContentPane().add(rDirecc, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 130, -1, -1));
         getContentPane().add(campoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 200, 220, -1));
 
         btnBuscar.setText("BUSCAR");
@@ -111,6 +128,11 @@ public class MenuEditarUsuario extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, 560, 160));
 
         btnModificar.setText("MODIFICAR");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 500, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondoEditar.jpg"))); // NOI18N
@@ -129,29 +151,107 @@ public class MenuEditarUsuario extends javax.swing.JFrame {
             }
         };
         //Creamos una cabecera
-        String[] cabecera = {"ID", "NOMBRE", "TRASFONDO", "NIVEL", "ALINEACION", "JUGADOR"};
+        String[] cabecera = {"ID", "NOMBRE", "EDAD", "DIRECCIÓN", "FEC. CUMPLEAÑOS"};
         //Añadimos la cabecera a la tabla
         dfm.setColumnIdentifiers(cabecera);
         //Guardamos en una lista las facturas
-        List<Personajes> lista = pjc.findPersonajesEntities();
-        //Por cada factura de la lista añadimos una fila a la tabla
-        if (!lista.isEmpty()) {
-            for (Personajes p : lista) {
-                try {
-                    Object[] o = {p.getId(), p.getArquetipo(), p.getTrasfondo(), p.getNivel(), p.getAlineacion(), p.getIdJugador().getApodo()};
+        List<Usuarios> lista = ujc.findUsuariosEntities();
+        List<Usuarios> users;
+        if (rId.isSelected()) {
+            users = lista.stream().filter(p -> Objects.equals(p.getCodUsuario(), Integer.valueOf(campoTxt.getText()))).toList();
+            if (!users.isEmpty()) {
+                for (Usuarios p : users) {
+
+                    Object[] o = {p.getCodUsuario(), p.getNombre(), p.getEdad(), p.getDireccion(), p.getFecCumpleanios()};
 
                     dfm.addRow(o);
-                } catch (NullPointerException npe) {
-                    Object[] o = {p.getId(), p.getArquetipo(), p.getTrasfondo(), p.getNivel(), p.getAlineacion(), "Sin jugador asociado"};
 
-                    dfm.addRow(o);
                 }
             }
-        }
-        //Añadimos el modelo a nuestra tabla para que se muestre la información
+        } else if (rNombre.isSelected()) {
+            users = lista.stream().filter(p -> p.getNombre().equalsIgnoreCase(campoTxt.getText())).toList();
+            if (!users.isEmpty()) {
+                for (Usuarios p : users) {
 
+                    Object[] o = {p.getCodUsuario(), p.getNombre(), p.getEdad(), p.getDireccion(), p.getFecCumpleanios()};
+
+                    dfm.addRow(o);
+
+                }
+            }
+        } else if (rEdad.isSelected()) {
+            users = lista.stream().filter(p -> (Objects.equals(p.getEdad(), Integer.valueOf(campoTxt.getText())))).toList();
+            if (!users.isEmpty()) {
+                for (Usuarios p : users) {
+
+                    Object[] o = {p.getCodUsuario(), p.getNombre(), p.getEdad(), p.getDireccion(), p.getFecCumpleanios()};
+
+                    dfm.addRow(o);
+
+                }
+            }
+        } else if (rDirecc.isSelected()) {
+            users = lista.stream().filter(p -> p.getDireccion().equalsIgnoreCase(campoTxt.getText())).toList();
+            if (!users.isEmpty()) {
+                for (Usuarios p : users) {
+
+                    Object[] o = {p.getCodUsuario(), p.getNombre(), p.getEdad(), p.getDireccion(), p.getFecCumpleanios()};
+
+                    dfm.addRow(o);
+
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Seleccione una de las opciones dadas");
+        }
+
+        //Añadimos el modelo a nuestra tabla para que se muestre la información
         tablaContenidos.setModel(dfm);
     }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void rIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rIdActionPerformed
+        // TODO add your handling code here:
+        rNombre.setSelected(false);
+        rEdad.setSelected(false);
+        rDirecc.setSelected(false);
+    }//GEN-LAST:event_rIdActionPerformed
+
+    private void rNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rNombreActionPerformed
+        // TODO add your handling code here:
+        rId.setSelected(false);
+        rEdad.setSelected(false);
+        rDirecc.setSelected(false);
+    }//GEN-LAST:event_rNombreActionPerformed
+
+    private void rEdadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rEdadActionPerformed
+        // TODO add your handling code here:
+        rId.setSelected(false);
+        rNombre.setSelected(false);
+        rDirecc.setSelected(false);
+    }//GEN-LAST:event_rEdadActionPerformed
+
+    private void rDireccActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rDireccActionPerformed
+        // TODO add your handling code here:
+        rId.setSelected(false);
+        rNombre.setSelected(false);
+        rEdad.setSelected(false);
+    }//GEN-LAST:event_rDireccActionPerformed
+
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+        // TODO add your handling code here:
+        int filaSeleccionada = tablaContenidos.getSelectedRow();
+        int valor = (int) tablaContenidos.getValueAt(filaSeleccionada, 0);
+
+        // Llamar al método de pasar valor al otro JFrame
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+
+                new EdicionUser(valor).setVisible(true);
+
+            }
+        });
+
+    }//GEN-LAST:event_btnModificarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -182,8 +282,11 @@ public class MenuEditarUsuario extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+
             public void run() {
+
                 new MenuEditarUsuario().setVisible(true);
+
             }
         });
     }
@@ -196,7 +299,6 @@ public class MenuEditarUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JRadioButton rCumple;
     private javax.swing.JRadioButton rDirecc;
     private javax.swing.JRadioButton rEdad;
     private javax.swing.JRadioButton rId;

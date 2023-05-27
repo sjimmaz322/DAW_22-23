@@ -230,4 +230,13 @@ public class JugadoresJpaController implements Serializable {
         }
     }
 
+    public Jugadores findByApodo(String apodo) {
+        EntityManager em = getEntityManager();
+        // Se crea la query usando el nombre de la named query
+        Query q = em.createNamedQuery("Jugadores.findByApodo");
+        // Se establece el parámetro de la consulta
+        q.setParameter("apodo", apodo);
+        return (Jugadores) q.getSingleResult();
+    }
+
 }
